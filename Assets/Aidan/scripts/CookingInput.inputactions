@@ -1,0 +1,54 @@
+{
+    "name": "CookingInput",
+    "maps": [
+        {
+            "name": "Cooking",
+            "id": "ca5b9cee-a799-43e6-8f8e-d8053ce014c0",
+            "actions": [
+                {
+                    "name": "leftClick",
+                    "type": "Button",
+                    "id": "1f0f7996-fbbd-40ef-8e18-7ed27f7610c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MousePositon",
+                    "type": "Value",
+                    "id": "3751b8e9-858c-4d01-8af7-16e0338a08da",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6b07e873-b350-45c3-87fc-61e35b27b3c4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bb0b0e1-77a4-4264-ba44-9756b7339feb",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePositon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
