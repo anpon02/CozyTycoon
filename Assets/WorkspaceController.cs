@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(WorkspaceCoordinator))]
 public class WorkspaceController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    WorkspaceCoordinator coord;
+
+    private void Start()
     {
-        
+        coord = GetComponent<WorkspaceCoordinator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        var item = collision.GetComponent<Item>();
+        if (item != null) CatchItem(item);
+    }
+    void CatchItem(Item item)
+    {
+        item.Hide();
+        coord.AddItem(item);
     }
 }

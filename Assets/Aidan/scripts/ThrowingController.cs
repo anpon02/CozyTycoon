@@ -2,27 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class ThrowingController : MonoBehaviour
 {
     //click and hold to change throw, releasing will throw toward the mouse
 
-    [SerializeField] Rigidbody2D heldRB;
+    [SerializeField] Item heldItem;
     [SerializeField] float maxHoldTime;
     [SerializeField] float throwMult = 100;
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
 
-    public void HoldNewItem(GameObject itemObj)
+    public void HoldNewItem(Item item)
     {
-        var rb = itemObj.GetComponent<Rigidbody2D>();
-        if (rb == null) { Debug.LogError("ThrowingController was told to hold an item w/o a rigidbody"); return; }
-
         ResetHeldItem();
-        rb.velocity = Vector2.zero;
-        rb.transform.position = transform.position;
-        heldRB = rb;
+
+        item.StopMoving();
+        item.transform.position = transform.position;
+        heldItem = item;
     }
 
     public void SetMousePos(InputAction.CallbackContext ctx)
@@ -33,7 +32,7 @@ public class ThrowingController : MonoBehaviour
 
     public void ReadClickInput(InputAction.CallbackContext ctx)
     {
-        if (heldRB == null) return;
+        if (heldItem == null) return;
 
         if (ctx.canceled && mouseDown) ReleaseThrow();
         if (ctx.started) mouseDown = true;
@@ -41,11 +40,11 @@ public class ThrowingController : MonoBehaviour
 
     void ReleaseThrow()
     {
-        if (heldRB == null) return;
+        if (heldItem == null) return;
 
         var dir = ((Vector3)mouseWorldPos - transform.position).normalized;
         var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
-        heldRB.AddForce(dir * str * throwMult);
+        heldItem.GetRB().AddForce(dir * str * throwMult);
 
         ResetHeldItem();
     }
@@ -54,7 +53,7 @@ public class ThrowingController : MonoBehaviour
     {
         mouseDown = false;
         mouseDownTime = 0;
-        heldRB = null;
+        heldItem = null;
     }
 
     private void Update()

@@ -16,7 +16,17 @@ public class Item : MonoBehaviour
 
     private void OnMouseDown()
     {
-        chef.HoldNewItem(gameObject);
+        chef.HoldNewItem(this);
+    }
+
+    public Rigidbody2D GetRB()
+    {
+        return rb;
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = Vector2.zero;
     }
 
     public Sprite GetItemSprite()
@@ -24,13 +34,13 @@ public class Item : MonoBehaviour
         return sprite;
     }
 
-    public void DisablePhysics()
+    public void Hide()
     {
-        rb.Sleep();
+        gameObject.SetActive(false);
     }
 
-    public void EnablePhysics()
+    public void Show()
     {
-        rb.WakeUp();
+        gameObject.SetActive(true);
     }
 }
