@@ -7,10 +7,23 @@ public class ThrowingController : MonoBehaviour
 {
     //click and hold to change throw, releasing will throw toward the mouse
 
-    [SerializeField] GameObject heldObj;
+    [SerializeField] Rigidbody2D heldRB;
+    [SerializeField] float maxHoldTime;
+    [SerializeField] float throwMult = 100;
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
+
+    public void HoldNewItem(GameObject item)
+    {
+        var rb = item.GetComponent<Rigidbody2D>();
+        if (rb == null) { Debug.LogError("ThrowingController was told to hold an item w/o a rigidbody"); return; }
+
+        ResetHeldItem();
+        rb.velocity = Vector2.zero;
+        rb.transform.position = transform.position;
+        heldRB = rb;
+    }
 
     public void SetMousePos(InputAction.CallbackContext ctx)
     {
@@ -20,13 +33,28 @@ public class ThrowingController : MonoBehaviour
 
     public void ReadClickInput(InputAction.CallbackContext ctx)
     {
-        if (ctx.canceled) { ReleaseThrow(); mouseDown = false; }
+        if (heldRB == null) return;
+
+        if (ctx.canceled && mouseDown) ReleaseThrow();
         if (ctx.started) mouseDown = true;
     }
 
     void ReleaseThrow()
     {
-        print("time: " + mouseDownTime);
+        if (heldRB == null) return;
+
+        var dir = ((Vector3)mouseWorldPos - transform.position).normalized;
+        var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
+        heldRB.AddForce(dir * str * throwMult);
+
+        ResetHeldItem();
+    }
+
+    void ResetHeldItem()
+    {
+        mouseDown = false;
+        mouseDownTime = 0;
+        heldRB = null;
     }
 
     private void Update()
