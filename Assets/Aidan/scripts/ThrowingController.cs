@@ -14,9 +14,9 @@ public class ThrowingController : MonoBehaviour
     bool mouseDown;
     float mouseDownTime;
 
-    public void HoldNewItem(GameObject item)
+    public void HoldNewItem(GameObject itemObj)
     {
-        var rb = item.GetComponent<Rigidbody2D>();
+        var rb = itemObj.GetComponent<Rigidbody2D>();
         if (rb == null) { Debug.LogError("ThrowingController was told to hold an item w/o a rigidbody"); return; }
 
         ResetHeldItem();
