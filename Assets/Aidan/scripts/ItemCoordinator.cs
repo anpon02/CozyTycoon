@@ -18,6 +18,11 @@ public class ItemCoordinator : MonoBehaviour
         sRend.sprite = item.GetSprite();
     }
 
+    public void SetChef(ThrowingController newChef)
+    {
+        chef = newChef;
+    }
+
     public void SetItem(Item _item) {
         item = _item;
         OnValidate();
