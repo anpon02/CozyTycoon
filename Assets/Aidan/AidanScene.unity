@@ -677,7 +677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043d8ed3d50c8e7499e4593e035548c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WorkspaceType: 0
   TEMPCHEF: {fileID: 982844496}
+  TEMPITEMCOORDPREFAB: {fileID: 908898537125679485, guid: e248ef357ca848d4a824f1cbe4485f88, type: 3}
 --- !u!114 &335072162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,11 +1553,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allRecipes:
-  - name: 
+  - name: ChoppedPotato recipe
     workSpaces: 00000000
-    ingredients: []
-    equipment: []
-    result: {fileID: 0}
+    ingredients:
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    result: {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
 --- !u!4 &992974426
 Transform:
   m_ObjectHideFlags: 0
