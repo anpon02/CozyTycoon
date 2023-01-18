@@ -32,7 +32,6 @@ public class WorkspaceController : MonoBehaviour
     }
     void CatchItem(ItemCoordinator item)
     {
-        print("catchcing?");
         if (!coord.HasRoom()) return;
 
         item.Hide();
@@ -51,14 +50,16 @@ public class WorkspaceController : MonoBehaviour
         var toRemove = new List<Item>();
         RecipeManager.instance.CanCombine(out result, out toRemove, coord.GetHeldItems(), this);
 
-        foreach (var i in toRemove) coord.removeItem(i);
+        foreach (var item in toRemove) coord.removeItem(item);
         CatchItem(CreateNewItemCoord(result));
     }
 
     ItemCoordinator CreateNewItemCoord(Item item) {
+        print("making new item - item: " + item);
         var newGO = Instantiate(TEMPITEMCOORDPREFAB, transform.position, Quaternion.identity);
         var coordScript = newGO.GetComponent<ItemCoordinator>();
         coordScript.SetItem(item);
+        coordScript.SetChef(TEMPCHEF);
         return coordScript;
     }
 

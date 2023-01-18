@@ -86,7 +86,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     public ItemCoordinator removeItem(Item toRemove) {
         var coord = default(ItemCoordinator);
         for (int i = 0; i < heldItems.Count; i++) {
-            if (heldItems[i].GetItem() == toRemove) {
+            if (heldItems[i].GetItem().Equal(toRemove)) {
                 coord = heldItems[i];
                 break;
             }
