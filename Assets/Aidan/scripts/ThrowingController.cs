@@ -8,14 +8,18 @@ public class ThrowingController : MonoBehaviour
 {
     //click and hold to change throw, releasing will throw toward the mouse
 
-    [SerializeField] Item heldItem;
+    [SerializeField] ItemCoordinator heldItem;
     [SerializeField] float maxHoldTime;
     [SerializeField] float throwMult = 100;
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
 
-    public void HoldNewItem(Item item)
+    public bool IsHoldingItem() {
+        return heldItem != null;
+    }
+
+    public void HoldNewItem(ItemCoordinator item)
     {
         ResetHeldItem();
 
