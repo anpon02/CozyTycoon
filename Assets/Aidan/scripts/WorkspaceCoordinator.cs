@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
+using UnityEngine.UIElements;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
@@ -39,6 +42,9 @@ public class WorkspaceCoordinator : MonoBehaviour
             }
             return false;
         }
+
+
+
         public int FreeSlots() {
             int numFree = displays.Count;
             foreach (var d in displays) if (d.enabled) numFree -= 1;
@@ -48,8 +54,11 @@ public class WorkspaceCoordinator : MonoBehaviour
             return displays.Count;
         }
     }
-    [SerializeField] List<ItemCoordinator> heldItems = new List<ItemCoordinator>();
+
+    [SerializeField] SpriteRenderer bigEquipmentSprite;
     [SerializeField] List<DisplayListHolder> itemDisplays = new List<DisplayListHolder>();
+    List<ItemCoordinator> heldItems = new List<ItemCoordinator>();
+    ItemCoordinator bigItem;
 
     private void OnValidate()
     {
@@ -62,6 +71,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
     }
 
+    bool roomForBigEquipment()
+    {
+        return bigEquipmentSprite != null && !bigEquipmentSprite.enabled;
+    }
+
     public int Capacity() {
         int capacity = 0;
         for (int i = 0; i < itemDisplays.Count; i++) {
@@ -70,17 +84,38 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
         return capacity;
     }
-    public bool HasRoom() {
+
+    public bool HasRoom(Item wantToAdd)
+    {
+        var newList = new List<Item>();
+        newList.Add(wantToAdd);
+        return HasRoom(newList);
+    }
+
+    public bool HasRoom(List<Item> listToAdd)
+    {
+        int normalItemCapacity = Capacity();
+        int bigEquipmentCapacity = roomForBigEquipment() ? 1 : 0;
+
+        foreach (var toAdd in listToAdd) {
+            if (toAdd.IsBigEquipment()) bigEquipmentCapacity -= 1;
+            else normalItemCapacity -= 1;
+        }
+        return normalItemCapacity >= 0 && bigEquipmentCapacity >= 0;
+    }
+
+    public bool IsFull() {
         return Capacity() > heldItems.Count;
     }
 
     public int HeldItemCount() {
-        return heldItems.Count;
+        return heldItems.Count + (bigItem ? 1 : 0);
     }
 
     public void AddItem(ItemCoordinator newItem)
     {
-        heldItems.Add(newItem);
+        if (newItem.GetItem().IsBigEquipment()) bigItem = newItem;
+        else heldItems.Add(newItem);
         UpdateItemDisplay();
     }
     public ItemCoordinator removeItem(Item toRemove) {
@@ -96,8 +131,15 @@ public class WorkspaceCoordinator : MonoBehaviour
     }
 
     public ItemCoordinator removeItem() {
-        var item = heldItems[heldItems.Count - 1];
-        heldItems.Remove(item);
+        ItemCoordinator item = null;
+        if (heldItems.Count == 0) {
+            item = bigItem;
+            bigItem = null;
+        }
+        else {
+            item = heldItems[heldItems.Count - 1];
+            heldItems.Remove(item);
+        }
         UpdateItemDisplay();
         return item;
     }
@@ -122,14 +164,22 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     void DisplayItems(int count)
     {
+        if (bigEquipmentSprite) DisplayBigItem();
         for (int i = 0; i < itemDisplays.Count; i++) {
             if (i + 1 == count) itemDisplays[i].Set(GetItemSpriteLists(heldItems));
         }
     }
 
+    void DisplayBigItem()
+    {
+        bigEquipmentSprite.enabled = bigItem != null;
+        bigEquipmentSprite.sprite = bigItem ? bigItem.GetItemSprite() : null;
+    }
+
     public List<Item> GetHeldItems() {
         var items = new List<Item>();
         foreach(var i in heldItems) items.Add(i.GetItem());
+        if (bigItem) items.Add(bigItem.GetItem());
         return items;
     }
 }

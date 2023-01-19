@@ -8,12 +8,18 @@ public class Item : ScriptableObject
 {
     [SerializeField] string itemName;
     [SerializeField] Sprite itemSprite;
+    [SerializeField] bool bigEquipment;
 
     public Sprite GetSprite() {
         return itemSprite;
     }
     public string GetName() {
         return itemName;
+    }
+
+    public bool IsBigEquipment()
+    {
+        return bigEquipment;
     }
 
     public bool Equal(Item other)

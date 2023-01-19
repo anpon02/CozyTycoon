@@ -32,7 +32,7 @@ public class WorkspaceController : MonoBehaviour
     }
     void CatchItem(ItemCoordinator item)
     {
-        if (!coord.HasRoom()) return;
+        if (!coord.HasRoom(item.GetItem())) return;
 
         item.Hide();
         coord.AddItem(item);
