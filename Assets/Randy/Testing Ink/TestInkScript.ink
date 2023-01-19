@@ -1,6 +1,7 @@
 -> The_Beginning
 
 == The_Beginning ==
+As mighty armies clash in a struggle for total domination
 This is the start of an an adventure
 I need some sample text here so hear me out
 Something something something bee movie script but I'm too lazy to grab it

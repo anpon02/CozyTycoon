@@ -7,6 +7,8 @@ using Ink.Runtime;
 
 public class DialogueCoordinator : MonoBehaviour
 {
+    [SerializeField] private DialogueController controller;
+
     [Header("UI Elements")]
     [SerializeField] private Image uiPanel;
     [SerializeField] private TextMeshProUGUI speakerText;
@@ -23,7 +25,9 @@ public class DialogueCoordinator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadCharacterStory();
+        ClearAll();
+        StartDialogue();
     }
 
     public void LoadCharacterStory(/*include a path argument later*/)
@@ -45,15 +49,17 @@ public class DialogueCoordinator : MonoBehaviour
     private IEnumerator WriteDialogue()
     {
         string lineText;
+        CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
         // loop through each letter in text and add it to text
         while (currentStory.canContinue)
         {
             lineText = currentStory.Continue();
             for (int i = 0; i < lineText.Length; i++)
             {
+                int intAlpha = (int)Mathf.Round(panelGroup.alpha*255);
                 // if player in fadeoutThreshold
                     // place text as normal
-                    dialogueText.text += lineText[i];
+                    dialogueText.text += "<alpha=#" + intAlpha.ToString("X2") + ">" + lineText[i];
                 // else output some jarbled characters from some pool (offload to outside function)
 
                 // play sound (outside function)
@@ -81,28 +87,28 @@ public class DialogueCoordinator : MonoBehaviour
         rightSpeakerImage.gameObject.SetActive(false);
     }
 
-    private IEnumerator PanelFadeout()
+    public IEnumerator PanelFadeout()
     {
         CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
         while (DialogueManager.instance.playerDistance > DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha > 0.001f)
             {
-                //panelGroup.alpha -= DialogueManager.instance.GetFadeoutRate();
+                panelGroup.alpha -=  DialogueManager.instance.GetFadeoutRate() * DialogueManager.instance.GetFadeoutRateMultiplier(DialogueManager.instance.playerDistance);
                 Mathf.Clamp(panelGroup.alpha, 0f, 1f);
             }
             yield return null;
         }
     }
 
-    private IEnumerator PanelFadein()
+    public IEnumerator PanelFadein()
     {
         CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
         while (DialogueManager.instance.playerDistance < DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha < 0.999f)
             {
-                //panelGroup.alpha += DialogueManager.instance.GetFadeinRate();
+                panelGroup.alpha += DialogueManager.instance.GetFadeinRate();
                 Mathf.Clamp(panelGroup.alpha, 0f, 1f);
             }
             yield return null;

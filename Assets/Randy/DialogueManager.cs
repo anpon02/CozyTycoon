@@ -14,14 +14,17 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float unintelligibleTextThreshold;
     [SerializeField] private float minFadeoutThreshold;
     [SerializeField] private float maxFadeoutThreshold;
-    [SerializeField] private float minFadeoutRate;
-    [SerializeField] private float maxFadeoutRate;
+    [SerializeField] private float FadeoutRate;
     [SerializeField] private float fadeinRate;
 
 
-    [Header("Debug Tools")]
-    [SerializeField] bool showDebugInfo;
+    [Header("Debug Tools (Will add ability to hide at some point)")]
+    [SerializeField] private bool showDebugInfo;
     [ Range(0f, 100f)] public float playerDistance;
+    [SerializeField] public bool isUnintelligible;
+    [SerializeField] public bool isFadingOut;
+    [SerializeField] public bool isFadingIn;
+    
 
     
     private void Awake()
@@ -58,9 +61,29 @@ public class DialogueManager : MonoBehaviour
         return nextLineDelay;
     }
 
+    public float GetFadeoutRate()
+    {
+        return FadeoutRate;
+    }
+
+    public float GetFadeinRate()
+    {
+        return fadeinRate;
+    }
+
     public float GetMinFadeoutThreshold()
     {
         return minFadeoutThreshold;
     }
-    
+
+    public float GetMaxFadeoutThreshold()
+    {
+        return maxFadeoutThreshold;
+    }
+
+    public float GetFadeoutRateMultiplier(float distance)
+    {
+        return Mathf.InverseLerp(GetMinFadeoutThreshold(), GetMaxFadeoutThreshold(), distance);
+    }
+
 }
