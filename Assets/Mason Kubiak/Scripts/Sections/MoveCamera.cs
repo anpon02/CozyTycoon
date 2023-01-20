@@ -11,13 +11,14 @@ public class MoveCamera : MonoBehaviour
 
     private void Awake() {
         cam = GetComponent<Camera>();
-        currentPos = SectionManager.instance.GetSections()[0].GetCameraPosition();
         currentRoomID = 0;
     }
 
     private void Start() {
         if(SectionManager.instance == null)
             this.enabled = false;
+        else
+            currentPos = SectionManager.instance.GetSections()[0].GetCameraPosition();
     }
 
     private void Update() {
