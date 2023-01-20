@@ -5,10 +5,9 @@ using UnityEngine;
 public class SectionManager : MonoBehaviour
 {
     public static SectionManager instance;
+    
     [SerializeField] private int currentSectionId;
     [SerializeField] private List<Section> sections;
-    [SerializeField] private Camera cam;
-
     private MoveCamera camMovement;
 
     private void Awake() {
@@ -17,11 +16,11 @@ public class SectionManager : MonoBehaviour
         else if(instance != this)
             Destroy(this);
 
-        camMovement = cam.GetComponent<MoveCamera>();
+        camMovement = Camera.main.GetComponent<MoveCamera>();
     }
 
     private void Start() {
-        cam.transform.position = sections[currentSectionId].GetCameraPosition();
+        Camera.main.transform.position = sections[currentSectionId].GetCameraPosition();
     }
 
     // FOR TESTING PURPOSES
