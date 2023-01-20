@@ -10,6 +10,7 @@ public class Recipe
     [SerializeField] List<Item> requiredIngrd = new List<Item>();
     [SerializeField] List<Item> equipment = new List<Item>();
     [SerializeField] Item result;
+    [SerializeField] float makeTime;
 
     public void OnValidate() {
         if (result == null) return;
@@ -30,6 +31,10 @@ public class Recipe
 
     public int GetEquipmentCount() {
         return equipment.Count;
+    }
+
+    public float GetMakeTime() {
+        return makeTime;
     }
 
     bool validWS(WorkspaceType ws)

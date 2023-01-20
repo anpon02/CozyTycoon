@@ -40,22 +40,34 @@ public class WorkspaceController : MonoBehaviour
     }
 
     void CheckRecipes() {
-        int options = RecipeManager.instance.numValidOptions(coord.GetHeldItems(), this);
-        if (options == 0) return;
-        if (options == 1) MakeRecipe();
+        int currentOptions = RecipeManager.instance.numValidOptions(coord.GetHeldItems(), this);
+        if (currentOptions == 1) MakeRecipe();
     }
 
     void MakeRecipe() {
-        var result = default(Item);
-        var toRemove = new List<Item>();
-        RecipeManager.instance.CanCombine(out result, out toRemove, coord.GetHeldItems(), this);
+        Item result;
+        List<Item> toRemove;
+        float makeTime;
+        RecipeManager.instance.CanCombine(out result, out toRemove, out makeTime, coord.GetHeldItems(), this);
+
+        StartCoroutine(CompleteRecipe(result, toRemove, makeTime));
+    }
+
+    IEnumerator CompleteRecipe(Item result, List<Item> toRemove, float makeTime) {
+        coord.DisplayPrompt();
+        float timeRemaining = makeTime;
+        while (timeRemaining >= 0) {
+            timeRemaining -= Time.deltaTime;
+            coord.SetPromptvalue(1 - (timeRemaining / makeTime));
+            yield return new WaitForEndOfFrame();
+        }
+        coord.HideCookPrompt();
 
         foreach (var item in toRemove) coord.removeItem(item);
         CatchItem(CreateNewItemCoord(result));
     }
 
     ItemCoordinator CreateNewItemCoord(Item item) {
-        print("making new item - item: " + item);
         var newGO = Instantiate(TEMPITEMCOORDPREFAB, transform.position, Quaternion.identity);
         var coordScript = newGO.GetComponent<ItemCoordinator>();
         coordScript.SetItem(item);

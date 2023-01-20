@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
@@ -54,9 +52,10 @@ public class WorkspaceCoordinator : MonoBehaviour
             return displays.Count;
         }
     }
-
-    [SerializeField] SpriteRenderer bigEquipmentSprite;
+    
     [SerializeField] List<DisplayListHolder> itemDisplays = new List<DisplayListHolder>();
+    [SerializeField] SpriteRenderer bigEquipmentSprite;
+    [SerializeField] CookPromptCoordinator cookPrompt;
     List<ItemCoordinator> heldItems = new List<ItemCoordinator>();
     ItemCoordinator bigItem;
 
@@ -74,6 +73,37 @@ public class WorkspaceCoordinator : MonoBehaviour
     bool roomForBigEquipment()
     {
         return bigEquipmentSprite != null && !bigEquipmentSprite.enabled;
+    }
+
+    public void SetPromptvalue(float value) {
+        if (!cookPrompt) return;
+        cookPrompt.SetSlider(value);
+    }
+
+    public void DisplayPrompt() {
+        if (!HasCookPrompt()) return;
+        StartProgressBar();
+    }
+
+    public void DisplayPrompt(Item possibleResult) {
+        if (!HasCookPrompt()) return;
+
+        StartProgressBar(possibleResult);
+    }
+
+    private void StartProgressBar(Item result = null) {
+        cookPrompt.gameObject.SetActive(true);
+        if (result) cookPrompt.Begin();
+        else cookPrompt.Begin();
+    }
+
+    public void HideCookPrompt() {
+        if (!cookPrompt) return;
+        cookPrompt.gameObject.SetActive(false);
+    }
+
+    public bool HasCookPrompt() {
+        return cookPrompt != null;
     }
 
     public int Capacity() {
@@ -180,6 +210,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         var items = new List<Item>();
         foreach(var i in heldItems) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
+        if (true) {
+            string s = "Items: ";
+            foreach (var i in items) s += i.GetName() + ", ";
+            print(s);
+        }
         return items;
     }
 }
