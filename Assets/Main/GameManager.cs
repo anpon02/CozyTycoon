@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayer(GameObject _player)
     {
+        print("got player");
         player = _player;
     }
 
