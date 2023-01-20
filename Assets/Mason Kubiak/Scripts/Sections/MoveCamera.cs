@@ -15,6 +15,11 @@ public class MoveCamera : MonoBehaviour
         currentRoomID = 0;
     }
 
+    private void Start() {
+        if(SectionManager.instance == null)
+            this.enabled = false;
+    }
+
     private void Update() {
         if(cam.transform.position == currentPos) return;
 
