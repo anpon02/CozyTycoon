@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ItemCoordinator : MonoBehaviour
 {
-    [SerializeField] ThrowingController chef;
     [SerializeField] Item item;
+    ThrowingController chef;
+    
 
     Rigidbody2D rb;
     SpriteRenderer sRend;
@@ -18,9 +19,10 @@ public class ItemCoordinator : MonoBehaviour
         sRend.sprite = item.GetSprite();
     }
 
-    public void SetChef(ThrowingController newChef)
+    bool SetChef()
     {
-        chef = newChef;
+        if (GameManager.instance) chef = GameManager.instance.GetChef();
+        return chef != null;
     }
 
     public void SetItem(Item _item) {
@@ -45,6 +47,8 @@ public class ItemCoordinator : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!SetChef()) return;
+        print("chef isn't null");
         chef.HoldNewItem(this);
     }
 

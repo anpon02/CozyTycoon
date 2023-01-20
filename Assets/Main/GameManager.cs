@@ -8,15 +8,11 @@ public class GameManager : MonoBehaviour
     void Awake () { instance = this; }
 
     GameObject player;
+    ThrowingController chef;
 
-    public void SetPlayer(GameObject _player)
-    {
-        print("got player");
-        player = _player;
-    }
+    public void SetPlayer(GameObject _player) { player = _player; }
+    public GameObject GetPlayer() { return player; }
 
-    public GameObject GetPlayer()
-    {
-        return player;
-    }
+    public void SetChef(ThrowingController _chef) {chef = _chef; }
+    public ThrowingController GetChef() { return chef; }
 }

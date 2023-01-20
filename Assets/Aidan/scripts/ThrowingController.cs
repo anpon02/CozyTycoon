@@ -16,6 +16,10 @@ public class ThrowingController : MonoBehaviour
     float mouseDownTime;
     GameObject player;
 
+    private void Start()
+    {
+        if (GameManager.instance) GameManager.instance.SetChef(this);
+    }
     public bool IsHoldingItem() {
         return heldItem != null;
     }

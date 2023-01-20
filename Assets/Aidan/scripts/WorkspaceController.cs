@@ -8,16 +8,24 @@ public enum WorkspaceType {CUTTINGBOARD, OVEN, STOVE}
 public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType WorkspaceType;
-    [SerializeField] ThrowingController TEMPCHEF;
+    ThrowingController chef;
     [SerializeField] ItemCoordinator TEMPITEMCOORDPREFAB;
     WorkspaceCoordinator coord;
 
     private void OnMouseDown() {
-        if (TEMPCHEF.IsHoldingItem() || coord.HeldItemCount() == 0) return;
+        if (!SetChef()) return;
+
+        if (chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
 
         var item = coord.removeItem();
         item.Show();
-        TEMPCHEF.HoldNewItem(item);
+        chef.HoldNewItem(item);
+    }
+
+    bool SetChef()
+    {
+        if (GameManager.instance) chef = GameManager.instance.GetChef();
+        return chef != null;
     }
 
     private void Start()
@@ -71,7 +79,6 @@ public class WorkspaceController : MonoBehaviour
         var newGO = Instantiate(TEMPITEMCOORDPREFAB, transform.position, Quaternion.identity);
         var coordScript = newGO.GetComponent<ItemCoordinator>();
         coordScript.SetItem(item);
-        coordScript.SetChef(TEMPCHEF);
         return coordScript;
     }
 
