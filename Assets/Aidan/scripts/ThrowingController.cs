@@ -6,7 +6,7 @@ using static UnityEditor.Progress;
 
 public class ThrowingController : MonoBehaviour
 {
-    //click and hold to change throw, releasing will throw toward the mouse
+    
 
     [SerializeField] ItemCoordinator heldItem;
     [SerializeField] float maxHoldTime;
@@ -14,6 +14,7 @@ public class ThrowingController : MonoBehaviour
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
+    GameObject player;
 
     public bool IsHoldingItem() {
         return heldItem != null;
@@ -62,7 +63,15 @@ public class ThrowingController : MonoBehaviour
 
     private void Update()
     {
+        SetPosition();
         if (mouseDown) mouseDownTime += Time.deltaTime;
+    }
+
+    void SetPosition()
+    {
+        if (!player) player = GameManager.instance.GetPlayer();
+        if (!player) return;
+        transform.position = player.transform.position;
     }
 
 }

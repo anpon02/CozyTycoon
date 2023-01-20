@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
+    private void Start() {
+        GameManager.instance.SetPlayer(gameObject);
+    }
+
     private void OnEnable() {
         pInputActions.Enable();
     }

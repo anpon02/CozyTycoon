@@ -210,7 +210,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         var items = new List<Item>();
         foreach(var i in heldItems) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
-        if (true) {
+        if (false) {
             string s = "Items: ";
             foreach (var i in items) s += i.GetName() + ", ";
             print(s);
