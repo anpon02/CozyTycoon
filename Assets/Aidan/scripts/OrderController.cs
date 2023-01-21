@@ -22,8 +22,8 @@ public class OrderController : MonoBehaviour
         }
     }
 
-
     [SerializeField] List<OrderInfo> currentOrders = new List<OrderInfo>();
+    [SerializeField] OrderUICoordinator UIcoord;
 
     private void Start()
     {
@@ -31,9 +31,17 @@ public class OrderController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Order(Item desire)
+    public void Order(Item desire, string customerName = "UNNAMED CUSTOMER")
     {
         gameObject.SetActive(true);
-        print("a customer wants a " + desire.GetName());
+        print(customerName + " wants a " + desire.GetName());
+        var newOrder = new OrderInfo(customerName, desire);
+        AddToOrderList(newOrder);
     }
+
+    void AddToOrderList(OrderInfo newOrder)
+    {
+        UIcoord.AddNew(newOrder.GetItem().GetName());
+    }
+
 }

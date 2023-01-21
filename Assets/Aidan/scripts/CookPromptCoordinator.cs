@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class CookPromptCoordinator : MonoBehaviour
 
     public void Begin(Item result) {
         gameObject.SetActive(true);
-        textParent.SetActive(false);
+        textParent.SetActive(true);
         SetText(result);
     }
 

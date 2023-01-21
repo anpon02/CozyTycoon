@@ -13,6 +13,9 @@ public class OrderListItemCoordinator : MonoBehaviour
     [SerializeField] Color completeCol;
 
     [SerializeField] bool TESTBOOL;
+
+    string itemName;
+
     private void Update()
     {
         if (TESTBOOL) {
@@ -26,6 +29,7 @@ public class OrderListItemCoordinator : MonoBehaviour
     {
         checkBox.sprite = uncheckedBox;
         label.text = _text;
+        itemName = _text;
     }
 
     public void MarkComplete()
@@ -33,5 +37,10 @@ public class OrderListItemCoordinator : MonoBehaviour
         checkBox.sprite = checkedBox;
         label.color = checkBox.color = completeCol;
         label.fontStyle = FontStyles.Italic;
+    }
+
+    public string GetItemName()
+    {
+        return itemName;
     }
 }

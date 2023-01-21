@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class OrderUICoordinator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject listElementPrefab;
+    [SerializeField] Transform listParent;
+    List<OrderListItemCoordinator> listItems = new List<OrderListItemCoordinator>();
+    
+    public void AddNew(string itemName)
     {
-        
+        var newListItem = Instantiate(listElementPrefab, listParent);
+        var listScript = newListItem.GetComponent<OrderListItemCoordinator>();
+        listScript.Init(itemName);
+        listItems.Add(listScript);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void completeItem(string itemName)
     {
-        
+        var listItem = FindListItem(itemName);
+        if (listItem == null) return;
+
+        listItem.MarkComplete();
+    }
+
+    public void RemoveItem(string itemName)
+    {
+        var listItem = FindListItem(itemName);
+        if (listItem == null) return;
+
+        Destroy(listItem.gameObject);
+    }
+
+    OrderListItemCoordinator FindListItem(string itemName)
+    {
+        for (int i = 0; i < listItems.Count; i++) {
+            if (string.Equals(listItems[i].GetItemName(),itemName) ) return listItems[i];
+        }
+        return null;
     }
 }
