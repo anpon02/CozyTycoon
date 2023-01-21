@@ -14,12 +14,11 @@ public class SectionManager : MonoBehaviour
         if(instance == null)
             instance = this;
         else if(instance != this)
-            Destroy(this);
-
-        camMovement = Camera.main.GetComponent<MoveCamera>();
+            Destroy(this);       
     }
 
     private void Start() {
+        camMovement = Camera.main.GetComponent<MoveCamera>();
         Camera.main.transform.position = sections[currentSectionId].GetCameraPosition();
     }
 
