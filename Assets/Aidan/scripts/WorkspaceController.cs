@@ -9,7 +9,6 @@ public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType WorkspaceType;
     ThrowingController chef;
-    [SerializeField] ItemCoordinator TEMPITEMCOORDPREFAB;
     WorkspaceCoordinator coord;
 
     private void OnMouseDown() {
@@ -18,13 +17,12 @@ public class WorkspaceController : MonoBehaviour
         if (chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
 
         var item = coord.removeItem();
-        item.Show();
         chef.HoldNewItem(item);
     }
 
     bool SetChef()
     {
-        if (GameManager.instance) chef = GameManager.instance.GetChef();
+        if (KitchenManager.instance) chef = KitchenManager.instance.GetChef();
         return chef != null;
     }
 
@@ -72,15 +70,9 @@ public class WorkspaceController : MonoBehaviour
         coord.HideCookPrompt();
 
         foreach (var item in toRemove) coord.removeItem(item);
-        CatchItem(CreateNewItemCoord(result));
+        CatchItem(KitchenManager.instance.CreateNewItemCoord(result, transform.position));
     }
-
-    ItemCoordinator CreateNewItemCoord(Item item) {
-        var newGO = Instantiate(TEMPITEMCOORDPREFAB, transform.position, Quaternion.identity);
-        var coordScript = newGO.GetComponent<ItemCoordinator>();
-        coordScript.SetItem(item);
-        return coordScript;
-    }
+    
 
     public WorkspaceType GetWSType() {
         return WorkspaceType;

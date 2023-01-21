@@ -18,7 +18,7 @@ public class ThrowingController : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.instance) GameManager.instance.SetChef(this);
+        if (KitchenManager.instance) KitchenManager.instance.SetChef(this);
     }
     public bool IsHoldingItem() {
         return heldItem != null;
@@ -27,9 +27,11 @@ public class ThrowingController : MonoBehaviour
     public void HoldNewItem(ItemCoordinator item)
     {
         ResetHeldItem();
+        item.Show();
 
         item.StopMoving();
-        item.transform.position = transform.position;
+        item.transform.parent = transform;
+        item.transform.localPosition = Vector3.zero;
         heldItem = item;
     }
 
@@ -51,6 +53,7 @@ public class ThrowingController : MonoBehaviour
     {
         if (heldItem == null) return;
 
+        heldItem.transform.parent = null;
         var dir = ((Vector3)mouseWorldPos - transform.position).normalized;
         var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
         heldItem.GetRB().AddForce(dir * str * throwMult);

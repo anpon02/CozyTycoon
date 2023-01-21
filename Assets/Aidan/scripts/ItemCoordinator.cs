@@ -21,7 +21,7 @@ public class ItemCoordinator : MonoBehaviour
 
     bool SetChef()
     {
-        if (GameManager.instance) chef = GameManager.instance.GetChef();
+        if (KitchenManager.instance) chef = KitchenManager.instance.GetChef();
         return chef != null;
     }
 
@@ -48,7 +48,6 @@ public class ItemCoordinator : MonoBehaviour
     private void OnMouseDown()
     {
         if (!SetChef()) return;
-        print("chef isn't null");
         chef.HoldNewItem(this);
     }
 

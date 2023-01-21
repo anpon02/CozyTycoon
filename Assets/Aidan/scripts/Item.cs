@@ -40,7 +40,6 @@ public class Item : ScriptableObject
 
     public void RemoveFromList(List<Item> list)
     {
-
         int index = 0;
         for (int i = 0; i < list.Count + 1; i++) {
             if (i > list.Count) return;

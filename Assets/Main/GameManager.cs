@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     void Awake () { instance = this; }
 
     GameObject player;
-    ThrowingController chef;
-
+    OrderController orderController;
+    
     public void SetPlayer(GameObject _player) { player = _player; }
     public GameObject GetPlayer() { return player; }
 
-    public void SetChef(ThrowingController _chef) {chef = _chef; }
-    public ThrowingController GetChef() { return chef; }
+    public void SetOrderController(OrderController _controller) { orderController = _controller; }
+    public OrderController GetOrderController() { return orderController; }
+
+
 }
