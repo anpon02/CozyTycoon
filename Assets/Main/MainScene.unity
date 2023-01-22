@@ -265,3 +265,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1199737052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199737053}
+  - component: {fileID: 1199737054}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1199737053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199737052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199737054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199737052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8155b9310d55f7f4fa5f4959a58eb71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: '0: Footsteps'
+    ID: 0
+    displayName: Footsteps
+    clips:
+    - name: '0: Footsteps1'
+      clip: {fileID: 8300000, guid: d3623a222eb8259449a559d8f6b38f80, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: Footsteps2'
+      clip: {fileID: 8300000, guid: 29988365292e3604a9ff0b78b8f7a4f5, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: Footsteps3'
+      clip: {fileID: 8300000, guid: 1a1e766c7358abd49b145120f745edb2, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: Footsteps4'
+      clip: {fileID: 8300000, guid: f97f541ef07e2d94294dd1d93ac02334, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '1: lightThrow'
+    ID: 1
+    displayName: 
+    clips:
+    - name: '0: lightThrow'
+      clip: {fileID: 8300000, guid: 2f3849d4ac1072945aff948e267182bf, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '2: heavyThrow'
+    ID: 2
+    displayName: 
+    clips:
+    - name: '0: heavyThrow'
+      clip: {fileID: 8300000, guid: 5ee2a23f901f0e84db3afba4c322da93, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.513
+    parentPitch: 1
+  masterVolume: 1

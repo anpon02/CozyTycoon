@@ -39,6 +39,11 @@ public class OrderController : MonoBehaviour
         AddToOrderList(newOrder);
     }
 
+    public void CompleteOrder(Item orderedItem)
+    {
+        UIcoord.RemoveItem(orderedItem.GetName());
+    }
+
     void AddToOrderList(OrderInfo newOrder)
     {
         UIcoord.AddNew(newOrder.GetItem().GetName());

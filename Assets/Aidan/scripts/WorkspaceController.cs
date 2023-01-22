@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public enum WorkspaceType {CUTTINGBOARD, OVEN, STOVE}
 
@@ -11,13 +12,27 @@ public class WorkspaceController : MonoBehaviour
     ThrowingController chef;
     WorkspaceCoordinator coord;
 
+    bool readyToComplete;
+    Item result;
+    List<Item> toRemove;
+    float makeTime;
+
+
     private void OnMouseDown() {
         if (!SetChef()) return;
 
         if (chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
 
+        HaltRecipe();
+
         var item = coord.removeItem();
         chef.HoldNewItem(item);
+    }
+
+    void HaltRecipe()
+    {
+        StopAllCoroutines();
+        if (readyToComplete) CompleteRecipe();
     }
 
     bool SetChef()
@@ -51,11 +66,7 @@ public class WorkspaceController : MonoBehaviour
     }
 
     void MakeRecipe() {
-        Item result;
-        List<Item> toRemove;
-        float makeTime;
         RecipeManager.instance.CanCombine(out result, out toRemove, out makeTime, coord.GetHeldItems(), this);
-
         StartCoroutine(CompleteRecipe(result, toRemove, makeTime));
     }
 
@@ -64,15 +75,47 @@ public class WorkspaceController : MonoBehaviour
         float timeRemaining = makeTime;
         while (timeRemaining >= 0) {
             timeRemaining -= Time.deltaTime;
-            coord.SetPromptvalue(1 - (timeRemaining / makeTime));
+            readyToComplete = coord.SetPromptvalue(1 - (timeRemaining / makeTime));
+            if (readyToComplete) coord.previewResult(result.GetSprite());
             yield return new WaitForEndOfFrame();
         }
-        coord.HideCookPrompt();
+        
+        CompleteRecipe();
+    }
 
+    void CompleteRecipe()
+    {
+        readyToComplete = false;
         foreach (var item in toRemove) coord.removeItem(item);
-        CatchItem(KitchenManager.instance.CreateNewItemCoord(result, transform.position));
+        
+        CatchItem(KitchenManager.instance.CreateNewItemCoord(result, transform.position, GetResultQuality()));
+        coord.HideCookPrompt();
     }
     
+    float GetResultQuality()
+    {
+        float qual = coord.GetCurrentQuality();
+        float taskCompletionQuality = qual == 0 ? 1 : (qual == 1 ? 0.5f : 0);
+        float previousIngredientAvg = CalcPrevQualityAvg();
+        if (toRemove.Count == 0 || previousIngredientAvg == -1) return taskCompletionQuality;
+
+        float taskFactor = KitchenManager.instance.GetTaskFactor();
+        return (taskCompletionQuality * taskFactor) + (previousIngredientAvg * (1 - taskFactor));
+    }
+
+    float CalcPrevQualityAvg()
+    {
+        float previousIngredientAvg = 0;
+        int count = 0;
+        foreach (var i in toRemove) {
+            if (i.GetQuality() != -1) {
+                previousIngredientAvg += i.GetQuality();
+                count += 1;
+            }
+        }
+        if (count == 0) return -1;
+        return previousIngredientAvg /= count;
+    }
 
     public WorkspaceType GetWSType() {
         return WorkspaceType;

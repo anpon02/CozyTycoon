@@ -57,6 +57,7 @@ public class ThrowingController : MonoBehaviour
         var dir = ((Vector3)mouseWorldPos - transform.position).normalized;
         var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
         heldItem.GetRB().AddForce(dir * str * throwMult);
+        AudioManager.instance.PlaySound(heldItem.GetItem().GetThrowSound(), heldItem.gameObject);
 
         ResetHeldItem();
     }
@@ -79,6 +80,19 @@ public class ThrowingController : MonoBehaviour
         if (!player) player = GameManager.instance.GetPlayer();
         if (!player) return;
         transform.position = player.transform.position;
+    }
+
+    public Item GetHeldItem()
+    {
+        return heldItem.GetItem();
+    }
+    
+    public Item RemoveHeldItem()
+    {
+        var _item = heldItem.GetItem();
+        Destroy(heldItem.gameObject);
+        heldItem = null;
+        return _item;
     }
 
 }

@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: ChoppedPotato
   itemSprite: {fileID: 21300000, guid: e76a2217e3840ed42a9829ba00bd308f, type: 3}
+  bigEquipment: 0
+  quality: 1
+  disableQuality: 0
+  throwSoundID: 1

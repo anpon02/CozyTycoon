@@ -9,6 +9,9 @@ public class Item : ScriptableObject
     [SerializeField] string itemName;
     [SerializeField] Sprite itemSprite;
     [SerializeField] bool bigEquipment;
+    [SerializeField] float quality = 1;
+    [SerializeField] bool disableQuality;
+    [SerializeField] int throwSoundID;
 
     public Sprite GetSprite() {
         return itemSprite;
@@ -17,12 +20,28 @@ public class Item : ScriptableObject
         return itemName;
     }
 
+    public int GetThrowSound()
+    {
+        return throwSoundID;
+    }
+
+    public void SetQuality(float value)
+    {
+        quality = value;
+    }
+
+    public float GetQuality()
+    {
+        if (disableQuality) return -1;
+        return quality;
+    }
+
     public bool IsBigEquipment()
     {
         return bigEquipment;
     }
 
-    public bool Equal(Item other)
+    public bool Equals(Item other)
     {
         return string.Equals(other.GetName(), GetName());
     }
@@ -33,7 +52,7 @@ public class Item : ScriptableObject
 
         bool found = false;
         foreach (var i in list) {
-            if (Equal(i)) found = true;
+            if (Equals(i)) found = true;
         }
         return found;
     }
@@ -43,7 +62,7 @@ public class Item : ScriptableObject
         int index = 0;
         for (int i = 0; i < list.Count + 1; i++) {
             if (i > list.Count) return;
-            if (Equal(list[i])) break;
+            if (Equals(list[i])) break;
         }
         list.RemoveAt(index);
     }

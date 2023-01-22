@@ -27,6 +27,12 @@ public class WorkspaceCoordinator : MonoBehaviour
                 displays[i].enabled = true;
             }
         }
+        public void Set(Sprite _sprite)
+        {
+            ResetAll();
+            displays[0].sprite = _sprite;
+            displays[0].enabled = true;   
+        }
         public bool Add(Sprite newSprite) {
             if (FreeSlots() == 0) return false;
 
@@ -40,7 +46,6 @@ public class WorkspaceCoordinator : MonoBehaviour
             }
             return false;
         }
-
 
 
         public int FreeSlots() {
@@ -70,14 +75,26 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
     }
 
+    public int GetCurrentQuality()
+    {
+        if (cookPrompt == null) return -1;
+        return cookPrompt.GetSliderDistRating();
+    }
+
     bool roomForBigEquipment()
     {
         return bigEquipmentSprite != null && !bigEquipmentSprite.enabled;
     }
 
-    public void SetPromptvalue(float value) {
-        if (!cookPrompt) return;
-        cookPrompt.SetSlider(value);
+    public bool SetPromptvalue(float value) {
+        if (!cookPrompt) return false;
+        return cookPrompt.SetSlider(value);
+    }
+
+    public void previewResult(Sprite newsprite)
+    {
+        foreach (var i in itemDisplays) i.ResetAll();
+        itemDisplays[0].Set(newsprite);
     }
 
     public void DisplayPrompt() {
@@ -99,7 +116,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public void HideCookPrompt() {
         if (!cookPrompt) return;
-        cookPrompt.gameObject.SetActive(false);
+        cookPrompt.Hide();
     }
 
     public bool HasCookPrompt() {
@@ -151,7 +168,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     public ItemCoordinator removeItem(Item toRemove) {
         var coord = default(ItemCoordinator);
         for (int i = 0; i < heldItems.Count; i++) {
-            if (heldItems[i].GetItem().Equal(toRemove)) {
+            if (heldItems[i].GetItem().Equals(toRemove)) {
                 coord = heldItems[i];
                 break;
             }
@@ -210,11 +227,6 @@ public class WorkspaceCoordinator : MonoBehaviour
         var items = new List<Item>();
         foreach(var i in heldItems) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
-        if (false) {
-            string s = "Items: ";
-            foreach (var i in items) s += i.GetName() + ", ";
-            print(s);
-        }
         return items;
     }
 }

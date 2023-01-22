@@ -1,22 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ItemCoordinator : MonoBehaviour
 {
     [SerializeField] Item item;
-    ThrowingController chef;
-    
+    [SerializeField] List<SpriteRenderer> stars = new List<SpriteRenderer>();
+    [SerializeField] Color topQuality;
+    [SerializeField] Color medQuality;
+    [SerializeField] Color lowQuality;
 
+    ThrowingController chef;
     Rigidbody2D rb;
     SpriteRenderer sRend;
 
     private void OnValidate() {
         if (item == null || string.IsNullOrEmpty(item.GetName())) return;
-        
-        gameObject.name = item.GetName();
+
+        if (PrefabStageUtility.GetCurrentPrefabStage() != PrefabStageUtility.GetPrefabStage(gameObject)) gameObject.name = item.GetName();
         if (sRend == null) GetReferences();
         sRend.sprite = item.GetSprite();
+        UpdateRating();
+    }
+
+    void UpdateRating()
+    {
+        if (item == null) return;
+
+        var starIndex = -1;
+        Color col = Color.black;
+        foreach (var s in stars) s.gameObject.SetActive(false);
+        if (item.GetQuality() == -1) return;
+
+        switch (item.GetQuality()) {
+            case < 0.3f:
+                col = lowQuality;
+                starIndex = 1;
+                break;
+            case > 0.9f:
+                col = topQuality;
+                starIndex = 3;
+                break;
+            default:
+                col = medQuality;
+                starIndex = 2;
+                break;
+        }
+        for (int i = 0; i < starIndex; i++) {
+            stars[i].gameObject.SetActive(true);
+            stars[i].color = col;
+        }
     }
 
     bool SetChef()
@@ -37,6 +72,7 @@ public class ItemCoordinator : MonoBehaviour
     private void Start()
     {
         item = Instantiate(item);
+        item.SetQuality(1);
         GetReferences();
     }
 

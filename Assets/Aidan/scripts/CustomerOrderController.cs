@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RelationshipStatus))]
 public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] Item desiredItem;
@@ -13,19 +14,46 @@ public class CustomerOrderController : MonoBehaviour
     private RelationshipStatus status;
     private bool foodOrdered;
 
+    ThrowingController chef;
+
     private void Awake() {
         status = GetComponent<RelationshipStatus>();
     }
 
     private void OnMouseDown()
     {
-        Order();
+        if (!foodOrdered) Order();
+        else if (CorrectFoodHeld()) DeliverFood();
+    }
+
+    bool CorrectFoodHeld()
+    {
+        if (!GetChef()) return false;
+        return chef.GetHeldItem().Equals(desiredItem);
+    }
+
+    bool GetChef()
+    {
+        if (chef) return true;
+        if (!KitchenManager.instance) return false;
+        chef = KitchenManager.instance.GetChef();
+        return chef != null;
     }
 
     void Order()
     {
+        foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
     }
+
+    void DeliverFood()
+    {
+        foodOrdered = true;
+        Item deliveredItem = chef.RemoveHeldItem();
+        GameManager.instance.GetOrderController().CompleteOrder(desiredItem);
+        status.GiveFood(deliveredItem.GetQuality());
+    }
+
 
     /* FOR TESTING PURPOSES */
     private void Update() {
@@ -33,12 +61,10 @@ public class CustomerOrderController : MonoBehaviour
             if(!foodOrdered) {
                 print("Ordered!");
                 Order();
-                foodOrdered = true;
             }
             else {
                 print("Given!");
                 status.GiveFood(foodValue);
-                foodOrdered = false;
             }
         }
     }

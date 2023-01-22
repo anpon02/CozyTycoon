@@ -15,3 +15,6 @@ MonoBehaviour:
   itemName: FriedChoppedPotatoes
   itemSprite: {fileID: 21300000, guid: aadfbb685611b474fbe34df22eb1c4b2, type: 3}
   bigEquipment: 0
+  quality: 1
+  disableQuality: 0
+  throwSoundID: 1
