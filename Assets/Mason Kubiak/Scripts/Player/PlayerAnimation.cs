@@ -51,6 +51,10 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetTrigger("Player_" + animStates[lastDir]);
     }
 
+    public int GetLastDir() {
+        return lastDir;
+    }
+
     private void Update() {
         input = pInputActions.Player.Movement.ReadValue<Vector2>();
         SetDirection(input);

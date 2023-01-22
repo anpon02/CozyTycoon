@@ -6,13 +6,13 @@ using UnityEngine;
 public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] Item desiredItem;
+    private bool foodOrdered;
 
     [Header("Debug Tools")]
     [SerializeField] private bool testCustomer;
     [Range(0f, 1f)]
     [SerializeField] private float foodValue;
     private RelationshipStatus status;
-    private bool foodOrdered;
 
     ThrowingController chef;
 
@@ -40,18 +40,22 @@ public class CustomerOrderController : MonoBehaviour
         return chef != null;
     }
 
-    void Order()
+    public void Order()
     {
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
     }
 
-    void DeliverFood()
+    public void DeliverFood()
     {
         foodOrdered = true;
         Item deliveredItem = chef.RemoveHeldItem();
         GameManager.instance.GetOrderController().CompleteOrder(desiredItem);
         status.GiveFood(deliveredItem.GetQuality());
+    }
+
+    public bool GetFoodOrdered() {
+        return foodOrdered;
     }
 
 
