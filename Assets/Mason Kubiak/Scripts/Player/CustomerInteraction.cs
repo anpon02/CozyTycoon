@@ -14,12 +14,8 @@ public class CustomerInteraction : MonoBehaviour
     private Vector2 boxcastOrigin;
     
     private PlayerAnimation anim;
-    private string[] directions = {"N", "NW", "W", "SW", 
-                                   "S", "SE", "E", "NE"};
     private Vector3[] potentialOrigins;
     private int animLastDir;
-
-    float dir;
 
     private void Awake() {
         anim = GetComponent<PlayerAnimation>();
@@ -47,15 +43,16 @@ public class CustomerInteraction : MonoBehaviour
     }
 
     private void InteractWithCustomer(InputAction.CallbackContext context) {
+        // pick which direction the player is facing and boxcast that way
         animLastDir = anim.GetLastDir();
         boxcastOrigin = transform.position + potentialOrigins[animLastDir];
-
         RaycastHit2D hit = Physics2D.BoxCast(boxcastOrigin, new Vector3(colliderWidth * interactDistance, colliderHeight, 10),
                                              0, Vector2.left, 0, customerLayer);
         
+        // if boxcast hits a customer, order or deliver food
         if(hit.collider != null) {
             CustomerOrderController cust = hit.collider.GetComponent<CustomerOrderController>();
-            if(cust.GetFoodOrdered())
+            if(!cust.GetFoodOrdered())
                 cust.Order();
             else
                 cust.DeliverFood();
@@ -64,8 +61,6 @@ public class CustomerInteraction : MonoBehaviour
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        dir = transform.rotation.x == 0 ? -1 : 1;
-        Gizmos.DrawWireCube(boxcastOrigin, 
-                            new Vector3(colliderWidth * interactDistance, colliderHeight, 10));
+        Gizmos.DrawWireCube(boxcastOrigin, new Vector3(colliderWidth * interactDistance, colliderHeight, 10));
     }
 }

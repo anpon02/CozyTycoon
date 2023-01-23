@@ -7,6 +7,7 @@ public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] Item desiredItem;
     private bool foodOrdered;
+    private bool hasReceivedFood;
 
     [Header("Debug Tools")]
     [SerializeField] private bool testCustomer;
@@ -18,6 +19,7 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Awake() {
         status = GetComponent<RelationshipStatus>();
+        hasReceivedFood = false;
     }
 
     private void OnMouseDown()
@@ -49,6 +51,7 @@ public class CustomerOrderController : MonoBehaviour
     public void DeliverFood()
     {
         foodOrdered = true;
+        hasReceivedFood = true;
         Item deliveredItem = chef.RemoveHeldItem();
         GameManager.instance.GetOrderController().CompleteOrder(desiredItem);
         status.GiveFood(deliveredItem.GetQuality());
@@ -58,6 +61,13 @@ public class CustomerOrderController : MonoBehaviour
         return foodOrdered;
     }
 
+    public bool GetHasReceivedFood() {
+        return hasReceivedFood;
+    }
+
+    public void SetHasReceivedFood(bool received) {
+        hasReceivedFood = received;
+    }
 
     /* FOR TESTING PURPOSES */
     private void Update() {
