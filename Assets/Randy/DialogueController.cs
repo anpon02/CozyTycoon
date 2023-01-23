@@ -15,18 +15,22 @@ public class DialogueController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Contents in Update are for testing purposes while I only have access to the UI
-        if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) < DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingIn)
-        {
-            DialogueManager.instance.isFadingIn = true;
-            DialogueManager.instance.isFadingOut = false;
-            StartCoroutine(coordinator.PanelFadein());
-        }
-        else if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) > DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingOut)
-        {
-            DialogueManager.instance.isFadingIn = false;
-            DialogueManager.instance.isFadingOut = true;
-            StartCoroutine(coordinator.PanelFadeout());
+        if(DialogueManager.instance && DialogueManager.instance.GetSpeakingCharacter()) {
+            DialogueManager.instance.SetPlayerDistance(Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position));
+            
+            // Contents in Update are for testing purposes while I only have access to the UI
+            if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) < DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingIn)
+            {
+                DialogueManager.instance.isFadingIn = true;
+                DialogueManager.instance.isFadingOut = false;
+                StartCoroutine(coordinator.PanelFadein());
+            }
+            else if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) > DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingOut)
+            {
+                DialogueManager.instance.isFadingIn = false;
+                DialogueManager.instance.isFadingOut = true;
+                StartCoroutine(coordinator.PanelFadeout());
+            }
         }
     }
 

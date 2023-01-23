@@ -91,11 +91,6 @@ public class DialogueManager : MonoBehaviour
         return Mathf.InverseLerp(GetMinFadeoutThreshold(), GetMaxFadeoutThreshold(), distance);
     }
 
-    public void TrackChareacterDistance(GameObject npc)
-    {
-        this.speakingCharacter = npc;
-    }
-
     public void TrackChareacterDistance(GameObject npc, float minDist, float maxDist)
     {
         this.speakingCharacter = npc;
@@ -141,8 +136,21 @@ public class DialogueManager : MonoBehaviour
         return player;
     }
 
+    public void SetPlayer(GameObject _player) {
+        player = _player;
+    }
+
     public GameObject GetSpeakingCharacter()
     {
         return speakingCharacter;
+    }
+
+    public void SetSpeakingCharacter(GameObject npc)
+    {
+        this.speakingCharacter = npc;
+    }
+
+    public void SetPlayerDistance(float dist) {
+        playerDistance = dist;
     }
 }

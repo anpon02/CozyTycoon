@@ -320,10 +320,10 @@ MonoBehaviour:
   nextLineDelay: 2
   player: {fileID: 0}
   unintelligibleTextThreshold: 20
-  minFadeoutThreshold: 10
-  maxFadeoutThreshold: 40
-  FadeoutRate: 0.001
-  fadeinRate: 0.001
+  minFadeoutThreshold: 5
+  maxFadeoutThreshold: 10
+  FadeoutRate: 0.005
+  fadeinRate: 0.005
   showDebugInfo: 0
   playerDistance: 0
   speakingCharacter: {fileID: 0}

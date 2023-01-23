@@ -48,10 +48,7 @@ public class CustomerOrderController : MonoBehaviour
     {
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
-        if(DialogueManager.instance) {
-            DialogueManager.instance.StartDialogue(story.GetInkStory(), story.GetStoryPhaseNum());
-            story.NextStoryPhase();
-        }
+        story.StartStory();
     }
 
     public void DeliverFood()

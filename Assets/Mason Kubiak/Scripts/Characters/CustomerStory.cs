@@ -22,4 +22,12 @@ public class CustomerStory : MonoBehaviour
     public TextAsset GetInkStory() {
         return inkStory;
     }
+
+    public void StartStory() {
+        if(DialogueManager.instance) {
+            DialogueManager.instance.StartDialogue(inkStory, storyPhaseNum);
+            DialogueManager.instance.SetSpeakingCharacter(gameObject);
+            NextStoryPhase();
+        }
+    }
 }
