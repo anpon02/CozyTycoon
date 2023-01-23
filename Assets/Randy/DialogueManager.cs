@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float nextLineDelay;
 
     [Header("Textbox Shenannigans")]
+    [SerializeField] private GameObject player;
+    // maybe clean up line below
     [SerializeField] private float unintelligibleTextThreshold;
     [SerializeField] private float minFadeoutThreshold;
     [SerializeField] private float maxFadeoutThreshold;
