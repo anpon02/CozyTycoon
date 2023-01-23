@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
 
 public enum WorkspaceType {CUTTINGBOARD, OVEN, STOVE}
 
-[RequireComponent(typeof(WorkspaceCoordinator))]
+[RequireComponent(typeof(WorkspaceCoordinator)), RequireComponent(typeof(AudioSource))]
 public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType WorkspaceType;
+    [SerializeField] int actionSoundID;
     ThrowingController chef;
     WorkspaceCoordinator coord;
 
+    AudioSource source;
     bool readyToComplete;
     Item result;
     List<Item> toRemove;
@@ -31,6 +34,7 @@ public class WorkspaceController : MonoBehaviour
 
     void HaltRecipe()
     {
+        source.Stop();
         StopAllCoroutines();
         if (readyToComplete) CompleteRecipe();
     }
@@ -70,10 +74,12 @@ public class WorkspaceController : MonoBehaviour
         StartCoroutine(CompleteRecipe(result, toRemove, makeTime));
     }
 
-    IEnumerator CompleteRecipe(Item result, List<Item> toRemove, float makeTime) {
+    IEnumerator CompleteRecipe(Item result, List<Item> toRemove, float makeTime) 
+    { 
         coord.DisplayPrompt();
         float timeRemaining = makeTime;
         while (timeRemaining >= 0) {
+            PlaySound();
             timeRemaining -= Time.deltaTime;
             readyToComplete = coord.SetPromptvalue(1 - (timeRemaining / makeTime));
             if (readyToComplete) coord.previewResult(result.GetSprite());
@@ -81,6 +87,13 @@ public class WorkspaceController : MonoBehaviour
         }
         
         CompleteRecipe();
+    }
+
+    void PlaySound()
+    {
+        if (source == null) source = gameObject.GetOrAddComponent<AudioSource>();
+
+        if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
     }
 
     void CompleteRecipe()

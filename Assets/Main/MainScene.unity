@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -160,7 +161,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.13515373, g: 0.027634395, b: 0.254717, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -221,6 +222,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interpolationValue: 0.2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f92095ff805a547b497c2eea3619ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDur: 0.4
+  defaultFreq: 150
+  defaultMag: 0.01
 --- !u!1 &554498483
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +361,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    parentVolume: 1
+    parentVolume: 0.395
     parentPitch: 1
   - name: '2: heavyThrow'
     ID: 2
@@ -357,5 +373,47 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 0.513
+    parentPitch: 1
+  - name: '3: chopping'
+    ID: 3
+    displayName: chopping
+    clips:
+    - name: '0: SFX_Veg Chop1'
+      clip: {fileID: 8300000, guid: d4b9b58baee299e4594bc23c06588728, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: SFX_Veg Chop2'
+      clip: {fileID: 8300000, guid: e933293f6dd32e24ca2f0ee454ec17a4, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: SFX_Veg Chop3'
+      clip: {fileID: 8300000, guid: 9f487b940a7d43f4a9c4a147a3464703, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: SFX_Veg Chop4'
+      clip: {fileID: 8300000, guid: 63c01e1f3b91d784fa0ce1303fa2e0ed, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: SFX_Veg Chop5'
+      clip: {fileID: 8300000, guid: 17d69843259fcc744ab84a963fcb21d8, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '4: pan sizzle'
+    ID: 4
+    displayName: pan sizzle
+    clips:
+    - name: '0: SFX_PanSizzleLoop'
+      clip: {fileID: 8300000, guid: 26c5a55702a132743b71269e269d09ea, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
     parentPitch: 1
   masterVolume: 1

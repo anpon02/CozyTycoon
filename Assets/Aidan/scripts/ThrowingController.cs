@@ -11,6 +11,7 @@ public class ThrowingController : MonoBehaviour
     [SerializeField] ItemCoordinator heldItem;
     [SerializeField] float maxHoldTime;
     [SerializeField] float throwMult = 100;
+    [SerializeField] ThrowIndicatorCoordinator throwCoord;
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
@@ -58,6 +59,7 @@ public class ThrowingController : MonoBehaviour
         var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
         heldItem.GetRB().AddForce(dir * str * throwMult);
         AudioManager.instance.PlaySound(heldItem.GetItem().GetThrowSound(), heldItem.gameObject);
+        GameManager.instance.getShakeScript().Shake();
 
         ResetHeldItem();
     }
@@ -73,6 +75,8 @@ public class ThrowingController : MonoBehaviour
     {
         SetPosition();
         if (mouseDown) mouseDownTime += Time.deltaTime;
+        if (heldItem) throwCoord.SetValue(Mathf.Min(mouseDownTime, maxHoldTime) / maxHoldTime);
+        else throwCoord.SetValue(0);
     }
 
     void SetPosition()
