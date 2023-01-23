@@ -1,16 +1,16 @@
 LIST Mood = horrible, bad, neutral, good, great
 VAR CurrentMood = neutral
 
-VAR CurrentStoryState = 1
+VAR CurrentStoryState = 0
 -> Selector
 
 == Selector ==
 {
-    - CurrentStoryState == 1:
+    - CurrentStoryState == 0:
         -> story_0
-    - CurrentStoryState == 2:
+    - CurrentStoryState == 1:
         -> story_1
-    - CurrentStoryState > 2:
+    - CurrentStoryState > 1:
         end of existing dialogue
      ->END
 }
