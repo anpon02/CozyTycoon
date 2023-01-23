@@ -6,6 +6,7 @@ using UnityEngine;
 public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] Item desiredItem;
+    private CustomerStory story;
     private bool foodOrdered;
     private bool hasReceivedFood;
 
@@ -19,6 +20,7 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Awake() {
         status = GetComponent<RelationshipStatus>();
+        story = GetComponent<CustomerStory>();
         hasReceivedFood = false;
     }
 
@@ -46,6 +48,10 @@ public class CustomerOrderController : MonoBehaviour
     {
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
+        if(DialogueManager.instance) {
+            DialogueManager.instance.StartDialogue(story.GetInkStory(), "story_" + story.GetStoryPhaseNum());
+            story.NextStoryPhase();
+        }
     }
 
     public void DeliverFood()
@@ -72,14 +78,8 @@ public class CustomerOrderController : MonoBehaviour
     /* FOR TESTING PURPOSES */
     private void Update() {
         if(Input.GetKeyDown(KeyCode.H) && testCustomer) {
-            if(!foodOrdered) {
-                print("Ordered!");
-                Order();
-            }
-            else {
-                print("Given!");
-                status.GiveFood(foodValue);
-            }
+            print("ORDERED");
+            Order();
         }
     }
 }

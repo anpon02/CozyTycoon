@@ -315,9 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e339798b02f68d4a9f0cccee4058e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 535910281}
   textRenderDelay: 0.15
   nextLineDelay: 2
+  player: {fileID: 0}
   unintelligibleTextThreshold: 20
   minFadeoutThreshold: 10
   maxFadeoutThreshold: 40
