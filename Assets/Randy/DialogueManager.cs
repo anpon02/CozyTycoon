@@ -118,8 +118,18 @@ public class DialogueManager : MonoBehaviour
         controller.StartDialogue(inkStory);
     }
 
+    public void StartDialogue(TextAsset inkStory, int progress)
+    {
+        controller.StartDialogue(inkStory, progress);
+    }
+
     public void StartDialogue(TextAsset inkStory, string knotName)
     {
         controller.StartDialogue(inkStory, knotName);
+    }
+
+    public GameObject getPlayer()
+    {
+        return player;
     }
 }

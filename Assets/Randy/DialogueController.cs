@@ -36,6 +36,12 @@ public class DialogueController : MonoBehaviour
         coordinator.StartDialogue();
     }
 
+    public void StartDialogue(TextAsset inkStory, int progress)
+    {
+        coordinator.LoadCharacterStory(inkStory);
+        coordinator.StartDialogue(progress);
+    }
+
     public void StartDialogue(TextAsset inkStory, string knotName)
     {
         coordinator.LoadCharacterStory(inkStory);

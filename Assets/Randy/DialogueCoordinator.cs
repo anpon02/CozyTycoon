@@ -38,6 +38,12 @@ public class DialogueCoordinator : MonoBehaviour
         StartCoroutine(WriteDialogue());
     }
 
+    public void StartDialogue(int progress)
+    {
+        currentStory.variablesState["CurrentStoryState"] = progress;
+        StartCoroutine(WriteDialogue());
+    }
+
     public void StartDialogue(string knotName)
     {
         currentStory.ChoosePathString(knotName);
