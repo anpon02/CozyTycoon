@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private int obstacleLayerNum;
 
     private PlayerInputActions pInputActions;
     private Rigidbody2D body;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake() {
         pInputActions = new PlayerInputActions();
         body = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreLayerCollision(gameObject.layer, obstacleLayerNum);
     }
 
     private void Start() {
