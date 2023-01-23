@@ -25,12 +25,10 @@ public class DialogueCoordinator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadCharacterStory();
-        ClearAll();
-        StartDialogue();
+    
     }
 
-    public void LoadCharacterStory(/*include a path argument later*/)
+    public void LoadCharacterStory(TextAsset inkStory)
     {
         currentStory = new Story(inkStory.text);
     }
@@ -71,7 +69,6 @@ public class DialogueCoordinator : MonoBehaviour
         }
     }
 
-    
     private void ClearDialogueText()
     {
         dialogueText.text = string.Empty;
@@ -114,4 +111,6 @@ public class DialogueCoordinator : MonoBehaviour
             yield return null;
         }
     }
+
+
 }

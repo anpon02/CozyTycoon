@@ -6,6 +6,8 @@ using Ink.Runtime;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
+    [SerializeField] DialogueController controller;
+
     [Header("Text Speed")]
     [SerializeField] private float textRenderDelay;
     [SerializeField] private float nextLineDelay;
@@ -20,10 +22,11 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Debug Tools (Will add ability to hide at some point)")]
     [SerializeField] private bool showDebugInfo;
-    [ Range(0f, 100f)] public float playerDistance;
-    [SerializeField] public bool isUnintelligible;
-    [SerializeField] public bool isFadingOut;
-    [SerializeField] public bool isFadingIn;
+    [ Range(0f, 100f), ConditionalHide(nameof(showDebugInfo))] public float playerDistance;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] private GameObject speakingCharacter;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isUnintelligible;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingOut;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingIn;
     
 
     
@@ -86,4 +89,35 @@ public class DialogueManager : MonoBehaviour
         return Mathf.InverseLerp(GetMinFadeoutThreshold(), GetMaxFadeoutThreshold(), distance);
     }
 
+    public void TrackChareacterDistance(GameObject npc)
+    {
+        this.speakingCharacter = npc;
+    }
+
+    public void TrackChareacterDistance(GameObject npc, float minDist, float maxDist)
+    {
+        this.speakingCharacter = npc;
+        this.minFadeoutThreshold = minDist;
+        this.maxFadeoutThreshold = maxDist;
+    }
+
+    public void SetMinFadeoutThreshold(float distance)
+    {
+        minFadeoutThreshold = distance;
+    }
+
+    public void SetMaxFadeoutThreshold(float distance)
+    {
+        maxFadeoutThreshold = distance;
+    }
+
+    public void StartDialogue(TextAsset inkStory)
+    {
+        controller.StartDialogue(inkStory);
+    }
+
+    public void StartDialogue(TextAsset inkStory, string knotName)
+    {
+        controller.StartDialogue(inkStory, knotName);
+    }
 }

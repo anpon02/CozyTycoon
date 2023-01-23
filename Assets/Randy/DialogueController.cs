@@ -30,4 +30,15 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    public void StartDialogue(TextAsset inkStory)
+    {
+        coordinator.LoadCharacterStory(inkStory);
+        coordinator.StartDialogue();
+    }
+
+    public void StartDialogue(TextAsset inkStory, string knotName)
+    {
+        coordinator.LoadCharacterStory(inkStory);
+        coordinator.StartDialogue(knotName);
+    }
 }
