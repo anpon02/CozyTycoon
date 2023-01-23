@@ -22,10 +22,12 @@ public class DialogueCoordinator : MonoBehaviour
     [Header("Testing, remove later")]
     [SerializeField] private TextAsset inkStory;
 
+    private Coroutine writeDialogue;
+
     // Start is called before the first frame update
     void Start()
     {
-    
+        
     }
 
     public void LoadCharacterStory(TextAsset inkStory)
@@ -35,19 +37,19 @@ public class DialogueCoordinator : MonoBehaviour
 
     public void StartDialogue()
     {
-        StartCoroutine(WriteDialogue());
+        writeDialogue = StartCoroutine(WriteDialogue());
     }
 
     public void StartDialogue(int progress)
     {
         currentStory.variablesState["CurrentStoryState"] = progress;
-        StartCoroutine(WriteDialogue());
+        writeDialogue = StartCoroutine(WriteDialogue());
     }
 
     public void StartDialogue(string knotName)
     {
         currentStory.ChoosePathString(knotName);
-        StartCoroutine(WriteDialogue());
+        writeDialogue = StartCoroutine(WriteDialogue());
     }
 
     private IEnumerator WriteDialogue()
@@ -118,5 +120,11 @@ public class DialogueCoordinator : MonoBehaviour
         }
     }
 
+    public void StopDialogue()
+    {
+        if (writeDialogue != null)
+            StopCoroutine(writeDialogue);
+        ClearDialogueText();
+    }
 
 }

@@ -115,21 +115,34 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(TextAsset inkStory)
     {
+        StopDialogue();
         controller.StartDialogue(inkStory);
     }
 
     public void StartDialogue(TextAsset inkStory, int progress)
     {
+        StopDialogue();
         controller.StartDialogue(inkStory, progress);
     }
 
     public void StartDialogue(TextAsset inkStory, string knotName)
     {
+        StopDialogue();
         controller.StartDialogue(inkStory, knotName);
     }
 
-    public GameObject getPlayer()
+    public void StopDialogue()
+    {
+        controller.StopDialogue();
+    }
+
+    public GameObject GetPlayer()
     {
         return player;
+    }
+
+    public GameObject GetSpeakingCharacter()
+    {
+        return speakingCharacter;
     }
 }

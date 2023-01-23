@@ -16,13 +16,13 @@ public class DialogueController : MonoBehaviour
     void Update()
     {
         // Contents in Update are for testing purposes while I only have access to the UI
-        if (DialogueManager.instance.playerDistance < DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingIn)
+        if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) < DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingIn)
         {
             DialogueManager.instance.isFadingIn = true;
             DialogueManager.instance.isFadingOut = false;
             StartCoroutine(coordinator.PanelFadein());
         }
-        else if (DialogueManager.instance.playerDistance > DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingOut)
+        else if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) > DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingOut)
         {
             DialogueManager.instance.isFadingIn = false;
             DialogueManager.instance.isFadingOut = true;
@@ -46,5 +46,10 @@ public class DialogueController : MonoBehaviour
     {
         coordinator.LoadCharacterStory(inkStory);
         coordinator.StartDialogue(knotName);
+    }
+
+    public void StopDialogue()
+    {
+        coordinator.StopDialogue();
     }
 }
