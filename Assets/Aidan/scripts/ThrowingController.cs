@@ -88,6 +88,7 @@ public class ThrowingController : MonoBehaviour
 
     public Item GetHeldItem()
     {
+        if (heldItem == null) return null;
         return heldItem.GetItem();
     }
     

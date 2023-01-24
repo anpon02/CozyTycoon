@@ -64,13 +64,12 @@ public class DayNightController : MonoBehaviour
         timeDisplay.text = (hour > 9 ? hour : "0" + hour) + ":" + (minute > 9 ? minute : "0" + minute) + suffix;
     }
 
-    public void ToggleStore()
+    public void _ToggleStore()
     {
         if (TEMPASLEEP) return;
 
         if (TEMPCLOSED && time > wakeUpTime && openedToday) {
-            TEMPASLEEP = true;
-            sleepTime = time;
+            
         }
         //gamemanager.OnDayEnd.Invoke();
         //gamemanager.OnDayStart.Invoke();
@@ -80,6 +79,39 @@ public class DayNightController : MonoBehaviour
         
         UpdateButton();
     }
+
+
+    public void ToggleStore()
+    {
+        if (TEMPASLEEP) return;
+
+        if (TEMPCLOSED && openedToday) Sleep();
+        else if (TEMPCLOSED) Open();
+        else if (!TEMPCLOSED && time >= earliestCloseTime) Close();
+        UpdateButton();
+    }
+
+    void Close()
+    {
+        AudioManager.instance.PlaySound(11, gameObject);
+        GameManager.instance.OnStoreClose.Invoke();
+        TEMPCLOSED = true;
+    }
+
+    void Open()
+    {
+        AudioManager.instance.PlaySound(10, gameObject);
+        GameManager.instance.OnStoreOpen.Invoke();
+        TEMPCLOSED = false;
+        openedToday = true;
+    }
+
+    void Sleep()
+    {
+        TEMPASLEEP = true;
+        sleepTime = time;
+    }
+
 
     void UpdateButton()
     {

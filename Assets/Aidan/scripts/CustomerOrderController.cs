@@ -46,6 +46,7 @@ public class CustomerOrderController : MonoBehaviour
 
     public void Order()
     {
+        AudioManager.instance.PlaySound(7, gameObject);
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
         story.StartStory();

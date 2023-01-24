@@ -4,13 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
 
-public enum WorkspaceType {CUTTINGBOARD, OVEN, STOVE}
+public enum WorkspaceType {COUNTER, OVEN, STOVE}
 
 [RequireComponent(typeof(WorkspaceCoordinator)), RequireComponent(typeof(AudioSource))]
 public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType WorkspaceType;
     [SerializeField] int actionSoundID;
+    [SerializeField] ItemCoordinator startingItem; 
+
     ThrowingController chef;
     WorkspaceCoordinator coord;
 
@@ -34,9 +36,10 @@ public class WorkspaceController : MonoBehaviour
 
     void HaltRecipe()
     {
-        source.Stop();
+        if (source != null) source.Stop();
         StopAllCoroutines();
         if (readyToComplete) CompleteRecipe();
+        else coord.HideCookPrompt();
     }
 
     bool SetChef()
@@ -48,12 +51,13 @@ public class WorkspaceController : MonoBehaviour
     private void Start()
     {
         coord = GetComponent<WorkspaceCoordinator>();
+        if (startingItem) CatchItem(startingItem);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var item = collision.GetComponent<ItemCoordinator>();
-        if (item != null) CatchItem(item);
+        if (item != null && !item.GetItem().Equals(KitchenManager.instance.GetChef().GetHeldItem()) ) CatchItem(item);
     }
     void CatchItem(ItemCoordinator item)
     {
@@ -100,20 +104,30 @@ public class WorkspaceController : MonoBehaviour
     {
         readyToComplete = false;
         foreach (var item in toRemove) coord.removeItem(item);
-        
+
+        float taskCompletionScore = GetTaskCompletionQuality();
+        AudioManager.instance.PlaySound((taskCompletionScore > 0.5f) ? 6 : 5);
+
         CatchItem(KitchenManager.instance.CreateNewItemCoord(result, transform.position, GetResultQuality()));
         coord.HideCookPrompt();
+        source.Stop();
     }
     
     float GetResultQuality()
     {
-        float qual = coord.GetCurrentQuality();
-        float taskCompletionQuality = qual == 0 ? 1 : (qual == 1 ? 0.5f : 0);
         float previousIngredientAvg = CalcPrevQualityAvg();
+        var taskCompletionQuality = GetTaskCompletionQuality();
         if (toRemove.Count == 0 || previousIngredientAvg == -1) return taskCompletionQuality;
 
         float taskFactor = KitchenManager.instance.GetTaskFactor();
         return (taskCompletionQuality * taskFactor) + (previousIngredientAvg * (1 - taskFactor));
+    }
+
+    float GetTaskCompletionQuality()
+    {
+        float qual = coord.GetCurrentQuality();
+        float quality = qual == 0 ? 1 : (qual == 1 ? 0.5f : 0);
+        return quality;
     }
 
     float CalcPrevQualityAvg()

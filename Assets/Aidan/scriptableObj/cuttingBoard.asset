@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: Knife
+  m_Name: cuttingBoard
   m_EditorClassIdentifier: 
-  itemName: Knife
-  itemSprite: {fileID: 21300000, guid: cc06b7842d99dad41ab4a14ff360ea41, type: 3}
-  bigEquipment: 0
-  quality: 0.75
+  itemName: cutting board
+  itemSprite: {fileID: 21300000, guid: f28726af273f5d346a291bed7693de95, type: 3}
+  bigEquipment: 1
+  quality: 1
   disableQuality: 1
-  throwSoundID: 9
+  throwSoundID: 2

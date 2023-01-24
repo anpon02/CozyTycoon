@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     GameObject player;
     OrderController orderController;
     CameraShake shakeScript;
+    public UnityEvent OnStoreOpen;
+    public UnityEvent OnStoreClose;
     
     public void SetPlayer(GameObject _player) { player = _player; }
     public GameObject GetPlayer() { return player; }

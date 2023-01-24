@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: FriedChoppedPotato
+  m_Name: groundBeef
   m_EditorClassIdentifier: 
-  itemName: FriedChoppedPotatoes
-  itemSprite: {fileID: 21300000, guid: aadfbb685611b474fbe34df22eb1c4b2, type: 3}
+  itemName: Ground Beef
+  itemSprite: {fileID: 21300000, guid: 00ea7d098f9b9f94c8a4db865e2e3ce2, type: 3}
   bigEquipment: 0
   quality: 1
   disableQuality: 0
-  throwSoundID: 1
+  throwSoundID: 2

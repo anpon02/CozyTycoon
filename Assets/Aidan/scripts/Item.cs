@@ -43,6 +43,7 @@ public class Item : ScriptableObject
 
     public bool Equals(Item other)
     {
+        if (other == null) return false;
         return string.Equals(other.GetName(), GetName());
     }
 

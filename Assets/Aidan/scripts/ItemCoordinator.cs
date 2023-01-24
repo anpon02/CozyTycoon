@@ -19,7 +19,7 @@ public class ItemCoordinator : MonoBehaviour
     private void OnValidate() {
         if (item == null || string.IsNullOrEmpty(item.GetName())) return;
 
-        if (PrefabStageUtility.GetCurrentPrefabStage() != PrefabStageUtility.GetPrefabStage(gameObject)) gameObject.name = item.GetName();
+        if (PrefabStageUtility.GetCurrentPrefabStage() == null || PrefabStageUtility.GetCurrentPrefabStage() != PrefabStageUtility.GetPrefabStage(gameObject)) gameObject.name = item.GetName();
         if (sRend == null) GetReferences();
         sRend.sprite = item.GetSprite();
         UpdateRating();
