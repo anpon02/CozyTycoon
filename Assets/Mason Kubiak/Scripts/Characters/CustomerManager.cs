@@ -24,7 +24,11 @@ public class CustomerManager : MonoBehaviour
             Destroy(this);
 
         potentialTables = new List<Transform>();
-        WakeUp();
+    }
+
+    private void Start() {
+        GameManager.instance.OnStoreOpen.AddListener(WakeUp);
+        GameManager.instance.OnStoreClose.AddListener(EveryoneLeave);
     }
 
     public void WakeUp() {
@@ -34,8 +38,15 @@ public class CustomerManager : MonoBehaviour
         }
 
         // start customers coming
-        potentialCustomers = customers;
+        potentialCustomers = new List<Transform>(customers);
         StartCoroutine("StartSendingCustomers");
+    }
+
+    public void EveryoneLeave() {
+        StopCoroutine("StartSendingCustomers");
+        foreach(Transform customer in customers) {
+            customer.GetComponent<CustomerMovement>().LeaveRestaurant();
+        }
     }
 
     private void CalculatePotentialTables() {

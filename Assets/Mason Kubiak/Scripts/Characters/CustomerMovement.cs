@@ -29,7 +29,7 @@ public class CustomerMovement : MonoBehaviour
     }
 
     public void LeaveRestaurant() {
-        if(!cust.GetHasReceivedFood()) {
+        if(transform.position != exitPoint) {
             seek.StartPath(transform.position, exitPoint);
             currentTable.SetIsTaken(false);
         }
