@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -11,7 +12,7 @@ public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType WorkspaceType;
     [SerializeField] int actionSoundID;
-    [SerializeField] ItemCoordinator startingItem; 
+    [SerializeField] ItemCoordinator startingItem;
 
     ThrowingController chef;
     WorkspaceCoordinator coord;
@@ -21,25 +22,33 @@ public class WorkspaceController : MonoBehaviour
     Item result;
     List<Item> toRemove;
     float makeTime;
+    bool tryingToMakeRecipe = true;
 
 
     private void OnMouseDown() {
-        if (!SetChef()) return;
+        if (!SetChef() ||chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
 
-        if (chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
+        tryingToMakeRecipe = false;
+        var newCompletedDish = HaltRecipe();
+        tryingToMakeRecipe = true;
 
-        HaltRecipe();
-
-        var item = coord.removeItem();
-        chef.HoldNewItem(item);
+        if (newCompletedDish) {
+            coord.removeItem(newCompletedDish.GetItem());
+            chef.HoldNewItem(newCompletedDish);
+        }
+        CheckRecipes();
     }
 
-    void HaltRecipe()
+    ItemCoordinator HaltRecipe()
     {
+        ItemCoordinator newResult = null;
+
         if (source != null) source.Stop();
         StopAllCoroutines();
-        if (readyToComplete) CompleteRecipe();
+        if (readyToComplete) newResult = CompleteRecipe();
         else coord.HideCookPrompt();
+
+        return newResult;
     }
 
     bool SetChef()
@@ -56,30 +65,31 @@ public class WorkspaceController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var item = collision.GetComponent<ItemCoordinator>();
-        if (item != null && !item.GetItem().Equals(KitchenManager.instance.GetChef().GetHeldItem()) ) CatchItem(item);
+        var iCoord = collision.GetComponent<ItemCoordinator>();
+        if (iCoord != null && !iCoord.GetItem().Equals(KitchenManager.instance.GetChef().GetHeldItem()) ) CatchItem(iCoord);
     }
-    void CatchItem(ItemCoordinator item)
+    void CatchItem(ItemCoordinator iCoord)
     {
-        if (!coord.HasRoom(item.GetItem())) return;
+        if (!coord.HasRoom(iCoord.GetItem()) || coord.HasItem(iCoord)) return;
 
-        item.Hide();
-        coord.AddItem(item);
+        iCoord.Hide();
+        coord.AddItem(iCoord);
         CheckRecipes();
     }
 
     void CheckRecipes() {
+        if (!tryingToMakeRecipe) return;
         int currentOptions = RecipeManager.instance.numValidOptions(coord.GetHeldItems(), this);
         if (currentOptions == 1) MakeRecipe();
     }
 
     void MakeRecipe() {
         RecipeManager.instance.CanCombine(out result, out toRemove, out makeTime, coord.GetHeldItems(), this);
-        StartCoroutine(CompleteRecipe(result, toRemove, makeTime));
+        StartCoroutine(ExecuteRecipe(result, toRemove, makeTime));
     }
 
-    IEnumerator CompleteRecipe(Item result, List<Item> toRemove, float makeTime) 
-    { 
+    IEnumerator ExecuteRecipe(Item result, List<Item> toRemove, float makeTime) 
+    {
         coord.DisplayPrompt();
         float timeRemaining = makeTime;
         while (timeRemaining >= 0) {
@@ -87,6 +97,7 @@ public class WorkspaceController : MonoBehaviour
             timeRemaining -= Time.deltaTime;
             readyToComplete = coord.SetPromptvalue(1 - (timeRemaining / makeTime));
             if (readyToComplete) coord.previewResult(result.GetSprite());
+            
             yield return new WaitForEndOfFrame();
         }
         
@@ -100,7 +111,7 @@ public class WorkspaceController : MonoBehaviour
         if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
     }
 
-    void CompleteRecipe()
+    ItemCoordinator CompleteRecipe()
     {
         readyToComplete = false;
         foreach (var item in toRemove) coord.removeItem(item);
@@ -108,9 +119,12 @@ public class WorkspaceController : MonoBehaviour
         float taskCompletionScore = GetTaskCompletionQuality();
         AudioManager.instance.PlaySound((taskCompletionScore > 0.5f) ? 6 : 5);
 
-        CatchItem(KitchenManager.instance.CreateNewItemCoord(result, transform.position, GetResultQuality()));
+        ItemCoordinator newResult = KitchenManager.instance.CreateNewItemCoord(result, transform.position, GetResultQuality());
+        CatchItem(newResult);
         coord.HideCookPrompt();
         source.Stop();
+
+        return newResult;
     }
     
     float GetResultQuality()

@@ -52,6 +52,7 @@ public class ThrowingController : MonoBehaviour
 
     void ReleaseThrow()
     {
+        print("throwing");
         if (heldItem == null) return;
 
         heldItem.transform.parent = null;
