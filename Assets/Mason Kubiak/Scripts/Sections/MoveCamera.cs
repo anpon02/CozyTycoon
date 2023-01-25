@@ -25,7 +25,7 @@ public class MoveCamera : MonoBehaviour
         if(cam.transform.position == currentPos) return;
 
         if(Vector3.Distance(cam.transform.position, currentPos) > 0.05f)
-            cam.transform.position = Vector3.Lerp(cam.transform.position, currentPos, interpolationValue);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, currentPos, interpolationValue * Time.deltaTime);
         else
             cam.transform.position = currentPos;
     }

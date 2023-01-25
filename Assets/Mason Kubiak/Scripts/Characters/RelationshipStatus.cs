@@ -14,7 +14,13 @@ public class RelationshipStatus : MonoBehaviour
     [Range(0, 1.0f)]
     [SerializeField] private float maxOrderValue;
 
+    private CustomerParticle custParticle;
+
     // TODO: add maxInteractionValue that follows same principles as maxOrderValue
+
+    private void Awake() {
+        custParticle = transform.parent.GetComponentInChildren<CustomerParticle>();
+    }
 
     public float GetRelationshipValue() {
         return relationshipValue;
@@ -43,5 +49,7 @@ public class RelationshipStatus : MonoBehaviour
         }
         else
             print("you gave the customer mediocre food");
+        
+        custParticle.EmitThumb(foodQualityValue);
     }
 }
