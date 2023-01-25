@@ -141,13 +141,14 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public bool HasRoom(List<Item> listToAdd)
     {
-        int normalItemCapacity = Capacity();
+        int normalItemCapacity = Capacity() - HeldItemCount();
         int bigEquipmentCapacity = roomForBigEquipment() ? 1 : 0;
 
         foreach (var toAdd in listToAdd) {
             if (toAdd.IsBigEquipment()) bigEquipmentCapacity -= 1;
             else normalItemCapacity -= 1;
         }
+        print("toadd.cout: " + listToAdd.Count + ", normalItemCap: " + normalItemCapacity + ", capacity: " + Capacity());
         return normalItemCapacity >= 0 && bigEquipmentCapacity >= 0;
     }
 

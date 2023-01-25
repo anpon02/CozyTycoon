@@ -32,7 +32,7 @@ public class CustomerOrderController : MonoBehaviour
 
     bool CorrectFoodHeld()
     {
-        if (!GetChef()) return false;
+        if (!GetChef() || chef.GetHeldItem() == null) return false;
         return chef.GetHeldItem().Equals(desiredItem);
     }
 
