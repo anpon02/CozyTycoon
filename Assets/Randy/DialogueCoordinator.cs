@@ -7,20 +7,15 @@ using Ink.Runtime;
 
 public class DialogueCoordinator : MonoBehaviour
 {
-    [SerializeField] private DialogueController controller;
-
     [Header("UI Elements")]
     [SerializeField] private Image uiPanel;
     [SerializeField] private TextMeshProUGUI speakerText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Image leftSpeakerImage;
-    [SerializeField] private Image rightSpeakerImage;
 
     [Header("Ink Integration")]
+    [SerializeField] private InkParser parser;
     [SerializeField] private Story currentStory;
-
-    [Header("Testing, remove later")]
-    [SerializeField] private TextAsset inkStory;
 
     private Coroutine writeDialogue;
 
@@ -63,10 +58,7 @@ public class DialogueCoordinator : MonoBehaviour
             for (int i = 0; i < lineText.Length; i++)
             {
                 int intAlpha = (int)Mathf.Round(panelGroup.alpha*255);
-                // if player in fadeoutThreshold
-                    // place text as normal
-                    dialogueText.text += "<alpha=#" + intAlpha.ToString("X2") + ">" + lineText[i];
-                // else output some jarbled characters from some pool (offload to outside function)
+                dialogueText.text += "<alpha=#" + intAlpha.ToString("X2") + ">" + lineText[i];
 
                 // play sound (outside function)
 
@@ -88,8 +80,6 @@ public class DialogueCoordinator : MonoBehaviour
         dialogueText.text= string.Empty;
         leftSpeakerImage.sprite = null;
         leftSpeakerImage.gameObject.SetActive(false);
-        rightSpeakerImage.sprite = null;
-        rightSpeakerImage.gameObject.SetActive(false);
     }
 
     public IEnumerator PanelFadeout()
