@@ -16,10 +16,10 @@ VAR CurrentStoryState = 0
 }
 
 == story_0 ==
-This is first story
+This is first story #Speaker : Guy #Image : normal
 // * okay
 The character feels {CurrentMood} Right now.
-End story ends here
+End story ends here #Image: good
 - ~CurrentMood++
 ~ CurrentStoryState++
 -> DONE

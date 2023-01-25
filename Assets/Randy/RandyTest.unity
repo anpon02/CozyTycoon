@@ -347,7 +347,7 @@ MonoBehaviour:
   speakerText: {fileID: 1085247857}
   dialogueText: {fileID: 1365309189}
   leftSpeakerImage: {fileID: 4970070}
-  parser: {fileID: 0}
+  parser: {fileID: 535910282}
 --- !u!114 &535910281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648d41b42f693a47a281a2a016f3b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinator: {fileID: 0}
+  coordinator: {fileID: 535910280}
 --- !u!1 &706925209
 GameObject:
   m_ObjectHideFlags: 0
