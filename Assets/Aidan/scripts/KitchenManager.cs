@@ -10,6 +10,7 @@ public class KitchenManager : MonoBehaviour
     ThrowingController chef;
     [Range(0, 1)]
     [SerializeField] float taskFactor = 0.5f;
+    public float playerReach = 5;
 
     [Header("Prefabs")]
     [SerializeField] GameObject itemCoordPrefab;

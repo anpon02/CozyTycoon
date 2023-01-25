@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using System.Drawing;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
@@ -11,57 +12,54 @@ public class WorkspaceCoordinator : MonoBehaviour
     {
         [HideInInspector] public string name;
         [SerializeField] List<SpriteRenderer> displays;
-
+        List<ItemCoordinator> iCoords = new List<ItemCoordinator>();
         
-        public void ResetAll() {
-            foreach (var s in displays) {
-                s.sprite = null;
-                s.enabled = false;
-            }
-        }
-        public void Set(List<Sprite> sprites) {
-            ResetAll();
-            for (int i = 0; i < sprites.Count; i++) {
-                if (displays.Count == i) break;
-                displays[i].sprite = sprites[i];
-                displays[i].enabled = true;
-            }
-        }
-        public void Set(Sprite _sprite)
+        public void FakeDisplay(Sprite sprite)
         {
-            ResetAll();
-            displays[0].sprite = _sprite;
-            displays[0].enabled = true;   
-        }
-        public bool Add(Sprite newSprite) {
-            if (FreeSlots() == 0) return false;
-
-            for (int i = 0; i < displays.Count; i++) {
-                if (displays[i].enabled) continue;
-                else {
-                    displays[i].sprite = newSprite;
-                    displays[i].enabled = true;
-                    return true;
-                }
-            }
-            return false;
+            displays[0].enabled = true;
+            displays[0].sprite = sprite;
         }
 
+        public void Add(List<ItemCoordinator> _iCoords, WorkspaceCoordinator _wsCoord)
+        {
+            foreach (var i in _iCoords) Add(i, _wsCoord);
+        }
+        public bool Add(ItemCoordinator iCoord, WorkspaceCoordinator _wsCoord) {
+            if (FreeSlots() == 0 || iCoords.Contains(iCoord)) return false;
 
+            iCoord.SetDisplayParent(displays[iCoords.Count].transform, _wsCoord);
+            iCoord.gameObject.SetActive(true);
+            iCoords.Add(iCoord);
+            return true;
+        }
         public int FreeSlots() {
-            int numFree = displays.Count;
-            foreach (var d in displays) if (d.enabled) numFree -= 1;
-            return numFree;
+            return displays.Count - iCoords.Count;
         }
         public int Capacity() {
             return displays.Count;
         }
+
+        public List<ItemCoordinator> removeAll()
+        {
+            displays[0].enabled = false;
+            foreach (var i in iCoords) {
+                i.gameObject.SetActive(false);
+                i.FreeFromDisplayParent();
+            }
+            return iCoords;
+        }
+
+        public bool Active()
+        {
+            return iCoords.Count > 0;
+        }
+
     }
     
     [SerializeField] List<DisplayListHolder> itemDisplays = new List<DisplayListHolder>();
     [SerializeField] SpriteRenderer bigEquipmentSprite;
     [SerializeField] CookPromptCoordinator cookPrompt;
-    List<ItemCoordinator> heldItems = new List<ItemCoordinator>();
+    List<ItemCoordinator> iCoords = new List<ItemCoordinator>();
     ItemCoordinator bigItem;
 
     private void OnValidate()
@@ -90,35 +88,29 @@ public class WorkspaceCoordinator : MonoBehaviour
         if (!cookPrompt) return false;
         return cookPrompt.SetSlider(value);
     }
-
-    public void previewResult(Sprite newsprite)
-    {
-        foreach (var i in itemDisplays) i.ResetAll();
-        itemDisplays[0].Set(newsprite);
-    }
-
     public void DisplayPrompt() {
         if (!HasCookPrompt()) return;
         StartProgressBar();
     }
-
     public void DisplayPrompt(Item possibleResult) {
         if (!HasCookPrompt()) return;
 
         StartProgressBar(possibleResult);
     }
-
     private void StartProgressBar(Item result = null) {
         cookPrompt.gameObject.SetActive(true);
         if (result) cookPrompt.Begin();
         else cookPrompt.Begin();
     }
-
+    public void previewResult(Sprite itemSprite)
+    {
+        foreach (var i in itemDisplays) i.removeAll();
+        itemDisplays[0].FakeDisplay(itemSprite);
+    }
     public void HideCookPrompt() {
         if (!cookPrompt) return;
         cookPrompt.Hide();
     }
-
     public bool HasCookPrompt() {
         return cookPrompt != null;
     }
@@ -132,6 +124,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         return capacity;
     }
 
+    public bool HasItem (ItemCoordinator iCoord)
+    {
+        return iCoords.Contains(iCoord);
+    }
+
     public bool HasRoom(Item wantToAdd)
     {
         var newList = new List<Item>();
@@ -141,92 +138,79 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public bool HasRoom(List<Item> listToAdd)
     {
-        int normalItemCapacity = Capacity() - HeldItemCount();
+        int normalItemCapacity = Capacity();
         int bigEquipmentCapacity = roomForBigEquipment() ? 1 : 0;
 
         foreach (var toAdd in listToAdd) {
             if (toAdd.IsBigEquipment()) bigEquipmentCapacity -= 1;
             else normalItemCapacity -= 1;
         }
-        print("toadd.cout: " + listToAdd.Count + ", normalItemCap: " + normalItemCapacity + ", capacity: " + Capacity());
+        foreach (var i in iCoords) {
+            if (i.GetItem().IsBigEquipment()) bigEquipmentCapacity -= 1;
+            else normalItemCapacity -= 1;
+        }
         return normalItemCapacity >= 0 && bigEquipmentCapacity >= 0;
     }
 
     public bool IsFull() {
-        return Capacity() > heldItems.Count;
+        return Capacity() > iCoords.Count;
     }
 
     public int HeldItemCount() {
-        return heldItems.Count + (bigItem ? 1 : 0);
+        return iCoords.Count + (bigItem ? 1 : 0);
     }
 
     public void AddItem(ItemCoordinator newItem)
     {
+        if (true) {
+            string s = "items: ";
+            foreach (var i in iCoords) s += i.GetItem().GetName() + ", ";
+            print(s + ", adding: " + newItem.GetItem().GetName());
+        }
         if (newItem.GetItem().IsBigEquipment()) bigItem = newItem;
-        else heldItems.Add(newItem);
+        else iCoords.Add(newItem);
         UpdateItemDisplay();
     }
+
+    public void removeItem(ItemCoordinator toRemove)
+    {
+        //can inturrupt cooking process??
+        iCoords.Remove(toRemove);
+        UpdateItemDisplay();
+    }
+
     public ItemCoordinator removeItem(Item toRemove) {
         var coord = default(ItemCoordinator);
-        for (int i = 0; i < heldItems.Count; i++) {
-            if (heldItems[i].GetItem().Equals(toRemove)) {
-                coord = heldItems[i];
+        for (int i = 0; i < iCoords.Count; i++) {
+            if (iCoords[i].GetItem().Equals(toRemove)) {
+                coord = iCoords[i];
                 break;
             }
         }
-        heldItems.Remove(coord);
+        iCoords.Remove(coord);
+        UpdateItemDisplay();
         return coord;
     }
 
-    public ItemCoordinator removeItem() {
-        ItemCoordinator item = null;
-        if (heldItems.Count == 0) {
-            item = bigItem;
-            bigItem = null;
-        }
-        else {
-            item = heldItems[heldItems.Count - 1];
-            heldItems.Remove(item);
-        }
-        UpdateItemDisplay();
-        return item;
-    }
-
-    public void UpdateItemDisplay()
+    void UpdateItemDisplay()
     {
-        HideAllItems();
-        DisplayItems(heldItems.Count);
-    }
-
-    void HideAllItems()
-    {
-        foreach (var i in itemDisplays) i.ResetAll();
-    }
-
-    List<Sprite> GetItemSpriteLists(List<ItemCoordinator> itemList) 
-    {
-        var spriteList = new List<Sprite>();
-        foreach (var i in itemList) spriteList.Add(i.GetItemSprite());
-        return spriteList;
-    }
-
-    void DisplayItems(int count)
-    {
-        if (bigEquipmentSprite) DisplayBigItem();
+        UpdateBigItemDisplay();
+        foreach (var iDisplay in itemDisplays) iDisplay.removeAll();
         for (int i = 0; i < itemDisplays.Count; i++) {
-            if (i + 1 == count) itemDisplays[i].Set(GetItemSpriteLists(heldItems));
+            if (i + 1 == iCoords.Count) itemDisplays[i].Add(iCoords, this);
         }
     }
 
-    void DisplayBigItem()
+    void UpdateBigItemDisplay()
     {
+        if (!bigEquipmentSprite) return;
         bigEquipmentSprite.enabled = bigItem != null;
         bigEquipmentSprite.sprite = bigItem ? bigItem.GetItemSprite() : null;
     }
 
     public List<Item> GetHeldItems() {
         var items = new List<Item>();
-        foreach(var i in heldItems) items.Add(i.GetItem());
+        foreach(var i in iCoords) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
         return items;
     }
