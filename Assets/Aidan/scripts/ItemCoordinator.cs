@@ -15,7 +15,7 @@ public class ItemCoordinator : MonoBehaviour
     ThrowingController chef;
     Rigidbody2D rb;
     SpriteRenderer sRend;
-    bool isFree;
+    public bool isFree;
 
     WorkspaceCoordinator wsCoord;
     Quaternion defaultRot;
@@ -40,12 +40,18 @@ public class ItemCoordinator : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach()) return;
+        if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach() || IsBigAndInWS()) return;
+        KitchenManager.instance.ttCoord.DisplayItem(item);
         outline.gameObject.SetActive(true);
+    }
+
+    bool IsBigAndInWS() {
+        return item.IsBigEquipment() && wsCoord != null && wsCoord.HeldItemCount > 1;
     }
 
     private void OnMouseExit()
     {
+        KitchenManager.instance.ttCoord.ClearText(item);
         outline.gameObject.SetActive(false);
     }
 
@@ -93,15 +99,6 @@ public class ItemCoordinator : MonoBehaviour
         UpdateQualityDisplay();
     }
 
-    public bool IsFree()
-    {
-        return isFree;
-    }
-    public void SetFree(bool _free)
-    {
-        isFree = _free;
-    }
-
     void HideQualityDisplay() {
         foreach (var s in stars) s.gameObject.SetActive(false);
     }
@@ -113,6 +110,8 @@ public class ItemCoordinator : MonoBehaviour
         var starIndex = -1;
         Color col = Color.black;
         foreach (var s in stars) s.gameObject.SetActive(false);
+        return;
+
         if (item.GetQuality() == -1) return;
 
         var qual = item.GetQuality();
@@ -154,7 +153,10 @@ public class ItemCoordinator : MonoBehaviour
         item = Instantiate(item);
         item.SetQuality(1);
         GetReferences();
-        if (item.IsBigEquipment()) sRend.sortingOrder = -1;
+        if (item.IsBigEquipment()) {
+            sRend.sortingOrder = -1;
+            outline.sortingOrder = -2;
+        }
     }
 
     void GetReferences() {

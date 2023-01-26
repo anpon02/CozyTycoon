@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  obstacleLayerNum: 0
 --- !u!114 &2315233000872723385
 MonoBehaviour:
   m_ObjectHideFlags: 0

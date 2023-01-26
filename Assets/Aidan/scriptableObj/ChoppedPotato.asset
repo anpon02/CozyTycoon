@@ -15,6 +15,9 @@ MonoBehaviour:
   itemName: ChoppedPotato
   itemSprite: {fileID: 21300000, guid: e76a2217e3840ed42a9829ba00bd308f, type: 3}
   bigEquipment: 0
-  quality: 1
+  quality: 0.75
   disableQuality: 0
   throwSoundID: 1
+  topQualDescript: Perfectly sized potato chunks
+  medQualDescript: Some chopped potatoes
+  lowQualDescript: Rough chunks of chopped potato

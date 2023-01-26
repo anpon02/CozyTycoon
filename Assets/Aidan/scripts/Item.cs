@@ -12,6 +12,10 @@ public class Item : ScriptableObject
     [SerializeField] float quality = 1;
     [SerializeField] bool disableQuality;
     [SerializeField] int throwSoundID;
+    [SerializeField] string topQualDescript;
+    [SerializeField] string medQualDescript;
+    [SerializeField] string lowQualDescript;
+    public string description { get { return GetDescription(); } }
 
     public Sprite GetSprite() {
         return itemSprite;
@@ -66,5 +70,12 @@ public class Item : ScriptableObject
             if (Equals(list[i])) break;
         }
         list.RemoveAt(index);
+    }
+
+    string GetDescription() {
+        Vector2 cutoffs = KitchenManager.instance.midHighQualityCutoff;
+        if (quality > cutoffs.y) return topQualDescript;
+        if (quality > cutoffs.x) return medQualDescript;
+        return lowQualDescript;
     }
 }

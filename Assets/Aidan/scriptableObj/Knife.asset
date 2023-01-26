@@ -18,3 +18,6 @@ MonoBehaviour:
   quality: 0.75
   disableQuality: 1
   throwSoundID: 9
+  topQualDescript: A flawless blade
+  medQualDescript: A standard blade
+  lowQualDescript: An old, dull knife
