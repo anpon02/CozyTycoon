@@ -134,7 +134,7 @@ public class CookPromptCoordinator : MonoBehaviour
         if (dist < distanceCutoff.x) value = 0;
         else if (dist < distanceCutoff.y) value = 1;
         else value = 2;
-        //print("dist: " + dist + ", rating: " + value);
+        print("dist: " + dist + ", rating: " + value);
 
         return value;
     }

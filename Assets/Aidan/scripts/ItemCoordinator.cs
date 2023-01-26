@@ -39,7 +39,7 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Update()
     {
-        if (CanPickUp()) outline.enabled = true;
+        if (CanPickUp() && chef && chef.GetHeldiCoord() != this) outline.enabled = true;
         else outline.enabled = false;
     }
 
@@ -178,5 +178,6 @@ public class ItemCoordinator : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        UpdateQualityDisplay();
     }
 }

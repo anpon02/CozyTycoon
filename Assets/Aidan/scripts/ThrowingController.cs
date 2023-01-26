@@ -12,6 +12,8 @@ public class ThrowingController : MonoBehaviour
     [SerializeField] float maxHoldTime;
     [SerializeField] float throwMult = 100;
     [SerializeField] ThrowIndicatorCoordinator throwCoord;
+    [SerializeField] Vector3 itemLocalPosition;
+    [SerializeField] Vector3 itemLocalEulers;
     Vector2 mouseWorldPos;
     bool mouseDown;
     float mouseDownTime;
@@ -32,7 +34,8 @@ public class ThrowingController : MonoBehaviour
 
         item.StopMoving();
         item.transform.parent = transform;
-        item.transform.localPosition = Vector3.zero;
+        item.transform.localPosition = itemLocalPosition;
+        item.transform.localEulerAngles = itemLocalEulers;
         heldItem = item;
     }
 

@@ -17,7 +17,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         public void FakeDisplay(Sprite sprite)
         {
             displays[0].enabled = true;
-            displays[0].sprite = sprite;
+            displays[0].sprite = sprite;            
         }
 
         public void Add(List<ItemCoordinator> _iCoords, WorkspaceCoordinator _wsCoord)
@@ -111,6 +111,8 @@ public class WorkspaceCoordinator : MonoBehaviour
     public void previewResult(Sprite itemSprite)
     {
         foreach (var i in itemDisplays) i.removeAll();
+        foreach (var i in iCoords) i.gameObject.SetActive(false);
+        bigItem.gameObject.SetActive(false);
         itemDisplays[0].FakeDisplay(itemSprite);
     }
     public void HideCookPrompt() {
@@ -181,10 +183,10 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public void removeItem(ItemCoordinator toRemove)
     {
-        //can inturrupt cooking process??
         iCoords.Remove(toRemove);
         if (toRemove == bigItem) bigItem = null;
         UpdateItemDisplay();
+        GetComponent<WorkspaceController>().UpdateAfterRemoveItem();
     }
 
     public ItemCoordinator removeItem(Item toRemove) {

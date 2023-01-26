@@ -34,14 +34,22 @@ public class WorkspaceController : MonoBehaviour
         print("mouseDown! newcompletedDish: " + newCompletedDish);
         tryingToMakeRecipe = true;
 
-        if (newCompletedDish) {
-            newCompletedDish.GetItem().SetQuality(GetResultQuality());
+        if (newCompletedDish != null) {
+            print("GOT COMPLETED DISH. quality: " + GetResultQuality());
+            //newCompletedDish.GetItem().SetQuality(GetResultQuality());
             coord.removeItem(newCompletedDish.GetItem());
             chef.HoldNewItem(newCompletedDish);
         }
         CheckRecipes();
     }
 
+    public void UpdateAfterRemoveItem()
+    {
+        tryingToMakeRecipe = false;
+        var newCompletedDish = HaltRecipe();
+        tryingToMakeRecipe = true;
+        CheckRecipes();
+    }
     ItemCoordinator HaltRecipe()
     {
         ItemCoordinator newResult = null;
@@ -167,7 +175,9 @@ public class WorkspaceController : MonoBehaviour
             }
         }
         if (count == 0) return -1;
-        return previousIngredientAvg /= count;
+        float qual = previousIngredientAvg /= count;
+        print("previous item quality: " + qual);
+        return qual;
     }
 
     public WorkspaceType GetWSType() {
