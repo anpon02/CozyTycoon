@@ -74,6 +74,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (bigEquipmentSprite) bigEquipmentSprite.transform.SetAsFirstSibling();
+    }
+
     public int GetCurrentQuality()
     {
         if (cookPrompt == null) return -1;
@@ -158,19 +163,20 @@ public class WorkspaceCoordinator : MonoBehaviour
     }
 
     public int HeldItemCount() {
+        print("heldItemCount: " + (iCoords.Count + (bigItem ? 1 : 0)));
         return iCoords.Count + (bigItem ? 1 : 0);
     }
 
     public void AddItem(ItemCoordinator newItem)
     {
-        if (true) {
+        if (false) {
             string s = "items: ";
             foreach (var i in iCoords) s += i.GetItem().GetName() + ", ";
             print(s + ", adding: " + newItem.GetItem().GetName());
         }
         if (newItem.GetItem().IsBigEquipment()) bigItem = newItem;
         else iCoords.Add(newItem);
-        UpdateBigItemDisplay();
+        UpdateItemDisplay();
     }
 
     public void removeItem(ItemCoordinator toRemove)
@@ -215,5 +221,9 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach(var i in iCoords) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
         return items;
+    }
+    public List<ItemCoordinator> GetHeldiCoords()
+    {
+        return iCoords;
     }
 }

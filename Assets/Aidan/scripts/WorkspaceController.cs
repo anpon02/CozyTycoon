@@ -26,13 +26,16 @@ public class WorkspaceController : MonoBehaviour
 
 
     private void OnMouseDown() {
+        print("CLICKED!");
         if (!SetChef() ||chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
 
         tryingToMakeRecipe = false;
         var newCompletedDish = HaltRecipe();
+        print("mouseDown! newcompletedDish: " + newCompletedDish);
         tryingToMakeRecipe = true;
 
         if (newCompletedDish) {
+            newCompletedDish.GetItem().SetQuality(GetResultQuality());
             coord.removeItem(newCompletedDish.GetItem());
             chef.HoldNewItem(newCompletedDish);
         }
@@ -66,11 +69,20 @@ public class WorkspaceController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var iCoord = collision.GetComponent<ItemCoordinator>();
-        if (iCoord != null && !iCoord.GetItem().Equals(KitchenManager.instance.GetChef().GetHeldItem()) ) CatchItem(iCoord);
+
+        if (ValidiCood(iCoord)) CatchItem(iCoord);
     }
+    bool ValidiCood(ItemCoordinator iCoord)
+    {
+        if (iCoord == null) return false;
+        if (iCoord == KitchenManager.instance.GetChef().GetHeldiCoord()) return false;
+        return true;
+    }
+    
+
     void CatchItem(ItemCoordinator iCoord)
     {
-        if (!coord.HasRoom(iCoord.GetItem()) || coord.HasItem(iCoord)) return;
+        if (!coord.HasRoom(iCoord.GetItem()) || coord.HasItem(iCoord) || iCoord.InWS()) return;
 
         iCoord.Hide();
         coord.AddItem(iCoord);

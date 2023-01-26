@@ -39,17 +39,20 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Update()
     {
-        if (InReach()) outline.enabled = true;
+        if (CanPickUp()) outline.enabled = true;
         else outline.enabled = false;
     }
 
-    bool InReach()
+    bool CanPickUp()
     {
-        return Vector2.Distance(KitchenManager.instance.GetChef().transform.position, transform.position) <= KitchenManager.instance.playerReach;
+        bool InReach = Vector2.Distance(KitchenManager.instance.GetChef().transform.position, transform.position) <= KitchenManager.instance.playerReach;
+        if (item.IsBigEquipment() && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && InReach);
+        return InReach;
     }
 
     public void SetDisplayParent(Transform displayParent, WorkspaceCoordinator _wsCoord)
     {
+        //print("setting display parent for: " + item.GetName() + ", " + _wsCoord.gameObject.name);
         wsCoord = _wsCoord;
         transform.parent = displayParent;
         transform.localEulerAngles = Vector3.zero;
@@ -58,8 +61,13 @@ public class ItemCoordinator : MonoBehaviour
 
         HideQualityDisplay();
     }
+    public bool InWS()
+    {
+        return wsCoord != null;
+    }
     public void FreeFromDisplayParent()
     {
+        //print(gameObject.name + " freed from parent: " + wsCoord.gameObject.name);
         wsCoord = null;
         transform.parent = null;
         transform.localEulerAngles = defaultLocalScale;
@@ -129,6 +137,7 @@ public class ItemCoordinator : MonoBehaviour
         item = Instantiate(item);
         item.SetQuality(1);
         GetReferences();
+        if (item.IsBigEquipment()) sRend.sortingOrder = -1;
     }
 
     void GetReferences() {
@@ -138,8 +147,11 @@ public class ItemCoordinator : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!SetChef() || !InReach() || chef.GetHeldItem() != null) return;
-        if (wsCoord) wsCoord.removeItem(this);
+        if (!SetChef() || !CanPickUp() || chef.GetHeldItem() != null) return;
+        if (wsCoord) {
+            wsCoord.removeItem(this);
+            FreeFromDisplayParent();
+        }
         chef.HoldNewItem(this);
     }
 
