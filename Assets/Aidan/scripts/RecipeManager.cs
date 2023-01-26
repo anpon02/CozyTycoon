@@ -31,7 +31,7 @@ public class RecipeManager : MonoBehaviour
 
     List<Recipe> GetValidRecipes(List<Item> _ingredients, WorkspaceController ws) {
         var valid = new List<Recipe>();
-        foreach (var r in allRecipes) if (r.IsValid(out var result, out var consumer, _ingredients, ws.GetWSType())) valid.Add(r);
+        foreach (var r in allRecipes) if (r.IsValid(out var result, out var consumer, _ingredients, ws.workSpaceType)) valid.Add(r);
         return valid;
     }
 

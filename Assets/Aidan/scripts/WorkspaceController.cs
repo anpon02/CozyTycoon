@@ -10,114 +10,79 @@ public enum WorkspaceType {COUNTER, OVEN, STOVE}
 [RequireComponent(typeof(WorkspaceCoordinator)), RequireComponent(typeof(AudioSource))]
 public class WorkspaceController : MonoBehaviour
 {
-    [SerializeField] WorkspaceType WorkspaceType;
+    [SerializeField] WorkspaceType _workspaceType;
+    public WorkspaceType workSpaceType { get; private set; }
     [SerializeField] int actionSoundID;
     [SerializeField] ItemCoordinator startingItem;
 
     ThrowingController chef;
     WorkspaceCoordinator coord;
+    KitchenManager kManag;
 
     AudioSource source;
-    bool readyToComplete;
     Item result;
     List<Item> toRemove;
     float makeTime;
-    bool tryingToMakeRecipe = true;
 
-
-    private void OnMouseDown() {
-        print("CLICKED!");
-        if (!SetChef() ||chef.IsHoldingItem() || coord.HeldItemCount() == 0) return;
-
-        tryingToMakeRecipe = false;
-        var newCompletedDish = HaltRecipe();
-        print("mouseDown! newcompletedDish: " + newCompletedDish);
-        tryingToMakeRecipe = true;
-
-        if (newCompletedDish != null) {
-            print("GOT COMPLETED DISH. quality: " + GetResultQuality());
-            //newCompletedDish.GetItem().SetQuality(GetResultQuality());
-            coord.removeItem(newCompletedDish.GetItem());
-            chef.HoldNewItem(newCompletedDish);
-        }
-        CheckRecipes();
-    }
-
-    public void UpdateAfterRemoveItem()
+    private void OnValidate()
     {
-        tryingToMakeRecipe = false;
-        var newCompletedDish = HaltRecipe();
-        tryingToMakeRecipe = true;
-        CheckRecipes();
-    }
-    ItemCoordinator HaltRecipe()
-    {
-        ItemCoordinator newResult = null;
-
-        if (source != null) source.Stop();
-        StopAllCoroutines();
-        if (readyToComplete) newResult = CompleteRecipe();
-        else coord.HideCookPrompt();
-
-        return newResult;
-    }
-
-    bool SetChef()
-    {
-        if (KitchenManager.instance) chef = KitchenManager.instance.GetChef();
-        return chef != null;
+        workSpaceType = _workspaceType;
     }
 
     private void Start()
     {
+        kManag = KitchenManager.instance;
         coord = GetComponent<WorkspaceCoordinator>();
         if (startingItem) CatchItem(startingItem);
+        
     }
+
+    public void HaltRecipe()
+    {
+        if (source != null) source.Stop();
+        StopAllCoroutines();
+        coord.HideCookPrompt();
+        CheckRecipes();
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var iCoord = collision.GetComponent<ItemCoordinator>();
-
         if (ValidiCood(iCoord)) CatchItem(iCoord);
     }
     bool ValidiCood(ItemCoordinator iCoord)
     {
         if (iCoord == null) return false;
-        if (iCoord == KitchenManager.instance.GetChef().GetHeldiCoord()) return false;
+        if (iCoord == kManag.GetChef().GetHeldiCoord()) return false;
         return true;
     }
     
-
     void CatchItem(ItemCoordinator iCoord)
     {
         if (!coord.HasRoom(iCoord.GetItem()) || coord.HasItem(iCoord) || iCoord.InWS()) return;
-
-        iCoord.Hide();
         coord.AddItem(iCoord);
         CheckRecipes();
     }
 
     void CheckRecipes() {
-        if (!tryingToMakeRecipe) return;
         int currentOptions = RecipeManager.instance.numValidOptions(coord.GetHeldItems(), this);
-        if (currentOptions == 1) MakeRecipe();
+        if (currentOptions >= 1) StartRecipe();
     }
 
-    void MakeRecipe() {
+    void StartRecipe() {
         RecipeManager.instance.CanCombine(out result, out toRemove, out makeTime, coord.GetHeldItems(), this);
-        StartCoroutine(ExecuteRecipe(result, toRemove, makeTime));
+        coord.DisplayPrompt();
+        StartCoroutine(StartRecipeRoutine());
     }
 
-    IEnumerator ExecuteRecipe(Item result, List<Item> toRemove, float makeTime) 
+    IEnumerator StartRecipeRoutine() 
     {
-        coord.DisplayPrompt();
         float timeRemaining = makeTime;
         while (timeRemaining >= 0) {
             PlaySound();
             timeRemaining -= Time.deltaTime;
-            readyToComplete = coord.SetPromptvalue(1 - (timeRemaining / makeTime));
-            if (readyToComplete) coord.previewResult(result.GetSprite());
-            
+            coord.SetPromptvalue(1 - (timeRemaining / makeTime));            
             yield return new WaitForEndOfFrame();
         }
         
@@ -131,39 +96,27 @@ public class WorkspaceController : MonoBehaviour
         if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
     }
 
-    ItemCoordinator CompleteRecipe()
+    void CompleteRecipe()
     {
-        readyToComplete = false;
-        foreach (var item in toRemove) coord.removeItem(item);
+        foreach (var item in toRemove) Destroy(coord.removeItem(item).gameObject);
 
-        float taskCompletionScore = GetTaskCompletionQuality();
+        float taskCompletionScore = 0.5f;
         AudioManager.instance.PlaySound((taskCompletionScore > 0.5f) ? 6 : 5);
-
-        ItemCoordinator newResult = KitchenManager.instance.CreateNewItemCoord(result, transform.position, GetResultQuality());
-        CatchItem(newResult);
         coord.HideCookPrompt();
         source.Stop();
 
-        return newResult;
+        ItemCoordinator newResult = kManag.CreateNewItemCoord(result, transform.position, GetResultQuality());
+        CatchItem(newResult);
     }
     
     float GetResultQuality()
     {
         float previousIngredientAvg = CalcPrevQualityAvg();
-        var taskCompletionQuality = GetTaskCompletionQuality();
-        if (toRemove.Count == 0 || previousIngredientAvg == -1) return taskCompletionQuality;
+        if (toRemove.Count == 0 || previousIngredientAvg == -1) return 0.5f;
 
-        float taskFactor = KitchenManager.instance.GetTaskFactor();
-        return (taskCompletionQuality * taskFactor) + (previousIngredientAvg * (1 - taskFactor));
+        float taskFactor = kManag.GetTaskFactor();
+        return (0.5f * taskFactor) + (previousIngredientAvg * (1 - taskFactor));
     }
-
-    float GetTaskCompletionQuality()
-    {
-        float qual = coord.GetCurrentQuality();
-        float quality = qual == 0 ? 1 : (qual == 1 ? 0.5f : 0);
-        return quality;
-    }
-
     float CalcPrevQualityAvg()
     {
         float previousIngredientAvg = 0;
@@ -180,11 +133,7 @@ public class WorkspaceController : MonoBehaviour
         return qual;
     }
 
-    public WorkspaceType GetWSType() {
-        return WorkspaceType;
-    }
-
     public int GetRoomLeft() {
-        return coord.Capacity() - coord.HeldItemCount();
+        return coord.capacity - coord.HeldItemCount;
     }
 }

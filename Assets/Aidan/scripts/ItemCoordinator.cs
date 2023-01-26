@@ -35,19 +35,36 @@ public class ItemCoordinator : MonoBehaviour
     {
         defaultLocalScale = transform.localEulerAngles;
         defaultRot = transform.rotation;
+        outline.gameObject.SetActive(false);
+    }
+
+    private void OnMouseEnter()
+    {
+        if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach()) return;
+        outline.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        outline.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (CanPickUp() && chef && chef.GetHeldiCoord() != this) outline.enabled = true;
-        else outline.enabled = false;
+        if (InReach()) sRend.color = Color.white;
+        else sRend.color = new Color(1, 1, 1, 0.5f);
+    }
+
+    bool InReach()
+    {
+        return Vector2.Distance(KitchenManager.instance.GetChef().transform.position, transform.position) <= KitchenManager.instance.playerReach;
     }
 
     bool CanPickUp()
     {
-        bool InReach = Vector2.Distance(KitchenManager.instance.GetChef().transform.position, transform.position) <= KitchenManager.instance.playerReach;
-        if (item.IsBigEquipment() && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && InReach);
-        return InReach;
+        bool inreach = InReach();
+        if (item.IsBigEquipment() && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && inreach);
+        return inreach;
     }
 
     public void SetDisplayParent(Transform displayParent, WorkspaceCoordinator _wsCoord)
@@ -56,8 +73,8 @@ public class ItemCoordinator : MonoBehaviour
         wsCoord = _wsCoord;
         transform.parent = displayParent;
         transform.localEulerAngles = Vector3.zero;
-        transform.rotation = Quaternion.identity;
         transform.localPosition = Vector3.zero;
+        transform.localScale = Vector3.one;
 
         HideQualityDisplay();
     }

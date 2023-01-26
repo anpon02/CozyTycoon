@@ -23,6 +23,10 @@ public class DayNightController : MonoBehaviour
     bool TEMPASLEEP = false;
     bool openedToday;
 
+    [Header("Schedule")]
+    [SerializeField] float openTime = 0.25f;
+    [SerializeField] float closeTime = 0.8f;
+
     private void Start()
     {
         sleepTime = 1;
@@ -46,6 +50,12 @@ public class DayNightController : MonoBehaviour
         time += Time.deltaTime * (TEMPASLEEP ? 15 * timeSpeed : timeSpeed) * 0.01f;
         if (time >= 1) time = 0;
         Camera.main.backgroundColor = backgroundGradient.Evaluate(time);
+
+        if (TEMPCLOSED && !openedToday && time > openTime) Open();
+        if (!TEMPCLOSED && openedToday && time > closeTime) {
+            Close();
+            buttonImg.GetComponent<Button>().enabled = true;
+        }
     }
 
     void DisplayTime()
@@ -67,12 +77,6 @@ public class DayNightController : MonoBehaviour
     public void _ToggleStore()
     {
         if (TEMPASLEEP) return;
-
-        if (TEMPCLOSED && time > wakeUpTime && openedToday) {
-            
-        }
-        //gamemanager.OnDayEnd.Invoke();
-        //gamemanager.OnDayStart.Invoke();
         if (time < earliestCloseTime && !TEMPCLOSED) return;
         if (time > wakeUpTime || TEMPCLOSED) TEMPCLOSED = !TEMPCLOSED;
         if (!TEMPCLOSED) openedToday = true;
@@ -96,6 +100,7 @@ public class DayNightController : MonoBehaviour
         AudioManager.instance.PlaySound(11, gameObject);
         GameManager.instance.OnStoreClose.Invoke();
         TEMPCLOSED = true;
+        UpdateButton();
     }
 
     void Open()
@@ -104,6 +109,7 @@ public class DayNightController : MonoBehaviour
         GameManager.instance.OnStoreOpen.Invoke();
         TEMPCLOSED = false;
         openedToday = true;
+        UpdateButton();
     }
 
     void Sleep()
@@ -118,7 +124,7 @@ public class DayNightController : MonoBehaviour
         var text = "asleep...";
         Color col = sleepColor;
         var buttonText = buttonImg.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = TEMPASLEEP ? text : (TEMPCLOSED ? (openedToday ? "go to sleep" : "open store") : "close store");
+        buttonText.text = TEMPASLEEP ? text : (TEMPCLOSED ? (openedToday ? "go to sleep" : "closed") : "open");
         buttonImg.color = TEMPASLEEP ? col : (TEMPCLOSED ? openColor : closedColor);
     }
 }

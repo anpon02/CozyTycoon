@@ -7,99 +7,46 @@ using System.Drawing;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
-    [System.Serializable]
-    public class DisplayListHolder
-    {
-        [HideInInspector] public string name;
-        [SerializeField] List<SpriteRenderer> displays;
-        List<ItemCoordinator> iCoords = new List<ItemCoordinator>();
-        
-        public void FakeDisplay(Sprite sprite)
-        {
-            displays[0].enabled = true;
-            displays[0].sprite = sprite;            
-        }
-
-        public void Add(List<ItemCoordinator> _iCoords, WorkspaceCoordinator _wsCoord)
-        {
-            foreach (var i in _iCoords) Add(i, _wsCoord);
-        }
-        public bool Add(ItemCoordinator iCoord, WorkspaceCoordinator _wsCoord) {
-            if (FreeSlots() == 0 || iCoords.Contains(iCoord)) return false;
-
-            iCoord.SetDisplayParent(displays[iCoords.Count].transform, _wsCoord);
-            iCoord.gameObject.SetActive(true);
-            iCoords.Add(iCoord);
-            return true;
-        }
-        public int FreeSlots() {
-            return displays.Count - iCoords.Count;
-        }
-        public int Capacity() {
-            return displays.Count;
-        }
-
-        public List<ItemCoordinator> removeAll()
-        {
-            displays[0].enabled = false;
-            foreach (var i in iCoords) {
-                i.gameObject.SetActive(false);
-                i.FreeFromDisplayParent();
-            }
-            iCoords.Clear();
-            return iCoords;
-        }
-
-        public bool Active()
-        {
-            return iCoords.Count > 0;
-        }
-
-    }
-    
-    [SerializeField] List<DisplayListHolder> itemDisplays = new List<DisplayListHolder>();
-    [SerializeField] SpriteRenderer bigEquipmentSprite;
+    [SerializeField] List<Transform> itemSlots = new List<Transform>();
+    [SerializeField] Transform bigSlot;
     [SerializeField] CookPromptCoordinator cookPrompt;
-    List<ItemCoordinator> iCoords = new List<ItemCoordinator>();
     ItemCoordinator bigItem;
+
+    public List<ItemCoordinator> iCoords { get; private set; } = new List<ItemCoordinator>();
+    public int capacity { get { return itemSlots.Count; }}
+    public bool IsFull { get { return capacity > iCoords.Count; } }
+    public int HeldItemCount { get { return iCoords.Count + (bigItem ? 1 : 0); } }
 
     private void OnValidate()
     {
         UpdateItemDisplay();
-
-        for (int i = 0; i < itemDisplays.Count; i++) {
-            var cap = itemDisplays[i].Capacity();
-            string complete = cap == i+1 ? "" : (cap < i+1 ? ": INSUFFICIENT SRENDER" : "TOO MANY SRENDER" );
-            itemDisplays[i].name = (i+1) + complete;
-        }
     }
 
     private void Start()
     {
-        if (bigEquipmentSprite) bigEquipmentSprite.transform.SetAsFirstSibling();
-    }
-
-    public int GetCurrentQuality()
-    {
-        if (cookPrompt == null) return -1;
-        return cookPrompt.GetSliderDistRating();
+        if (bigSlot) {
+            bigSlot.SetAsFirstSibling();
+            bigSlot.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (cookPrompt) cookPrompt.transform.SetAsFirstSibling();
+        foreach (Transform t in itemSlots) t.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     bool roomForBigEquipment()
     {
-        return bigItem == null && bigEquipmentSprite != null;
+        return bigItem == null && bigSlot != null;
     }
 
-    public bool SetPromptvalue(float value) {
-        if (!cookPrompt) return false;
-        return cookPrompt.SetSlider(value);
+    public void SetPromptvalue(float value) {
+        if (!cookPrompt) return;
+        cookPrompt.SetSlider(value);
     }
     public void DisplayPrompt() {
-        if (!HasCookPrompt()) return;
+        if (!cookPrompt) return;
         StartProgressBar();
     }
     public void DisplayPrompt(Item possibleResult) {
-        if (!HasCookPrompt()) return;
+        if (!cookPrompt) return;
 
         StartProgressBar(possibleResult);
     }
@@ -108,28 +55,10 @@ public class WorkspaceCoordinator : MonoBehaviour
         if (result) cookPrompt.Begin();
         else cookPrompt.Begin();
     }
-    public void previewResult(Sprite itemSprite)
-    {
-        foreach (var i in itemDisplays) i.removeAll();
-        foreach (var i in iCoords) i.gameObject.SetActive(false);
-        bigItem.gameObject.SetActive(false);
-        itemDisplays[0].FakeDisplay(itemSprite);
-    }
+   
     public void HideCookPrompt() {
         if (!cookPrompt) return;
         cookPrompt.Hide();
-    }
-    public bool HasCookPrompt() {
-        return cookPrompt != null;
-    }
-
-    public int Capacity() {
-        int capacity = 0;
-        for (int i = 0; i < itemDisplays.Count; i++) {
-            int cap = itemDisplays[i].Capacity();
-            if (cap > capacity) capacity = cap;
-        }
-        return capacity;
     }
 
     public bool HasItem (ItemCoordinator iCoord)
@@ -146,7 +75,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public bool HasRoom(List<Item> listToAdd)
     {
-        int normalItemCapacity = Capacity();
+        int normalItemCapacity = capacity;
         int bigEquipmentCapacity = roomForBigEquipment() ? 1 : 0;
 
         foreach (var toAdd in listToAdd) {
@@ -160,24 +89,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         return normalItemCapacity >= 0 && bigEquipmentCapacity >= 0;
     }
 
-    public bool IsFull() {
-        return Capacity() > iCoords.Count;
-    }
-
-    public int HeldItemCount() {
-        print("heldItemCount: " + (iCoords.Count + (bigItem ? 1 : 0)));
-        return iCoords.Count + (bigItem ? 1 : 0);
-    }
-
-    public void AddItem(ItemCoordinator newItem)
+    public void AddItem(ItemCoordinator iCoord)
     {
-        if (false) {
-            string s = "items: ";
-            foreach (var i in iCoords) s += i.GetItem().GetName() + ", ";
-            print(s + ", adding: " + newItem.GetItem().GetName());
-        }
-        if (newItem.GetItem().IsBigEquipment()) bigItem = newItem;
-        else iCoords.Add(newItem);
+        iCoord.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        if (iCoord.GetItem().IsBigEquipment()) bigItem = iCoord;
+        else iCoords.Add(iCoord);
         UpdateItemDisplay();
     }
 
@@ -186,7 +102,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         iCoords.Remove(toRemove);
         if (toRemove == bigItem) bigItem = null;
         UpdateItemDisplay();
-        GetComponent<WorkspaceController>().UpdateAfterRemoveItem();
+        GetComponent<WorkspaceController>().HaltRecipe();
     }
 
     public ItemCoordinator removeItem(Item toRemove) {
@@ -197,6 +113,7 @@ public class WorkspaceCoordinator : MonoBehaviour
                 break;
             }
         }
+        print("toremove: " + coord.GetItem().GetName());
         iCoords.Remove(coord);
         UpdateItemDisplay();
         return coord;
@@ -205,16 +122,15 @@ public class WorkspaceCoordinator : MonoBehaviour
     void UpdateItemDisplay()
     {
         UpdateBigItemDisplay();
-        foreach (var iDisplay in itemDisplays) iDisplay.removeAll();
-        for (int i = 0; i < itemDisplays.Count; i++) {
-            if (i + 1 == iCoords.Count) itemDisplays[i].Add(iCoords, this);
+        for (int i = 0; i < iCoords.Count; i++) {
+            iCoords[i].SetDisplayParent(itemSlots[i], this);
         }
     }
 
     void UpdateBigItemDisplay()
     {
-        if (!bigEquipmentSprite || !bigItem) return;
-        bigItem.SetDisplayParent(bigEquipmentSprite.transform, this);
+        if (!bigSlot || !bigItem) return;
+        bigItem.SetDisplayParent(bigSlot, this);
         bigItem.gameObject.SetActive(true);
     }
 
@@ -223,9 +139,5 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach(var i in iCoords) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
         return items;
-    }
-    public List<ItemCoordinator> GetHeldiCoords()
-    {
-        return iCoords;
     }
 }
