@@ -55,6 +55,7 @@ public class DialogueCoordinator : MonoBehaviour
         while (currentStory.canContinue)
         {
             lineText = currentStory.Continue();
+            parser.ParseTags(currentStory.currentTags);
             for (int i = 0; i < lineText.Length; i++)
             {
                 int intAlpha = (int)Mathf.Round(panelGroup.alpha*255);
@@ -117,4 +118,14 @@ public class DialogueCoordinator : MonoBehaviour
         ClearDialogueText();
     }
 
+    public void ChangeSpeaker(string name)
+    {
+        speakerText.text = name;
+    }
+
+    public void ChangeImage(string path)
+    {
+        print(path);
+        leftSpeakerImage.sprite = Resources.Load<Sprite>(path);
+    }
 }

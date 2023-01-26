@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool showDebugInfo;
     [ Range(0f, 100f), ConditionalHide(nameof(showDebugInfo))] public float playerDistance;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] private GameObject speakingCharacter;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] private AudioClip characterSound;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isUnintelligible;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingOut;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingIn;
@@ -143,6 +144,16 @@ public class DialogueManager : MonoBehaviour
     public GameObject GetSpeakingCharacter()
     {
         return speakingCharacter;
+    }
+
+    public void SetCharacterSound(AudioClip sound)
+    {
+        characterSound = sound;
+    }
+
+    public AudioClip GetCharacterSound()
+    {
+        return characterSound;
     }
 
     public void SetSpeakingCharacter(GameObject npc)
