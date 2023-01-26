@@ -28,7 +28,7 @@ public class ItemCoordinator : MonoBehaviour
         if (sRend == null) GetReferences();
         sRend.sprite = item.GetSprite();
         outline.sprite = item.GetSprite();
-        UpdateRating();
+        UpdateQualityDisplay();
     }
 
     private void Awake()
@@ -55,6 +55,8 @@ public class ItemCoordinator : MonoBehaviour
         transform.localEulerAngles = Vector3.zero;
         transform.rotation = Quaternion.identity;
         transform.localPosition = Vector3.zero;
+
+        HideQualityDisplay();
     }
     public void FreeFromDisplayParent()
     {
@@ -62,6 +64,8 @@ public class ItemCoordinator : MonoBehaviour
         transform.parent = null;
         transform.localEulerAngles = defaultLocalScale;
         transform.rotation = defaultRot;
+
+        UpdateQualityDisplay();
     }
 
     public bool IsFree()
@@ -73,7 +77,11 @@ public class ItemCoordinator : MonoBehaviour
         isFree = _free;
     }
 
-    void UpdateRating()
+    void HideQualityDisplay() {
+        foreach (var s in stars) s.gameObject.SetActive(false);
+    }
+
+    void UpdateQualityDisplay()
     {
         if (item == null) return;
 
@@ -82,20 +90,20 @@ public class ItemCoordinator : MonoBehaviour
         foreach (var s in stars) s.gameObject.SetActive(false);
         if (item.GetQuality() == -1) return;
 
-        switch (item.GetQuality()) {
-            case < 0.3f:
-                col = lowQuality;
-                starIndex = 1;
-                break;
-            case > 0.9f:
-                col = topQuality;
-                starIndex = 3;
-                break;
-            default:
-                col = medQuality;
-                starIndex = 2;
-                break;
+        var qual = item.GetQuality();
+        if (qual < 0.3f) {
+            col = lowQuality;
+            starIndex = 1;
         }
+        else if (qual > 0.9f) {
+            col = topQuality;
+            starIndex = 3;
+        }
+        else {
+            col = medQuality;
+            starIndex = 2;
+        } 
+
         for (int i = 0; i < starIndex; i++) {
             stars[i].gameObject.SetActive(true);
             stars[i].color = col;

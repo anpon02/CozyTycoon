@@ -46,6 +46,7 @@ public class WorkspaceCoordinator : MonoBehaviour
                 i.gameObject.SetActive(false);
                 i.FreeFromDisplayParent();
             }
+            iCoords.Clear();
             return iCoords;
         }
 
@@ -81,7 +82,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     bool roomForBigEquipment()
     {
-        return bigEquipmentSprite != null && !bigEquipmentSprite.enabled;
+        return bigItem == null && bigEquipmentSprite != null;
     }
 
     public bool SetPromptvalue(float value) {
@@ -169,13 +170,14 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
         if (newItem.GetItem().IsBigEquipment()) bigItem = newItem;
         else iCoords.Add(newItem);
-        UpdateItemDisplay();
+        UpdateBigItemDisplay();
     }
 
     public void removeItem(ItemCoordinator toRemove)
     {
         //can inturrupt cooking process??
         iCoords.Remove(toRemove);
+        if (toRemove == bigItem) bigItem = null;
         UpdateItemDisplay();
     }
 
@@ -203,9 +205,9 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     void UpdateBigItemDisplay()
     {
-        if (!bigEquipmentSprite) return;
-        bigEquipmentSprite.enabled = bigItem != null;
-        bigEquipmentSprite.sprite = bigItem ? bigItem.GetItemSprite() : null;
+        if (!bigEquipmentSprite || !bigItem) return;
+        bigItem.SetDisplayParent(bigEquipmentSprite.transform, this);
+        bigItem.gameObject.SetActive(true);
     }
 
     public List<Item> GetHeldItems() {
