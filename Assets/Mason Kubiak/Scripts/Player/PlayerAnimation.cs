@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     private PlayerInputActions pInputActions;
     private Animator anim;
+    private SpriteRenderer sprRenderer;
 
     private string[] stillAnims = {"Still_N", "Still_NW", "Still_W", "Still_SW", 
                                    "Still_S", "Still_SE", "Still_E", "Still_NE"};
@@ -17,6 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Awake() {
         pInputActions = new PlayerInputActions();
         anim = GetComponent<Animator>();
+        sprRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable() {
@@ -57,6 +59,18 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update() {
         input = pInputActions.Player.Movement.ReadValue<Vector2>();
-        SetDirection(input);
+        //SetDirection(input);
+
+        if(input.x < 0)
+            //sprRenderer.flipX = false;
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+        else if(input.x > 0)
+            //sprRenderer.flipX = true;
+            transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        
+        if(input.magnitude > 0.1f)
+            anim.SetTrigger("ChefRun");
+        else if(input.magnitude < 0.1f)
+            anim.SetTrigger("ChefIdle");
     }
 }

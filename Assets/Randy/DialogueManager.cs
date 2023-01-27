@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Debug Tools (Will add ability to hide at some point)")]
     [SerializeField] private bool showDebugInfo;
-    [ Range(0f, 100f), ConditionalHide(nameof(showDebugInfo))] public float playerDistance;
+    [ Range(0f, 100f), ConditionalHide(nameof(showDebugInfo))] private float playerDistance;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] private GameObject speakingCharacter;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] private AudioClip characterSound;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isUnintelligible;
@@ -161,7 +161,13 @@ public class DialogueManager : MonoBehaviour
         this.speakingCharacter = npc;
     }
 
+    // Should only have 1 reference to it
     public void SetPlayerDistance(float dist) {
         playerDistance = dist;
+    }
+
+    public float GetPlayerDistance()
+    {
+        return playerDistance;
     }
 }

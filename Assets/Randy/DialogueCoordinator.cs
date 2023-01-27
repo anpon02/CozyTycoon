@@ -86,11 +86,12 @@ public class DialogueCoordinator : MonoBehaviour
     public IEnumerator PanelFadeout()
     {
         CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
-        while (DialogueManager.instance.playerDistance > DialogueManager.instance.GetMinFadeoutThreshold())
+        while (DialogueManager.instance.GetPlayerDistance() > DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha > 0.001f)
             {
-                panelGroup.alpha -=  DialogueManager.instance.GetFadeoutRate() * DialogueManager.instance.GetFadeoutRateMultiplier(DialogueManager.instance.playerDistance);
+                float fadeoutValue = 1/DialogueManager.instance.GetFadeoutRate() * DialogueManager.instance.GetFadeoutRateMultiplier(DialogueManager.instance.GetPlayerDistance());
+                panelGroup.alpha -=  fadeoutValue * Time.deltaTime;
                 Mathf.Clamp(panelGroup.alpha, 0f, 1f);
             }
             yield return null;
@@ -100,11 +101,11 @@ public class DialogueCoordinator : MonoBehaviour
     public IEnumerator PanelFadein()
     {
         CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
-        while (DialogueManager.instance.playerDistance < DialogueManager.instance.GetMinFadeoutThreshold())
+        while (DialogueManager.instance.GetPlayerDistance() < DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha < 0.999f)
             {
-                panelGroup.alpha += DialogueManager.instance.GetFadeinRate();
+                panelGroup.alpha += 1/DialogueManager.instance.GetFadeinRate() * Time.deltaTime;
                 Mathf.Clamp(panelGroup.alpha, 0f, 1f);
             }
             yield return null;
