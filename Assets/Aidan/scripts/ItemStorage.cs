@@ -6,6 +6,9 @@ public class ItemStorage : MonoBehaviour
 {
     [SerializeField] Item storedItem;
     [SerializeField] RestockPromptCoordinator restockCoord;
+    [SerializeField, Range(0, 1)] float itemStartQuality = 0;
+    [SerializeField] string toolTip;
+
     bool stocked = true;
 
     public void Stock()
@@ -26,7 +29,7 @@ public class ItemStorage : MonoBehaviour
         if (chef == null) return;
         if (chef.GetHeldItem() != null) return;
 
-        var coord = KitchenManager.instance.CreateNewItemCoord(storedItem, transform.position);
+        var coord = KitchenManager.instance.CreateNewItemCoord(storedItem, transform.position, itemStartQuality);
         KitchenManager.instance.GetChef().HoldNewItem(coord);
     }
 
@@ -34,5 +37,14 @@ public class ItemStorage : MonoBehaviour
     {
         stocked = false;
         restockCoord.gameObject.SetActive(true);
+    }
+
+    private void OnMouseEnter()
+    {
+        KitchenManager.instance.ttCoord.Display(toolTip);
+    }
+    private void OnMouseExit()
+    {
+        KitchenManager.instance.ttCoord.ClearText(toolTip);
     }
 }

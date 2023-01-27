@@ -122,8 +122,8 @@ public class WorkspaceController : MonoBehaviour
         float previousIngredientAvg = 0;
         int count = 0;
         foreach (var i in toRemove) {
-            if (i.GetQuality() != -1) {
-                previousIngredientAvg += i.GetQuality();
+            if (i.quality != -1) {
+                previousIngredientAvg += i.quality;
                 count += 1;
             }
         }

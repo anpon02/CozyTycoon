@@ -79,11 +79,11 @@ public class WorkspaceCoordinator : MonoBehaviour
         int bigEquipmentCapacity = roomForBigEquipment() ? 1 : 0;
 
         foreach (var toAdd in listToAdd) {
-            if (toAdd.IsBigEquipment()) bigEquipmentCapacity -= 1;
+            if (toAdd.isBigEquipment) bigEquipmentCapacity -= 1;
             else normalItemCapacity -= 1;
         }
         foreach (var i in iCoords) {
-            if (i.GetItem().IsBigEquipment()) bigEquipmentCapacity -= 1;
+            if (i.GetItem().isBigEquipment) bigEquipmentCapacity -= 1;
             else normalItemCapacity -= 1;
         }
         return normalItemCapacity >= 0 && bigEquipmentCapacity >= 0;
@@ -91,8 +91,9 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     public void AddItem(ItemCoordinator iCoord)
     {
+
         iCoord.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        if (iCoord.GetItem().IsBigEquipment()) bigItem = iCoord;
+        if (iCoord.GetItem().isBigEquipment) bigItem = iCoord;
         else iCoords.Add(iCoord);
         UpdateItemDisplay();
     }

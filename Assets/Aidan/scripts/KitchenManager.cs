@@ -30,7 +30,7 @@ public class KitchenManager : MonoBehaviour
     //universal functions - try to find a better place for these??
     public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos , float quality)
     {
-        item.SetQuality(quality);
+        item.quality = quality;
         var newGO = Instantiate(itemCoordPrefab, pos, Quaternion.identity);
         var coordScript = newGO.GetComponent<ItemCoordinator>();
         coordScript.SetItem(item);
@@ -38,6 +38,6 @@ public class KitchenManager : MonoBehaviour
     }
     public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos)
     {
-        return CreateNewItemCoord(item, pos, item.GetQuality());
+        return CreateNewItemCoord(item, pos, item.quality);
     }
 }
