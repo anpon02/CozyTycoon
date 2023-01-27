@@ -41,12 +41,12 @@ public class ItemCoordinator : MonoBehaviour
     private void OnMouseEnter()
     {
         if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach() || IsBigAndInWS()) return;
-        KitchenManager.instance.ttCoord.DisplayItem(item);
+        KitchenManager.instance.ttCoord.Display(item);
         outline.gameObject.SetActive(true);
     }
 
     bool IsBigAndInWS() {
-        return item.IsBigEquipment() && wsCoord != null && wsCoord.HeldItemCount > 1;
+        return item.isBigEquipment && wsCoord != null && wsCoord.HeldItemCount > 1;
     }
 
     private void OnMouseExit()
@@ -59,6 +59,7 @@ public class ItemCoordinator : MonoBehaviour
     {
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
+        outline.flipX = sRend.flipX;
     }
 
     bool InReach()
@@ -69,18 +70,19 @@ public class ItemCoordinator : MonoBehaviour
     bool CanPickUp()
     {
         bool inreach = InReach();
-        if (item.IsBigEquipment() && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && inreach);
+        if (item.isBigEquipment && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && inreach);
         return inreach;
     }
 
     public void SetDisplayParent(Transform displayParent, WorkspaceCoordinator _wsCoord)
     {
-        //print("setting display parent for: " + item.GetName() + ", " + _wsCoord.gameObject.name);
+        if (displayParent.GetComponent<SpriteRenderer>().flipX) sRend.flipX = true;
+        if (!item.isBigEquipment) outline.sortingOrder = 0;
         wsCoord = _wsCoord;
         transform.parent = displayParent;
         transform.localEulerAngles = Vector3.zero;
         transform.localPosition = Vector3.zero;
-        transform.localScale = Vector3.one;
+        transform.localScale = Vector3.one * item.scaleMult;
 
         HideQualityDisplay();
     }
@@ -90,7 +92,8 @@ public class ItemCoordinator : MonoBehaviour
     }
     public void FreeFromDisplayParent()
     {
-        //print(gameObject.name + " freed from parent: " + wsCoord.gameObject.name);
+        if (!item.isBigEquipment) outline.sortingOrder = -1;
+        sRend.flipX = false;
         wsCoord = null;
         transform.parent = null;
         transform.localEulerAngles = defaultLocalScale;
@@ -106,15 +109,14 @@ public class ItemCoordinator : MonoBehaviour
     void UpdateQualityDisplay()
     {
         if (item == null) return;
-
-        var starIndex = -1;
-        Color col = Color.black;
         foreach (var s in stars) s.gameObject.SetActive(false);
-        return;
 
-        if (item.GetQuality() == -1) return;
+        /*
+        Color col = Color.black;
+        var starIndex = -1;
+        if (item.quality == -1) return;
 
-        var qual = item.GetQuality();
+        var qual = item.quality;
         if (qual < 0.3f) {
             col = lowQuality;
             starIndex = 1;
@@ -131,7 +133,7 @@ public class ItemCoordinator : MonoBehaviour
         for (int i = 0; i < starIndex; i++) {
             stars[i].gameObject.SetActive(true);
             stars[i].color = col;
-        }
+        }*/
     }
 
     bool SetChef()
@@ -151,9 +153,8 @@ public class ItemCoordinator : MonoBehaviour
     private void Start()
     {
         item = Instantiate(item);
-        item.SetQuality(1);
         GetReferences();
-        if (item.IsBigEquipment()) {
+        if (item.isBigEquipment) {
             sRend.sortingOrder = -1;
             outline.sortingOrder = -2;
         }

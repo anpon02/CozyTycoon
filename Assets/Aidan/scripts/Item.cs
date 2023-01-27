@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "newItem", menuName = "ScriptableObjects/Item", order = 1)]
-public class Item : ScriptableObject
-{
+public class Item : ScriptableObject {
     [SerializeField] string itemName;
     [SerializeField] Sprite itemSprite;
-    [SerializeField] bool bigEquipment;
-    [SerializeField] float quality = 1;
     [SerializeField] bool disableQuality;
     [SerializeField] int throwSoundID;
     [SerializeField] string topQualDescript;
     [SerializeField] string medQualDescript;
     [SerializeField] string lowQualDescript;
+    public bool isBigEquipment;
+    [SerializeField] float _scaleMult = 1;
+    public float scaleMult { get {return _scaleMult;} }
+
+    [SerializeField] private float _quality;
+    public float quality { get { if (disableQuality) return -1; return _quality;  } set { _quality = value; } }
     public string description { get { return GetDescription(); } }
 
     public Sprite GetSprite() {
@@ -27,22 +30,6 @@ public class Item : ScriptableObject
     public int GetThrowSound()
     {
         return throwSoundID;
-    }
-
-    public void SetQuality(float value)
-    {
-        quality = value;
-    }
-
-    public float GetQuality()
-    {
-        if (disableQuality) return -1;
-        return quality;
-    }
-
-    public bool IsBigEquipment()
-    {
-        return bigEquipment;
     }
 
     public bool Equals(Item other)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ToolipCoordinator : MonoBehaviour
 {
@@ -12,10 +13,18 @@ public class ToolipCoordinator : MonoBehaviour
         toolTipText.text = "";
     }
 
-    public void DisplayItem(Item toDisplay) {
+    public void Display(Item toDisplay) {
         toolTipText.text = toDisplay.description;
+    }
+    public void Display(string toDisplay)
+    {
+        toolTipText.text = toDisplay;
     }
     public void ClearText(Item toClear) {
         if (toolTipText.text == toClear.description) toolTipText.text = "";
+    }
+    public void ClearText(string toClear)
+    {
+        if (toolTipText.text == toClear) toolTipText.text = "";
     }
 }

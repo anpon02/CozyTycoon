@@ -58,7 +58,7 @@ public class CustomerOrderController : MonoBehaviour
         hasReceivedFood = true;
         Item deliveredItem = chef.RemoveHeldItem();
         GameManager.instance.GetOrderController().CompleteOrder(desiredItem);
-        status.GiveFood(deliveredItem.GetQuality());
+        status.GiveFood(deliveredItem.quality);
     }
 
     public bool GetFoodOrdered() {
