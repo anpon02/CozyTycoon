@@ -323,11 +323,11 @@ MonoBehaviour:
   unintelligibleTextThreshold: 20
   minFadeoutThreshold: 5
   maxFadeoutThreshold: 10
-  FadeoutRate: 0.005
-  fadeinRate: 0.005
+  FadeoutRate: 7
+  fadeinRate: 5
   showDebugInfo: 0
-  playerDistance: 0
   speakingCharacter: {fileID: 0}
+  characterSound: {fileID: 0}
   isUnintelligible: 0
   isFadingOut: 0
   isFadingIn: 0
