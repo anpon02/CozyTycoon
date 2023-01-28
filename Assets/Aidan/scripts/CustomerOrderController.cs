@@ -49,6 +49,7 @@ public class CustomerOrderController : MonoBehaviour
         AudioManager.instance.PlaySound(7, gameObject);
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
+        CustomerManager.instance.GoToTable(transform);
         story.StartStory();
     }
 
@@ -71,13 +72,5 @@ public class CustomerOrderController : MonoBehaviour
 
     public void SetHasReceivedFood(bool received) {
         hasReceivedFood = received;
-    }
-
-    /* FOR TESTING PURPOSES */
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.H) && testCustomer) {
-            print("ORDERED");
-            Order();
-        }
     }
 }
