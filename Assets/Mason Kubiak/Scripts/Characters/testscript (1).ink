@@ -16,10 +16,11 @@ VAR CurrentStoryState = 0
 }
 
 == story_0 ==
-H-hey, how's it goin? #Speaker : Guy #Image : normal
+H-hey, how's it goin? #Speaker : ??? #Image : Guy/normal #Voice:12
 // * okay
-Oh, don't mind me, I've got placeholder assets right now, but I needed to get some work done and get some food
-Oh, I'm [name?], by the way. #Image: good
+Oh, don't mind me, I've got placeholder assets right now,
+but I needed to get some work done and get some food
+Oh, I'm a placeholder character, by the way. # Speaker: placeholder #Image: Guy/good
 - ~CurrentMood++
 ~ CurrentStoryState++
 -> DONE

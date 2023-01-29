@@ -61,7 +61,8 @@ public class DialogueCoordinator : MonoBehaviour
                 int intAlpha = (int)Mathf.Round(panelGroup.alpha*255);
                 dialogueText.text += "<alpha=#" + intAlpha.ToString("X2") + ">" + lineText[i];
 
-                // play sound (outside function)
+                // play sound
+                AudioManager.instance.PlaySound(DialogueManager.instance.GetCharacterVoiceID());
 
                 yield return new WaitForSeconds(DialogueManager.instance.GetTextRenderDelay());
             }
