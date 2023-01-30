@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -66,8 +67,8 @@ public class CustomerInteraction : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red; 
         Gizmos.DrawWireCube(boxcastOrigin, new Vector3(colliderWidth * interactDistance, colliderHeight, 10));
     }
 }
