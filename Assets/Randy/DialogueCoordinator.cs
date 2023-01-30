@@ -8,7 +8,8 @@ using Ink.Runtime;
 public class DialogueCoordinator : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private Image uiPanel;
+    [SerializeField] private Image dialoguePanel;
+    [SerializeField] private Image choicePanel;
     [SerializeField] private TextMeshProUGUI speakerText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Image leftSpeakerImage;
@@ -51,7 +52,7 @@ public class DialogueCoordinator : MonoBehaviour
     private IEnumerator WriteDialogue()
     {
         string lineText;
-        CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
+        CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
         // loop through each letter in text and add it to text
         while (currentStory.canContinue)
         {
@@ -77,15 +78,44 @@ public class DialogueCoordinator : MonoBehaviour
             for (int i = 0; i < currentStory.currentChoices.Count; i++)
             {
                 Choice choice = currentStory.currentChoices[i];
-                //Button button = CreateChoiceView(choice.text.Trim());
-                /*
+                Button button = CreateChoiceView(choice.text.Trim());
                 // Tell the button what to do when we press it
                 button.onClick.AddListener(delegate {
                     OnClickChoiceButton(choice);
                 });
-                */
+                dialoguePanel.gameObject.SetActive(false);
+                choicePanel.gameObject.SetActive(true);
             }
         }
+    }
+
+    // From Ink's example script. modified
+    Button CreateChoiceView(string text)
+    {
+        // Creates the button from a prefab
+        Button choice = Instantiate(buttonPrefab) as Button;
+        choice.transform.SetParent(choicePanel.transform, false);
+
+        // Gets the text from the button prefab
+        TextMeshProUGUI choiceText = choice.GetComponentInChildren<TextMeshProUGUI>();
+        choiceText.text = text;
+
+        // Make the button expand to fit the text
+        HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
+        layoutGroup.childForceExpandHeight = false;
+
+        return choice;
+    }
+
+    // From Ink's example script, modified
+    void OnClickChoiceButton(Choice choice)
+    {
+        currentStory.ChooseChoiceIndex(choice.index);
+        // Skip the text given by selecting the choice
+        currentStory.Continue();
+        dialoguePanel.gameObject.SetActive(true);
+        choicePanel.gameObject.SetActive(false);
+        StartCoroutine(WriteDialogue());
     }
 
     private void ClearDialogueText()
@@ -103,7 +133,7 @@ public class DialogueCoordinator : MonoBehaviour
 
     public IEnumerator PanelFadeout()
     {
-        CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
+        CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
         while (DialogueManager.instance.GetPlayerDistance() > DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha > 0.001f)
@@ -118,7 +148,7 @@ public class DialogueCoordinator : MonoBehaviour
 
     public IEnumerator PanelFadein()
     {
-        CanvasGroup panelGroup = uiPanel.GetComponent<CanvasGroup>();
+        CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
         while (DialogueManager.instance.GetPlayerDistance() < DialogueManager.instance.GetMinFadeoutThreshold())
         {
             if (panelGroup.alpha < 0.999f)
