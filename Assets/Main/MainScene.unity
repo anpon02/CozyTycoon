@@ -631,4 +631,40 @@ MonoBehaviour:
       looping: 0
     parentVolume: 1
     parentPitch: 1
+  - name: '12: Character Voice 1'
+    ID: 12
+    displayName: Character Voice 1
+    clips:
+    - name: '0: MidVoice1_SFX'
+      clip: {fileID: 8300000, guid: 3fa0666d78915224796d0981e68a551f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: MidVoice2_SFX'
+      clip: {fileID: 8300000, guid: 0ba7308eaa3d26b49bcfda485022768d, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: MidVoice3_SFX'
+      clip: {fileID: 8300000, guid: 1d40112b6b0c3f34486d734724683328, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: MidVoice4_SFX'
+      clip: {fileID: 8300000, guid: 339dcf907885c9e4ab1c966e5acf5f78, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: MidVoice5_SFX'
+      clip: {fileID: 8300000, guid: 3e528565de3979f4ca3418dd84918a64, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '5: MidVoice6_SFX'
+      clip: {fileID: 8300000, guid: ee2ba414d7eb8864ca24997d9c36560c, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
   masterVolume: 1

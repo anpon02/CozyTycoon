@@ -13,6 +13,7 @@ public class CustomerManager : MonoBehaviour
 
     private List<Transform> potentialCustomers;
     private List<Transform> potentialTables;
+    [SerializeField] private List<Transform> customersInLine;
     
     [Header("DEBUG")]
     [SerializeField] private bool dayIsOver;
@@ -63,14 +64,27 @@ public class CustomerManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             if(dayIsOver) yield break;  // dayIsOver will eventually be swapped out for soemthing in the day/night cycle
 
-            //if there are any potential tables
-            CalculatePotentialTables();
-            if(potentialTables.Count > 0) {
-                // pick a random customer. if they can be seated, remove them from the list and seat them
-                int customerChoice = Random.Range(0, potentialCustomers.Count);
-                if(potentialCustomers[customerChoice].GetComponent<CustomerMovement>().ComeToEat(potentialTables))
-                    potentialCustomers.RemoveAt(customerChoice);
-            }
+            // pick random customer to send to line
+            int customerChoice = Random.Range(0, potentialCustomers.Count);
+            potentialCustomers[customerChoice].GetComponent<CustomerMovement>().GetInLine();
+            customersInLine.Add(potentialCustomers[customerChoice]);
+            potentialCustomers.RemoveAt(customerChoice);
+        }
+    }
+
+    private IEnumerator ShiftLine() {
+        foreach(Transform customer in customersInLine) {
+            yield return new WaitForSeconds(0.1f);
+            customer.GetComponentInChildren<CustomerMovement>().MoveUpInLine();
+        }
+    }
+
+    public void GoToTable(Transform customer) {
+        CalculatePotentialTables();
+        if(potentialTables.Count > 0) {
+            customer.GetComponentInParent<CustomerMovement>().ComeToEat(potentialTables);
+            customersInLine.Remove(customer.parent);
+            StartCoroutine("ShiftLine");
         }
     }
 }

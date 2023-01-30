@@ -16,10 +16,12 @@ VAR CurrentStoryState = 0
 }
 
 == story_0 ==
-This is first story #Speaker : Guy #Image : normal
-// * okay
-The character feels {CurrentMood} Right now.
-End story ends here #Image: good
+H-hey, how's it goin? #Speaker : ??? #Image : Guy/normal #Voice:12
+* okay
+* big oof
+- Oh, don't mind me, I've got placeholder assets right now,
+but I needed to get some work done and get some food
+Oh, I'm a placeholder character, by the way. # Speaker: placeholder #Image: Guy/good
 - ~CurrentMood++
 ~ CurrentStoryState++
 -> DONE
