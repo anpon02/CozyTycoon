@@ -16,6 +16,7 @@ public class DialogueCoordinator : MonoBehaviour
     [Header("Ink Integration")]
     [SerializeField] private InkParser parser;
     [SerializeField] private Story currentStory;
+    [SerializeField, Tooltip("Used to display text for choices.")] private Button buttonPrefab;
 
     private Coroutine writeDialogue;
 
@@ -58,7 +59,7 @@ public class DialogueCoordinator : MonoBehaviour
             parser.ParseTags(currentStory.currentTags);
             for (int i = 0; i < lineText.Length; i++)
             {
-                int intAlpha = (int)Mathf.Round(panelGroup.alpha*255);
+                int intAlpha = (int)Mathf.Round(panelGroup.alpha * 255);
                 dialogueText.text += "<alpha=#" + intAlpha.ToString("X2") + ">" + lineText[i];
 
                 // play sound
@@ -68,6 +69,22 @@ public class DialogueCoordinator : MonoBehaviour
             }
             yield return new WaitForSeconds(DialogueManager.instance.GetNextLineDelay());
             ClearDialogueText();
+        }
+
+        // Display all the choices, if there are any
+        if (currentStory.currentChoices.Count > 0)
+        {
+            for (int i = 0; i < currentStory.currentChoices.Count; i++)
+            {
+                Choice choice = currentStory.currentChoices[i];
+                //Button button = CreateChoiceView(choice.text.Trim());
+                /*
+                // Tell the button what to do when we press it
+                button.onClick.AddListener(delegate {
+                    OnClickChoiceButton(choice);
+                });
+                */
+            }
         }
     }
 

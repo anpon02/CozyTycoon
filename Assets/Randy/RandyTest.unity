@@ -348,6 +348,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1365309189}
   leftSpeakerImage: {fileID: 4970070}
   parser: {fileID: 535910282}
+  buttonPrefab: {fileID: 0}
 --- !u!114 &535910281
 MonoBehaviour:
   m_ObjectHideFlags: 0
