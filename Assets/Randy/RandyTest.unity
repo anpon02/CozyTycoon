@@ -351,6 +351,7 @@ MonoBehaviour:
   leftSpeakerImage: {fileID: 4970070}
   parser: {fileID: 535910282}
   buttonPrefab: {fileID: 9095125679333765538, guid: e5e3ff4b90c29184fb496965f9aee848, type: 3}
+  textPrefab: {fileID: 5082387155285188572, guid: 63bcabc0f3a1f7b428aa3078cc51a434, type: 3}
 --- !u!114 &535910281
 MonoBehaviour:
   m_ObjectHideFlags: 0
