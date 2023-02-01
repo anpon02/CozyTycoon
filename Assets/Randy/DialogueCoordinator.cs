@@ -18,6 +18,7 @@ public class DialogueCoordinator : MonoBehaviour
     [SerializeField] private InkParser parser;
     [SerializeField] private Story currentStory;
     [SerializeField, Tooltip("Used to display text for choices.")] private Button buttonPrefab;
+    [SerializeField, Tooltip("Used to display text for choices.")] private TextMeshProUGUI textPrefab;
 
     private Coroutine writeDialogue;
 
@@ -51,7 +52,7 @@ public class DialogueCoordinator : MonoBehaviour
 
     private IEnumerator WriteDialogue()
     {
-        string lineText;
+        string lineText = default(string);
         CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
         // loop through each letter in text and add it to text
         while (currentStory.canContinue)
@@ -66,15 +67,19 @@ public class DialogueCoordinator : MonoBehaviour
                 // play sound
                 AudioManager.instance.PlaySound(DialogueManager.instance.GetCharacterVoiceID());
 
-                yield return new WaitForSeconds(DialogueManager.instance.GetTextRenderDelay());
+                yield return new WaitForSeconds(DialogueManager.instance.GetTextRenderDelay() / DialogueManager.instance.GetTextRenderModifier());
             }
-            yield return new WaitForSeconds(DialogueManager.instance.GetNextLineDelay());
+            yield return new WaitForSeconds(DialogueManager.instance.GetNextLineDelay() * DialogueManager.instance.GetLineDelayModifier());
             ClearDialogueText();
+            DialogueManager.instance.ResetModifiers();
         }
 
         // Display all the choices, if there are any
         if (currentStory.currentChoices.Count > 0)
         {
+            TextMeshProUGUI promptText = Instantiate(textPrefab) as TextMeshProUGUI;
+            promptText.transform.SetParent(choicePanel.transform, false);
+            promptText.text = lineText;
             for (int i = 0; i < currentStory.currentChoices.Count; i++)
             {
                 Choice choice = currentStory.currentChoices[i];

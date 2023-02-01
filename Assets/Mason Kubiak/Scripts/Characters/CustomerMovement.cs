@@ -8,14 +8,16 @@ public class CustomerMovement : MonoBehaviour
     [SerializeField] private Vector3 exitPoint;
 
     private Seeker seek;
+    private AIPath path;
     private CustomerOrderController cust;
     private Table currentTable;
-
     private int currentSpotInLine;
 
     private void Awake() {
         cust = GetComponentInChildren<CustomerOrderController>();
         seek = GetComponent<Seeker>();
+        path = GetComponent<AIPath>();
+        currentTable = null;
     }
 
     public void GetInLine() {
@@ -26,6 +28,7 @@ public class CustomerMovement : MonoBehaviour
 
         // move to spot and claim it
         seek.StartPath(transform.position, spotCoords);
+        path.destination = spotCoords;
         spot.SetPlaceIsTaken(true);
         LineManager.instance.UpdateNextOpenSpot();
     }
@@ -43,6 +46,7 @@ public class CustomerMovement : MonoBehaviour
             // pick a random available table, move to it, and reserve it
             Transform tableChoice = potentialTables[Random.Range(0, potentialTables.Count -1)];
             seek.StartPath(transform.position, tableChoice.position);
+            path.destination = tableChoice.position;
             currentTable = tableChoice.GetComponent<Table>();
             currentTable.SetIsTaken(true);
             return true;
@@ -53,7 +57,22 @@ public class CustomerMovement : MonoBehaviour
     public void LeaveRestaurant() {
         if(transform.position != exitPoint) {
             seek.StartPath(transform.position, exitPoint);
-            if (currentTable) currentTable.SetIsTaken(false);
+            path.destination = exitPoint;
+            if(currentTable)
+                currentTable.SetIsTaken(false);
+            currentTable = null;
         }
+    }
+
+    public Table GetCurrentTable() {
+        return currentTable;
+    }
+
+    public bool IsMoving() {
+        return path.remainingDistance > 0.1f && path.remainingDistance != Mathf.Infinity;
+    }
+
+    public bool MovingRight() {
+        return path.destination.x > transform.position.x;
     }
 }

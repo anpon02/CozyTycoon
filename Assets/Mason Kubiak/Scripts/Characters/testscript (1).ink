@@ -16,6 +16,8 @@ VAR CurrentStoryState = 0
 }
 
 == story_0 ==
+I am speeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed #Textspeed: 4 #Linedelay: 0.25 # Voice: 12
+am slow #Textspeed: 0.25 #Linedelay: 2
 H-hey, how's it goin? #Speaker : ??? #Image : Guy/normal #Voice:12
 * okay
 * big oof

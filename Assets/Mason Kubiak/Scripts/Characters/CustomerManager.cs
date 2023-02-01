@@ -13,7 +13,7 @@ public class CustomerManager : MonoBehaviour
 
     private List<Transform> potentialCustomers;
     private List<Transform> potentialTables;
-    [SerializeField] private List<Transform> customersInLine;
+    private List<Transform> customersInLine;
     
     [Header("DEBUG")]
     [SerializeField] private bool dayIsOver;
@@ -25,6 +25,7 @@ public class CustomerManager : MonoBehaviour
             Destroy(this);
 
         potentialTables = new List<Transform>();
+        customersInLine = new List<Transform>();
     }
 
     private void Start() {

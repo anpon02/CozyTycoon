@@ -63,6 +63,30 @@ public class InkParser : MonoBehaviour
                     Debug.LogWarning("Voice: Expected int, but received " + modifier.Value);
                 }
             }
+            else if (section.Value == "Textspeed")
+            {
+                float multiplier;
+                if(float.TryParse(modifier.Value, out multiplier))
+                {
+                    DialogueManager.instance.SetTextRenderModifier(multiplier);
+                }
+                else
+                {
+                    Debug.LogWarning("Voice: Expected float, but received " + modifier.Value);
+                }
+            }
+            else if (section.Value == "Linedelay")
+            {
+                float multiplier;
+                if (float.TryParse(modifier.Value, out multiplier))
+                {
+                    DialogueManager.instance.SetLineDelayModifier(multiplier);
+                }
+                else
+                {
+                    Debug.LogWarning("Voice: Expected float, but received " + modifier.Value);
+                }
+            }
             else
             {
                 Debug.LogWarning(section.Value + ": Invalid Section");

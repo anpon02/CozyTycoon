@@ -5,12 +5,17 @@ using Ink.Runtime;
 
 public class DialogueManager : MonoBehaviour
 {
+    // Note from Randy: This class is getting long. I will split this into two classes after the week of playesting
     public static DialogueManager instance;
     [SerializeField] DialogueController controller;
 
     [Header("Text Speed")]
     [SerializeField] private float textRenderDelay;
     [SerializeField] private float nextLineDelay;
+    // Modifier values for speeds. Please adjust these through Ink as they are reset regularly
+    [SerializeField] private bool showTextModifiers;
+    [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float textRenderModifier = 1;
+    [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float lineDelayModifier = 1;
 
     [Header("Textbox Shenannigans")]
     [SerializeField] private GameObject player;
@@ -45,18 +50,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    #region Text Speed
     public float GetTextRenderDelay()
     {
         return textRenderDelay;
@@ -67,6 +61,34 @@ public class DialogueManager : MonoBehaviour
         return nextLineDelay;
     }
 
+    public void SetTextRenderModifier(float m)
+    {
+        textRenderModifier = m;
+    }
+
+    public float GetTextRenderModifier()
+    {
+        return textRenderModifier;
+    }
+
+    public void SetLineDelayModifier(float m)
+    {
+        lineDelayModifier = m;
+    }
+
+    public float GetLineDelayModifier()
+    {
+        return lineDelayModifier;
+    }
+
+    public void ResetModifiers()
+    {
+        textRenderModifier = 1f;
+        lineDelayModifier = 1f;
+    }
+    #endregion
+
+    #region Textbox Shenannagans
     public float GetFadeoutRate()
     {
         return FadeoutRate;
@@ -108,7 +130,9 @@ public class DialogueManager : MonoBehaviour
     {
         maxFadeoutThreshold = distance;
     }
+    #endregion
 
+    #region Outside access/ Helper functions
     public void StartDialogue(TextAsset inkStory)
     {
         StopDialogue();
@@ -170,4 +194,5 @@ public class DialogueManager : MonoBehaviour
     {
         return playerDistance;
     }
+    #endregion
 }
