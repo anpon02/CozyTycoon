@@ -21,7 +21,7 @@ public class ThrowingController : MonoBehaviour
 
     private void Start()
     {
-        if (KitchenManager.instance) KitchenManager.instance.SetChef(this);
+        if (KitchenManager.instance) KitchenManager.instance.chef = this;
     }
     public bool IsHoldingItem() {
         return heldItem != null;

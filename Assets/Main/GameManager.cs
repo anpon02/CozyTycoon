@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     CameraShake shakeScript;
     public UnityEvent OnStoreOpen;
     public UnityEvent OnStoreClose;
+    [HideInInspector] public PlayerWallet wallet;
     
     public void SetPlayer(GameObject _player) { player = _player; }
     public GameObject GetPlayer() { return player; }

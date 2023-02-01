@@ -54,7 +54,7 @@ public class WorkspaceController : MonoBehaviour
     bool ValidiCood(ItemCoordinator iCoord)
     {
         if (iCoord == null) return false;
-        if (iCoord == kManag.GetChef().GetHeldiCoord()) return false;
+        if (iCoord == kManag.chef.GetHeldiCoord()) return false;
         return true;
     }
     

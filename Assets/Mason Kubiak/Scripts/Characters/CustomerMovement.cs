@@ -53,7 +53,7 @@ public class CustomerMovement : MonoBehaviour
     public void LeaveRestaurant() {
         if(transform.position != exitPoint) {
             seek.StartPath(transform.position, exitPoint);
-            currentTable.SetIsTaken(false);
+            if (currentTable) currentTable.SetIsTaken(false);
         }
     }
 }

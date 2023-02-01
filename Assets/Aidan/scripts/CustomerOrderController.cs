@@ -40,7 +40,7 @@ public class CustomerOrderController : MonoBehaviour
     {
         if (chef) return true;
         if (!KitchenManager.instance) return false;
-        chef = KitchenManager.instance.GetChef();
+        chef = KitchenManager.instance.chef;
         return chef != null;
     }
 

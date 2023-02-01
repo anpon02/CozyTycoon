@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,52 +11,42 @@ public class DayNightController : MonoBehaviour
     [SerializeField] float timeSpeed = 0.5f;
     [SerializeField, Range(0,1)] float time;
     [SerializeField] TextMeshProUGUI timeDisplay;
-    [SerializeField] float wakeUpTime = 0.2f;
-    [SerializeField] float earliestCloseTime = 0.6f;
-    [SerializeField] float sleepTime;
 
     [Header("CloseButton")]
     [SerializeField] Image buttonImg;
     [SerializeField] Color openColor;
     [SerializeField] Color closedColor;
     [SerializeField] Color sleepColor;
-    bool TEMPCLOSED = true;
-    bool TEMPASLEEP = false;
-    bool openedToday;
-
+    
     [Header("Schedule")]
     [SerializeField] float openTime = 0.25f;
     [SerializeField] float closeTime = 0.8f;
+    bool closed = true;
+    bool asleep = false;
 
     private void Start()
     {
-        sleepTime = 1;
         UpdateButton();
     }
 
     private void Update()
     {
+        DoEvents();
         TickTime();
         DisplayTime();
     }
 
+    void DoEvents()
+    {
+        if (time >= openTime && time <= closeTime && closed) Open();
+        if (time >= closeTime && !closed) Close();
+    }
+
     void TickTime()
     {
-        if (TEMPASLEEP && time >= wakeUpTime && time < sleepTime) {
-            TEMPASLEEP = false;
-            TEMPCLOSED = true;
-            openedToday = false;
-            UpdateButton();
-        }
-        time += Time.deltaTime * (TEMPASLEEP ? 15 * timeSpeed : timeSpeed) * 0.01f;
+        time += Time.deltaTime * (asleep ? 15 * timeSpeed : timeSpeed) * 0.01f;
         if (time >= 1) time = 0;
         Camera.main.backgroundColor = backgroundGradient.Evaluate(time);
-
-        if (TEMPCLOSED && !openedToday && time > openTime) Open();
-        if (!TEMPCLOSED && openedToday && time > closeTime) {
-            Close();
-            buttonImg.GetComponent<Button>().enabled = true;
-        }
     }
 
     void DisplayTime()
@@ -74,32 +65,16 @@ public class DayNightController : MonoBehaviour
         timeDisplay.text = (hour > 9 ? hour : "0" + hour) + ":" + (minute > 9 ? minute : "0" + minute) + suffix;
     }
 
-    public void _ToggleStore()
+    public void GoToSleep()
     {
-        if (TEMPASLEEP) return;
-        if (time < earliestCloseTime && !TEMPCLOSED) return;
-        if (time > wakeUpTime || TEMPCLOSED) TEMPCLOSED = !TEMPCLOSED;
-        if (!TEMPCLOSED) openedToday = true;
-        
-        UpdateButton();
-    }
-
-
-    public void ToggleStore()
-    {
-        if (TEMPASLEEP) return;
-
-        if (TEMPCLOSED && openedToday) Sleep();
-        else if (TEMPCLOSED) Open();
-        else if (!TEMPCLOSED && time >= earliestCloseTime) Close();
-        UpdateButton();
+        if (closed && time > closeTime) asleep = true;
     }
 
     void Close()
     {
         AudioManager.instance.PlaySound(11, gameObject);
         GameManager.instance.OnStoreClose.Invoke();
-        TEMPCLOSED = true;
+        closed = true;
         UpdateButton();
     }
 
@@ -107,24 +82,16 @@ public class DayNightController : MonoBehaviour
     {
         AudioManager.instance.PlaySound(10, gameObject);
         GameManager.instance.OnStoreOpen.Invoke();
-        TEMPCLOSED = false;
-        openedToday = true;
+        closed = asleep = false;
         UpdateButton();
     }
-
-    void Sleep()
-    {
-        TEMPASLEEP = true;
-        sleepTime = time;
-    }
-
 
     void UpdateButton()
     {
         var text = "asleep...";
         Color col = sleepColor;
         var buttonText = buttonImg.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = TEMPASLEEP ? text : (TEMPCLOSED ? (openedToday ? "go to sleep" : "closed") : "open");
-        buttonImg.color = TEMPASLEEP ? col : (TEMPCLOSED ? openColor : closedColor);
+        buttonText.text = asleep ? text : (closed ? (time > closeTime ? "go to sleep" : "closed") : "open");
+        buttonImg.color = asleep ? col : (closed ? openColor : closedColor);
     }
 }

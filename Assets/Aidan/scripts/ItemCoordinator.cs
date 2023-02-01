@@ -64,7 +64,7 @@ public class ItemCoordinator : MonoBehaviour
 
     bool InReach()
     {
-        return Vector2.Distance(KitchenManager.instance.GetChef().transform.position, transform.position) <= KitchenManager.instance.playerReach;
+        return Vector2.Distance(KitchenManager.instance.chef.transform.position, transform.position) <= KitchenManager.instance.playerReach;
     }
 
     bool CanPickUp()
@@ -138,7 +138,7 @@ public class ItemCoordinator : MonoBehaviour
 
     bool SetChef()
     {
-        if (KitchenManager.instance) chef = KitchenManager.instance.GetChef();
+        if (KitchenManager.instance) chef = KitchenManager.instance.chef;
         return chef != null;
     }
 
