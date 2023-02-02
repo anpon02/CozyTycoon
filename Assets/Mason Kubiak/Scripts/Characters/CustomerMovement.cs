@@ -18,19 +18,23 @@ public class CustomerMovement : MonoBehaviour
         seek = GetComponent<Seeker>();
         path = GetComponent<AIPath>();
         currentTable = null;
+        currentSpotInLine = -1;
     }
 
     public void GetInLine() {
-        // get the next available spot from lineManager
-        currentSpotInLine = LineManager.instance.GetNextOpenSpot();
-        LineSpot spot = LineManager.instance.GetLineSpots()[currentSpotInLine];
-        Vector3 spotCoords = spot.GetPlaceCoordinates();
+        // if not in line or in a farther line spot
+        if(currentSpotInLine > LineManager.instance.GetNextOpenSpot() || currentSpotInLine == -1) {
+            // get the next available spot from lineManager
+            currentSpotInLine = LineManager.instance.GetNextOpenSpot();
+            LineSpot spot = LineManager.instance.GetLineSpots()[currentSpotInLine];
+            Vector3 spotCoords = spot.GetPlaceCoordinates();
 
-        // move to spot and claim it
-        seek.StartPath(transform.position, spotCoords);
-        path.destination = spotCoords;
-        spot.SetPlaceIsTaken(true);
-        LineManager.instance.UpdateNextOpenSpot();
+            // move to spot and claim it
+            seek.StartPath(transform.position, spotCoords);
+            path.destination = spotCoords;
+            spot.SetPlaceIsTaken(true);
+            LineManager.instance.UpdateNextOpenSpot();
+        }
     }
 
     public void MoveUpInLine() {
