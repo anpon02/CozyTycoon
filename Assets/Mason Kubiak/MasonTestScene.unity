@@ -3500,7 +3500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
-      value: Catboy (1)
+      value: Roxy
       objectReference: {fileID: 0}
     - target: {fileID: 8130190152255071190, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_RootOrder
@@ -3546,6 +3546,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870970, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -476494689, guid: 866fc222f1451ff4d9f1c2f9b855b970, type: 3}
+    - target: {fileID: 8130190153328870971, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1e27d597397e6f34fad96dd93800cd19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90af281422a00014ead762deb0004082, type: 3}
 --- !u!1 &1298450159

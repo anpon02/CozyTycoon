@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -50,8 +49,6 @@ public class CustomerInteraction : MonoBehaviour
 
     private void InteractWithCustomer(InputAction.CallbackContext context) {
         // pick which direction the player is facing and boxcast that way
-        animLastDir = anim.GetLastDir();
-        //boxcastOrigin = transform.position + potentialOrigins[animLastDir];
         float dir = transform.rotation.y == 0 ? 1 : -1;
         boxcastOrigin = transform.position + (dir * Vector3.left);
         RaycastHit2D hit = Physics2D.BoxCast(boxcastOrigin, new Vector3(colliderWidth * interactDistance, colliderHeight, 10),
@@ -67,8 +64,8 @@ public class CustomerInteraction : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red; 
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxcastOrigin, new Vector3(colliderWidth * interactDistance, colliderHeight, 10));
     }
 }

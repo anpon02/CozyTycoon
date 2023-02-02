@@ -29,48 +29,19 @@ public class PlayerAnimation : MonoBehaviour
         pInputActions.Disable();
     }
 
-    private void SetLastDir(Vector2 direction) {
-        // normalize angle to int between 0 and 7
-        float angle = Vector2.SignedAngle(Vector2.up, direction.normalized) + 22.5f;
-        angle = angle < 0 ? angle + 360 : angle;
-        lastDir = Mathf.FloorToInt(angle / 45);
-    }
-
-    private void SetDirection(Vector2 direction) {
-        
-        string[] animStates = null;
-
-        // if not moving
-        if(direction.magnitude < 0.1f) {
-            animStates = stillAnims;
-        }
-        // if moving
-        else {
-            animStates = moveAnims;
-            SetLastDir(direction);
-        }
-
-        anim.SetTrigger("Player_" + animStates[lastDir]);
-    }
-
-    public int GetLastDir() {
-        return lastDir;
-    }
-
     private void Update() {
-        input = pInputActions.Player.Movement.ReadValue<Vector2>();
-        //SetDirection(input);
+        if(!PauseManager.instance.GetPaused()) {
+            input = pInputActions.Player.Movement.ReadValue<Vector2>();
 
-        if(input.x < 0)
-            //sprRenderer.flipX = false;
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
-        else if(input.x > 0)
-            //sprRenderer.flipX = true;
-            transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
-        
-        if(input.magnitude > 0.1f)
-            anim.SetTrigger("ChefRun");
-        else if(input.magnitude < 0.1f)
-            anim.SetTrigger("ChefIdle");
+            if(input.x < 0)
+                transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+            else if(input.x > 0)
+                transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+            
+            if(input.magnitude > 0.1f)
+                anim.SetTrigger("ChefRun");
+            else if(input.magnitude < 0.1f)
+                anim.SetTrigger("ChefIdle");
+        }
     }
 }
