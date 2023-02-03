@@ -7,13 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerInputActions pInputActions;
     private Animator anim;
     private SpriteRenderer sprRenderer;
-
-    private string[] stillAnims = {"Still_N", "Still_NW", "Still_W", "Still_SW", 
-                                   "Still_S", "Still_SE", "Still_E", "Still_NE"};
-    private string[] moveAnims = {"Move_N", "Move_NW", "Move_W", "Move_SW",
-                                  "Move_S", "Move_SE", "Move_E", "Move_NE"};
     private Vector2 input;
-    private int lastDir = 4;
 
     private void Awake() {
         pInputActions = new PlayerInputActions();

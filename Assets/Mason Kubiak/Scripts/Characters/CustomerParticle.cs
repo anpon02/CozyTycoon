@@ -23,11 +23,11 @@ public class CustomerParticle : MonoBehaviour
     }
 
     public void EmitThumb(float foodVal) {
-        if(foodVal > positiveThreshold) {
+        if(foodVal >= KitchenManager.instance.midHighQualityCutoff.y) {
             pSystemRenderer.material = positive;
             pSystem.Emit(1);
         }
-        else if(foodVal < negativeThreshold) {
+        else if(foodVal <= KitchenManager.instance.midHighQualityCutoff.x) {
             pSystemRenderer.material = negative;
             pSystem.Emit(1);
         }

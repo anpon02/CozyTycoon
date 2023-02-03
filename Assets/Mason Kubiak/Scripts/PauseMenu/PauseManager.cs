@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -15,8 +15,11 @@ public class PauseManager : MonoBehaviour
     [Header("Graphics Buttons")]
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color unselectedColor;
-    [SerializeField] private List<Transform> graphicsButtons;
+    [SerializeField] private List<Button> graphicsButtons;
     private int selectedGraphicsButton;
+
+    [Header("Volume Settings")]
+    [SerializeField] private Slider volSlider;
 
     [Header("Scenes")]
     [SerializeField] private List<string> sceneNames;
@@ -38,10 +41,17 @@ public class PauseManager : MonoBehaviour
 
         // graphics setup
         selectedGraphicsButton = 2;
+        SelectGraphicsSetting(selectedGraphicsButton);
 
         // input actions setup
         pInputActions = new PauseInputActions();
         pInputActions.Pause.TogglePause.performed += PauseEvent;
+    }
+
+    private void Start() {
+        // volume setup
+        volSlider.value = 0.5f;
+        ChangeVolume();
     }
 
     private void OnEnable() {
@@ -54,6 +64,12 @@ public class PauseManager : MonoBehaviour
 
     private void PauseEvent(InputAction.CallbackContext context) {
         TogglePauseMenu();
+    }
+
+    private void SetPixelation() {
+        // TODO:
+        // MAKE A POST PROCESSING EFFECT THAT PIXELIZES SCREEN
+        // SET VALUE OF PIXELIZATION
     }
 
     public void TogglePauseMenu() {
@@ -75,12 +91,29 @@ public class PauseManager : MonoBehaviour
     }
 
     public void SelectGraphicsSetting(int buttonIndex) {
-        // TODO: Get this function working
         // set selectedGraphicsButton to butotnIndex
+        selectedGraphicsButton = buttonIndex;
+
         // loop through all buttons
-        // if index == buttonIndex, make that button's color selected color
-        // else, make that button's color unselected color
-        // make each button's hover color selected color
+        for(int i = 0; i < graphicsButtons.Count; ++i) {
+            ColorBlock buttonColors = graphicsButtons[i].colors;
+            buttonColors.highlightedColor = selectedColor;
+
+            // if index == buttonIndex, make that button's color selected color
+            if(i == buttonIndex) {
+                buttonColors.normalColor = selectedColor;
+                SetPixelation();  // can probably set pixelization value using some math with the index
+            }
+            else {
+                buttonColors.normalColor = unselectedColor;
+                SetPixelation();  // can probably set pixelization value using some math with the index
+            }
+            graphicsButtons[i].colors = buttonColors;
+        }
+    }
+
+    public void ChangeVolume() {
+        AudioManager.instance.masterVolume = volSlider.value * 2.0f;
     }
 
     public bool GetPaused() {

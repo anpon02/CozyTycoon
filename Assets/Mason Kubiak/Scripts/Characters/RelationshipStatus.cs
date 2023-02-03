@@ -35,6 +35,8 @@ public class RelationshipStatus : MonoBehaviour
     }
 
     public void GiveFood(float foodQualityValue) {
+        /*
+        // I'll get rid of this once we know it's really working
         print(foodQualityValue);
         if(foodQualityValue > 0.5f) {
             print("you gave the customer good food");
@@ -49,7 +51,22 @@ public class RelationshipStatus : MonoBehaviour
         }
         else
             print("you gave the customer mediocre food");
-        
+        */
+        if(foodQualityValue >= KitchenManager.instance.midHighQualityCutoff.y) {
+            print("you gave the customer good food");
+            float newValue = Mathf.Clamp(relationshipValue + (foodQualityValue * maxOrderValue), 0f, 1f);
+            SetRelationshipValue(newValue);
+        }
+        else if(foodQualityValue <= KitchenManager.instance.midHighQualityCutoff.x) {
+            print("you gave the customer bad food");
+            float newFoodQuality = 1 - foodQualityValue;
+            float newValue = Mathf.Clamp(relationshipValue - (newFoodQuality * maxOrderValue), 0f, 1f);
+            SetRelationshipValue(newValue);
+        }
+        else {
+            print("you gave the customer mediocre food");
+        }
+
         custParticle.EmitThumb(foodQualityValue);
     }
 }

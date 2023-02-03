@@ -15595,11 +15595,11 @@ MonoBehaviour:
   - sectionName: Section1
     sectionId: 0
     sectionTransform: {fileID: 1884149238}
-    cameraPosition: {x: 0, y: -1, z: -10}
+    cameraPosition: {x: 1.25, y: -1.25, z: -10}
   - sectionName: Section2
     sectionId: 1
     sectionTransform: {fileID: 928354382}
-    cameraPosition: {x: 10.39, y: -7.43, z: -10}
+    cameraPosition: {x: 11.98, y: -6.4, z: -10}
 --- !u!156049354 &938075872
 Grid:
   m_ObjectHideFlags: 0
