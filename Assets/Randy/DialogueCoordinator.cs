@@ -25,7 +25,7 @@ public class DialogueCoordinator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialoguePanel.gameObject.SetActive(false);
     }
 
     public void LoadCharacterStory(TextAsset inkStory)
@@ -41,12 +41,14 @@ public class DialogueCoordinator : MonoBehaviour
     public void StartDialogue(int progress)
     {
         currentStory.variablesState["CurrentStoryState"] = progress;
+        dialoguePanel.gameObject.SetActive(true);
         writeDialogue = StartCoroutine(WriteDialogue());
     }
 
     public void StartDialogue(string knotName)
     {
         currentStory.ChoosePathString(knotName);
+        dialoguePanel.gameObject.SetActive(true);
         writeDialogue = StartCoroutine(WriteDialogue());
     }
 
@@ -57,7 +59,7 @@ public class DialogueCoordinator : MonoBehaviour
         // loop through each letter in text and add it to text
         while (currentStory.canContinue)
         {
-            lineText = currentStory.Continue();
+            lineText = currentStory.Continue().Trim();
             parser.ParseTags(currentStory.currentTags);
             for (int i = 0; i < lineText.Length; i++)
             {
@@ -88,10 +90,10 @@ public class DialogueCoordinator : MonoBehaviour
                 button.onClick.AddListener(delegate {
                     OnClickChoiceButton(choice);
                 });
-                dialoguePanel.gameObject.SetActive(false);
                 choicePanel.gameObject.SetActive(true);
             }
         }
+        dialoguePanel.gameObject.SetActive(false);
     }
 
     // From Ink's example script. modified
