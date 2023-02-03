@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: Knife
+  m_Name: knife
   m_EditorClassIdentifier: 
   itemName: Knife2
   itemSprite: {fileID: 21300000, guid: cc06b7842d99dad41ab4a14ff360ea41, type: 3}

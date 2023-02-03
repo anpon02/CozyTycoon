@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: RawSteak
+  m_Name: steakAndFries
   m_EditorClassIdentifier: 
-  itemName: Raw Steak
-  itemSprite: {fileID: 21300000, guid: 8a60ae7054073bb4592361db536d0fa6, type: 3}
+  itemName: Steak and Fries
+  itemSprite: {fileID: 21300000, guid: 899c0e4bbda34d7498de7b1ce9aeaef7, type: 3}
   disableQuality: 0
-  throwSoundID: 2
-  topQualDescript: grade A wagyu beef
-  medQualDescript: a nice bit of steak
-  lowQualDescript: a rough cut of beef that fell on the floor
+  throwSoundID: 0
+  topQualDescript: 
+  medQualDescript: 
+  lowQualDescript: 
   isBigEquipment: 0
   _scaleMult: 1
   _quality: 0

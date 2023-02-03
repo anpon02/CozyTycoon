@@ -23,7 +23,7 @@ public class CustomerAnimation : MonoBehaviour
     }
 
     private void Update() {
-        if(!PauseManager.instance.GetPaused()) {
+        if(PauseManager.instance && !PauseManager.instance.GetPaused()) {
             // idle
             if(movement.GetCurrentTable() == null && !movement.IsMoving()) {
                 anim.SetBool("Walking", false);

@@ -16,6 +16,9 @@ public class KitchenManager : MonoBehaviour
     [HideInInspector] public ToolipCoordinator ttCoord;
     [Header("Prefabs")]
     [SerializeField] GameObject itemCoordPrefab;
+    public Color poorColor;
+    public Color neutralColor;
+    public Color pristineColor;
 
     public float GetTaskFactor()
     {

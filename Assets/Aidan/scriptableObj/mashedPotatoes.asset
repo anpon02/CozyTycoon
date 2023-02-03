@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: HomeFries
+  m_Name: mashedPotatoes
   m_EditorClassIdentifier: 
-  itemName: Home Fries
-  itemSprite: {fileID: 21300000, guid: aadfbb685611b474fbe34df22eb1c4b2, type: 3}
-  bigEquipment: 0
-  quality: 0.25
+  itemName: Mashed Potatoes
+  itemSprite: {fileID: 21300000, guid: 109a9adbbad9e014ba7c05dceba52bb8, type: 3}
   disableQuality: 0
-  throwSoundID: 1
+  throwSoundID: 0
+  topQualDescript: 
+  medQualDescript: 
+  lowQualDescript: 
+  isBigEquipment: 0
+  _scaleMult: 1
+  _quality: 0

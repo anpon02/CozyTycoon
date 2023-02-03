@@ -3287,7 +3287,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -6809,6 +6809,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8654729091466669457, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8654729091466669467, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
       propertyPath: m_Size.x
       value: 2.8318503
@@ -6905,6 +6909,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 485166805, guid: 969f3b4b9ca9bd845871cea368a22118, type: 3}
+    - target: {fileID: 8654729091466669471, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
 --- !u!1 &2057148865

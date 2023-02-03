@@ -60,6 +60,24 @@ public class ItemCoordinator : MonoBehaviour
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
         outline.flipX = sRend.flipX;
+        if (wsCoord && item.isBigEquipment && wsCoord.GetHeldItems().Count > 1) DisableCollider();
+        else EnableCollider();
+    }
+
+    void EnableCollider()
+    {
+        var box = GetComponent<BoxCollider2D>();
+        var poly = GetComponent<PolygonCollider2D>();
+        if (box) box.enabled = true;
+        if (poly) poly.enabled = true;
+    }
+
+    void DisableCollider()
+    {
+        var box = GetComponent<BoxCollider2D>();
+        var poly = GetComponent<PolygonCollider2D>();
+        if (box) box.enabled = false;
+        if (poly) poly.enabled = false;
     }
 
     bool InReach()

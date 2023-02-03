@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: ChoppedPotato
+  m_Name: choppedPotato
   m_EditorClassIdentifier: 
   itemName: ChoppedPotato
   itemSprite: {fileID: 21300000, guid: e76a2217e3840ed42a9829ba00bd308f, type: 3}
