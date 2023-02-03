@@ -114,7 +114,11 @@ public class WorkspaceCoordinator : MonoBehaviour
                 break;
             }
         }
-        print("toremove: " + coord.GetItem().GetName());
+        if (toRemove.Equals(bigItem.GetItem()) ) {
+            print("big!");
+            coord = bigItem;
+            bigItem = null;
+        }
         iCoords.Remove(coord);
         UpdateItemDisplay();
         return coord;

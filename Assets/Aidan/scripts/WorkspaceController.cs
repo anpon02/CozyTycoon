@@ -98,7 +98,11 @@ public class WorkspaceController : MonoBehaviour
 
     void CompleteRecipe()
     {
-        foreach (var item in toRemove) Destroy(coord.removeItem(item).gameObject);
+        foreach (var item in toRemove) {
+            print("item:" + item.GetName());
+            var iCoord = coord.removeItem(item);
+            if (iCoord) Destroy(iCoord.gameObject);
+        }
 
         float taskCompletionScore = 0.5f;
         AudioManager.instance.PlaySound((taskCompletionScore > 0.5f) ? 6 : 5);
