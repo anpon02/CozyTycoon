@@ -16,9 +16,9 @@ VAR CurrentStoryState = 0
 }
 
 == Day_1 ==
-    Oh... uhm, hi.
+    Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder
     I already ordered… so, uh, yeah...
-    ...
+    ... # Textspeed: 0.75 
 * How’s your day?
     I’m doing pretty good, I guess... 
 	This place looks kinda cozy. I live, uh, in the apartment complex across the street. 
@@ -30,15 +30,15 @@ VAR CurrentStoryState = 0
 	This guy wanted, like, a digital storefront. But he insists that I use Comic Sans for the font.
 	It’s giving me brain damage a little bit looking at it.
 	Whatever. If he’s happy I get paid n’ stuff.
--   I’m Luca, by the way. Uh. I guess a normal guy would have led with that. Oopsie.
+-   I’m Luca, by the way. Uh. I guess a normal guy would have led with that. Oopsie. #Speaker: Luca
     Anyways. See ya.
 -> DONE
 
 
 == Day_2 ==
 
-    ...
-    ...
+    ... #Speaker: Luca #Textspeed: 0.75 #Voice:12
+    ... #Textspeed: 0.75
     ... Huh? Oh, sorry- uh, my music was at max. What’s up?
 *   What music were you listening to?
     Oh, geez. It’s not normie music. I dunno if you would know it.
@@ -53,10 +53,9 @@ VAR CurrentStoryState = 0
 
 
 == Day_3 ==
-    Oh. It’s you again. Do you run this place by yourself? 
+    Oh. It’s you again. Do you run this place by yourself? #Speaker: Luca #Voice:12
     Normally when I go to food places there's a different, depressed looking teenager working the register every time.
     ... That’s kinda cool I guess. Seems like a lot of work.
-
 *   Did you see the new Lightning Legends announcement? 
 	Dude, yeah- like, holy shit?
 	I was wondering why they were revamping such an old ass game. 
@@ -70,10 +69,10 @@ VAR CurrentStoryState = 0
 
 
 == Good_End ==
-    You’re pretty okay to hang out with, I guess. 
+    You’re pretty okay to hang out with, I guess. #Speaker: Luca #Voice:12
     We could… hang out and game sometime… if you want... or whatever. Y’know.
 -> DONE
 
 == Bad_End ==
-    Uh, geez… I feel kinda bad saying this but, like, I’m probably just gonna stay in and eat ramen from now on.
+    Uh, geez… I feel kinda bad saying this but, like, I’m probably just gonna stay in and eat ramen from now on. #Speaker: Luca #Voice:12
 -> DONE
