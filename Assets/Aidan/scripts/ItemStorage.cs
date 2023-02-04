@@ -9,11 +9,11 @@ public class ItemStorage : MonoBehaviour
     public Item storedItem;
     [SerializeField] UpgradePromptCoordinator upgradeCoord;
     [SerializeField] string toolTip;
-    [SerializeField] int itemsRemaining;
     [SerializeField, Range(0, 1)] float itemStartQuality = 0;
     List<ItemCoordinator> dispensedItems = new List<ItemCoordinator>();
     [SerializeField] bool limitedStock;
     [SerializeField, ConditionalHide(nameof(limitedStock))] int numItems;
+    int itemsRemaining;
 
     [Header("Upgrades")]
     public int upgradeCost;
@@ -114,14 +114,12 @@ public class ItemStorage : MonoBehaviour
         }
         yield return new WaitForEndOfFrame();
         if (!switchedItem) GetItemFromStorage();
-        print("broken!");
         switchedItem = false; 
     }
 
     public void NextItem()
     {
         switchedItem = true;
-        print("switched!");
         if (altItems.Count == 0) return;
         altItems.Add(storedItem);
         storedItem = altItems[0];

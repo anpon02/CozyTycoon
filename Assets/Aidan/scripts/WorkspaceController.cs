@@ -5,7 +5,7 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.XR;
 
-public enum WorkspaceType {COUNTER, OVEN, STOVE}
+public enum WorkspaceType {COUNTER, OVEN, STOVE, SINK}
 
 [RequireComponent(typeof(WorkspaceCoordinator)), RequireComponent(typeof(AudioSource))]
 public class WorkspaceController : MonoBehaviour

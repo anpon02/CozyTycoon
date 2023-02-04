@@ -60,9 +60,12 @@ public class Item : ScriptableObject {
     }
 
     string GetDescription() {
+        string descript;
+
         Vector2 cutoffs = KitchenManager.instance.midHighQualityCutoff;
-        if (quality > cutoffs.y) return topQualDescript;
-        if (quality > cutoffs.x) return medQualDescript;
-        return lowQualDescript;
+        if (quality > cutoffs.y) descript = topQualDescript;
+        else if (quality > cutoffs.x) descript = medQualDescript;
+        else descript = lowQualDescript;
+        return string.IsNullOrEmpty(descript) ? itemName : descript;
     }
 }

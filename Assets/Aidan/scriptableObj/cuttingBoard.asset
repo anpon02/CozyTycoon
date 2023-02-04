@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: cuttingBoard
   m_EditorClassIdentifier: 
   itemName: cutting board
-  itemSprite: {fileID: 21300000, guid: 9a4d032e1e7c45f419de7349450e45a5, type: 3}
+  itemSprite: {fileID: 21300000, guid: 27c48165b09c72c49b1871a504ee67a4, type: 3}
   disableQuality: 1
   throwSoundID: 2
   topQualDescript: A beautiful hand-crafted cutting board
   medQualDescript: A cutting board
   lowQualDescript: A rough plank of wood
   isBigEquipment: 1
+  _scaleMult: 1
   _quality: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
@@ -56,7 +57,8 @@ public class ThrowingController : MonoBehaviour
     void ReleaseThrow()
     {
         if (heldItem == null) return;
-
+        var col = heldItem.GetComponent<Collider>();
+        if (col) col.enabled = true;
         heldItem.transform.parent = null;
         var dir = ((Vector3)mouseWorldPos - transform.position).normalized;
         var str = Mathf.Min(mouseDownTime, maxHoldTime)/ maxHoldTime;
@@ -80,6 +82,14 @@ public class ThrowingController : MonoBehaviour
         if (mouseDown) mouseDownTime += Time.deltaTime;
         if (heldItem) throwCoord.SetValue(Mathf.Min(mouseDownTime, maxHoldTime) / maxHoldTime);
         else throwCoord.SetValue(0);
+        if (heldItem) SetHeldItemPos();
+    }
+
+    void SetHeldItemPos()
+    {
+        heldItem.transform.position = transform.position;
+        var col = heldItem.GetComponent<Collider>();
+        if (col) col.enabled = false;
     }
 
     void SetPosition()
