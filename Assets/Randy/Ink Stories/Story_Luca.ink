@@ -17,8 +17,8 @@ VAR CurrentStoryState = 0
 
 == Day_1 ==
     Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder
-    I already ordered… so, uh, yeah...
-    ... # Textspeed: 0.75 
+    I already ordered... so, uh, yeah...
+    ... # Textspeed: 0.5
 * How’s your day?
     I’m doing pretty good, I guess... 
 	This place looks kinda cozy. I live, uh, in the apartment complex across the street. 
@@ -31,7 +31,7 @@ VAR CurrentStoryState = 0
 	It’s giving me brain damage a little bit looking at it.
 	Whatever. If he’s happy I get paid n’ stuff.
 -   I’m Luca, by the way. Uh. I guess a normal guy would have led with that. Oopsie. #Speaker: Luca
-    Anyways. See ya.
+    Anyways. See ya. # Finished
 -> DONE
 
 

@@ -7,7 +7,7 @@ public class InkParser : MonoBehaviour
 {
     [SerializeField] private DialogueCoordinator coordinator;
 
-    Regex rx = new Regex(@"\b(\w+)\s*:\s*(\S+)");
+    Regex rx = new Regex(@"\b(\w+)(?:$|\s*:\s*(\S+))");
     private string prevSpeaker;
     private string prevImage;
 
@@ -35,8 +35,11 @@ public class InkParser : MonoBehaviour
             }
 
             // m.groups [0] is the entire match
+            print(m.Groups[0].Value);
             Group section = m.Groups[1];
-            Group modifier = m.Groups[2];
+            Group modifier = default(Group);
+            if (m.Groups.Count == 3)
+                modifier = m.Groups[2];
 
             // Determine what to do for each RegEx match
             if (section.Value == "Speaker")
@@ -86,6 +89,15 @@ public class InkParser : MonoBehaviour
                 {
                     Debug.LogWarning("Voice: Expected float, but received " + modifier.Value);
                 }
+            }
+            else if (section.Value == "Finished")
+            {
+                CustomerStory story = DialogueManager.instance.GetSpeakingCharacter().GetComponent<CustomerStory>();
+                story.NextStoryPhase();
+            }
+            else if (section.Value == "CheckDistance")
+            {
+
             }
             else
             {

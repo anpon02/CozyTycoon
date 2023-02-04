@@ -51,6 +51,12 @@ public class DialogueCoordinator : MonoBehaviour
         dialoguePanel.gameObject.SetActive(true);
         writeDialogue = StartCoroutine(WriteDialogue());
     }
+    public void StopDialogue()
+    {
+        if (writeDialogue != null)
+            StopCoroutine(writeDialogue);
+        ClearAll();
+    }
 
     private IEnumerator WriteDialogue()
     {
@@ -121,8 +127,18 @@ public class DialogueCoordinator : MonoBehaviour
         // Skip the text given by selecting the choice
         currentStory.Continue();
         dialoguePanel.gameObject.SetActive(true);
+        ClearChoices();
         choicePanel.gameObject.SetActive(false);
         StartCoroutine(WriteDialogue());
+    }
+
+    void ClearChoices()
+    {
+        int childCount = choicePanel.transform.childCount;
+        for (int i = childCount - 1; i >= 0; --i)
+        {
+            GameObject.Destroy(choicePanel.transform.GetChild(i).gameObject);
+        }
     }
 
     private void ClearDialogueText()
@@ -135,7 +151,8 @@ public class DialogueCoordinator : MonoBehaviour
         speakerText.text = string.Empty;
         dialogueText.text= string.Empty;
         leftSpeakerImage.sprite = null;
-        leftSpeakerImage.gameObject.SetActive(false);
+        ClearChoices();
+        choicePanel.gameObject.SetActive(false);
     }
 
     public IEnumerator PanelFadeout()
@@ -167,12 +184,6 @@ public class DialogueCoordinator : MonoBehaviour
         }
     }
 
-    public void StopDialogue()
-    {
-        if (writeDialogue != null)
-            StopCoroutine(writeDialogue);
-        ClearDialogueText();
-    }
 
     public void ChangeSpeaker(string name)
     {
