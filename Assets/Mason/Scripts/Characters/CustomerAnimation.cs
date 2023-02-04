@@ -23,28 +23,28 @@ public class CustomerAnimation : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.instance && !PauseManager.instance.GetPaused()) {
-            // idle
-            if(movement.GetCurrentTable() == null && !movement.IsMoving()) {
-                anim.SetBool("Walking", false);
-                if(!coroutineRunning) {
-                    StartCoroutine("RandomIdle");
-                }
+        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        
+        // idle
+        if(movement.GetCurrentTable() == null && !movement.IsMoving()) {
+            anim.SetBool("Walking", false);
+            if(!coroutineRunning) {
+                StartCoroutine("RandomIdle");
             }
-            // sitting
-            else if(movement.GetCurrentTable() != null && !movement.IsMoving()) {
-                anim.SetBool("Walking", false);
-                anim.SetTrigger("Sit");
-                coroutineRunning = false;
-            }
-            // walking
-            else if(movement.IsMoving()) {
-                anim.SetBool("Walking", true);
-                coroutineRunning = false;
-            }
-
-            sprRenderer.flipX = movement.MovingRight();
         }
+        // sitting
+        else if(movement.GetCurrentTable() != null && !movement.IsMoving()) {
+            anim.SetBool("Walking", false);
+            anim.SetTrigger("Sit");
+            coroutineRunning = false;
+        }
+        // walking
+        else if(movement.IsMoving()) {
+            anim.SetBool("Walking", true);
+            coroutineRunning = false;
+        }
+
+        sprRenderer.flipX = movement.MovingRight();
     }
 
     private IEnumerator RandomIdle() {

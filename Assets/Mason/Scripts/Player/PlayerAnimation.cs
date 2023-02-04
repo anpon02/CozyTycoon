@@ -24,18 +24,18 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.instance && !PauseManager.instance.GetPaused()) {
-            input = pInputActions.Player.Movement.ReadValue<Vector2>();
+        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        
+        input = pInputActions.Player.Movement.ReadValue<Vector2>();
 
-            if(input.x < 0)
-                transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
-            else if(input.x > 0)
-                transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        if(input.x < 0)
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+        else if(input.x > 0)
+            transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             
-            if(input.magnitude > 0.1f)
-                anim.SetTrigger("ChefRun");
-            else if(input.magnitude < 0.1f)
-                anim.SetTrigger("ChefIdle");
-        }
+        if(input.magnitude > 0.1f)
+            anim.SetTrigger("ChefRun");
+        else if(input.magnitude < 0.1f)
+            anim.SetTrigger("ChefIdle");
     }
 }
