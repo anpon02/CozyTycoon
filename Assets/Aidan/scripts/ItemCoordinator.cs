@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ItemCoordinator : MonoBehaviour
@@ -24,7 +23,6 @@ public class ItemCoordinator : MonoBehaviour
     private void OnValidate() {
         if (item == null || string.IsNullOrEmpty(item.GetName())) return;
 
-        if (PrefabStageUtility.GetCurrentPrefabStage() == null || PrefabStageUtility.GetCurrentPrefabStage() != PrefabStageUtility.GetPrefabStage(gameObject)) gameObject.name = item.GetName();
         if (sRend == null) GetReferences();
         sRend.sprite = item.GetSprite();
         outline.sprite = item.GetSprite();
@@ -33,6 +31,7 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Awake()
     {
+        if (Application.isPlaying) gameObject.name = item.GetName();
         defaultLocalScale = transform.localEulerAngles;
         defaultRot = transform.rotation;
         outline.gameObject.SetActive(false);

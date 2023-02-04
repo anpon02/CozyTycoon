@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    void Awake () { instance = this; }
 
     GameObject player;
     OrderController orderController;
@@ -14,7 +13,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnStoreOpen;
     public UnityEvent OnStoreClose;
     [HideInInspector] public PlayerWallet wallet;
-    
+
+    void Awake() { 
+        instance = this;
+    }
+
+
     public void SetPlayer(GameObject _player) { player = _player; }
     public GameObject GetPlayer() { return player; }
 

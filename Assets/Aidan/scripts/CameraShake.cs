@@ -26,16 +26,16 @@ public class CameraShake : MonoBehaviour
     IEnumerator _Shake(float duration, float freq, float mag)
     {
         float timeLeft = duration;
-        Vector2 offset = Vector2.zero;
-        Vector2 original = transform.position;
+        Vector3 offset = Vector3.zero;
+        Vector3 original = transform.position;
 
         while (timeLeft >= 0) {
             float value = Mathf.Sin(Time.time * freq) * mag;
-            offset = new Vector2(value, value);
+            offset = new Vector3(value, value, 0);
             transform.position = original + offset;
             yield return new WaitForEndOfFrame();
             timeLeft -= Time.deltaTime;
-            original = transform.position - (Vector3) offset;
+            original = transform.position - offset;
         }
         transform.position = original;
     }

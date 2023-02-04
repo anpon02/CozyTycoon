@@ -8,7 +8,6 @@ public class SectionManager : MonoBehaviour
     
     [SerializeField] private int currentSectionId;
     [SerializeField] private List<Section> sections;
-    private MoveCamera camMovement;
 
     private void Awake() {
         if(instance == null)
@@ -18,7 +17,6 @@ public class SectionManager : MonoBehaviour
     }
 
     private void Start() {
-        camMovement = Camera.main.GetComponent<MoveCamera>();
         Camera.main.transform.position = sections[currentSectionId].GetCameraPosition();
     }
 
@@ -47,6 +45,6 @@ public class SectionManager : MonoBehaviour
 
     public void MoveSections(int newSectionId) {
         currentSectionId = newSectionId;
-        camMovement.SetNewRoom(newSectionId);
+        Camera.main.GetComponent<MoveCamera>().SetNewRoom(newSectionId);
     }
 }

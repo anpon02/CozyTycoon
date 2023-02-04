@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/title/Title.unity
+    guid: e4d21c71b53893d41b02051acd5d4c4d
+  - enabled: 1
     path: Assets/Main/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Mason/MasonTestScene.unity
+    guid: 31b287f592e7d474688b13ffa92fb4ec
+  - enabled: 1
+    path: Assets/Aidan/AidanScene.unity
+    guid: 7261534c2a0ea614ab9d71dc839059ec
+  - enabled: 1
+    path: Assets/Ankie/AnkieScene.unity
+    guid: d4aa523cf6eed834b82bdc84b39de52e
+  - enabled: 1
+    path: Assets/Randy/RandyTest.unity
+    guid: 17fee8c1713450043b1b6eba7d619aeb
+  - enabled: 1
+    path: Assets/Mason/PauseScene.unity
+    guid: f597eccf3dd2dc54dae7e785bc08a8f8
   m_configObjects: {}
