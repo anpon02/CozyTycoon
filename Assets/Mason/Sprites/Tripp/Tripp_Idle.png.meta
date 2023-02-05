@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53195d82efe388a4d8f1a7e3e12a1dc8
+guid: 91f8fb3a6d9fbb94580283d1190f6b7b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1350
+  spritePixelsToUnits: 2250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,295 +141,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Catboy_Idle_0
+      name: Tripp_Idle_0
       rect:
         serializedVersion: 2
-        x: 74
-        y: 25
-        width: 691
-        height: 1257
+        x: 363
+        y: 29
+        width: 721
+        height: 2198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463ac8a412d0a904689b53c22c55b2bc
-      internalID: -809491959
+      spriteID: 1cf282362a54fa04a84f5033fabc545e
+      internalID: 140819258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_1
+      name: Tripp_Idle_1
       rect:
         serializedVersion: 2
-        x: 972
-        y: 41
-        width: 691
-        height: 1257
+        x: 1863
+        y: 29
+        width: 721
+        height: 2180
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc10294526d0d424a8e9de1562e0506b
-      internalID: 1630487194
+      spriteID: 55d7171258285524ba34f56f153b61d7
+      internalID: -441666830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_2
+      name: Tripp_Idle_2
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 25
-        width: 691
-        height: 1257
+        x: 3363
+        y: 29
+        width: 721
+        height: 2186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c28e0a2971cef443a91321fd45111ce
-      internalID: -1903412273
+      spriteID: 3dfe94ff9ad514948826201d409066cf
+      internalID: 1110777650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_3
+      name: Tripp_Idle_3
       rect:
         serializedVersion: 2
-        x: 2775
-        y: 25
-        width: 691
-        height: 1257
+        x: 4863
+        y: 29
+        width: 721
+        height: 2186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3462666f11cb5474db71ad38aad5581f
-      internalID: 234615501
+      spriteID: f9761ba22b80a5448bf6b4e97a62f5fd
+      internalID: -425110346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_4
+      name: Tripp_Idle_4
       rect:
         serializedVersion: 2
-        x: 3673
-        y: 25
-        width: 691
-        height: 1257
+        x: 6363
+        y: 29
+        width: 721
+        height: 2186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 801975e0a1e5c224ca90fcb57097b01e
-      internalID: -1738403543
+      spriteID: 00d79b4e39acfbf4bb2025255f29453d
+      internalID: -531529943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_5
+      name: Tripp_Idle_5
       rect:
         serializedVersion: 2
-        x: 4571
-        y: 25
-        width: 691
-        height: 1257
+        x: 7863
+        y: 29
+        width: 721
+        height: 2186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30ba71a824549a24cbe8a4be0228867e
-      internalID: -807791527
+      spriteID: 6ca474d949d5d154db470e3f634fd46e
+      internalID: 1377972757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_6
+      name: Tripp_Idle_6
       rect:
         serializedVersion: 2
-        x: 5469
-        y: 25
-        width: 691
-        height: 1257
+        x: 9363
+        y: 29
+        width: 721
+        height: 2186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a52d55f347f884f4883effd9aefc4900
-      internalID: 1903535108
+      spriteID: 96d11a000e45d5d4d89be0bd4cb9c481
+      internalID: -1265269688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Catboy_Idle_7
+      name: Tripp_Idle_7
       rect:
         serializedVersion: 2
-        x: 6374
-        y: 25
-        width: 691
-        height: 1257
+        x: 10863
+        y: 29
+        width: 721
+        height: 2209
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4afbd8cf7ee6d9d4ca27b3e52f0981dd
-      internalID: 914111885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_8
-      rect:
-        serializedVersion: 2
-        x: 7272
-        y: 25
-        width: 691
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a010c6642c49bca4583186632a168935
-      internalID: -426620893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_9
-      rect:
-        serializedVersion: 2
-        x: 8164
-        y: 22
-        width: 691
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 045cf4837cddf484ba2e90763e53f8bc
-      internalID: 1118309843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_10
-      rect:
-        serializedVersion: 2
-        x: 9089
-        y: 22
-        width: 691
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b002b40099215634bbcc602de2c312a6
-      internalID: -1796146097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_11
-      rect:
-        serializedVersion: 2
-        x: 10016
-        y: 22
-        width: 691
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e76deff4b2060e24c99b46fc0b1d4e6d
-      internalID: 1252296001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_12
-      rect:
-        serializedVersion: 2
-        x: 10932
-        y: 22
-        width: 691
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c34536e857ae21e429106868358ce5cf
-      internalID: 2145758232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Catboy_Idle_13
-      rect:
-        serializedVersion: 2
-        x: 11767
-        y: 22
-        width: 689
-        height: 1257
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0720c22ceab184419be2f750ee97930
-      internalID: 1235422279
+      spriteID: 589be0d96a8d0ec4d97ea838e427a4e0
+      internalID: 2088073504
       vertices: []
       indices: 
       edges: []
@@ -445,20 +319,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Catboy_Idle_8: -426620893
-      Catboy_Idle_5: -807791527
-      Catboy_Idle_12: 2145758232
-      Catboy_Idle_1: 1630487194
-      Catboy_Idle_11: 1252296001
-      Catboy_Idle_0: -809491959
-      Catboy_Idle_3: 234615501
-      Catboy_Idle_6: 1903535108
-      Catboy_Idle_7: 914111885
-      Catboy_Idle_9: 1118309843
-      Catboy_Idle_2: -1903412273
-      Catboy_Idle_13: 1235422279
-      Catboy_Idle_4: -1738403543
-      Catboy_Idle_10: -1796146097
+      Tripp_Idle_1: -441666830
+      Tripp_Idle_0: 140819258
+      Tripp_Idle_2: 1110777650
+      Tripp_Idle_3: -425110346
+      Tripp_Idle_5: 1377972757
+      Tripp_Idle_4: -531529943
+      Tripp_Idle_7: 2088073504
+      Tripp_Idle_6: -1265269688
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
