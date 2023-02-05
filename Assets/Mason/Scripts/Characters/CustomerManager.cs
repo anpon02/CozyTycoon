@@ -37,6 +37,7 @@ public class CustomerManager : MonoBehaviour
         // reset each character
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
+            customer.GetComponentInChildren<CustomerStory>().SetStorySaid(false);
         }
 
         // start customers coming

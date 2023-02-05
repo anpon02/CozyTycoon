@@ -3730,6 +3730,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502880963}
     m_Modifications:
+    - target: {fileID: 4033430718334160427, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
+    - target: {fileID: 5081657739379258492, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Roxy
@@ -6591,6 +6599,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502880963}
     m_Modifications:
+    - target: {fileID: 4033430718334160427, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
+    - target: {fileID: 5081657739379258492, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Catboy (2)
@@ -7316,6 +7332,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502880963}
     m_Modifications:
+    - target: {fileID: 4033430718334160427, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
+    - target: {fileID: 5081657739379258492, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 570659187}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Catboy
