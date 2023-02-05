@@ -24,12 +24,6 @@ public class CustomerOrderController : MonoBehaviour
         hasReceivedFood = false;
     }
 
-    private void OnMouseDown()
-    {
-        if (!foodOrdered) Order();
-        else if (CorrectFoodHeld()) DeliverFood();
-    }
-
     bool CorrectFoodHeld()
     {
         if (!GetChef() || chef.GetHeldItem() == null) return false;
@@ -50,7 +44,6 @@ public class CustomerOrderController : MonoBehaviour
         foodOrdered = true;
         if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
         CustomerManager.instance.GoToTable(transform);
-        story.StartStory();
     }
 
     public void DeliverFood()

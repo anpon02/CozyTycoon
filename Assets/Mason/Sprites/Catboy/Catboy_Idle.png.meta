@@ -144,12 +144,12 @@ TextureImporter:
       name: Catboy_Idle_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 22
-        width: 688
-        height: 1263
+        x: 74
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Catboy_Idle_1
       rect:
         serializedVersion: 2
-        x: 971
-        y: 22
-        width: 687
-        height: 1263
+        x: 972
+        y: 41
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: Catboy_Idle_2
       rect:
         serializedVersion: 2
-        x: 1871
-        y: 22
+        x: 1870
+        y: 25
         width: 691
-        height: 1263
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Catboy_Idle_3
       rect:
         serializedVersion: 2
-        x: 2773
-        y: 22
-        width: 688
-        height: 1263
+        x: 2775
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Catboy_Idle_4
       rect:
         serializedVersion: 2
-        x: 3671
-        y: 22
-        width: 688
-        height: 1263
+        x: 3673
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: Catboy_Idle_5
       rect:
         serializedVersion: 2
-        x: 4570
-        y: 22
-        width: 687
-        height: 1263
+        x: 4571
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: Catboy_Idle_6
       rect:
         serializedVersion: 2
-        x: 5470
-        y: 22
+        x: 5469
+        y: 25
         width: 691
-        height: 1263
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Catboy_Idle_7
       rect:
         serializedVersion: 2
-        x: 6372
-        y: 22
-        width: 688
-        height: 1263
+        x: 6374
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: Catboy_Idle_8
       rect:
         serializedVersion: 2
-        x: 7271
-        y: 22
-        width: 687
-        height: 1263
+        x: 7272
+        y: 25
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,12 +333,12 @@ TextureImporter:
       name: Catboy_Idle_9
       rect:
         serializedVersion: 2
-        x: 8309
+        x: 8164
         y: 22
-        width: 553
-        height: 1263
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: Catboy_Idle_10
       rect:
         serializedVersion: 2
-        x: 9213
+        x: 9089
         y: 22
-        width: 634
-        height: 1263
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,12 +375,12 @@ TextureImporter:
       name: Catboy_Idle_11
       rect:
         serializedVersion: 2
-        x: 10111
+        x: 10016
         y: 22
-        width: 606
-        height: 1263
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,12 +396,12 @@ TextureImporter:
       name: Catboy_Idle_12
       rect:
         serializedVersion: 2
-        x: 11010
+        x: 10932
         y: 22
-        width: 627
-        height: 1263
+        width: 691
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,12 +417,12 @@ TextureImporter:
       name: Catboy_Idle_13
       rect:
         serializedVersion: 2
-        x: 11908
+        x: 11767
         y: 22
-        width: 553
-        height: 1263
+        width: 689
+        height: 1257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
