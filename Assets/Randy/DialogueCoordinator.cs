@@ -33,6 +33,12 @@ public class DialogueCoordinator : MonoBehaviour
         currentStory = new Story(inkStory.text);
     }
 
+    public Story GetCharacterStory()
+    {
+        return currentStory;
+    }
+
+
     public void StartDialogue()
     {
         writeDialogue = StartCoroutine(WriteDialogue());
@@ -184,6 +190,10 @@ public class DialogueCoordinator : MonoBehaviour
         }
     }
 
+    public Image GetDialoguePanel()
+    {
+        return dialoguePanel;
+    }
 
     public void ChangeSpeaker(string name)
     {

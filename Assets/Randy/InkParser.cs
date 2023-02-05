@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using Ink.Runtime;
 
 public class InkParser : MonoBehaviour
 {
@@ -97,7 +98,21 @@ public class InkParser : MonoBehaviour
             }
             else if (section.Value == "CheckDistance")
             {
+                Story story = coordinator.GetCharacterStory();
+                story.variablesState["Distance"] = DialogueManager.instance.GetPlayerDistance();
+                print(DialogueManager.instance.GetPlayerDistance());
+            }
+            else if (section.Value == "ForceVisible")
+            {
 
+            }
+            else if (section.Value == "Skippable")
+            {
+                CanvasGroup panelGroup = coordinator.GetDialoguePanel().GetComponent<CanvasGroup>();
+                if (panelGroup.alpha < 0.001)
+                {
+                    coordinator.GetCharacterStory().Continue();
+                }
             }
             else
             {
