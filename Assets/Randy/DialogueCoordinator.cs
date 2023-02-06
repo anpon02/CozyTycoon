@@ -68,6 +68,8 @@ public class DialogueCoordinator : MonoBehaviour
     {
         string lineText = default(string);
         CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
+        panelGroup.alpha = 1f;
+        StartCoroutine(ApplyPanelFade());
         // loop through each letter in text and add it to text
         while (currentStory.canContinue)
         {
@@ -189,6 +191,18 @@ public class DialogueCoordinator : MonoBehaviour
             yield return null;
         }
     }
+
+    public IEnumerator ApplyPanelFade()
+    {
+        CanvasGroup panelGroup = dialoguePanel.GetComponent<CanvasGroup>();
+        while(dialoguePanel.IsActive())
+        {
+            panelGroup.alpha += 1 / DialogueManager.instance.GetFadeRate() * Time.deltaTime;
+            Mathf.Clamp(panelGroup.alpha, 0f, 1f);
+            yield return null;
+        }
+        print("end fade");
+    }    
 
     public Image GetDialoguePanel()
     {

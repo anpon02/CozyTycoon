@@ -16,20 +16,27 @@ public class DialogueController : MonoBehaviour
     void Update()
     {
         if(DialogueManager.instance && DialogueManager.instance.GetSpeakingCharacter()) {
-            DialogueManager.instance.SetPlayerDistance(Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position));
+            float distance = Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position);
+            DialogueManager.instance.SetPlayerDistance(distance);
             
-            // Contents in Update are for testing purposes while I only have access to the UI
-            if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) < DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingIn)
+            if(DialogueManager.instance.GetForcedVisibility())
+            {
+                DialogueManager.instance.SetFadeRate(DialogueManager.instance.GetFadeinRate() * 0.25f); 
+            }
+            else if (distance < DialogueManager.instance.GetMinFadeoutThreshold())
             {
                 DialogueManager.instance.isFadingIn = true;
                 DialogueManager.instance.isFadingOut = false;
-                StartCoroutine(coordinator.PanelFadein());
+                //StartCoroutine(coordinator.PanelFadein());
+                DialogueManager.instance.SetFadeRate(DialogueManager.instance.GetFadeinRate());
             }
-            else if (Vector3.Distance(DialogueManager.instance.GetPlayer().transform.position, DialogueManager.instance.GetSpeakingCharacter().transform.position) > DialogueManager.instance.GetMinFadeoutThreshold() && !DialogueManager.instance.isFadingOut)
+            else if (distance > DialogueManager.instance.GetMinFadeoutThreshold())
             {
                 DialogueManager.instance.isFadingIn = false;
                 DialogueManager.instance.isFadingOut = true;
-                StartCoroutine(coordinator.PanelFadeout());
+                //StartCoroutine(coordinator.PanelFadeout());
+                float fadeoutValue = DialogueManager.instance.GetFadeoutRate() * DialogueManager.instance.GetFadeoutRateMultiplier(distance);
+                DialogueManager.instance.SetFadeRate(-fadeoutValue);
             }
         }
     }

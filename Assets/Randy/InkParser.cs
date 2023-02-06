@@ -36,7 +36,7 @@ public class InkParser : MonoBehaviour
             }
 
             // m.groups [0] is the entire match
-            print(m.Groups[0].Value);
+            //print(m.Groups[0].Value);
             Group section = m.Groups[1];
             Group modifier = default(Group);
             if (m.Groups.Count == 3)
@@ -104,7 +104,15 @@ public class InkParser : MonoBehaviour
             }
             else if (section.Value == "ForceVisible")
             {
-
+                bool state;
+                if(bool.TryParse(modifier.Value.Trim(), out state))
+                {
+                    DialogueManager.instance.SetForcedVisibility(state);
+                }
+                else
+                {
+                    Debug.LogWarning("ForceVisible: Expected true/false, but received " + modifier.Value);
+                }
             }
             else if (section.Value == "Skippable")
             {

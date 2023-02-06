@@ -19,12 +19,11 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Textbox Shenannigans")]
     [SerializeField] private GameObject player;
-    // maybe clean up line below
-    [SerializeField] private float unintelligibleTextThreshold;
     [SerializeField] private float minFadeoutThreshold;
     [SerializeField] private float maxFadeoutThreshold;
     [SerializeField] private float FadeoutRate;
     [SerializeField] private float fadeinRate;
+    private float currentFadeRate;
 
 
     [Header("Debug Tools (Will add ability to hide at some point)")]
@@ -32,9 +31,9 @@ public class DialogueManager : MonoBehaviour
     [ Range(0f, 100f), ConditionalHide(nameof(showDebugInfo))] private float playerDistance;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] private GameObject speakingCharacter;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] private int characterVoiceID;
-    [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isUnintelligible;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingOut;
     [SerializeField, ConditionalHide(nameof(showDebugInfo))] public bool isFadingIn;
+    [SerializeField, ConditionalHide(nameof(showDebugInfo))] private bool visibilityForced;
     
 
     
@@ -99,6 +98,16 @@ public class DialogueManager : MonoBehaviour
         return fadeinRate;
     }
 
+    public void SetFadeRate(float r)
+    {
+        currentFadeRate = r;
+    }
+
+    public float GetFadeRate()
+    {
+        return currentFadeRate;
+    }
+
     public float GetMinFadeoutThreshold()
     {
         return minFadeoutThreshold;
@@ -111,7 +120,7 @@ public class DialogueManager : MonoBehaviour
 
     public float GetFadeoutRateMultiplier(float distance)
     {
-        return Mathf.InverseLerp(GetMinFadeoutThreshold(), GetMaxFadeoutThreshold(), distance);
+        return Mathf.Clamp(Mathf.InverseLerp( GetMaxFadeoutThreshold(), GetMinFadeoutThreshold(), distance), 0.25f, 1f);
     }
 
     public void TrackChareacterDistance(GameObject npc, float minDist, float maxDist)
@@ -130,6 +139,17 @@ public class DialogueManager : MonoBehaviour
     {
         maxFadeoutThreshold = distance;
     }
+
+    public void SetForcedVisibility(bool vis)
+    {
+        visibilityForced = vis;
+    }
+
+    public bool GetForcedVisibility()
+    {
+        return visibilityForced;
+    }
+
     #endregion
 
     #region Outside access/ Helper functions
