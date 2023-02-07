@@ -3802,6 +3802,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.93777776
       objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870982, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: customerName
+      value: roxy
+      objectReference: {fileID: 0}
     - target: {fileID: 8130190153328870983, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: inkStory
       value: 
@@ -6671,6 +6675,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870980, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32044443
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870980, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9768889
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870982, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: customerName
+      value: tripp
+      objectReference: {fileID: 0}
     - target: {fileID: 8130190153328870983, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: inkStory
       value: 
@@ -7411,6 +7427,10 @@ PrefabInstance:
     - target: {fileID: 8130190153328870976, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130190153328870982, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: customerName
+      value: catboy
       objectReference: {fileID: 0}
     - target: {fileID: 8130190153328870983, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: inkStory
