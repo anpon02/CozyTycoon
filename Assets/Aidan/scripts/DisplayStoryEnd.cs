@@ -10,7 +10,7 @@ public class DisplayStoryEnd : MonoBehaviour
 
     [SerializeField, Range(0, 1)] float lucaAffection;
 
-
+     
     public void StartStory(int character)
     {
         if (!DialogueManager.instance.StoryEnded()) return;

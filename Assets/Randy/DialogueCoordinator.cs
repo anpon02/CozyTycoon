@@ -22,7 +22,6 @@ public class DialogueCoordinator : MonoBehaviour
 
     private Coroutine writeDialogue;
 
-    // Start is called before the first frame update
     void Start()
     {
         dialoguePanel.gameObject.SetActive(false);

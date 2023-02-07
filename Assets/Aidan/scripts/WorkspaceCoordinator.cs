@@ -11,6 +11,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     [SerializeField] Transform bigSlot;
     [SerializeField] CookPromptCoordinator cookPrompt;
     ItemCoordinator bigItem;
+    [SerializeField] bool displayWhenNotSelected;
 
     public List<ItemCoordinator> iCoords { get; private set; } = new List<ItemCoordinator>();
     public int capacity { get { return itemSlots.Count; }}
@@ -24,12 +25,32 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void Start()
     {
+        HideSprites();
+
+    }
+
+    void HideSprites()
+    {
         if (bigSlot) {
             bigSlot.SetAsFirstSibling();
             bigSlot.GetComponent<SpriteRenderer>().enabled = false;
         }
-        if (cookPrompt) cookPrompt.transform.SetAsFirstSibling();
+        if (cookPrompt) {
+            cookPrompt.transform.SetAsFirstSibling();
+            cookPrompt.Hide();
+        }
+
         foreach (Transform t in itemSlots) t.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void ShowSprites()
+    {
+        if (bigSlot) {
+            bigSlot.SetAsFirstSibling();
+            bigSlot.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (cookPrompt) cookPrompt.transform.SetAsFirstSibling();
+        foreach (Transform t in itemSlots) t.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     bool roomForBigEquipment()
@@ -144,5 +165,20 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach(var i in iCoords) items.Add(i.GetItem());
         if (bigItem) items.Add(bigItem.GetItem());
         return items;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        print("hiiii");
+        StopAllCoroutines();
+        ShowSprites();
+        StartCoroutine(HideSpritesAfterDelay());
+    }
+
+    IEnumerator HideSpritesAfterDelay()
+    {
+        print("startingEnumerator");
+        yield return new WaitForSeconds(0.5f);
+        HideSprites();
     }
 }
