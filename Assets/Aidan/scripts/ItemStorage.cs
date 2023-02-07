@@ -87,7 +87,7 @@ public class ItemStorage : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine(waitForMouseUp());
+        if (InReach()) StartCoroutine(waitForMouseUp());
     }
 
     void GetItemFromStorage()

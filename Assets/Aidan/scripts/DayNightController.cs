@@ -10,14 +10,16 @@ public class DayNightController : MonoBehaviour
     [SerializeField] Gradient backgroundGradient;
     [SerializeField] float timeSpeed = 0.5f;
     [SerializeField, Range(0,1)] float time;
-    [SerializeField] TextMeshProUGUI timeDisplay;
+    TextMeshProUGUI timeDisplay;
+    [SerializeField] GameObject wheel;
+    [SerializeField] float wheelOffset;
 
     [Header("CloseButton")]
     [SerializeField] Image buttonImg;
     [SerializeField] Color openColor;
     [SerializeField] Color closedColor;
     [SerializeField] Color sleepColor;
-    
+   
     [Header("Schedule")]
     [SerializeField] float openTime = 0.25f;
     [SerializeField] float closeTime = 0.8f;
@@ -34,6 +36,12 @@ public class DayNightController : MonoBehaviour
         DoEvents();
         TickTime();
         DisplayTime();
+        SpinWheel();
+    }
+
+    void SpinWheel()
+    {
+        wheel.transform.localEulerAngles = new Vector3(0, 0, (time * 360) + wheelOffset);
     }
 
     void DoEvents()
@@ -61,8 +69,7 @@ public class DayNightController : MonoBehaviour
         if (hour == 0) hour = 12;
         minute -= minute % 5;
         if (minute == 60) minute = 55;
-
-        timeDisplay.text = (hour > 9 ? hour : "0" + hour) + ":" + (minute > 9 ? minute : "0" + minute) + suffix;
+        if (timeDisplay) timeDisplay.text = (hour > 9 ? hour : "0" + hour) + ":" + (minute > 9 ? minute : "0" + minute) + suffix;
     }
 
     public void GoToSleep()

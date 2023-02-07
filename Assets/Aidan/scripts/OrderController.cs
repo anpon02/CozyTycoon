@@ -28,7 +28,6 @@ public class OrderController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.SetOrderController(this);
-        gameObject.SetActive(false);
     }
 
     public void Order(Item desire, string customerName = "UNNAMED CUSTOMER")

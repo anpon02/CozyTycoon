@@ -6,36 +6,39 @@ using UnityEngine.UI;
 
 public class OrderListItemCoordinator : MonoBehaviour
 {
-    [SerializeField] Image checkBox;
     [SerializeField] TextMeshProUGUI label;
-    [SerializeField] Sprite uncheckedBox;
-    [SerializeField] Sprite checkedBox;
     [SerializeField] Color completeCol;
-
+    [SerializeField] Image timer;
     [SerializeField] bool TESTBOOL;
-
+    [SerializeField] GameObject strikeThrough;
+    public float patience;
+    float timeLeft;
     string itemName;
 
     private void Update()
     {
+        timeLeft -= Time.deltaTime;
+        timer.fillAmount = Mathf.Clamp01(timeLeft / patience);
+
         if (TESTBOOL) {
             TESTBOOL = false;
             MarkComplete();
         }
     }
 
-
-    public void Init(string _text)
+    public void Init(string _text, float time)
     {
-        checkBox.sprite = uncheckedBox;
         label.text = _text;
         itemName = _text;
+        strikeThrough.SetActive(false);
+        patience = timeLeft = time;
+
     }
 
     public void MarkComplete()
     {
-        checkBox.sprite = checkedBox;
-        label.color = checkBox.color = completeCol;
+        strikeThrough.SetActive(true);
+        label.color = completeCol;
         label.fontStyle = FontStyles.Italic;
     }
 

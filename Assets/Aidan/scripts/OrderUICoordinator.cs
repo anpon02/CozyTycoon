@@ -7,12 +7,13 @@ public class OrderUICoordinator : MonoBehaviour
     [SerializeField] GameObject listElementPrefab;
     [SerializeField] Transform listParent;
     List<OrderListItemCoordinator> listItems = new List<OrderListItemCoordinator>();
+    [SerializeField] float orderPatience = 120;
     
     public void AddNew(string itemName)
     {
         var newListItem = Instantiate(listElementPrefab, listParent);
         var listScript = newListItem.GetComponent<OrderListItemCoordinator>();
-        listScript.Init(itemName);
+        listScript.Init(itemName, orderPatience);
         listItems.Add(listScript);
     }
 

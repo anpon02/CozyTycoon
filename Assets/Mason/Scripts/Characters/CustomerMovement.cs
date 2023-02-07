@@ -44,7 +44,7 @@ public class CustomerMovement : MonoBehaviour
 
     public bool ComeToEat(List<Transform> potentialTables) {
         if(!cust.GetHasReceivedFood()) {
-            LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);
+            LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
             LineManager.instance.UpdateNextOpenSpot();
 
             // pick a random available table, move to it, and reserve it

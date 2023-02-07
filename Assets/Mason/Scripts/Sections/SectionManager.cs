@@ -45,6 +45,6 @@ public class SectionManager : MonoBehaviour
 
     public void MoveSections(int newSectionId) {
         currentSectionId = newSectionId;
-        Camera.main.GetComponent<MoveCamera>().SetNewRoom(newSectionId);
+        //Camera.main.GetComponent<MoveCamera>().SetNewRoom(newSectionId);
     }
 }
