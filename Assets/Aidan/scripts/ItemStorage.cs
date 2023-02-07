@@ -12,14 +12,15 @@ public class ItemStorage : MonoBehaviour
     [SerializeField, Range(0, 1)] float itemStartQuality = 0;
     List<ItemCoordinator> dispensedItems = new List<ItemCoordinator>();
     [SerializeField] bool limitedStock;
-    [SerializeField, ConditionalHide(nameof(limitedStock))] int numItems;
-    int itemsRemaining;
+    [SerializeField] List<int> itemLimit;
+    [SerializeField] List<int> itemsRemaining;
+    int currentItemIndex;
 
     [Header("Upgrades")]
     public int upgradeCost;
     public string upgradeName = "knife block";
     [SerializeField] float upgradeQualityIncrease;
-    [SerializeField, ConditionalHide(nameof(limitedStock))] int upgradeNumIncrease;
+    [SerializeField] int upgradeNumIncrease;
     [TextArea(3, 5)] public string upgradeDetails = "";
     bool closed;
     bool upgradedToday;
@@ -47,7 +48,7 @@ public class ItemStorage : MonoBehaviour
     void OnStoreOpen() {
         closed = false; 
         upgradedToday = false;
-        itemsRemaining = numItems;
+        itemsRemaining = itemLimit;
     }
 
     private void Update()
@@ -82,7 +83,7 @@ public class ItemStorage : MonoBehaviour
 
         upgradeCoord.gameObject.SetActive(false);
         itemStartQuality = Mathf.Min(1, itemStartQuality + upgradeQualityIncrease);
-        if (limitedStock) numItems += upgradeNumIncrease;
+        if (limitedStock) for (int i = 0; i < itemLimit.Count; i++) itemLimit[i] += upgradeNumIncrease;
     }
 
     private void OnMouseDown()
@@ -94,8 +95,8 @@ public class ItemStorage : MonoBehaviour
     {
         if (!KitchenManager.instance || closed) return;
 
-        if (limitedStock && itemsRemaining <= 0) return;
-        else if (limitedStock) itemsRemaining -= 1;
+        if (limitedStock && itemsRemaining[currentItemIndex] <= 0) return;
+        else if (limitedStock) itemsRemaining[currentItemIndex] -= 1;
 
         var chef = KitchenManager.instance.chef;
         if (chef == null) return;
@@ -124,6 +125,8 @@ public class ItemStorage : MonoBehaviour
         altItems.Add(storedItem);
         storedItem = altItems[0];
         altItems.RemoveAt(0);
+        currentItemIndex += 1;
+        if (currentItemIndex > altItems.Count) currentItemIndex = 0;
     }
 
     private void OnMouseEnter()

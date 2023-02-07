@@ -17,7 +17,7 @@ public class FollowCamera : MonoBehaviour
     }
 
     private void Update() {
-        if(player)
+        if(player || GameManager.instance.GetPlayer() == null)
             return;
         else {
             player = GameManager.instance.GetPlayer().transform;

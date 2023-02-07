@@ -25,8 +25,8 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void Start()
     {
+        StopAllCoroutines();
         HideSprites();
-
     }
 
     void HideSprites()
@@ -169,7 +169,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        print("hiiii");
+        if (Application.isPlaying) return;
         StopAllCoroutines();
         ShowSprites();
         StartCoroutine(HideSpritesAfterDelay());
@@ -177,7 +177,6 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     IEnumerator HideSpritesAfterDelay()
     {
-        print("startingEnumerator");
         yield return new WaitForSeconds(0.5f);
         HideSprites();
     }

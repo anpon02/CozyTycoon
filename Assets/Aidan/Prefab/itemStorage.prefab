@@ -320,7 +320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15aaac91a040dce4fa04d539951ae67f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5af989b1a1c7f2d4ca5077a036e651d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -488,16 +488,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedItem: {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
   upgradeCoord: {fileID: 8238418426328368412}
-  toolTip: 
-  itemsRemaining: 0
+  toolTip: A sack of potatos
   itemStartQuality: 0
   limitedStock: 0
-  numItems: 0
-  upgradeCost: 0
-  upgradeName: knife block
-  upgradeDetails: knife block
-  upgradeQualityIncrease: 0
-  upgradeNumIncrease: 0
+  itemLimit: 
+  itemsRemaining: 
+  upgradeCost: 20
+  upgradeName: potato supply
+  upgradeQualityIncrease: 0.3
+  upgradeNumIncrease: 1
+  upgradeDetails: increase quality
   altItems: []
   itemSelectorCoord: {fileID: 2585778418776144955}
 --- !u!61 &1473943506979282127

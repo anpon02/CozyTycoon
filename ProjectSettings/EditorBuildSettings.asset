@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Mason/PauseScene.unity
     guid: f597eccf3dd2dc54dae7e785bc08a8f8
+  - enabled: 1
+    path: Assets/Aidan/TEMPfinishScene.unity
+    guid: ac686b4cf9a3da74abd6c6af315bada5
   m_configObjects: {}

@@ -144,10 +144,10 @@ TextureImporter:
       name: Tripp_Sit_0
       rect:
         serializedVersion: 2
-        x: 290
-        y: 145
-        width: 943
-        height: 1927
+        x: 0
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Tripp_Sit_1
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 158
-        width: 889
-        height: 1914
+        x: 1500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Tripp_Sit_2
       rect:
         serializedVersion: 2
-        x: 3296
-        y: 172
-        width: 863
-        height: 1900
+        x: 3000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Tripp_Sit_3
       rect:
         serializedVersion: 2
-        x: 4792
-        y: 145
-        width: 943
-        height: 1927
+        x: 4500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Tripp_Sit_4
       rect:
         serializedVersion: 2
-        x: 6295
-        y: 158
-        width: 897
-        height: 1914
+        x: 6000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Tripp_Sit_5
       rect:
         serializedVersion: 2
-        x: 7798
-        y: 172
-        width: 857
-        height: 1900
+        x: 7500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Tripp_Sit_6
       rect:
         serializedVersion: 2
-        x: 9288
-        y: 145
-        width: 949
-        height: 1927
+        x: 9000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Tripp_Sit_7
       rect:
         serializedVersion: 2
-        x: 10797
-        y: 158
-        width: 897
-        height: 1914
+        x: 10500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +312,10 @@ TextureImporter:
       name: Tripp_Sit_8
       rect:
         serializedVersion: 2
-        x: 12294
-        y: 172
-        width: 863
-        height: 1900
+        x: 12000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
