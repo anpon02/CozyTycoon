@@ -23,7 +23,7 @@ public class CustomerInteractableCoordinator : MonoBehaviour
         if(!movement.IsMoving() && !orderController.GetHasReceivedFood()) {
             forkKnife.gameObject.SetActive(true);
         }
-        if(!movement.IsMoving() && !custStory.GetStorySaid()) {
+        if(!movement.IsMoving() && movement.GetCurrentTable()&& !custStory.GetStorySaid()) {
             story.gameObject.SetActive(true);
         }
         if(movement.IsMoving()) {
