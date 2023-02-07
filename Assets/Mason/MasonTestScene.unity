@@ -3125,12 +3125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81944d76232a4946abaf3b5a74e931a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitTime: 5
-  maxWaitTime: 10
+  minWaitTime: 90
+  maxWaitTime: 120
   customers:
   - {fileID: 728991021}
   - {fileID: 1565066940}
-  - {fileID: 1514875234}
   tables:
   - {fileID: 1926717758}
   - {fileID: 435134290}
@@ -6634,6 +6633,10 @@ PrefabInstance:
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Tripp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8130190152255071190, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_RootOrder
