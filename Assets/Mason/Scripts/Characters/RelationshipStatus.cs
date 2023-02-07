@@ -34,6 +34,7 @@ public class RelationshipStatus : MonoBehaviour
         }
         relationshipValue = Mathf.Round(newValue * 100f) / 100f;
         PlayerPrefs.SetFloat(customerName.ToLower() + "Status", relationshipValue);
+        PlayerPrefs.Save();
     }
 
     public void GiveFood(float foodQualityValue) {

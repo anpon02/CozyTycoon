@@ -6,6 +6,7 @@ using Pathfinding;
 public class CustomerMovement : MonoBehaviour
 {
     [SerializeField] private Vector3 exitPoint;
+    [SerializeField] private Table sitSpot;
 
     private Seeker seek;
     private AIPath path;
@@ -47,12 +48,16 @@ public class CustomerMovement : MonoBehaviour
             LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
             LineManager.instance.UpdateNextOpenSpot();
 
+            /*
             // pick a random available table, move to it, and reserve it
             Transform tableChoice = potentialTables[Random.Range(0, potentialTables.Count -1)];
             seek.StartPath(transform.position, tableChoice.position);
             path.destination = tableChoice.position;
             currentTable = tableChoice.GetComponent<Table>();
-            currentTable.SetIsTaken(true);
+            currentTable.SetIsTaken(true);*/
+            seek.StartPath(transform.position, sitSpot.transform.position);
+            path.destination = sitSpot.transform.position;
+            currentTable = sitSpot;
             return true;
         }
         return false;
