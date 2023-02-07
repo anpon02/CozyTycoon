@@ -63,4 +63,9 @@ public class DialogueController : MonoBehaviour
     {
         coordinator.StopDialogue();
     }
+
+    public bool StoryEnded()
+    {
+        return coordinator.StoryEnded();
+    }
 }

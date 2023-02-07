@@ -150,6 +150,11 @@ public class DialogueManager : MonoBehaviour
         return visibilityForced;
     }
 
+    public bool StoryEnded()
+    {
+        return controller.StoryEnded();
+    }
+
     #endregion
 
     #region Outside access/ Helper functions

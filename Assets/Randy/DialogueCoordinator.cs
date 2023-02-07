@@ -198,7 +198,7 @@ public class DialogueCoordinator : MonoBehaviour
         while(dialoguePanel.IsActive())
         {
             panelGroup.alpha += 1 / DialogueManager.instance.GetFadeRate() * Time.deltaTime;
-            Mathf.Clamp(panelGroup.alpha, 0f, 1f);
+            Mathf.Clamp(panelGroup.alpha, 0.1f, 1f);
             yield return null;
         }
         print("end fade");
@@ -218,5 +218,10 @@ public class DialogueCoordinator : MonoBehaviour
     {
         print(path);
         leftSpeakerImage.sprite = Resources.Load<Sprite>(path);
+    }
+
+    public bool StoryEnded()
+    {
+        return !dialoguePanel.IsActive();
     }
 }
