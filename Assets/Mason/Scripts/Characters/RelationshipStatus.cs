@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RelationshipStatus : MonoBehaviour
 {
+    [SerializeField] private string customerName;
     [Range(0, 1.0f)]
     [SerializeField] private float relationshipValue;
 
@@ -32,6 +33,7 @@ public class RelationshipStatus : MonoBehaviour
             return;
         }
         relationshipValue = Mathf.Round(newValue * 100f) / 100f;
+        PlayerPrefs.SetFloat(customerName.ToLower() + "Status", relationshipValue);
     }
 
     public void GiveFood(float foodQualityValue) {
