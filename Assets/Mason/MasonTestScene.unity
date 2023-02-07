@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4835049}
   - component: {fileID: 4835051}
   m_Layer: 8
-  m_Name: Circle (3)
+  m_Name: TrippSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3293,7 +3293,7 @@ GameObject:
   - component: {fileID: 796089266}
   - component: {fileID: 796089268}
   m_Layer: 8
-  m_Name: Circle (5)
+  m_Name: LucaSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3307,7 +3307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796089264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.37, y: -2.98, z: 0}
+  m_LocalPosition: {x: 13.05, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3738,6 +3738,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 570659187}
+    - target: {fileID: 8130190152255071185, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: sitSpot
+      value: 
+      objectReference: {fileID: 1298450163}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Roxy
@@ -3825,7 +3829,7 @@ GameObject:
   - component: {fileID: 1298450161}
   - component: {fileID: 1298450163}
   m_Layer: 8
-  m_Name: Circle (4)
+  m_Name: RoxySpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3839,7 +3843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298450159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.36, y: -1.89, z: 0}
+  m_LocalPosition: {x: 8.03, y: 0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6611,6 +6615,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 570659187}
+    - target: {fileID: 8130190152255071185, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: sitSpot
+      value: 
+      objectReference: {fileID: 4835051}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
       value: Tripp
@@ -7371,9 +7379,13 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 570659187}
+    - target: {fileID: 8130190152255071185, guid: 90af281422a00014ead762deb0004082, type: 3}
+      propertyPath: sitSpot
+      value: 
+      objectReference: {fileID: 796089268}
     - target: {fileID: 8130190152255071186, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_Name
-      value: Catboy
+      value: Luca
       objectReference: {fileID: 0}
     - target: {fileID: 8130190152255071190, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: m_RootOrder
@@ -7429,7 +7441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8130190153328870982, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: customerName
-      value: catboy
+      value: luca
       objectReference: {fileID: 0}
     - target: {fileID: 8130190153328870983, guid: 90af281422a00014ead762deb0004082, type: 3}
       propertyPath: inkStory
