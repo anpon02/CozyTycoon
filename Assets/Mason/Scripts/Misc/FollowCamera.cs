@@ -5,15 +5,24 @@ using Cinemachine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] private Transform player;
     [SerializeField] private CinemachineVirtualCamera followVCam;
     [SerializeField] private CinemachineVirtualCamera stationaryVCam;
+    private Transform player;
     private PolygonCollider2D cameraCollider;
 
     private void Awake() {
         cameraCollider = GetComponent<PolygonCollider2D>();
         followVCam.Priority = 2;
         stationaryVCam.Priority = 1;
+    }
+
+    private void Update() {
+        if(player)
+            return;
+        else {
+            player = GameManager.instance.GetPlayer().transform;
+            followVCam.Follow = player;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
