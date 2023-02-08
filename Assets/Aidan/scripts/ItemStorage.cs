@@ -34,7 +34,11 @@ public class ItemStorage : MonoBehaviour
     {
         GameManager.instance.OnStoreClose.AddListener(OnStoreClose);
         GameManager.instance.OnStoreOpen.AddListener(OnStoreOpen);
+        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = true;
     }
+
+    
 
     void OnStoreClose()
     {
@@ -48,7 +52,9 @@ public class ItemStorage : MonoBehaviour
     void OnStoreOpen() {
         closed = false; 
         upgradedToday = false;
-        itemsRemaining = itemLimit;
+        for (int i = 0; i < itemsRemaining.Count; i++) {
+            itemsRemaining[i] = itemLimit[i];
+        }
     }
 
     private void Update()
@@ -88,7 +94,10 @@ public class ItemStorage : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (InReach()) StartCoroutine(waitForMouseUp());
+        print("clicked on: " + gameObject.name);
+        if (InReach()) {
+            StartCoroutine(waitForMouseUp());
+        }
     }
 
     void GetItemFromStorage()
