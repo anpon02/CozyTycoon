@@ -44,10 +44,16 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     [Header("Pan Minigame")]
     [SerializeField] bool panActive;
-    [SerializeField] GameObject panParent;
+    [SerializeField] GameObject panParent, flipButton, buttonBounds;
+    [SerializeField] Vector2 flipTimeGap = new Vector2(0.1f, 0.6f);
+    [SerializeField] float panProgressSpeed = 0.1f, panPenalty = 0.2f, flipFloatMax = 0.6f;
+    float nextFlipTime = 0.2f;
+    float flipFailTime = 0.5f;
 
     public void StartMinigame(Minigame minigame)
     {
+        flipButton.SetActive(false);
+
         if (minigame == Minigame.KNIFE) knifeActive = true;
         if (minigame == Minigame.PAN) panActive = true;
     }
@@ -102,6 +108,40 @@ public class WorkstationUICoordinator : MonoBehaviour
     void PanMinigame()
     {
         panParent.SetActive(true);
+        nextFlipTime -= Time.deltaTime;
+        progressSlider.value += panProgressSpeed * Time.deltaTime;
+        if (nextFlipTime <= 0 && !flipButton.activeInHierarchy) DisplayFlipButton();
+        if (flipButton.activeInHierarchy) {
+            flipFailTime -= Time.deltaTime;
+            if (flipFailTime <= 0) PanFail();
+        }
+    }
+
+    void DisplayFlipButton() {
+        flipButton.SetActive(true);
+
+        Vector3 pos = flipButton.transform.position;
+        var rect = buttonBounds.GetComponent<RectTransform>().rect;
+        Vector2 xy = new Vector2(buttonBounds.transform.localPosition.x, buttonBounds.transform.localPosition.y);
+        pos.x = Random.Range(xy.x - rect.width / 2, xy.x + rect.width / 2);
+        pos.y = Random.Range(xy.y - rect.height / 2, xy.y + rect.height / 2);
+        flipButton.transform.localPosition = pos;
+
+        flipFailTime = flipFloatMax;
+    }
+
+    void PanFail() {
+        progressSlider.value -= panPenalty;
+        ResetFlip();
+    }
+
+    public void Flip() {
+        ResetFlip();
+    }
+
+    void ResetFlip() {
+        flipButton.SetActive(false);
+        nextFlipTime = Random.Range(flipTimeGap.x, flipTimeGap.y);
     }
 
     void KnifeMinigame()

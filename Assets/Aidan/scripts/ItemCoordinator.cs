@@ -5,13 +5,15 @@ using UnityEngine;
 public class ItemCoordinator : MonoBehaviour
 {
     [SerializeField] Item item;
+    [SerializeField] float MinLerpDist = 0.25f;
+    [SerializeField] float moveSmoothness = 0.025f;
+    [HideInInspector] public bool travellingToChef;
+    [SerializeField] GameObject plate;
+    public bool plated;
 
     ChefController chef;
     SpriteRenderer sRend;
     Vector3 targetPos;
-    [SerializeField] float MinLerpDist = 0.25f;
-    [SerializeField] float moveSmoothness = 0.025f;
-    [HideInInspector] public bool travellingToChef;
     Rigidbody2D rb;
 
     public Sprite GetItemSprite()
@@ -51,7 +53,7 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Update()
     {
-
+        plate.SetActive(plated);
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
         MoveToTargetPos();
