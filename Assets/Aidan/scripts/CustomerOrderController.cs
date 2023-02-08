@@ -16,7 +16,7 @@ public class CustomerOrderController : MonoBehaviour
     [SerializeField] private float foodValue;
     private RelationshipStatus status;
 
-    ThrowingController chef;
+    ChefController chef;
 
     private void Awake() {
         status = GetComponent<RelationshipStatus>();

@@ -7,7 +7,7 @@ public class KitchenManager : MonoBehaviour
     public static KitchenManager instance;
     void Awake() { instance = this; }
 
-    public ThrowingController chef;
+    public ChefController chef;
     [Range(0, 1)]
     [SerializeField] float taskFactor = 0.5f;
     public float playerReach = 5;
@@ -16,17 +16,15 @@ public class KitchenManager : MonoBehaviour
     [HideInInspector] public ToolipCoordinator ttCoord;
     [Header("Prefabs")]
     [SerializeField] GameObject itemCoordPrefab;
-    public Color poorColor;
-    public Color neutralColor;
-    public Color pristineColor;
+    [HideInInspector] public WorkspaceController hoveredController;
+    public Sprite genericVeggies;
+    public Sprite genericMeat;
 
     public float GetTaskFactor()
     {
         return taskFactor;
     }
 
-
-    //universal functions - try to find a better place for these??
     public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos , float quality)
     {
         item.quality = quality;

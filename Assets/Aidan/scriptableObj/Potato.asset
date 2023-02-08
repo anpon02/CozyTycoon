@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Potatoooo
   itemSprite: {fileID: 21300000, guid: c617c607ba3f00042948247868fbd5ce, type: 3}
-  bigEquipment: 0
-  quality: 0
   disableQuality: 0
   throwSoundID: 2
   topQualDescript: A pristine potato
   medQualDescript: a medium-sized potato
   lowQualDescript: A tiny, dirty potato
+  isBigEquipment: 0
+  _scaleMult: 1
+  _quality: 0
+  type: 1

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Minigame { NONE, KNIFE, PAN }
+
 [System.Serializable]
 public class Recipe
 {
@@ -10,7 +12,7 @@ public class Recipe
     [SerializeField] List<Item> requiredIngrd = new List<Item>();
     [SerializeField] List<Item> equipment = new List<Item>();
     [SerializeField] Item result;
-    [SerializeField] float makeTime;
+    [SerializeField] Minigame minigame;
 
     public void OnValidate() {
         if (result == null) return;
@@ -33,8 +35,8 @@ public class Recipe
         return equipment.Count;
     }
 
-    public float GetMakeTime() {
-        return makeTime;
+    public Minigame GetMinigame() {
+        return minigame;
     }
 
     bool validWS(WorkspaceType ws)

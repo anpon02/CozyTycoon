@@ -5,62 +5,66 @@ using UnityEngine;
 public class ItemCoordinator : MonoBehaviour
 {
     [SerializeField] Item item;
-    [SerializeField] List<SpriteRenderer> stars = new List<SpriteRenderer>();
-    [SerializeField] Color topQuality;
-    [SerializeField] Color medQuality;
-    [SerializeField] Color lowQuality;
-    [SerializeField] SpriteRenderer outline;
 
-    ThrowingController chef;
-    Rigidbody2D rb;
+    ChefController chef;
     SpriteRenderer sRend;
-    public bool isFree;
+    Vector3 targetPos;
+    [SerializeField] float MinLerpDist = 0.25f;
+    [SerializeField] float moveSmoothness = 0.025f;
+    [HideInInspector] public bool travellingToChef;
+    Rigidbody2D rb;
 
-    WorkspaceCoordinator wsCoord;
-    Quaternion defaultRot;
-    Vector3 defaultLocalScale;
+    public Sprite GetItemSprite()
+    {
+        return item.GetSprite();
+    }
 
-    private void OnValidate() {
+    private void OnValidate()
+    {
         if (item == null || string.IsNullOrEmpty(item.GetName())) return;
 
         if (sRend == null) GetReferences();
         sRend.sprite = item.GetSprite();
-        outline.sprite = item.GetSprite();
-        UpdateQualityDisplay();
+    }
+
+    public void SetPosition(Vector3 newPos, bool toChef = false)
+    {
+        travellingToChef = toChef;
+        targetPos = newPos;
     }
 
     private void Awake()
     {
         if (Application.isPlaying) gameObject.name = item.GetName();
-        defaultLocalScale = transform.localEulerAngles;
-        defaultRot = transform.rotation;
-        outline.gameObject.SetActive(false);
     }
 
     private void OnMouseEnter()
     {
-        if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach() || IsBigAndInWS()) return;
+        if ((SetChef() && chef.GetHeldiCoord() == this) || !InReach()) return;
         KitchenManager.instance.ttCoord.Display(item);
-        outline.gameObject.SetActive(true);
-    }
-
-    bool IsBigAndInWS() {
-        return item.isBigEquipment && wsCoord != null && wsCoord.HeldItemCount > 1;
     }
 
     private void OnMouseExit()
     {
         KitchenManager.instance.ttCoord.ClearText(item);
-        outline.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
-        outline.flipX = sRend.flipX;
-        if (wsCoord && item.isBigEquipment && wsCoord.GetHeldItems().Count > 1) DisableCollider();
-        else EnableCollider();
+        MoveToTargetPos();
+    }
+
+    void MoveToTargetPos()
+    {
+        if (Vector3.Distance(targetPos, transform.position) <= MinLerpDist) {
+            travellingToChef = false;
+            transform.position = targetPos;
+            return;
+        }
+        transform.position = Vector3.Lerp(transform.position, targetPos, 0.025f);
     }
 
     void EnableCollider()
@@ -73,84 +77,11 @@ public class ItemCoordinator : MonoBehaviour
 
     void DisableCollider()
     {
-        var box = GetComponent<BoxCollider2D>();
-        var poly = GetComponent<PolygonCollider2D>();
-        if (box) box.enabled = false;
-        if (poly) poly.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
-
     bool InReach()
     {
         return Vector2.Distance(KitchenManager.instance.chef.transform.position, transform.position) <= KitchenManager.instance.playerReach;
-    }
-
-    bool CanPickUp()
-    {
-        bool inreach = InReach();
-        if (item.isBigEquipment && wsCoord != null) return (wsCoord.GetHeldItems().Count <= 1 && inreach);
-        return inreach;
-    }
-
-    public void SetDisplayParent(Transform displayParent, WorkspaceCoordinator _wsCoord)
-    {
-        if (displayParent.GetComponent<SpriteRenderer>().flipX) sRend.flipX = true;
-        if (!item.isBigEquipment) outline.sortingOrder = 0;
-        wsCoord = _wsCoord;
-        transform.parent = displayParent;
-        transform.localEulerAngles = Vector3.zero;
-        transform.localPosition = Vector3.zero;
-        transform.localScale = Vector3.one * item.scaleMult;
-
-        HideQualityDisplay();
-    }
-    public bool InWS()
-    {
-        return wsCoord != null;
-    }
-    public void FreeFromDisplayParent()
-    {
-        if (!item.isBigEquipment) outline.sortingOrder = -1;
-        sRend.flipX = false;
-        wsCoord = null;
-        transform.parent = null;
-        transform.localEulerAngles = defaultLocalScale;
-        transform.rotation = defaultRot;
-
-        UpdateQualityDisplay();
-    }
-
-    void HideQualityDisplay() {
-        foreach (var s in stars) s.gameObject.SetActive(false);
-    }
-
-    void UpdateQualityDisplay()
-    {
-        if (item == null) return;
-        foreach (var s in stars) s.gameObject.SetActive(false);
-
-        /*
-        Color col = Color.black;
-        var starIndex = -1;
-        if (item.quality == -1) return;
-
-        var qual = item.quality;
-        if (qual < 0.3f) {
-            col = lowQuality;
-            starIndex = 1;
-        }
-        else if (qual > 0.9f) {
-            col = topQuality;
-            starIndex = 3;
-        }
-        else {
-            col = medQuality;
-            starIndex = 2;
-        } 
-
-        for (int i = 0; i < starIndex; i++) {
-            stars[i].gameObject.SetActive(true);
-            stars[i].color = col;
-        }*/
     }
 
     bool SetChef()
@@ -169,52 +100,20 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Start()
     {
+        targetPos = transform.position;
         item = Instantiate(item);
         GetReferences();
-        if (item.isBigEquipment) {
-            sRend.sortingOrder = -1;
-            outline.sortingOrder = -2;
-        }
     }
 
     void GetReferences() {
         sRend = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        if (!SetChef() || !CanPickUp() || chef.GetHeldItem() != null) return;
-        if (wsCoord) {
-            wsCoord.removeItem(this);
-            FreeFromDisplayParent();
-        }
-        chef.HoldNewItem(this);
+        rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.isKinematic = true;
+        if (SetChef()) chef.PickupItem(this);
     }
-
-    public Rigidbody2D GetRB()
-    {
-        return rb;
-    }
-
-    public void StopMoving()
-    {
-        rb.velocity = Vector2.zero;
-    }
-
-    public Sprite GetItemSprite()
-    {
-        return item.GetSprite();
-    }
-
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void Show()
-    {
-        gameObject.SetActive(true);
-        UpdateQualityDisplay();
-    }
+    
 }

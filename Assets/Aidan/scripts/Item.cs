@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+public enum FoodType { NONE, VEGGIE, MEAT };
+
 [CreateAssetMenu(fileName = "newItem", menuName = "ScriptableObjects/Item", order = 1)]
 public class Item : ScriptableObject {
     [SerializeField] string itemName;
@@ -19,6 +21,7 @@ public class Item : ScriptableObject {
     [SerializeField] private float _quality;
     public float quality { get { if (disableQuality) return -1; return _quality;  } set { _quality = value; } }
     public string description { get { return GetDescription(); } }
+    public FoodType type;
 
     public Sprite GetSprite() {
         return itemSprite;

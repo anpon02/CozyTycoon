@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public enum WorkspaceType {COUNTER, OVEN, STOVE, SINK}
@@ -10,81 +11,126 @@ public class WorkspaceController : MonoBehaviour
 {
     [SerializeField] WorkspaceType _workspaceType;
     public WorkspaceType workSpaceType { get; private set; }
+
+
+    public Vector3 itemLerpTarget;
     [SerializeField] int actionSoundID;
-    [SerializeField] ItemCoordinator startingItem;
+    [SerializeField] WorkstationUICoordinator wsUIcoord;
 
-    ThrowingController chef;
-    WorkspaceCoordinator coord;
+    [SerializeField] List<ItemCoordinator> iCoords;
+
+    public string chosenRecipe;
+
     KitchenManager kManag;
-
     AudioSource source;
+
     Item result;
-    List<Item> toRemove;
-    float makeTime;
+    List<Item> toRemove = new List<Item>();
+    Minigame minigame;
 
     private void OnValidate()
     {
         workSpaceType = _workspaceType;
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kManag.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
+            var iCoord = iCoords[iCoords.Count - 1];
+            iCoords.Remove(iCoord);
+            iCoord.gameObject.SetActive(true);
+            kManag.chef.PickupItem(iCoord);
+        }
+    }
+
     private void Start()
     {
+        itemLerpTarget += transform.position;
         kManag = KitchenManager.instance;
-        coord = GetComponent<WorkspaceCoordinator>();
-        if (startingItem) CatchItem(startingItem);
-        
     }
 
     public void HaltRecipe()
     {
         if (source != null) source.Stop();
         StopAllCoroutines();
-        coord.HideCookPrompt();
-        CheckRecipes();
     }
     
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var iCoord = collision.GetComponent<ItemCoordinator>();
-        if (ValidiCood(iCoord)) CatchItem(iCoord);
+        if (iCoord) AddItem(iCoord);
     }
-    bool ValidiCood(ItemCoordinator iCoord)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (iCoord == null) return false;
-        if (iCoord == kManag.chef.GetHeldiCoord()) return false;
-        return true;
+        var iCoord = collision.GetComponent<ItemCoordinator>();
+        if (iCoord) AddItem(iCoord);
+    }
+
+    public List<Item> GetValidRecipeResults()
+    {
+        var list = new List<Item>();
+        var recipes = RecipeManager.instance.GetValidRecipes(GetItemList(), this);
+        foreach (var r in recipes) list.Add(r.GetResult());
+
+        return list;
     }
     
-    void CatchItem(ItemCoordinator iCoord)
+    void AddItem(ItemCoordinator iCoord)
     {
-        if (!coord.HasRoom(iCoord.GetItem()) || coord.HasItem(iCoord) || iCoord.InWS()) return;
-        coord.AddItem(iCoord);
-        CheckRecipes();
+        if (iCoords.Contains(iCoord) || iCoord.travellingToChef) return;
+        iCoords.Add(iCoord);
+        iCoord.gameObject.SetActive(false);
+
     }
 
-    void CheckRecipes() {
-        int currentOptions = RecipeManager.instance.numValidOptions(coord.GetHeldItems(), this);
-        if (currentOptions >= 1) StartRecipe();
-    }
-
-    void StartRecipe() {
-        RecipeManager.instance.CanCombine(out result, out toRemove, out makeTime, coord.GetHeldItems(), this);
-        coord.DisplayPrompt();
-        StartCoroutine(StartRecipeRoutine());
-    }
-
-    IEnumerator StartRecipeRoutine() 
+    public List<Item> GetItemList()
     {
-        float timeRemaining = makeTime;
-        while (timeRemaining >= 0) {
-            PlaySound();
-            timeRemaining -= Time.deltaTime;
-            coord.SetPromptvalue(1 - (timeRemaining / makeTime));            
-            yield return new WaitForEndOfFrame();
+        List<Item> list = new List<Item>();
+        foreach (var iCoord in iCoords) {
+            list.Add(iCoord.GetItem());
         }
-        
-        CompleteRecipe();
+        return list;
+    }
+
+    public void StartCooking()
+    {
+        if (string.IsNullOrEmpty(chosenRecipe)) return;
+
+        Recipe r = null;
+        var rList = RecipeManager.instance.GetValidRecipes(GetItemList(), this);
+        foreach (var _r in rList) if (_r.GetResult().GetName() == chosenRecipe) r = _r;
+        if (r == null) return;
+
+        result = r.GetResult();
+        toRemove = r.GetIngredients();
+        minigame = r.GetMinigame();
+
+        wsUIcoord.StartMinigame(minigame);
+    }
+
+    public void CompleteRecipe()
+    {
+        foreach (var item in toRemove) {
+            var iCoord = RemoveItem(item);
+            if (iCoord) Destroy(iCoord.gameObject);
+        }
+
+        ItemCoordinator newResult = kManag.CreateNewItemCoord(result, transform.position);
+        AddItem(newResult);
+    }
+
+    public FoodType GetFoodType()
+    {
+        if (iCoords.Count == 0) return FoodType.NONE;
+        int veg = 0;
+        int meat = 0;
+        foreach (var i in GetItemList()) {
+            if (i.type == FoodType.MEAT) meat += 1;
+            if (i.type == FoodType.VEGGIE) veg += 1;
+        }
+        if (veg + meat == 0) return FoodType.NONE;
+        if (veg == 0) return FoodType.MEAT;
+        else return FoodType.VEGGIE;
     }
 
     void PlaySound()
@@ -94,48 +140,18 @@ public class WorkspaceController : MonoBehaviour
         if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
     }
 
-    void CompleteRecipe()
+    ItemCoordinator RemoveItem(Item toRemove)
     {
-        foreach (var item in toRemove) {
-            print("item:" + item.GetName());
-            var iCoord = coord.removeItem(item);
-            if (iCoord) Destroy(iCoord.gameObject);
+        ItemCoordinator iCoord = null;
+        for (int i = 0; i < iCoords.Count; i++) {
+            if (iCoords[i].GetItem().Equals(toRemove)) iCoord = iCoords[i];
         }
-
-        float taskCompletionScore = 0.5f;
-        AudioManager.instance.PlaySound((taskCompletionScore > 0.5f) ? 6 : 5);
-        coord.HideCookPrompt();
-        source.Stop();
-
-        ItemCoordinator newResult = kManag.CreateNewItemCoord(result, transform.position, GetResultQuality());
-        CatchItem(newResult);
+        if (iCoords.Contains(iCoord)) iCoords.Remove(iCoord);
+        return iCoord;
     }
-    
-    float GetResultQuality()
+
+    private void OnDrawGizmosSelected()
     {
-        float previousIngredientAvg = CalcPrevQualityAvg();
-        if (toRemove.Count == 0 || previousIngredientAvg == -1) return 0.5f;
-
-        float taskFactor = kManag.GetTaskFactor();
-        return (0.5f * taskFactor) + (previousIngredientAvg * (1 - taskFactor));
-    }
-    float CalcPrevQualityAvg()
-    {
-        float previousIngredientAvg = 0;
-        int count = 0;
-        foreach (var i in toRemove) {
-            if (i.quality != -1) {
-                previousIngredientAvg += i.quality;
-                count += 1;
-            }
-        }
-        if (count == 0) return -1;
-        float qual = previousIngredientAvg /= count;
-        print("previous item quality: " + qual);
-        return qual;
-    }
-
-    public int GetRoomLeft() {
-        return coord.capacity - coord.HeldItemCount;
+        Gizmos.DrawSphere(transform.position + itemLerpTarget, 0.1f);
     }
 }

@@ -113,7 +113,7 @@ public class ItemStorage : MonoBehaviour
 
         var coord = KitchenManager.instance.CreateNewItemCoord(storedItem, transform.position, itemStartQuality);
         dispensedItems.Add(coord);
-        chef.HoldNewItem(coord);
+        chef.PickupItem(coord);
     }
 
     IEnumerator waitForMouseUp()

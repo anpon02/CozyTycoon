@@ -9,10 +9,9 @@ public class RecipeManager : MonoBehaviour
 
     [SerializeField] List<Recipe> allRecipes = new List<Recipe>();
 
-    public bool CanCombine(out Item result, out List<Item> consumed, out float makeTime, List<Item> _ingredients, WorkspaceController ws) {
+    public bool CanCombine(out Item result, out List<Item> consumed, List<Item> _ingredients, WorkspaceController ws) {
         result = null;
         consumed = new List<Item>();
-        makeTime = 0;
         List<Recipe> options = GetValidRecipes(_ingredients, ws);
         if (options.Count == 0) return false;
 
@@ -25,11 +24,10 @@ public class RecipeManager : MonoBehaviour
         }
         consumed = best.GetIngredients();
         result = best.GetResult();
-        makeTime = best.GetMakeTime();
         return true;
     }
 
-    List<Recipe> GetValidRecipes(List<Item> _ingredients, WorkspaceController ws) {
+    public List<Recipe> GetValidRecipes(List<Item> _ingredients, WorkspaceController ws) {
         var valid = new List<Recipe>();
         foreach (var r in allRecipes) if (r.IsValid(out var result, out var consumer, _ingredients, ws.workSpaceType)) valid.Add(r);
         return valid;
