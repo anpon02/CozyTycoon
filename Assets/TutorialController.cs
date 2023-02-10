@@ -117,7 +117,7 @@ public class TutorialController : MonoBehaviour
 
     void CheckDialogueStart()
     {
-        waitingToStartDialogue = !DialogueManager.instance.IsDialogueActive();
+        waitingToStartDialogue = !dMan.IsDialogueActive();
         if (waitingToStartDialogue) return;
 
         waiting = false;

@@ -83,12 +83,12 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Start()
     {
-        if (DialogueManager.instance) DialogueManager.instance.OnDialogueEnd.AddListener(CheckToLeave);
+        if (dMan) dMan.OnDialogueEnd.AddListener(CheckToLeave);
     }
 
     void CheckToLeave()
     {
-        if (DialogueManager.instance.lastSpeaker != story.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
+        if (dMan.lastSpeaker != story.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
         move.LeaveRestaurant();
     }
 
@@ -101,7 +101,7 @@ public class CustomerOrderController : MonoBehaviour
     void Eat()
     {
         timeSinceReceivedFood += Time.deltaTime;
-        bool speaking = DialogueManager.instance.IsDialogueActive() && DialogueManager.instance.lastSpeaker == story.characterName;
+        bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == story.characterName;
         if (!speaking && timeSinceReceivedFood >= eatTime) move.LeaveRestaurant();
     }
 

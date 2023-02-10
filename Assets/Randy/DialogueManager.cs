@@ -96,9 +96,6 @@ public class DialogueManager : MonoBehaviour
         return controller.StoryEnded();
     }
 
-
-    #region Outside access/ Helper functions
-
     public void StartDialogue(TextAsset inkStory, CharacterName character, int progress)
     {
         lastSpeaker = character;
@@ -118,5 +115,4 @@ public class DialogueManager : MonoBehaviour
         controller.StopDialogue();
     }
 
-    #endregion
 }

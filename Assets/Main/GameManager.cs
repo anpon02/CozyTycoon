@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public NotificationButtonCoordinator notifCoord;
     [HideInInspector] public DayNightController timeScript;
     [HideInInspector] public FollowCamera camScript;
-    public bool TEMP_SELECTED_RECIPE;
-    public bool TEMP_DELIVERED;
+    [HideInInspector] public bool TEMP_SELECTED_RECIPE;
+    [HideInInspector] public bool TEMP_DELIVERED;
 
     private void Update()
     {

@@ -16,7 +16,7 @@ VAR CurrentStoryState = 0
 }
 
 == Day_1 ==
-    Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder
+    Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder # Textspeed: 0.1
     I already ordered... so, uh, yeah...
     ... # Textspeed: 0.5
 * How’s your day?
