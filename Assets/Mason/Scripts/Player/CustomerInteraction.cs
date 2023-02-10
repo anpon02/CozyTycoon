@@ -33,11 +33,6 @@ public class CustomerInteraction : MonoBehaviour
                             };
         potentialOrigins = origins;
     }
-    
-    private void Start() {
-        if(DialogueManager.instance)
-            DialogueManager.instance.SetPlayer(gameObject);
-    }
 
     private void OnEnable() {
         pInputActions.Enable();
@@ -57,7 +52,7 @@ public class CustomerInteraction : MonoBehaviour
         // if boxcast hits a customer, order or deliver food
         if(hit.collider != null) {
             CustomerOrderController cust = hit.collider.GetComponent<CustomerOrderController>();
-            if(!cust.GetFoodOrdered())
+            if(!cust.alreadyOrdered())
                 cust.Order();
             else
                 cust.DeliverFood();

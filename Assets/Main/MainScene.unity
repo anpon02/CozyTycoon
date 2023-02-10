@@ -289,6 +289,37 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &315941737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315941738}
+  m_Layer: 0
+  m_Name: cameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315941738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315941737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088179749}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406094106
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +359,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 2.5
+    OrthographicSize: 3.2
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -358,7 +389,7 @@ Transform:
   m_Children:
   - {fileID: 1650425994}
   m_Father: {fileID: 1088179749}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -627,7 +658,14 @@ MonoBehaviour:
   OnStoreClose:
     m_PersistentCalls:
       m_Calls: []
+  orderController: {fileID: 0}
+  player: {fileID: 0}
   wallet: {fileID: 0}
+  notifCoord: {fileID: 0}
+  timeScript: {fileID: 0}
+  camScript: {fileID: 0}
+  TEMP_SELECTED_RECIPE: 0
+  TEMP_DELIVERED: 0
 --- !u!4 &554498485
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +750,7 @@ Transform:
   m_Children:
   - {fileID: 81045345}
   m_Father: {fileID: 1088179749}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088179746
 GameObject:
@@ -746,6 +784,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followVCam: {fileID: 651904135}
   stationaryVCam: {fileID: 406094107}
+  cameraTarget: {fileID: 315941738}
+  maxDistFromPlayer: 2
+  screenEdge: {x: 0.2, y: 0.1, z: 0.2, w: 0.1}
+  followMouse: 0
 --- !u!60 &1088179748
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -787,6 +829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 315941738}
   - {fileID: 651904136}
   - {fileID: 406094108}
   m_Father: {fileID: 0}
@@ -1081,6 +1124,77 @@ MonoBehaviour:
     clips:
     - name: '0: PickupPop_SFX'
       clip: {fileID: 8300000, guid: 0eb68a6f782a38148b3b45f3d2750780, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '14: customer entrance'
+    ID: 14
+    displayName: customer entrance
+    clips:
+    - name: '0: SFX_CustomerEntrance1'
+      clip: {fileID: 8300000, guid: d074707df97e87643bb39805ec16adb2, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: SFX_CustomerEntrance2'
+      clip: {fileID: 8300000, guid: 147f18ab575817f459bb6c8ff8d81e86, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '15: notificationBell'
+    ID: 15
+    displayName: 
+    clips:
+    - name: '0: notificationBell'
+      clip: {fileID: 8300000, guid: df1ffb29b6f8d984bb07ce11aeb24360, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '16: notificationHoverSfx'
+    ID: 16
+    displayName: 
+    clips:
+    - name: '0: notificationHoverSfx'
+      clip: {fileID: 8300000, guid: e9c9b32fe3239b14e9797cfedf220d44, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.07
+    parentPitch: 1
+  - name: '17: MoneyCollect_SFX'
+    ID: 17
+    displayName: 
+    clips:
+    - name: '0: MoneyCollect_SFX'
+      clip: {fileID: 8300000, guid: 3b4df7685579b0b45a6e3013fa8d7fbe, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '18: pan minigame flip prompt'
+    ID: 18
+    displayName: 
+    clips:
+    - name: '0: pan minigame flip prompt'
+      clip: {fileID: 8300000, guid: 3b9972d85f0169848bbb2aa006d74ef4, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '19: minigame fail'
+    ID: 19
+    displayName: 
+    clips:
+    - name: '0: minigame fail'
+      clip: {fileID: 8300000, guid: 47405f3e199f3d9418a1ee894b05ac8a, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0

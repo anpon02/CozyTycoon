@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Start() {
-        GameManager.instance.SetPlayer(gameObject);
+        GameManager.instance.player = gameObject;
     }
 
     private void OnEnable() {

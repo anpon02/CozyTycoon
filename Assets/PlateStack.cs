@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlateStack : MonoBehaviour
 {
     [SerializeField] Color hoverColor;
+    [SerializeField] SpriteRenderer sRend;
 
     private void OnMouseEnter() {
-        GetComponent<SpriteRenderer>().color = hoverColor;
+        sRend.color = hoverColor;
     }
     private void OnMouseExit() {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        sRend.color = Color.white;
     }
 
     private void OnMouseDown() {
         ItemCoordinator iCoord = KitchenManager.instance.chef.GetHeldiCoord();
-        if (iCoord) iCoord.plated = true;
+        if (iCoord && iCoord.GetItem().type != FoodType.NONE) iCoord.plated = true;
     }
 }

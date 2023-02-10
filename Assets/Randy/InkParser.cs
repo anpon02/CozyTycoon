@@ -11,7 +11,6 @@ public class InkParser : MonoBehaviour
     Regex rx = new Regex(@"\b(\w+)(?:$|\s*:\s*(\S+))");
     private string prevSpeaker;
     private string prevImage;
-
     /*
     private void Start()
     {
@@ -60,7 +59,7 @@ public class InkParser : MonoBehaviour
                 int soundID;
                 if (int.TryParse(modifier.Value, out soundID))
                 {
-                    DialogueManager.instance.SetCharacterVoiceID(soundID);
+                    //DialogueManager.instance.SetCharacterVoiceID(soundID);
                 }
                 else
                 {
@@ -93,21 +92,20 @@ public class InkParser : MonoBehaviour
             }
             else if (section.Value == "Finished")
             {
-                CustomerStory story = DialogueManager.instance.GetSpeakingCharacter().GetComponent<CustomerStory>();
+                CustomerStory story = DialogueManager.instance.speakingCharacter.GetComponent<CustomerStory>();
                 story.NextStoryPhase();
             }
             else if (section.Value == "CheckDistance")
             {
                 Story story = coordinator.GetCharacterStory();
-                story.variablesState["Distance"] = DialogueManager.instance.GetPlayerDistance();
-                print(DialogueManager.instance.GetPlayerDistance());
+                story.variablesState["Distance"] = DialogueManager.instance.SpeakerDistance;
             }
             else if (section.Value == "ForceVisible")
             {
                 bool state;
                 if(bool.TryParse(modifier.Value.Trim(), out state))
                 {
-                    DialogueManager.instance.SetForcedVisibility(state);
+                    //DialogueManager.instance.SetForcedVisibility(state);
                 }
                 else
                 {

@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Steak and Fries
   itemSprite: {fileID: 21300000, guid: 899c0e4bbda34d7498de7b1ce9aeaef7, type: 3}
-  disableQuality: 0
   throwSoundID: 0
-  topQualDescript: 
-  medQualDescript: 
-  lowQualDescript: 
-  isBigEquipment: 0
+  value: 10
   _scaleMult: 1
-  _quality: 0
+  isBigEquipment: 0
+  menuItem: 1
+  description: 
+  type: 2

@@ -33,7 +33,16 @@ public class CustomerManager : MonoBehaviour
         GameManager.instance.OnStoreClose.AddListener(EveryoneLeave);
     }
 
+    public void MakeCustomerLeave(CharacterName character)
+    {
+        foreach (var c in customers) {
+            if (c.GetComponentInChildren<CustomerStory>().characterName == character) 
+                c.GetComponent<CustomerMovement>().LeaveRestaurant();
+        }
+    }
+
     public void WakeUp() {
+
         // reset each character
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
@@ -64,6 +73,7 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator StartSendingCustomers() {
         while(potentialCustomers.Count > 0) {
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
+            AudioManager.instance.PlaySound(14);
             if(dayIsOver) yield break;  // dayIsOver will eventually be swapped out for soemthing in the day/night cycle
 
             // pick random customer to send to line

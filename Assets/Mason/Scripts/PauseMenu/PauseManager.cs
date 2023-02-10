@@ -59,7 +59,7 @@ public class PauseManager : MonoBehaviour
     }
 
     private void OnDisable() {
-        pInputActions.Disable();
+        if (pInputActions != null) pInputActions.Disable();
     }
 
     private void PauseEvent(InputAction.CallbackContext context) {

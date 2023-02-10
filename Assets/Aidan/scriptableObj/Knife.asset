@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
   m_Name: knife
   m_EditorClassIdentifier: 
-  itemName: Knife2
+  itemName: Knife
   itemSprite: {fileID: 21300000, guid: cc06b7842d99dad41ab4a14ff360ea41, type: 3}
-  disableQuality: 1
   throwSoundID: 9
-  topQualDescript: A flawless blade
-  medQualDescript: A standard blade
-  lowQualDescript: An old, dull knife
   isBigEquipment: 0
   _scaleMult: 2
-  _quality: 0
+  value: 10
+  description: 
+  type: 0

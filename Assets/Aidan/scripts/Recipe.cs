@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Minigame { NONE, KNIFE, PAN }
+public enum Minigame { NONE, KNIFE, PAN, MIXER }
 
 [System.Serializable]
 public class Recipe
 {
     [HideInInspector] public string name;
-    [SerializeField] List<WorkspaceType> workSpaces = new List<WorkspaceType>();
+    public WorkspaceType workSpace;
     [SerializeField] List<Item> requiredIngrd = new List<Item>();
     [SerializeField] List<Item> equipment = new List<Item>();
     [SerializeField] Item result;
@@ -27,6 +27,10 @@ public class Recipe
     public List<Item> GetIngredients() {
         return requiredIngrd;
     }
+    public List<Item> GetEquipment()
+    {
+        return equipment;
+    }
     public Item GetResult() {
         return result;
     }
@@ -37,11 +41,6 @@ public class Recipe
 
     public Minigame GetMinigame() {
         return minigame;
-    }
-
-    bool validWS(WorkspaceType ws)
-    {
-        return workSpaces.Contains(ws);
     }
 
     bool validIngrd(List<Item> candidateIngrds)
@@ -64,7 +63,7 @@ public class Recipe
     {
         _result = null;
         consumed = new List<Item>();
-        if (!validWS(ws) || !validIngrd(candidateIngrds) || !ValidEquipment(candidateIngrds)) return false;
+        if (workSpace != ws || !validIngrd(candidateIngrds) || !ValidEquipment(candidateIngrds)) return false;
 
         _result = result;
         consumed = requiredIngrd;
@@ -73,7 +72,7 @@ public class Recipe
     }
 
     public bool IsInvalid(List<Item> _ingredients, WorkspaceType ws, int WSroom) {
-        if (!workSpaces.Contains(ws)) return true;
+        if (workSpace != ws) return true;
 
         List<Item> stillRequired = new List<Item>(requiredIngrd);
         stillRequired.AddRange(equipment);

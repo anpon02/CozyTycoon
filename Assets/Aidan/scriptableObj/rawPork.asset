@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: raw pork
   itemSprite: {fileID: 21300000, guid: 5d3b0f4033a5f3f48a67d7d82c071e26, type: 3}
-  disableQuality: 0
   throwSoundID: 0
-  topQualDescript: a pristine uncooked pork chop
-  medQualDescript: a slab of raw pork
-  lowQualDescript: the uncooked remains of a pig
-  isBigEquipment: 0
+  value: 10
   _scaleMult: 1
-  _quality: 0
+  isBigEquipment: 0
+  menuItem: 0
+  description: 
+  type: 2

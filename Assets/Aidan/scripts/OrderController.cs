@@ -7,10 +7,10 @@ public class OrderController : MonoBehaviour
     [System.Serializable]
     public class OrderInfo
     {
-        string customer;
+        CharacterName customer;
         Item orderedItem;
 
-        public OrderInfo(string customer, Item orderedItem)
+        public OrderInfo(CharacterName customer, Item orderedItem)
         {
             this.customer = customer;
             this.orderedItem = orderedItem;
@@ -24,27 +24,29 @@ public class OrderController : MonoBehaviour
 
     [SerializeField] List<OrderInfo> currentOrders = new List<OrderInfo>();
     [SerializeField] OrderUICoordinator UIcoord;
+    [HideInInspector] public bool TEMP_HAS_ORDER;
 
     private void Start()
     {
-        GameManager.instance.SetOrderController(this);
+        GameManager.instance.orderController = this;
     }
 
-    public void Order(Item desire, string customerName = "UNNAMED CUSTOMER")
+    public void Order(Item desire, float patience, CharacterName customerName)
     {
+        TEMP_HAS_ORDER = true;
         gameObject.SetActive(true);
         var newOrder = new OrderInfo(customerName, desire);
-        AddToOrderList(newOrder);
+        AddToOrderList(newOrder, patience, customerName);
     }
 
-    public void CompleteOrder(Item orderedItem)
+    public void CompleteOrder(CharacterName character)
     {
-        UIcoord.RemoveItem(orderedItem.GetName());
+        UIcoord.RemoveItem(character);
     }
 
-    void AddToOrderList(OrderInfo newOrder)
+    void AddToOrderList(OrderInfo newOrder, float patience, CharacterName customerName)
     {
-        UIcoord.AddNew(newOrder.GetItem().GetName());
+        UIcoord.AddNew(newOrder.GetItem().GetName(), patience, customerName);
     }
 
 }

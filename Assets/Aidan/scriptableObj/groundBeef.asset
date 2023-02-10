@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ground Beef
   itemSprite: {fileID: 21300000, guid: 00ea7d098f9b9f94c8a4db865e2e3ce2, type: 3}
-  bigEquipment: 0
-  quality: 1
-  disableQuality: 0
   throwSoundID: 2
+  value: 10
+  _scaleMult: 1
+  isBigEquipment: 0
+  menuItem: 0
+  description: 
+  type: 2

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CustomerInteractable : MonoBehaviour
 {
-    private enum InteractableType { Order, Story};
+    private enum InteractableType { ORDER, STORY};
 
     [SerializeField] private InteractableType type;
     [SerializeField] private Transform player;
@@ -32,9 +32,6 @@ public class CustomerInteractable : MonoBehaviour
             Color sprColor = Color.white;
             sprColor.a = Mathf.Clamp(((KitchenManager.instance.playerReach /2) / playerDistance) - 0.5f, 0, 0.5f);
             sprRenderer.color = sprColor;
-
-            // ensure object is always clickable
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         }
     }
 
@@ -48,27 +45,17 @@ public class CustomerInteractable : MonoBehaviour
     }
     
     private void OnMouseDown() {
-        if(playerDistance <= KitchenManager.instance.playerReach) {
-            // if order
-            if(type == InteractableType.Order) {
-                // order or deliver food
-                if(!orderController.GetFoodOrdered()) {
-                    print("ordered!");
-                    orderController.Order();
-                }
-                else {
-                    print("delivered!");
-                    orderController.DeliverFood();
-                }
-            }
-            // if story
-            else {
-                print("story!");
-                custStory.StartStory();
-            }
+        //if (playerDistance > KitchenManager.instance.playerReach) return;
 
-            mouseOn = false;
-            gameObject.SetActive(false);
+        mouseOn = false;
+        gameObject.SetActive(false);
+
+        if (type == InteractableType.STORY) { 
+            custStory.StartStory(); 
+            orderController.storyStarted = true;
+            return; 
         }
+        if(orderController.alreadyOrdered()) orderController.DeliverFood(); 
+        else orderController.Order();  
     }
 }

@@ -12,6 +12,7 @@ public class PlayerWalletCoordinator : MonoBehaviour
     [SerializeField] bool setHidden;
     [SerializeField] Vector3 hiddenPosition;
     [SerializeField] float showTime = 2.5f;
+    bool animating;
 
     private void Start()
     {
@@ -31,16 +32,26 @@ public class PlayerWalletCoordinator : MonoBehaviour
 
         if (!Application.isPlaying) return;
 
-        if (string.Equals(text.text, GameManager.instance.wallet.money.ToString())) return;
+        if (animating || string.Equals(text.text, GameManager.instance.wallet.money.ToString())) return;
 
-        text.text = GameManager.instance.wallet.money.ToString();
         StartCoroutine(ShowThenHide());
     }
 
     IEnumerator ShowThenHide()
     {
-        while(Vector2.Distance(transform.parent.localPosition, exposedPosition) > 0.01f) {
+        animating = true;
+        
+        while(Vector2.Distance(transform.parent.localPosition, exposedPosition) > 0.02f) {
             transform.parent.localPosition = Vector3.Lerp(transform.parent.localPosition, exposedPosition, 0.025f);
+            yield return new WaitForEndOfFrame();
+        }
+
+        AudioManager.instance.PlaySound(17, gameObject);
+        int walletAmount = GameManager.instance.wallet.money;
+        int currentAmount = int.Parse(text.text);
+        while (currentAmount != walletAmount) {
+            currentAmount += 1 * (walletAmount > currentAmount ? 1 : -1);
+            text.text = currentAmount.ToString();
             yield return new WaitForEndOfFrame();
         }
 
@@ -51,5 +62,6 @@ public class PlayerWalletCoordinator : MonoBehaviour
             transform.parent.localPosition = Vector3.Lerp(transform.parent.localPosition, hiddenPosition, 0.025f);
             yield return new WaitForEndOfFrame();
         }
+        animating = false;
     }
 }

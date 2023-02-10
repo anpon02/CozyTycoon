@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CustomerStory : MonoBehaviour
 {
+    public CharacterName characterName;
     [SerializeField] private TextAsset inkStory;
     private int storyPhaseNum;
     private bool storySaid;
@@ -26,12 +27,12 @@ public class CustomerStory : MonoBehaviour
     }
 
     public void StartStory() {
-        if(DialogueManager.instance) {
-            DialogueManager.instance.StartDialogue(inkStory, storyPhaseNum);
-            DialogueManager.instance.SetSpeakingCharacter(gameObject);
-            storySaid = true;
-            NextStoryPhase();
-        }
+        if (!DialogueManager.instance) return;
+
+        DialogueManager.instance.speakingCharacter = gameObject;
+        DialogueManager.instance.StartDialogue(inkStory, characterName, storyPhaseNum);
+        storySaid = true;
+        NextStoryPhase();
     }
 
     public bool GetStorySaid() {

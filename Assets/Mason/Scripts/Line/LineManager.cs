@@ -37,4 +37,9 @@ public class LineManager : MonoBehaviour
     public Vector3 GetNextSpotVector() {
         return lineSpots[nextOpenSpot].GetPlaceCoordinates();
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        foreach (var l in lineSpots) Gizmos.DrawSphere(l.GetPlaceCoordinates(), 0.05f);
+    }
 }

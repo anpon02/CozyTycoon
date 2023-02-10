@@ -23,9 +23,6 @@ public class ToolipCoordinator : MonoBehaviour
 
     public void Display(Item toDisplay) {
         toolTipText.text = fontTag + toDisplay.description;
-        toolTipText.text += toDisplay.quality < KitchenManager.instance.midHighQualityCutoff.x ?
-            "     <color=red>(poor)</color>" : (toDisplay.quality > KitchenManager.instance.midHighQualityCutoff.y ?
-                "     <color=green>(pristine)</color>" : "     <color=white>(neutral)</color>");
     }
     public void Display(string toDisplay)
     {

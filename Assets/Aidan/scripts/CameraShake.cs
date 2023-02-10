@@ -10,7 +10,7 @@ public class CameraShake : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.SetShakeScript(this);
+        
     }
 
     public void Shake()

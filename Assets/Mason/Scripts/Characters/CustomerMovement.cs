@@ -22,9 +22,6 @@ public class CustomerMovement : MonoBehaviour
         currentSpotInLine = -1;
     }
 
-    private void Update() {
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-    }
 
     public void GetInLine() {
         // if not in line or in a farther line spot
@@ -88,4 +85,11 @@ public class CustomerMovement : MonoBehaviour
     public bool MovingRight() {
         return path.destination.x > transform.position.x;
     }
+
+
+    private void Update()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+
 }

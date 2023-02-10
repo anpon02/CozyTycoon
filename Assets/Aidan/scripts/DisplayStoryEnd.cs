@@ -16,7 +16,7 @@ public class DisplayStoryEnd : MonoBehaviour
         if (!DialogueManager.instance.StoryEnded()) return;
 
         float affection = 1f;
-        DialogueManager.instance.StartDialogue(character == 1 ? lucaStory : RoxyStory, affection > 0.5 ? "Good_End" : "Bad_End");
+        DialogueManager.instance.StartDialogue(character == 1 ? lucaStory : RoxyStory, (CharacterName)character-1, affection > 0.5 ? "Good_End" : "Bad_End");
     }
 
     public void GoToMainMenu()

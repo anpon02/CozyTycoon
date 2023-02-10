@@ -13,8 +13,8 @@ public class ItemSelectorCoordinator : MonoBehaviour
 
     private void Update()
     {
-        displayImg.sprite = storage.storedItem.GetSprite();
-        itemLabel.text = storage.storedItem.GetName();
-        nextItemButton.SetActive(storage.altItems.Count > 0);
+        displayImg.sprite = storage.currentItem.GetSprite();
+        itemLabel.text = storage.currentItem.GetName();
+        nextItemButton.SetActive(storage.numItems > 1);
     }
 }

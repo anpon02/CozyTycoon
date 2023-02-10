@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
@@ -8,6 +9,10 @@ public class RecipeManager : MonoBehaviour
     void Awake() { instance = this; }
 
     [SerializeField] List<Recipe> allRecipes = new List<Recipe>();
+    [HideInInspector] public List<Recipe> unlockedRecipes = new List<Recipe>();
+    List<Item> unlockedResults = new List<Item>();
+    public List<Item> Menu { get { return GetMenu(); } }
+    KitchenManager kMan;
 
     public bool CanCombine(out Item result, out List<Item> consumed, List<Item> _ingredients, WorkspaceController ws) {
         result = null;
@@ -37,15 +42,100 @@ public class RecipeManager : MonoBehaviour
         return GetValidRecipes(_ingredients, ws).Count;
     }
 
-    private void OnValidate() {
+    public List<Item> GetPossibleFutureRecipes(List<Item> candidateIngrds, WorkspaceType ws, int wsRoom)
+    {
+        List<Item> results = new List<Item>();
+        foreach (var r in allRecipes) if (!r.IsInvalid(candidateIngrds, ws, wsRoom)) results.Add(r.GetResult());
+        return results;
+    }
+
+    List<Item> GetMenu()
+    {
+        var list = new List<Item>();
+        foreach (var i in unlockedResults) if (i.menuItem) list.Add(i);
+        return list;
+    }
+
+    private void Start()
+    {
+        kMan = KitchenManager.instance;
+    }
+
+    private void Update()
+    {
+        CheckForNewRecipes();
+    }
+
+    void CheckForNewRecipes()
+    {
+        if (allRecipes.Count == unlockedRecipes.Count) return;
+
+        List<Recipe> newUnlocked = GetNewUnlock();
+        if (newUnlocked.Count == 0) return;
+
+        AddNewRecipes(newUnlocked);
+    }
+
+    List<Recipe> GetNewUnlock()
+    {
+        var lockedRecipes = allRecipes.Except(unlockedRecipes);
+        List<Recipe> newUnlocked = new List<Recipe>();
+        int unlockedThisTime;
+        do {
+            unlockedThisTime = 0;
+            foreach (var r in lockedRecipes) {
+                if (Possible(r) && !newUnlocked.Contains(r)) { newUnlocked.Add(r); unlockedThisTime += 1; }
+            }
+        } while (unlockedThisTime > 0);
+
+        return newUnlocked;
+    }
+
+    bool Possible(Recipe recipe)
+    {
+        var equipment = kMan.unlockedEquipment;
+        foreach (var e in recipe.GetEquipment()) if (!e.IsPresentInList(equipment)) return false;
+        foreach (var i in recipe.GetIngredients()) if (!i.IsPresentInList(unlockedResults) && HasRecipe(i)) return false;
+
+        return true;
+    }
+
+    bool HasRecipe(Item toCheck)
+    {
+        foreach (var recipe in allRecipes) if (recipe.GetResult().Equals(toCheck)) return true;
+        return false;
+    }
+
+    void AddNewRecipes(List<Recipe> newUnlocked)
+    {
+        var results = new List<Item>();
+        foreach (var r in newUnlocked) results.Add(r.GetResult());
+
+        unlockedResults.AddRange(results);
+        unlockedRecipes.AddRange(newUnlocked);
+
+        AddIngredients(newUnlocked);
+    }
+
+    void AddIngredients(List<Recipe> newUnlocked)
+    {
+        foreach (var r in newUnlocked) {
+            UnlockAllIngredients(r);
+        }
+    }
+
+    void UnlockAllIngredients(Recipe r)
+    {
+        foreach (var i in r.GetIngredients()) {
+            if (!i.IsPresentInList(kMan.unlockedIngredients) && !HasRecipe(i))
+                kMan.EnableIngredient(i);
+        }
+    }
+
+    void OnValidate() {
         foreach (var r in allRecipes) {
             r.OnValidate();
         }
     }
 
-    public List<Item> GetPossibleFutureRecipes(List<Item> candidateIngrds, WorkspaceType ws, int wsRoom) {
-        List<Item> results = new List<Item>();
-        foreach (var r in allRecipes) if (!r.IsInvalid(candidateIngrds, ws, wsRoom)) results.Add(r.GetResult());
-        return results;
-    }
 }

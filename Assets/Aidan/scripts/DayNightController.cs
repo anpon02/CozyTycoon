@@ -9,10 +9,11 @@ public class DayNightController : MonoBehaviour
 {
     [SerializeField] Gradient backgroundGradient;
     [SerializeField] float timeSpeed = 0.5f;
-    [SerializeField, Range(0,1)] float time;
+    [Range(0,1)] public float time;
     TextMeshProUGUI timeDisplay;
     [SerializeField] GameObject wheel;
     [SerializeField] float wheelOffset;
+    bool paused;
 
     [Header("CloseButton")]
     [SerializeField] Image buttonImg;
@@ -28,7 +29,18 @@ public class DayNightController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.instance.timeScript = this;
         UpdateButton();
+    }
+
+    public void PauseTime()
+    {
+        paused = true;
+    }
+
+    public void UnpauseTime()
+    {
+        paused = false;
     }
 
     private void Update()
@@ -52,6 +64,8 @@ public class DayNightController : MonoBehaviour
 
     void TickTime()
     {
+        if (paused) return;
+
         time += Time.deltaTime * (asleep ? 15 * timeSpeed : timeSpeed) * 0.01f;
         if (time >= 1) time = 0;
         Camera.main.backgroundColor = backgroundGradient.Evaluate(time);

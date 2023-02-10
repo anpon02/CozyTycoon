@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Mashed Potatoes
   itemSprite: {fileID: 21300000, guid: 109a9adbbad9e014ba7c05dceba52bb8, type: 3}
-  disableQuality: 0
   throwSoundID: 0
-  topQualDescript: 
-  medQualDescript: 
-  lowQualDescript: 
-  isBigEquipment: 0
+  value: 10
   _scaleMult: 1
-  _quality: 0
+  isBigEquipment: 0
+  menuItem: 1
+  description: 
+  type: 0

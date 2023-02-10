@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class WorkstationUICoordinator : MonoBehaviour
@@ -32,7 +33,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] int knifeChopSound;
-    [SerializeField] int knifeMissSound, progressSound, completeSound;
+    [SerializeField] int knifeMissSound, progressSound, completeSound, panFlipPrompt, failSound;
 
     [Header("Knife Minigame")]
     [SerializeField] bool knifeActive;
@@ -50,12 +51,22 @@ public class WorkstationUICoordinator : MonoBehaviour
     float nextFlipTime = 0.2f;
     float flipFailTime = 0.5f;
 
+    [Header("Mixer Minigame")]
+    [SerializeField] bool mixerActive;
+    [SerializeField] GameObject mixerParent, goalCircle, playerCircle, ringGuide;
+    [SerializeField] Vector2 circleCenter;
+    [SerializeField] float radius, mixerSpeed, maxPlayerDist, playerWinDist, mixerProgressSpeed;
+    bool holdingPlayer;
+    
+
     public void StartMinigame(Minigame minigame)
     {
         flipButton.SetActive(false);
+        GameManager.instance.camScript.followMouse = false;
 
         if (minigame == Minigame.KNIFE) knifeActive = true;
         if (minigame == Minigame.PAN) panActive = true;
+        if (minigame == Minigame.MIXER) mixerActive = true;
     }
 
     private void Start()
@@ -81,12 +92,12 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     bool IsMinigameActive()
     {
-        return panActive || knifeActive;
+        return panActive || knifeActive || mixerActive;
     }
 
     void StopAllMinigames()
     {
-        panActive = knifeActive = false;
+        panActive = knifeActive = mixerActive = false;
     }
 
     void CompleteRecipe()
@@ -94,6 +105,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         progressSlider.value = 0;
         StopAllMinigames();
         ws.CompleteRecipe();
+        //GameManager.instance.camScript.followMouse = true;
     }
 
     void DoMinigame()
@@ -103,6 +115,52 @@ public class WorkstationUICoordinator : MonoBehaviour
 
         if (panActive) PanMinigame();
         else panParent.SetActive(false);
+
+        if (mixerActive) MixerMinigame();
+        else mixerParent.SetActive(false);
+    }
+
+    void MixerMinigame()
+    {
+        mixerParent.SetActive(true);
+        Vector3 centerPoint = new Vector3(transform.position.x + circleCenter.x, transform.position.y + circleCenter.y, transform.position.z);
+        ringGuide.transform.position = centerPoint;
+
+        if (Input.GetMouseButtonUp(0)) holdingPlayer = false;
+        PlayerMovementMixer(centerPoint);
+
+        MoveGoalCircle(centerPoint);
+
+        if (Vector3.Distance(playerCircle.transform.position, goalCircle.transform.position) < playerWinDist)
+            progressSlider.value += mixerProgressSpeed * Time.deltaTime;
+    }
+    
+    void MoveGoalCircle(Vector2 centerPoint)
+    {
+        float time = Time.time % Mathf.PI * 2;
+        float x = Mathf.Sin(time * mixerSpeed) * radius;
+        float y = Mathf.Cos(time * mixerSpeed) * radius;
+        goalCircle.transform.position = new Vector3(x + centerPoint.x, y + centerPoint.y, 0);
+    }
+
+    void PlayerMovementMixer(Vector2 centerPoint)
+    {
+        if (!holdingPlayer) {
+            playerCircle.transform.position = Vector3.Lerp(playerCircle.transform.position, centerPoint, 0.05f);
+            return;
+        }
+
+        var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = playerCircle.transform.position.z;
+        var newPos = Vector3.Lerp(playerCircle.transform.position, mouseWorldPos, 0.05f);
+        newPos.x = Mathf.Clamp(newPos.x, centerPoint.x - maxPlayerDist, centerPoint.x + maxPlayerDist);
+        newPos.y = Mathf.Clamp(newPos.y, centerPoint.y - maxPlayerDist, centerPoint.y + maxPlayerDist);
+        playerCircle.transform.position = newPos;
+    }
+
+    public void clickDownOnPlayer()
+    {
+        holdingPlayer = true;
     }
 
     void PanMinigame()
@@ -118,6 +176,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     }
 
     void DisplayFlipButton() {
+        AudioManager.instance.PlaySound(panFlipPrompt, gameObject);
         flipButton.SetActive(true);
 
         Vector3 pos = flipButton.transform.position;
@@ -131,11 +190,13 @@ public class WorkstationUICoordinator : MonoBehaviour
     }
 
     void PanFail() {
+        AudioManager.instance.PlaySound(failSound, gameObject);
         progressSlider.value -= panPenalty;
         ResetFlip();
     }
 
     public void Flip() {
+        AudioManager.instance.PlaySound(progressSound, gameObject);
         ResetFlip();
     }
 
@@ -208,7 +269,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         var knifeImg = knife.GetComponent<Image>();
         knifeImg.color = Color.red;
 
-        AudioManager.instance.PlaySound(knifeMissSound, gameObject);
+        AudioManager.instance.PlaySound(failSound, gameObject);
         yield return new WaitForSeconds(knifePenalty);
 
         knifeImg.color = Color.white;
@@ -217,7 +278,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void Radial()
     {
-        if (knifeActive) return;
+        if (IsMinigameActive()) return;
 
         if (contentsParent.activeInHierarchy && Input.GetMouseButton(0)) holdTime += Time.deltaTime;
         if (Input.GetMouseButtonUp(0)) {

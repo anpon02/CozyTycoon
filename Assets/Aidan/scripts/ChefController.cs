@@ -39,7 +39,12 @@ public class ChefController : MonoBehaviour
         var ws = KitchenManager.instance.hoveredController;
         if (ws == null) return;
 
-        heldItem.SetPosition(KitchenManager.instance.hoveredController.itemLerpTarget);
+        ReleaseItem(KitchenManager.instance.hoveredController.itemLerpTarget);
+    }
+
+    public void ReleaseItem(Vector3 position)
+    {
+        heldItem.SetPosition(position);
         heldItem = null;
     }
 
@@ -57,7 +62,7 @@ public class ChefController : MonoBehaviour
 
     void SetPosition()
     {
-        if (!player) player = GameManager.instance.GetPlayer();
+        if (!player) player = GameManager.instance.player;
         if (!player) return;
         transform.position = player.transform.position;
     }
@@ -75,6 +80,8 @@ public class ChefController : MonoBehaviour
     
     public Item RemoveHeldItem()
     {
+        if (heldItem == null) return null;
+
         var _item = heldItem.GetItem();
         Destroy(heldItem.gameObject);
         heldItem = null;

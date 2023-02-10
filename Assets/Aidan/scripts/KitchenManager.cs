@@ -2,39 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenManager : MonoBehaviour
-{
+public class KitchenManager : MonoBehaviour {
     public static KitchenManager instance;
     void Awake() { instance = this; }
 
-    public ChefController chef;
-    [Range(0, 1)]
-    [SerializeField] float taskFactor = 0.5f;
-    public float playerReach = 5;
-    [SerializeField] Vector2 _midHighQualityCutoff = new Vector2(0.3f, 0.9f);
-    public Vector2 midHighQualityCutoff { get { return _midHighQualityCutoff; } }
-    [HideInInspector] public ToolipCoordinator ttCoord;
-    [Header("Prefabs")]
-    [SerializeField] GameObject itemCoordPrefab;
-    [HideInInspector] public WorkspaceController hoveredController;
-    public Sprite genericVeggies;
-    public Sprite genericMeat;
-
-    public float GetTaskFactor()
-    {
-        return taskFactor;
+    [System.Serializable]
+    public class ProductObject {
+        public Product product;
+        public Item item;
     }
 
-    public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos , float quality)
+    [SerializeField] GameObject itemCoordPrefab;
+    [SerializeField] List<ProductObject> productObjData = new List<ProductObject>();
+    public List<Item> unlockedEquipment = new List<Item>();
+    public List<Item> unlockedIngredients = new List<Item>();
+    [HideInInspector] public List<ItemStorage> allStorage = new List<ItemStorage>();
+    public Sprite genericVeggies;
+    public Sprite genericMeat;
+    public float playerReach = 5;
+
+    [HideInInspector] public ToolipCoordinator ttCoord;
+    [HideInInspector] public WorkspaceController hoveredController;
+    [HideInInspector] public ChefController chef;
+    bool enabledEquipment;
+
+    private void Update()
     {
-        item.quality = quality;
+        if (!enabledEquipment && allStorage.Count > 0) EnableStartingEquipment();
+    }
+
+    void EnableStartingEquipment()
+    {
+        enabledEquipment = true;
+        var list = new List<Item>(unlockedEquipment);
+        unlockedEquipment.Clear();
+        foreach (var e in list) EnableEquipment(e);
+    }
+
+    public void PurchaseProduct(Product product)
+    {
+        foreach (var p in productObjData) {
+            if (p.product.name == product.name) {
+                if (p.item) EnableEquipment(p.item);
+            }
+        }
+    }
+    
+    public void EnableEquipment(Item newEquipment)
+    {
+        if (unlockedEquipment.Contains(newEquipment)) return;
+
+        unlockedEquipment.Add(newEquipment);
+        foreach (var s in allStorage) {
+            s.Enable(newEquipment);
+        }
+    }
+
+    public void EnableIngredient(Item newIngredient)
+    {
+        if (unlockedIngredients.Contains(newIngredient)) return;
+
+        unlockedIngredients.Add(newIngredient);
+        foreach (var s in allStorage) {
+            s.Enable(newIngredient);
+        }
+    }
+
+    public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos)
+    {
         var newGO = Instantiate(itemCoordPrefab, pos, Quaternion.identity);
         var coordScript = newGO.GetComponent<ItemCoordinator>();
         coordScript.SetItem(item);
+        newGO.AddComponent<Rigidbody2D>();
+        newGO.GetComponent<Rigidbody2D>().isKinematic = true;
         return coordScript;
-    }
-    public ItemCoordinator CreateNewItemCoord(Item item, Vector3 pos)
-    {
-        return CreateNewItemCoord(item, pos, item.quality);
     }
 }

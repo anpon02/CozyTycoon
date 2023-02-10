@@ -5,145 +5,131 @@ using UnityEngine;
 
 public class ItemStorage : MonoBehaviour
 {
-    [Header("Misc")]
-    public Item storedItem;
-    [SerializeField] UpgradePromptCoordinator upgradeCoord;
+    [System.Serializable]
+    public class ItemData
+    {
+        [HideInInspector] public string name;
+        public Item item;
+        public int maxNum;
+        //[HideInInspector] public int numRemaining;
+        public int numRemaining;
+        [HideInInspector] public List<ItemCoordinator> instances = new List<ItemCoordinator>();
+        [HideInInspector] public bool enabled;
+    }
+
+    [SerializeField] List<ItemData> items;
     [SerializeField] string toolTip;
-    [SerializeField, Range(0, 1)] float itemStartQuality = 0;
-    List<ItemCoordinator> dispensedItems = new List<ItemCoordinator>();
-    [SerializeField] bool limitedStock;
-    [SerializeField] List<int> itemLimit;
-    [SerializeField] List<int> itemsRemaining;
-    int currentItemIndex;
-
-    [Header("Upgrades")]
-    public int upgradeCost;
-    public string upgradeName = "knife block";
-    [SerializeField] float upgradeQualityIncrease;
-    [SerializeField] int upgradeNumIncrease;
-    [TextArea(3, 5)] public string upgradeDetails = "";
-    bool closed;
-    bool upgradedToday;
-
-    [Header("Alt Items")]
-    public List<Item> altItems = new List<Item>();
     [SerializeField] ItemSelectorCoordinator itemSelectorCoord;
-    bool switchedItem;
+    [SerializeField] Color hoveredColor;
+
+    public Item currentItem { get {return items[itemIndex].item; } }
+    public int numItems { get { return NumEnabledItems(); } }
+
+    ChefController chef;
+    int itemIndex;
+    bool closed;
+
+    private void OnValidate()
+    {
+        foreach (var item in items) {
+            if (item.item != null) item.name = item.item.GetName();
+        }
+    }
+
+    public void Enable(Item toEnable)
+    {
+        foreach (var item in items) {
+            if (item.item.Equals(toEnable)) { item.enabled = true; item.numRemaining = item.maxNum; }
+        }
+        gameObject.SetActive(NumEnabledItems() > 0);
+    }
+
+    public void GetItem()
+    {
+        if (closed || !SetChef() || chef.IsHoldingItem() || !items[itemIndex].enabled) return;
+
+        if (items[itemIndex].numRemaining == 0) return;
+        items[itemIndex].numRemaining -= 1;
+
+        var coord = KitchenManager.instance.CreateNewItemCoord(items[itemIndex].item, transform.position);
+        items[itemIndex].instances.Add(coord);
+        coord.home = this;
+
+        chef.PickupItem(coord);
+    }
+
+    int NumEnabledItems()
+    {
+        int num = 0;
+        foreach (var i in items) if (i.enabled) num += 1;
+        return num;
+    }
+
+    bool SetChef()
+    {
+        chef = KitchenManager.instance.chef;
+        return chef != null;
+    }
 
     private void Start()
     {
+        KitchenManager.instance.allStorage.Add(this);
         GameManager.instance.OnStoreClose.AddListener(OnStoreClose);
         GameManager.instance.OnStoreOpen.AddListener(OnStoreOpen);
-        GetComponent<PolygonCollider2D>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = true;
-    }
-
-    
+        itemSelectorCoord.gameObject.SetActive(false);
+    }    
 
     void OnStoreClose()
     {
         closed = true;
-        for (int i = 0; i < dispensedItems.Count; i++) {
-            if (dispensedItems[i] != null) Destroy(dispensedItems[i].gameObject);
+        DeleteAllInstances();
+    }
+
+    void DeleteAllInstances()
+    {
+        foreach (var item in items) {
+            for (int i = 0; i < item.instances.Count; i++) {
+                if (item.instances[i] != null) Destroy(item.instances[i].gameObject);
+            }
+            item.instances.Clear();
         }
-        dispensedItems.Clear();
     }
 
     void OnStoreOpen() {
-        closed = false; 
-        upgradedToday = false;
-        for (int i = 0; i < itemsRemaining.Count; i++) {
-            itemsRemaining[i] = itemLimit[i];
+        closed = false;
+        foreach (var item in items) item.numRemaining = item.maxNum;
+    }
+
+    public void InstanceDestructionCallback(ItemCoordinator destroyed)
+    {
+        foreach (var item in items) {
+            if (item.instances.Contains(destroyed)) {
+                item.instances.Remove(destroyed);
+                item.numRemaining += 1;
+            }
         }
-    }
-
-    private void Update()
-    {
-        itemSelectorCoord.gameObject.SetActive(altItems.Count > 0 && !closed && InReach());
-        if (closed) CheckUpgrade();
-        else upgradeCoord.gameObject.SetActive(false);
-    }
-
-    void CheckUpgrade()
-    {
-        if (!upgradedToday) upgradeCoord.gameObject.SetActive(InReach());
-    }
-
-    bool InReach()
-    {
-        var chef = KitchenManager.instance.chef;
-        if (!chef) return false;
-        return Vector2.Distance(chef.transform.position, transform.position) <= KitchenManager.instance.playerReach;
-    }
-
-    public void Upgrade()
-    {
-        if (upgradedToday) {
-            upgradeCoord.gameObject.SetActive(false);
-            return;
-        }
-        upgradedToday = true;
-        var w = GameManager.instance.wallet;
-        if (w.money >= upgradeCost) w.money -= upgradeCost;
-        else return;
-
-        upgradeCoord.gameObject.SetActive(false);
-        itemStartQuality = Mathf.Min(1, itemStartQuality + upgradeQualityIncrease);
-        if (limitedStock) for (int i = 0; i < itemLimit.Count; i++) itemLimit[i] += upgradeNumIncrease;
-    }
-
-    private void OnMouseDown()
-    {
-        print("clicked on: " + gameObject.name);
-        if (InReach()) {
-            StartCoroutine(waitForMouseUp());
-        }
-    }
-
-    void GetItemFromStorage()
-    {
-        if (!KitchenManager.instance || closed) return;
-
-        if (limitedStock && itemsRemaining[currentItemIndex] <= 0) return;
-        else if (limitedStock) itemsRemaining[currentItemIndex] -= 1;
-
-        var chef = KitchenManager.instance.chef;
-        if (chef == null) return;
-        if (chef.GetHeldItem() != null) return;
-
-        var coord = KitchenManager.instance.CreateNewItemCoord(storedItem, transform.position, itemStartQuality);
-        dispensedItems.Add(coord);
-        chef.PickupItem(coord);
-    }
-
-    IEnumerator waitForMouseUp()
-    {
-        while (true) {
-            if (!Input.GetMouseButton(0)) break;
-            yield return new WaitForEndOfFrame();
-        }
-        yield return new WaitForEndOfFrame();
-        if (!switchedItem) GetItemFromStorage();
-        switchedItem = false; 
     }
 
     public void NextItem()
-    {
-        switchedItem = true;
-        if (altItems.Count == 0) return;
-        altItems.Add(storedItem);
-        storedItem = altItems[0];
-        altItems.RemoveAt(0);
-        currentItemIndex += 1;
-        if (currentItemIndex > altItems.Count) currentItemIndex = 0;
+    { 
+        itemIndex += 1;
+        if (itemIndex >= items.Count) itemIndex = 0;
+        if (NumEnabledItems() > 0 && !items[itemIndex].enabled) NextItem();
     }
 
     private void OnMouseEnter()
     {
+        if (NumEnabledItems() == 0) return;
+
         KitchenManager.instance.ttCoord.Display(toolTip);
+        GetComponent<SpriteRenderer>().color = hoveredColor;
+        itemSelectorCoord.gameObject.SetActive(true);
     }
+
     private void OnMouseExit()
     {
         KitchenManager.instance.ttCoord.ClearText(toolTip);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        itemSelectorCoord.gameObject.SetActive(false);
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ItemCoordinator : MonoBehaviour
 {
-    [SerializeField] Item item;
+    public Item item;
     [SerializeField] float MinLerpDist = 0.25f;
     [SerializeField] float moveSmoothness = 0.025f;
-    [HideInInspector] public bool travellingToChef;
+    public bool travellingToChef;
     [SerializeField] GameObject plate;
     public bool plated;
 
+    [HideInInspector] public ItemStorage home;
     ChefController chef;
     SpriteRenderer sRend;
     Vector3 targetPos;
@@ -69,18 +70,11 @@ public class ItemCoordinator : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPos, 0.025f);
     }
 
-    void EnableCollider()
+    private void OnDestroy()
     {
-        var box = GetComponent<BoxCollider2D>();
-        var poly = GetComponent<PolygonCollider2D>();
-        if (box) box.enabled = true;
-        if (poly) poly.enabled = true;
+        if (home) home.InstanceDestructionCallback(this);
     }
 
-    void DisableCollider()
-    {
-        GetComponent<Collider2D>().enabled = false;
-    }
     bool InReach()
     {
         return Vector2.Distance(KitchenManager.instance.chef.transform.position, transform.position) <= KitchenManager.instance.playerReach;
@@ -113,8 +107,13 @@ public class ItemCoordinator : MonoBehaviour
 
     public void OnMouseDown()
     {
-        rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.isKinematic = true;
+        if (chef.IsHoldingItem()) return;
+
+        if (!GetComponent<Rigidbody2D>()) {
+            rb = gameObject.AddComponent<Rigidbody2D>();
+            rb.isKinematic = true;
+        }
+
         if (SetChef()) chef.PickupItem(this);
     }
     

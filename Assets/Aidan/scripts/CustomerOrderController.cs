@@ -5,23 +5,111 @@ using UnityEngine;
 [RequireComponent(typeof(RelationshipStatus))]
 public class CustomerOrderController : MonoBehaviour
 {
-    [SerializeField] Item desiredItem;
-    private CustomerStory story;
-    private bool foodOrdered;
-    private bool hasReceivedFood;
+    Item desiredItem;
+    [SerializeField] float patience;
+    [SerializeField] float eatTime = 5;
 
+    [HideInInspector] public bool storyStarted;
     [Header("Debug Tools")]
     [SerializeField] private bool testCustomer;
     [Range(0f, 1f)]
     [SerializeField] private float foodValue;
-    private RelationshipStatus status;
-
+    
+    RelationshipStatus status;
     ChefController chef;
+    CustomerStory story;
+    CustomerMovement move;
+    bool foodOrdered;
+    bool recievedFood;
+    float timeSinceOrdering;
+    float timeSinceReceivedFood;
+    bool doneSpeaking;
+
+    public void Order()
+    {
+        var menu = RecipeManager.instance.Menu;
+        if (menu.Count == 0) return;
+        desiredItem = menu[Random.Range(0, menu.Count)];
+
+        storyStarted = false;
+        foodOrdered = true;
+        timeSinceOrdering = 0;
+        if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, story.characterName);
+        CustomerManager.instance.GoToTable(transform);
+    }
+
+    public void DeliverFood()
+    {
+        if (!chef) chef = KitchenManager.instance.chef;
+        if (!CorrectFoodHeld()) return;
+
+        foodOrdered = false;
+        recievedFood = true;
+        timeSinceReceivedFood = 0;
+
+        Item deliveredItem = chef.RemoveHeldItem();
+        GameManager.instance.orderController.CompleteOrder(story.characterName);
+
+        GameManager.instance.TEMP_DELIVERED = true;
+        var affection = UpdateAffection();
+        GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
+    }
+
+    public bool alreadyOrdered()
+    {
+        return foodOrdered;
+    }
+
+    public bool GetHasReceivedFood()
+    {
+        return recievedFood;
+    }
+
+    public void SetHasReceivedFood(bool received)
+    {
+        recievedFood = received;
+    }
+
+    int UpdateAffection()
+    {
+        int points = 0;
+        if (timeSinceOrdering < patience) points += 1;
+        if (!storyStarted) points = 0;
+
+        status.updateRelationshipValue(points);
+
+        return points;
+    }
+
+    private void Start()
+    {
+        if (DialogueManager.instance) DialogueManager.instance.OnDialogueEnd.AddListener(CheckToLeave);
+    }
+
+    void CheckToLeave()
+    {
+        if (DialogueManager.instance.lastSpeaker != story.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
+        move.LeaveRestaurant();
+    }
+
+    private void Update()
+    {
+        if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
+        if (recievedFood) Eat();
+    }
+
+    void Eat()
+    {
+        timeSinceReceivedFood += Time.deltaTime;
+        bool speaking = DialogueManager.instance.IsDialogueActive() && DialogueManager.instance.lastSpeaker == story.characterName;
+        if (!speaking && timeSinceReceivedFood >= eatTime) move.LeaveRestaurant();
+    }
 
     private void Awake() {
         status = GetComponent<RelationshipStatus>();
         story = GetComponent<CustomerStory>();
-        hasReceivedFood = false;
+        move = GetComponentInParent<CustomerMovement>();
+        recievedFood = false;
     }
 
     bool CorrectFoodHeld()
@@ -36,34 +124,5 @@ public class CustomerOrderController : MonoBehaviour
         if (!KitchenManager.instance) return false;
         chef = KitchenManager.instance.chef;
         return chef != null;
-    }
-
-    public void Order()
-    {
-        AudioManager.instance.PlaySound(7, gameObject);
-        foodOrdered = true;
-        if (GameManager.instance && GameManager.instance.GetOrderController()) GameManager.instance.GetOrderController().Order(desiredItem);
-        CustomerManager.instance.GoToTable(transform);
-    }
-
-    public void DeliverFood()
-    {
-        foodOrdered = true;
-        hasReceivedFood = true;
-        Item deliveredItem = chef.RemoveHeldItem();
-        GameManager.instance.GetOrderController().CompleteOrder(desiredItem);
-        status.GiveFood(deliveredItem.quality);
-    }
-
-    public bool GetFoodOrdered() {
-        return foodOrdered;
-    }
-
-    public bool GetHasReceivedFood() {
-        return hasReceivedFood;
-    }
-
-    public void SetHasReceivedFood(bool received) {
-        hasReceivedFood = received;
     }
 }

@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fried Chicken
   itemSprite: {fileID: 21300000, guid: eeefcc33e7ae3fa4dac0058766d0d3b4, type: 3}
-  disableQuality: 0
   throwSoundID: 0
-  topQualDescript: 
-  medQualDescript: 
-  lowQualDescript: 
-  isBigEquipment: 0
+  value: 10
   _scaleMult: 1
-  _quality: 0
+  isBigEquipment: 0
+  menuItem: 1
+  description: 
+  type: 2

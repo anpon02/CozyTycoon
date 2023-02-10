@@ -9,18 +9,14 @@ public enum FoodType { NONE, VEGGIE, MEAT };
 public class Item : ScriptableObject {
     [SerializeField] string itemName;
     [SerializeField] Sprite itemSprite;
-    [SerializeField] bool disableQuality;
     [SerializeField] int throwSoundID;
-    [SerializeField] string topQualDescript;
-    [SerializeField] string medQualDescript;
-    [SerializeField] string lowQualDescript;
-    public bool isBigEquipment;
+    public int value = 10;
     [SerializeField] float _scaleMult = 1;
-    public float scaleMult { get {return _scaleMult;} }
+    public bool isBigEquipment;
+    public bool menuItem;
+    
 
-    [SerializeField] private float _quality;
-    public float quality { get { if (disableQuality) return -1; return _quality;  } set { _quality = value; } }
-    public string description { get { return GetDescription(); } }
+    public string description;
     public FoodType type;
 
     public Sprite GetSprite() {
@@ -60,15 +56,5 @@ public class Item : ScriptableObject {
             if (Equals(list[i])) break;
         }
         list.RemoveAt(index);
-    }
-
-    string GetDescription() {
-        string descript;
-
-        Vector2 cutoffs = KitchenManager.instance.midHighQualityCutoff;
-        if (quality > cutoffs.y) descript = topQualDescript;
-        else if (quality > cutoffs.x) descript = medQualDescript;
-        else descript = lowQualDescript;
-        return string.IsNullOrEmpty(descript) ? itemName : descript;
     }
 }

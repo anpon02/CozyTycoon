@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: raw chicken
   itemSprite: {fileID: 21300000, guid: b0b278b1652a9c64eaafb8058f59a9e1, type: 3}
-  disableQuality: 0
   throwSoundID: 0
-  topQualDescript: a raw chicken breast glowing with potential
-  medQualDescript: an uncooked chicken
-  lowQualDescript: a small and appetizing chicken
-  isBigEquipment: 0
+  value: 10
   _scaleMult: 1
-  _quality: 0
+  isBigEquipment: 0
+  menuItem: 0
+  description: 
+  type: 2

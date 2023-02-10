@@ -12,22 +12,41 @@ public class OrderListItemCoordinator : MonoBehaviour
     [SerializeField] bool TESTBOOL;
     [SerializeField] GameObject strikeThrough;
     public float patience;
+    [HideInInspector] public CharacterName character;
+
+    OrderUICoordinator uiCoord;
     float timeLeft;
     string itemName;
+    bool red;
+    
 
     private void Update()
     {
         timeLeft -= Time.deltaTime;
-        timer.fillAmount = Mathf.Clamp01(timeLeft / patience);
+        UpdateCircle();
+        if (timeLeft <= 0 && red) FailCustomer(); 
+    }
 
-        if (TESTBOOL) {
-            TESTBOOL = false;
-            MarkComplete();
+    void UpdateCircle()
+    {
+        timer.fillAmount = Mathf.Clamp01(timeLeft / patience);
+        if (timeLeft <= 0 && !red) {
+            red = true;
+            timeLeft = patience;
+            timer.color = Color.red;
         }
     }
 
-    public void Init(string _text, float time)
+    void FailCustomer()
     {
+        var cMan = CustomerManager.instance;
+        if (cMan) cMan.MakeCustomerLeave(character);
+    }
+
+    public void Init(string _text, float time, CharacterName _customer)
+    {
+        character = _customer;
+        red = false;
         label.text = _text;
         itemName = _text;
         strikeThrough.SetActive(false);

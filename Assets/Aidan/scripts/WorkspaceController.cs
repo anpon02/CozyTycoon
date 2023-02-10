@@ -21,7 +21,7 @@ public class WorkspaceController : MonoBehaviour
 
     public string chosenRecipe;
 
-    KitchenManager kManag;
+    KitchenManager kMan;
     AudioSource source;
 
     Item result;
@@ -35,18 +35,30 @@ public class WorkspaceController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kManag.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
+        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kMan.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
             var iCoord = iCoords[iCoords.Count - 1];
             iCoords.Remove(iCoord);
             iCoord.gameObject.SetActive(true);
-            kManag.chef.PickupItem(iCoord);
+            kMan.chef.PickupItem(iCoord);
         }
     }
 
     private void Start()
     {
+        OnValidate();
         itemLerpTarget += transform.position;
-        kManag = KitchenManager.instance;
+        kMan = KitchenManager.instance;
+    }
+
+    public void RemoveItemFromList(int index)
+    {
+        ItemCoordinator iCoord = null;
+        if (iCoords.Count > index) iCoord = iCoords[index];
+        if (iCoord == null) return;
+
+        iCoords.Remove(iCoord);
+        iCoord.gameObject.SetActive(true);
+        kMan.chef.PickupItem(iCoord);
     }
 
     public void HaltRecipe()
@@ -65,7 +77,6 @@ public class WorkspaceController : MonoBehaviour
         var iCoord = collision.GetComponent<ItemCoordinator>();
         if (iCoord) AddItem(iCoord);
     }
-
     public List<Item> GetValidRecipeResults()
     {
         var list = new List<Item>();
@@ -74,10 +85,11 @@ public class WorkspaceController : MonoBehaviour
 
         return list;
     }
-    
+
     void AddItem(ItemCoordinator iCoord)
     {
-        if (iCoords.Contains(iCoord) || iCoord.travellingToChef) return;
+        if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord) return;
+
         iCoords.Add(iCoord);
         iCoord.gameObject.SetActive(false);
 
@@ -105,6 +117,7 @@ public class WorkspaceController : MonoBehaviour
         toRemove = r.GetIngredients();
         minigame = r.GetMinigame();
 
+        GameManager.instance.TEMP_SELECTED_RECIPE = true;
         wsUIcoord.StartMinigame(minigame);
     }
 
@@ -115,7 +128,7 @@ public class WorkspaceController : MonoBehaviour
             if (iCoord) Destroy(iCoord.gameObject);
         }
 
-        ItemCoordinator newResult = kManag.CreateNewItemCoord(result, transform.position);
+        ItemCoordinator newResult = kMan.CreateNewItemCoord(result, transform.position);
         AddItem(newResult);
     }
 
