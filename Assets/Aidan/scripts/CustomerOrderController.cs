@@ -24,6 +24,7 @@ public class CustomerOrderController : MonoBehaviour
     float timeSinceOrdering;
     float timeSinceReceivedFood;
     bool doneSpeaking;
+    DialogueManager dMan;
 
     public void Order()
     {
@@ -83,6 +84,7 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Start()
     {
+        dMan = DialogueManager.instance;
         if (dMan) dMan.OnDialogueEnd.AddListener(CheckToLeave);
     }
 

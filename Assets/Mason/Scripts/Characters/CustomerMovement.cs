@@ -74,8 +74,6 @@ public class CustomerMovement : MonoBehaviour
         }
     }
 
-    DialogueManager
-
     public Table GetCurrentTable() {
         return currentTable;
     }
