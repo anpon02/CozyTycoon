@@ -25,7 +25,6 @@ public class ChefController : MonoBehaviour
     public void ReadClickInput(InputAction.CallbackContext ctx)
     {
         if (heldItem == null) return;
-
         if (ctx.started) PlaceItem(); 
     }
 
