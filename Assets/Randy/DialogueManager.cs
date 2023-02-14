@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     }
     
     [SerializeField] List<SpeakerData> speakers = new List<SpeakerData>();
-    [SerializeField] DialogueController controller;
+    public DialogueController controller;
     [HideInInspector] public UnityEvent OnDialogueEnd = new UnityEvent();
     [HideInInspector] public CharacterName lastSpeaker;
 
@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     
 
     [HideInInspector]public GameObject speakingCharacter;
+    [HideInInspector] public Story currentStory { get; private set; }
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
 
     public SpeakerData GetSpeakerData(CharacterName speakerName)
@@ -96,18 +97,22 @@ public class DialogueManager : MonoBehaviour
         return controller.StoryEnded();
     }
 
-    public void StartDialogue(TextAsset inkStory, CharacterName character, int progress)
+    public void StartDialogueMainStory(TextAsset inkStory, CharacterName character, int progress)
     {
         lastSpeaker = character;
         StopDialogue();
-        controller.StartDialogue(inkStory, character, progress);
+        currentStory = new Story(inkStory.text);
+        currentStory.variablesState["CurrentStoryState"] = progress;
+        controller.StartDialogue(character);
     }
 
-    public void StartDialogue(TextAsset inkStory, CharacterName character, string knotName)
+    public void StartDialogueKnotName(TextAsset inkStory, CharacterName character, string knotName)
     {
         lastSpeaker = character;
         StopDialogue();
-        controller.StartDialogue(inkStory, character, knotName);
+        currentStory = new Story(inkStory.text);
+        currentStory.ChoosePathString(knotName);
+        controller.StartDialogue(character);
     }
 
     public void StopDialogue()

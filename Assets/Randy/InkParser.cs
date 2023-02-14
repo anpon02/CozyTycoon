@@ -127,7 +127,7 @@ public class InkParser : MonoBehaviour
 
     void IsCheckDistance(Group modifier)
     {
-        Story story = coordinator.GetCharacterStory();
+        Story story = dMan.currentStory;
         story.variablesState["Distance"] = dMan.SpeakerDistance;
     }
 
@@ -135,7 +135,7 @@ public class InkParser : MonoBehaviour
     {
         CanvasGroup panelGroup = coordinator.GetDialoguePanel().GetComponent<CanvasGroup>();
         if (panelGroup.alpha >= 0.001) return;
-        coordinator.GetCharacterStory().Continue();
+        dMan.currentStory.Continue();
     }
 }
 

@@ -392,8 +392,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 535910280}
-        m_TargetAssemblyTypeName: DialogueCoordinator, Assembly-CSharp
+      - m_Target: {fileID: 535910281}
+        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:
@@ -699,7 +699,6 @@ MonoBehaviour:
   speakerPortrait: {fileID: 4970070}
   mainText: {fileID: 1365309189}
   speakerName: {fileID: 1085247857}
-  parser: {fileID: 535910282}
   choiceParent: {fileID: 1439928345}
   choicePrompt: {fileID: 494542124}
   button1: {fileID: 594011617}
@@ -720,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1715047b591cf349a56510a79c318ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parser: {fileID: 535910282}
   coordinator: {fileID: 535910280}
 --- !u!114 &535910282
 MonoBehaviour:
@@ -1117,21 +1117,21 @@ MonoBehaviour:
   - name: Luca
     characterName: 0
     portrait: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+    speakerSoundID: 12
   - name: Roxy
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+    speakerSoundID: 0
   controller: {fileID: 535910281}
+  OnDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  lastSpeaker: 0
   textRenderDelay: 0.08
   nextLineDelay: 2
   showTextModifiers: 0
   textRenderModifier: 1
   lineDelayModifier: 1
-  player: {fileID: 0}
-  showDebugInfo: 0
-  characterVoiceID: 0
-  isFadingOut: 0
-  isFadingIn: 0
-  visibilityForced: 0
   speakingCharacter: {fileID: 0}
 --- !u!4 &875716907
 Transform:
@@ -1432,8 +1432,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 535910280}
-        m_TargetAssemblyTypeName: DialogueCoordinator, Assembly-CSharp
+      - m_Target: {fileID: 535910281}
+        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:
@@ -1718,8 +1718,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 535910280}
-        m_TargetAssemblyTypeName: DialogueCoordinator, Assembly-CSharp
+      - m_Target: {fileID: 535910281}
+        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
         m_Arguments:

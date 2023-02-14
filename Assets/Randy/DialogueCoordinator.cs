@@ -12,14 +12,9 @@ public class DialogueCoordinator : MonoBehaviour
     [SerializeField] Image dialoguePanel, speakerPortrait;
     [SerializeField] TextMeshProUGUI mainText, speakerName;
 
-    [Header("Ink Integration")]
-    [SerializeField] InkParser parser;
-    [SerializeField] Story currentStory;
-
     [Header("Choices")]
-    [SerializeField] GameObject choiceParent;
+    public GameObject choiceParent;
     [SerializeField] TextMeshProUGUI choicePrompt, button1, button2, button3;
-    Choice choice1, choice2, choice3;
     DialogueManager dMan;
 
     [Header("Fade")]
@@ -37,50 +32,22 @@ public class DialogueCoordinator : MonoBehaviour
         dialoguePanel.gameObject.SetActive(false);
     }
 
-    public void LoadCharacterStory(TextAsset inkStory)
+    public void ShowDialoguePanel()
     {
-        currentStory = new Story(inkStory.text);
-    }
-
-    public Story GetCharacterStory()
-    {
-        return currentStory;
-    }
-
-    public void StartDialogue(int progress, CharacterName character)
-    {
-        currentStory.variablesState["CurrentStoryState"] = progress;
         dialoguePanel.gameObject.SetActive(true);
         mainText.gameObject.SetActive(true);
-        StartDialogue(character);
     }
 
-    public void StartDialogue(string knotName, CharacterName character)
+    public void HideDialoguePanel()
     {
-        currentStory.ChoosePathString(knotName);
-        dialoguePanel.gameObject.SetActive(true);
-        StartDialogue(character);
+        dialoguePanel.gameObject.SetActive(false);
     }
 
-    public void StartDialogue(CharacterName character)
+    public void SetSpeakerData(CharacterName character)
     {
         var data = dMan.GetSpeakerData(character);
         speakerPortrait.sprite = data.portrait;
         speakerName.text = data.name;
-        StartDialogue();
-    }
-
-    void StartDialogue()
-    {
-        writeDialogue = StartCoroutine(WriteDialogue());
-    }
-
-    public void StopDialogue()
-    {
-        StopAllCoroutines();
-        ClearAll();
-        dialoguePanel.gameObject.SetActive(false);
-        dMan.OnDialogueEnd.Invoke();
     }
 
     private void Update()
@@ -88,29 +55,14 @@ public class DialogueCoordinator : MonoBehaviour
         if (dMan.speakingCharacter) SetGroupAlpha();
     }
 
-    private IEnumerator WriteDialogue()
+    public IEnumerator DisplayText(string text)
     {
-        string lineText = default(string);
-
-        while (currentStory.canContinue)
+        for (int i = 0; i < text.Length; i++)
         {
-            lineText = currentStory.Continue().Trim();
-            parser.ParseTags(currentStory.currentTags);
-            for (int i = 0; i < lineText.Length; i++)
-            {
-                mainText.text += lineText[i];
-
-                AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
-                yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
-            }
-
-            yield return new WaitForSeconds(dMan.GetNextLineDelay() * dMan.GetLineDelayModifier());
-            ClearDialogueText();
-            dMan.ResetModifiers();
+            mainText.text += text[i];
+            AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
+            yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
         }
-
-        DisplayChoices(lineText);
-        if (currentStory.currentChoices.Count == 0) StopDialogue();
     }
 
     void SetGroupAlpha()
@@ -121,16 +73,17 @@ public class DialogueCoordinator : MonoBehaviour
         panelGroup.alpha = 1 - Mathf.Max(dist / maxDist, minAlpha);
     }
 
-    void DisplayChoices(string prompt)
+    public void DisplayChoices(string prompt)
     {
         ResetChoiceButtons();
+        Story story = dMan.currentStory;
 
-        int choiceCount = currentStory.currentChoices.Count;
+        int choiceCount = story.currentChoices.Count;
         if (choiceCount > 0) SetupAndEnableButton(0, button1);
         if (choiceCount > 1) SetupAndEnableButton(1, button2);
         if (choiceCount > 2) SetupAndEnableButton(2, button3);
 
-        bool choices = currentStory.currentChoices.Count > 0;
+        bool choices = story.currentChoices.Count > 0;
         choicePrompt.text = prompt;
         choicePrompt.gameObject.SetActive(choices);
         choiceParent.SetActive(choices);
@@ -140,7 +93,7 @@ public class DialogueCoordinator : MonoBehaviour
         ResetChoiceButton(button1);
         ResetChoiceButton(button2);
         ResetChoiceButton(button3);
-        choice1 = choice2 = choice3 = null;
+        dMan.controller.choice1 = dMan.controller.choice2 = dMan.controller.choice3 = null;
     }
 
     void ResetChoiceButton(TextMeshProUGUI buttonText)
@@ -151,36 +104,21 @@ public class DialogueCoordinator : MonoBehaviour
 
     void SetupAndEnableButton(int index, TextMeshProUGUI button)
     {
-        var choice = currentStory.currentChoices[index];
-        if (index == 0) choice1 = choice;
-        if (index == 1) choice2 = choice;
-        if (index == 2) choice3 = choice;
+        var choice = dMan.currentStory.currentChoices[index];
+        if (index == 0) dMan.controller.choice1 = choice;
+        if (index == 1) dMan.controller.choice2 = choice;
+        if (index == 2) dMan.controller.choice3 = choice;
 
         button.text = choice.text.Trim();
         button.transform.parent.gameObject.SetActive(true);
     }
 
-    public void MakeChoice(int num)
-    {
-        if (num == 1 && choice1 != null) MakeChoice(choice1);
-        if (num == 2 && choice2 != null) MakeChoice(choice2);
-        if (num == 3 && choice3 != null) MakeChoice(choice3);
-    }
-
-    void MakeChoice(Choice choice)
-    {
-        choiceParent.SetActive(false);
-        currentStory.ChooseChoiceIndex(choice.index);
-        currentStory.Continue();
-        StartCoroutine(WriteDialogue());
-    }
-
-    private void ClearDialogueText()
+    public void ClearDialogueText()
     {
         mainText.text = string.Empty;
     }
 
-    private void ClearAll()
+    public void ClearAll()
     {
 
         speakerName.text = string.Empty;
@@ -201,7 +139,7 @@ public class DialogueCoordinator : MonoBehaviour
     public void ChangeImage(string path)
     {
         return;
-        speakerPortrait.sprite = Resources.Load<Sprite>(path);
+        //speakerPortrait.sprite = Resources.Load<Sprite>(path);
     }
 
     public bool StoryEnded()

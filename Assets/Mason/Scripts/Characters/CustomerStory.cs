@@ -30,7 +30,7 @@ public class CustomerStory : MonoBehaviour
         if (!DialogueManager.instance) return;
 
         DialogueManager.instance.speakingCharacter = gameObject;
-        DialogueManager.instance.StartDialogue(inkStory, characterName, storyPhaseNum);
+        DialogueManager.instance.StartDialogueMainStory(inkStory, characterName, storyPhaseNum);
         storySaid = true;
         NextStoryPhase();
     }

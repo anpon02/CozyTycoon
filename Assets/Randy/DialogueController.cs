@@ -1,12 +1,13 @@
-using Ink.Parsed;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Ink.Runtime;
 public class DialogueController : MonoBehaviour {
-    
+    [Header("Ink Integration")]
+    [SerializeField] InkParser parser;
     [SerializeField] private DialogueCoordinator coordinator;
     DialogueManager dMan;
+    [HideInInspector] public Choice choice1, choice2, choice3;
 
     private void Start()
     {
@@ -18,32 +19,62 @@ public class DialogueController : MonoBehaviour {
         if (!dMan || !dMan.speakingCharacter) return;
     }
 
+    IEnumerator WriteDialogue()
+    {
+        Story story = dMan.currentStory;
+        string lineText = default(string);
+        while (story.canContinue)
+        {
+            lineText = story.Continue().Trim();
+            parser.ParseTags(story.currentTags);
+            // Write and display dialogue line thorugh coordinator
+            yield return StartCoroutine(coordinator.DisplayText(lineText));
+            yield return new WaitForSeconds(dMan.GetNextLineDelay() * dMan.GetLineDelayModifier());
+            
+            coordinator.ClearDialogueText();
+            dMan.ResetModifiers();
+        }
+
+        coordinator.DisplayChoices(lineText);
+        if (story.currentChoices.Count == 0) StopDialogue();
+    }
+
+    public void MakeChoice(int num)
+    {
+        if (num == 1 && choice1 != null) MakeChoice(choice1);
+        if (num == 2 && choice2 != null) MakeChoice(choice2);
+        if (num == 3 && choice3 != null) MakeChoice(choice3);
+    }
+
+
+    void MakeChoice(Choice choice)
+    {
+        coordinator.choiceParent.SetActive(false);
+        Story story = dMan.currentStory;
+        story.ChooseChoiceIndex(choice.index);
+        story.Continue();
+        StartCoroutine(WriteDialogue());
+    }
+
     public bool IsDialogueActive()
     {
         return !coordinator.StoryEnded();
     }
 
-    public void StartDialogue(TextAsset inkStory, CharacterName character)
+    public void StartDialogue(CharacterName character)
     {
-        coordinator.LoadCharacterStory(inkStory);
-        coordinator.StartDialogue(character);
-    }
-
-    public void StartDialogue(TextAsset inkStory, CharacterName character, int progress)
-    {
-        coordinator.LoadCharacterStory(inkStory);
-        coordinator.StartDialogue(progress, character);
-    }
-
-    public void StartDialogue(TextAsset inkStory, CharacterName character, string knotName)
-    {
-        coordinator.LoadCharacterStory(inkStory);
-        coordinator.StartDialogue(knotName, character);
+        coordinator.ShowDialoguePanel();
+        coordinator.SetSpeakerData(character);
+        StartCoroutine(WriteDialogue());
     }
 
     public void StopDialogue()
     {
-        coordinator.StopDialogue();
+        StopAllCoroutines();
+        coordinator.StopAllCoroutines();
+        coordinator.ClearAll();
+        coordinator.HideDialoguePanel();
+        dMan.OnDialogueEnd.Invoke();
     }
 
     public bool StoryEnded()
