@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RelationshipStatus))]
+//[RequireComponent(typeof(RelationshipStatus))]
 public class CustomerOrderController : MonoBehaviour
 {
     Item desiredItem;
@@ -14,10 +14,9 @@ public class CustomerOrderController : MonoBehaviour
     [SerializeField] private bool testCustomer;
     [Range(0f, 1f)]
     [SerializeField] private float foodValue;
-    
-    RelationshipStatus status;
+
+    private CustomerCoordinator custCoordinator;
     ChefController chef;
-    CustomerStory story;
     CustomerMovement move;
     bool foodOrdered;
     bool recievedFood;
@@ -35,7 +34,8 @@ public class CustomerOrderController : MonoBehaviour
         storyStarted = false;
         foodOrdered = true;
         timeSinceOrdering = 0;
-        if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, story.characterName);
+        print(custCoordinator);
+        if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, custCoordinator.characterName);
         CustomerManager.instance.GoToTable(transform);
     }
 
@@ -49,7 +49,7 @@ public class CustomerOrderController : MonoBehaviour
         timeSinceReceivedFood = 0;
 
         Item deliveredItem = chef.RemoveHeldItem();
-        GameManager.instance.orderController.CompleteOrder(story.characterName);
+        GameManager.instance.orderController.CompleteOrder(custCoordinator.characterName);
 
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
@@ -77,7 +77,7 @@ public class CustomerOrderController : MonoBehaviour
         if (timeSinceOrdering < patience) points += 1;
         if (!storyStarted) points = 0;
 
-        status.updateRelationshipValue(points);
+        custCoordinator.updateRelationshipValue(points);
 
         return points;
     }
@@ -90,12 +90,13 @@ public class CustomerOrderController : MonoBehaviour
 
     void CheckToLeave()
     {
-        if (dMan.lastSpeaker != story.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
+        if (dMan.lastSpeaker != custCoordinator.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
         move.LeaveRestaurant();
     }
 
     private void Update()
     {
+        print(custCoordinator);
         if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
         if (recievedFood) Eat();
     }
@@ -103,13 +104,13 @@ public class CustomerOrderController : MonoBehaviour
     void Eat()
     {
         timeSinceReceivedFood += Time.deltaTime;
-        bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == story.characterName;
+        bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == custCoordinator.characterName;
         if (!speaking && timeSinceReceivedFood >= eatTime) move.LeaveRestaurant();
     }
 
     private void Awake() {
-        status = GetComponent<RelationshipStatus>();
-        story = GetComponent<CustomerStory>();
+        custCoordinator = GetComponentInParent<CustomerCoordinator>();
+        print(custCoordinator);
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
     }

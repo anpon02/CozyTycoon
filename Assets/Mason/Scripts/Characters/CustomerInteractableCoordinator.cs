@@ -9,12 +9,12 @@ public class CustomerInteractableCoordinator : MonoBehaviour
 
     private CustomerMovement movement;
     private CustomerOrderController orderController;
-    private CustomerStory custStory;
+    private CustomerCoordinator custCoordinator;
 
     private void Awake() {
         movement = GetComponent<CustomerMovement>();
         orderController = GetComponentInChildren<CustomerOrderController>();
-        custStory = GetComponentInChildren<CustomerStory>();
+        custCoordinator = GetComponent<CustomerCoordinator>();
     }
 
     private void Update() {
@@ -23,7 +23,7 @@ public class CustomerInteractableCoordinator : MonoBehaviour
         if(!movement.IsMoving() && !orderController.GetHasReceivedFood()) {
             forkKnife.gameObject.SetActive(true);
         }
-        if(!movement.IsMoving() && movement.GetCurrentTable()&& !custStory.GetStorySaid()) {
+        if(!movement.IsMoving() && movement.GetCurrentTable() && !custCoordinator.GetStorySaid()) {
             story.gameObject.SetActive(true);
         }
         if(movement.IsMoving()) {

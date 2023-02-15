@@ -9,7 +9,7 @@ public class CustomerInteractable : MonoBehaviour
     [SerializeField] private InteractableType type;
     [SerializeField] private Transform player;
     [SerializeField] private CustomerOrderController orderController;
-    [SerializeField] private CustomerStory custStory;
+    [SerializeField] private CustomerCoordinator custCoordinator;
 
     private SpriteRenderer sprRenderer;
     private Transform parent;
@@ -51,7 +51,7 @@ public class CustomerInteractable : MonoBehaviour
         gameObject.SetActive(false);
 
         if (type == InteractableType.STORY) { 
-            custStory.StartStory(); 
+            custCoordinator.StartStory();
             orderController.storyStarted = true;
             return; 
         }
