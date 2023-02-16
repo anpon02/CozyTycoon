@@ -5,24 +5,92 @@ using Pathfinding;
 
 public class CustomerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private Vector3 exitPoint;
     [SerializeField] private Table sitSpot;
-
     private Seeker seek;
     private AIPath path;
     private CustomerOrderController cust;
     private Table currentTable;
     private int currentSpotInLine;
 
+    [Header("Animation")]
+    [SerializeField] private float idleWaitMin;
+    [SerializeField] private float idleWaitMax;
+    private SpriteRenderer sprRenderer;
+    private Animator anim;
+    private bool idleFinished;
+    private bool coroutineRunning;
+    
+
     private void Awake() {
+        // movemenet
         cust = GetComponentInChildren<CustomerOrderController>();
         seek = GetComponent<Seeker>();
         path = GetComponent<AIPath>();
         currentTable = null;
         currentSpotInLine = -1;
+
+        // animation
+        sprRenderer = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        idleFinished = false;
+        coroutineRunning = false;
     }
 
+    private void Update() {
+        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        
+        // idle anim
+        if(GetCurrentTable() == null && !IsMoving()) {
+            anim.SetBool("Walking", false);
+            if(!coroutineRunning) {
+                StartCoroutine("RandomIdle");
+            }
+        }
+        // sitting anim
+        else if(GetCurrentTable() != null && !IsMoving()) {
+            anim.SetBool("Walking", false);
+            anim.SetTrigger("Sit");
+            coroutineRunning = false;
+        }
+        // walking anim
+        else if(IsMoving()) {
+            anim.SetBool("Walking", true);
+            coroutineRunning = false;
+        }
+        sprRenderer.flipX = MovingRight();
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
 
+    /*
+    * ANIMATION FUNCTIONS
+    */
+    private IEnumerator RandomIdle() {
+        // play idle every randomly
+        coroutineRunning = true;
+        idleFinished = false;
+        anim.SetTrigger("Idle");
+        yield return new WaitUntil(CheckIfIdle);
+        yield return new WaitForSeconds(Random.Range(idleWaitMin, idleWaitMax));
+        coroutineRunning = false;
+    }
+
+    private bool CheckIfIdle() {
+        return idleFinished;
+    }
+
+    public void IdleIsStarting() {
+        idleFinished = false;
+    }
+
+    public void IdleIsFinished() {
+        idleFinished = true;
+    }
+
+    /*
+    * MOVEMENT FUNCTIONS
+    */
     public void GetInLine() {
         // if not in line or in a farther line spot
         if(currentSpotInLine > LineManager.instance.GetNextOpenSpot() || currentSpotInLine == -1) {
@@ -85,11 +153,4 @@ public class CustomerMovement : MonoBehaviour
     public bool MovingRight() {
         return path.destination.x > transform.position.x;
     }
-
-
-    private void Update()
-    {
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-    }
-
 }
