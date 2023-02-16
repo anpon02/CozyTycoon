@@ -14,6 +14,7 @@ public class DayNightController : MonoBehaviour
     [SerializeField] GameObject wheel;
     [SerializeField] float wheelOffset;
     bool paused;
+    public int day;
 
     [Header("CloseButton")]
     [SerializeField] Image buttonImg;
@@ -67,7 +68,7 @@ public class DayNightController : MonoBehaviour
         if (paused) return;
 
         time += Time.deltaTime * (asleep ? 15 * timeSpeed : timeSpeed) * 0.01f;
-        if (time >= 1) time = 0;
+        if (time >= 1) { time = 0; day += 1; }
         Camera.main.backgroundColor = backgroundGradient.Evaluate(time);
     }
 

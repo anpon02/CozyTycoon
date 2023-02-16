@@ -2279,7 +2279,7 @@ MonoBehaviour:
   buttonBounds: {fileID: 6072389838453667422}
   flipTimeGap: {x: 0.5, y: 1.5}
   panProgressSpeed: 0.1
-  panPenalty: 0.15
+  panPenalty: 0.25
   flipFloatMax: 1
   mixerActive: 0
   mixerParent: {fileID: 8148254598314162383}
