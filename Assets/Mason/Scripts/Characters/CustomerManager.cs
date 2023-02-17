@@ -55,7 +55,7 @@ public class CustomerManager : MonoBehaviour
             if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
                 todaysCustomers.Add(customer);
         }
-        print("TODAYS CUSTOMERS");
+        //print("TODAYS CUSTOMERS");
     }
 
     private void CalculateCombinedPatience() {
@@ -79,7 +79,7 @@ public class CustomerManager : MonoBehaviour
     }
 
     public void WakeUp() {
-        print("WAKEUP");
+        //print("WAKEUP");
         // reset each character
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
@@ -128,7 +128,7 @@ public class CustomerManager : MonoBehaviour
             potentialCustomers.RemoveAt(customerChoice);
         }
         */
-        print("SENDING");
+        //print("SENDING");
         for(int i = 0; i < todaysCustomers.Count; ++i) {
             if(i > 0) {
                 yield return new WaitUntil(() => !CustomerInRestaurant(i - 1));
@@ -137,8 +137,8 @@ public class CustomerManager : MonoBehaviour
             todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
         }
         yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
-        print("DONE SENDING");
-        //gMan.timeScript.LastCustomerLeave();
+        //print("DONE SENDING");
+        gMan.timeScript.LastCustomerLeave();
     }
 
     private bool CustomerInRestaurant(int customerIndex) {

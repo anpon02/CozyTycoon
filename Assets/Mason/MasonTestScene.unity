@@ -324,6 +324,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 435134293}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Phil
@@ -417,6 +425,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 4835051}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Tripp
@@ -766,7 +782,7 @@ MonoBehaviour:
   - {fileID: 455528692}
   schedule:
   - dayName: 'Week 1: Sunday'
-    customers: 00000000
+    customers: 0000000001000000
   - dayName: 'Week 1: Monday'
     customers: 00000000
   - dayName: 'Week 1: Tuesday'
@@ -1348,6 +1364,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 754249640}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Sally
@@ -1644,6 +1668,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 1298450163}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Roxy
@@ -1747,6 +1779,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 1926717761}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Florian
@@ -2220,6 +2260,14 @@ PrefabInstance:
       propertyPath: sitSpot
       value: 
       objectReference: {fileID: 796089268}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.x
+      value: -8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 80386416942563040, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: exitPoint.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 80386416942563042, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_Name
       value: Luca

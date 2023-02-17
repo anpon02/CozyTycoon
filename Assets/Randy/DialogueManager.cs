@@ -107,7 +107,8 @@ public class DialogueManager : MonoBehaviour
         lastSpeaker = character;
         StopDialogue();
         currentStory = new Story(inkStory.text);
-        currentStory.variablesState["CurrentStoryState"] = progress;
+        try { currentStory.variablesState["CurrentStoryState"] = progress; }
+        catch (System.Exception e) {}
         controller.StartDialogue(character);
     }
 

@@ -57,7 +57,7 @@ public class KitchenManager : MonoBehaviour {
     void EnableStartingEquipment()
     {
         if (tutorialEquipmentPause) return;
-        print("ENABLED");
+        //print("ENABLED");
 
         enabledEquipment = true;
         var list = new List<Item>(unlockedEquipment);

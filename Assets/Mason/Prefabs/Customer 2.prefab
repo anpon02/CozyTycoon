@@ -4953,7 +4953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688b14833d1469f4b8f34bc56a667ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patience: 1500
+  patience: 120
   eatTime: 5
   storyStarted: 0
   testCustomer: 0

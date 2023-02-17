@@ -40,6 +40,7 @@ public class OrderUICoordinator : MonoBehaviour
         var listItem = FindListItem(character);
         if (listItem == null) return;
 
+        listItems.Remove(listItem);
         Destroy(listItem.gameObject);
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -112,7 +113,7 @@ public class TutorialController : MonoBehaviour
             else if (panInHand()) PointToStove();
             else PointToPan();
 
-            if (panOnStove() && chickenOnStove()) {
+            if (panOnStove() && chickenOnStove() || instructions[11].complete) {
                 pointing = false;
                 instructions[10].complete = true;
             }

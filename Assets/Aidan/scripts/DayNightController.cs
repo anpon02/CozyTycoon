@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +47,7 @@ public class DayNightController : MonoBehaviour
 
     public void LastCustomerLeave()
     {
+        time = closeTime + 0.1f;
         if (!closed) Close();
         GoToSleep();
     }
@@ -73,7 +75,7 @@ public class DayNightController : MonoBehaviour
     {
         if (paused) return;
 
-        time += Time.deltaTime * (asleep ? 15 * timeSpeed : timeSpeed) * 0.01f;
+        time += Time.deltaTime * (asleep ? 15 * timeSpeed : timeSpeed);
         if (time >= 1) NextDay();
         Camera.main.backgroundColor = backgroundGradient.Evaluate(time);
     }
@@ -114,11 +116,26 @@ public class DayNightController : MonoBehaviour
 
     void Open()
     {
-        print("STORE OPEN");
+        //print("STORE OPEN");
         AudioManager.instance.PlaySound(10, gameObject);
         GameManager.instance.OnStoreOpen.Invoke();
         closed = asleep = false;
         UpdateButton();
+        SetTimeScaleBasedOnPatience();
+    }
+
+    void SetTimeScaleBasedOnPatience() {
+        float totalTime = CustomerManager.instance.todaysCombinedPatience;
+        totalTime *= 3f;
+
+        float _timeScale = 1;
+
+        float dayLength = closeTime - time;
+
+        _timeScale = (dayLength / totalTime);
+
+        //print("total time: " + totalTime + ", timeScale: " + _timeScale + ", dayLength: " + dayLength);
+        timeSpeed = _timeScale;
     }
 
     void UpdateButton()
