@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomerCoordinator : MonoBehaviour
 {
+    public bool inRestaurant;
+
     [Header("Relationship Status")]
     //[SerializeField] private CharacterName customerName;
     public int relationshipValue;

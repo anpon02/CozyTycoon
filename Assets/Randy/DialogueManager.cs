@@ -4,7 +4,7 @@ using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.Events;
 
-public enum CharacterName { LUCA, ROXY, TRIPP, SALLY }
+public enum CharacterName { LUCA, ROXY, TRIPP, SALLY, FLORIAN, PHIL}
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;

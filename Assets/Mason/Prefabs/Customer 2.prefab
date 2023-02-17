@@ -5180,6 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73e9e18f890c0e46ba948b3b6d62466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRestaurant: 0
   relationshipValue: 0
   characterName: 0
   inkStory: {fileID: 4900000, guid: 96cd0b36c718293448ca19536cd18ecd, type: 3}
@@ -5196,7 +5197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2544ab0f09b29e74e858d38fc46c1402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitPoint: {x: 18.06, y: -3.44, z: 0}
+  exitPoint: {x: 2.79, y: -21.51, z: -1}
   sitSpot: {fileID: 0}
   idleWaitMin: 2
   idleWaitMax: 5

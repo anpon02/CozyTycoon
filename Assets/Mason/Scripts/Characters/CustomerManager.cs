@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class ScheduleDay {
+    [Tooltip("This is purely for organization in the editor")]
+    public string dayName;      // this is purely for organization in the editor
+    public List<CharacterName> customers;
+}
+
 public class CustomerManager : MonoBehaviour
 {
     public static CustomerManager instance;
@@ -9,11 +16,17 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private float minWaitTime;
     [SerializeField] private float maxWaitTime;
     [SerializeField] private List<Transform> customers;
-    [SerializeField] private List<Transform> tables;
+    //[SerializeField] private List<Transform> tables;
+    [SerializeField] private List<ScheduleDay> schedule;
 
-    private List<Transform> potentialCustomers;
-    private List<Transform> potentialTables;
+    private List<Transform> todaysCustomers;
+    //private List<Transform> potentialCustomers;
+    //private List<Transform> potentialTables;
     private List<Transform> customersInLine;
+
+    private GameManager gMan;
+
+    public float todaysCombinedPatience;
     
     [Header("DEBUG")]
     [SerializeField] private bool dayIsOver;
@@ -24,25 +37,46 @@ public class CustomerManager : MonoBehaviour
         else if(instance != this)
             Destroy(this);
 
-        potentialTables = new List<Transform>();
+        todaysCustomers = new List<Transform>();
+        //potentialTables = new List<Transform>();
         customersInLine = new List<Transform>();
     }
 
     private void Start() {
-        GameManager.instance.OnStoreOpen.AddListener(WakeUp);
-        GameManager.instance.OnStoreClose.AddListener(EveryoneLeave);
+        gMan = GameManager.instance;
+        gMan.OnStoreOpen.AddListener(WakeUp);
+        gMan.OnStoreClose.AddListener(EveryoneLeave);
+    }
+
+    private void SetTodaysCustomers() {
+        foreach(Transform customer in customers) {
+            CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
+            if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
+                todaysCustomers.Add(customer);
+        }
+    }
+
+    private void CalculateCombinedPatience() {
+        float sum = 0;
+        foreach(Transform customer in todaysCustomers) {
+            CustomerOrderController ordCont = customer.GetComponentInChildren<CustomerOrderController>();
+            sum += ordCont.GetPatience();
+        }
+        todaysCombinedPatience = sum;
     }
 
     public void MakeCustomerLeave(CharacterName character)
     {
         foreach (var c in customers) {
-            if (c.GetComponentInChildren<CustomerStory>().characterName == character) 
+            CustomerCoordinator coord = c.GetComponent<CustomerCoordinator>();
+            if (coord.characterName == character) {
                 c.GetComponent<CustomerMovement>().LeaveRestaurant();
+                coord.inRestaurant = false;
+            }
         }
     }
 
     public void WakeUp() {
-
         // reset each character
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
@@ -50,17 +84,23 @@ public class CustomerManager : MonoBehaviour
         }
 
         // start customers coming
-        potentialCustomers = new List<Transform>(customers);
+        //potentialCustomers = new List<Transform>(customers);
+        SetTodaysCustomers();
+        CalculateCombinedPatience();
         StartCoroutine("StartSendingCustomers");
     }
 
     public void EveryoneLeave() {
         StopCoroutine("StartSendingCustomers");
         foreach(Transform customer in customers) {
-            customer.GetComponent<CustomerMovement>().LeaveRestaurant();
+            CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
+            if(coord.inRestaurant) {
+                customer.GetComponent<CustomerMovement>().LeaveRestaurant();
+                coord.inRestaurant = false;
+            }
         }
     }
-
+/*
     private void CalculatePotentialTables() {
         potentialTables.Clear();
 
@@ -69,8 +109,9 @@ public class CustomerManager : MonoBehaviour
             if(!table.GetComponent<Table>().GetIsTaken())
                 potentialTables.Add(table);
     }
-
+*/
     private IEnumerator StartSendingCustomers() {
+        /*
         while(potentialCustomers.Count > 0) {
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             AudioManager.instance.PlaySound(14);
@@ -82,6 +123,14 @@ public class CustomerManager : MonoBehaviour
             customersInLine.Add(potentialCustomers[customerChoice]);
             potentialCustomers.RemoveAt(customerChoice);
         }
+        */
+        for(int i = 0; i < todaysCustomers.Count; ++i) {
+            if(i > 0) {
+                yield return new WaitUntil(() => !todaysCustomers[i - 1].GetComponent<CustomerCoordinator>().inRestaurant);
+            }
+            todaysCustomers[i].GetComponent<CustomerCoordinator>().inRestaurant = true;
+            todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
+        }
     }
 
     private IEnumerator ShiftLine() {
@@ -91,12 +140,14 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    // we do not need to calculate potential tables anymore
     public void GoToTable(Transform customer) {
-        CalculatePotentialTables();
-        if(potentialTables.Count > 0) {
-            customer.GetComponentInParent<CustomerMovement>().ComeToEat(potentialTables);
-            customersInLine.Remove(customer.parent);
-            StartCoroutine("ShiftLine");
-        }
+        //CalculatePotentialTables();
+        //if(potentialTables.Count > 0) {
+        //customer.GetComponentInParent<CustomerMovement>().ComeToEat(potentialTables);
+        customer.GetComponentInParent<CustomerMovement>().ComeToEat();
+        customersInLine.Remove(customer.parent);
+        StartCoroutine("ShiftLine");
+        //}
     }
 }

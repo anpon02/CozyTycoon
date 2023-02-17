@@ -112,7 +112,8 @@ public class CustomerMovement : MonoBehaviour
         GetInLine();
     }
 
-    public bool ComeToEat(List<Transform> potentialTables) {
+    // we do not need a list of potential tables anymore
+    public bool ComeToEat() { //List<Transform> potentialTables) {
         if(!cust.GetHasReceivedFood()) {
             LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
             LineManager.instance.UpdateNextOpenSpot();
