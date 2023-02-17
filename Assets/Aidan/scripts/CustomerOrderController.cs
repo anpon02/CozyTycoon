@@ -54,6 +54,8 @@ public class CustomerOrderController : MonoBehaviour
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
         GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
+
+        CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
     }
 
     public bool alreadyOrdered()
@@ -96,7 +98,6 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Update()
     {
-        print(custCoordinator);
         if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
         if (recievedFood) Eat();
     }
@@ -110,7 +111,6 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
-        print(custCoordinator);
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
     }
@@ -127,5 +127,9 @@ public class CustomerOrderController : MonoBehaviour
         if (!KitchenManager.instance) return false;
         chef = KitchenManager.instance.chef;
         return chef != null;
+    }
+
+    public float GetPatience() {
+        return patience;
     }
 }
