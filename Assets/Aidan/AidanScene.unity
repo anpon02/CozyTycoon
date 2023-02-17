@@ -17356,7 +17356,7 @@ MonoBehaviour:
     category: Delivery
     complete: 0
     pointer: {fileID: 0}
-  startFromBeginning: 1
+  startFromBeginning: 0
 --- !u!223 &1290904218
 Canvas:
   m_ObjectHideFlags: 0

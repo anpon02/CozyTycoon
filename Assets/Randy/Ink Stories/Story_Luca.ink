@@ -17,20 +17,6 @@ VAR CurrentStoryState = 0
 
 == Day_1 ==
     Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder
-    I already ordered... so, uh, yeah...
-    ... # Textspeed: 0.5
-* How’s your day?
-    I’m doing pretty good, I guess... 
-	This place looks kinda cozy. I live, uh, in the apartment complex across the street. 
-	I normally have to FoodFetch burgers from, yknow, across town… cool that there's a place I can walk to...
-	I’m trying to get outside more, touch grass and all, so this is pretty convenient.
-*   Whatcha working on?
-	Oh, uh… just a website. I, uhm, make websites. For people. Like, they pay me n’ stuff, it’s my job... uh...
-	This one’s pretty easy. Trying to get it done so I can just game the rest of the day. 
-	This guy wanted, like, a digital storefront. But he insists that I use Comic Sans for the font.
-	It’s giving me brain damage a little bit looking at it.
-	Whatever. If he’s happy I get paid n’ stuff.
--   I’m Luca, by the way. Uh. I guess a normal guy would have led with that. Oopsie. #Speaker: Luca
     Anyways. See ya. # Finished
 -> DONE
 
