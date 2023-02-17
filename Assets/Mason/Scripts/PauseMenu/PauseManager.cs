@@ -112,6 +112,10 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void QuitGame() {
+        Application.Quit();
+    }
+
     public void ChangeVolume() {
         AudioManager.instance.masterVolume = volSlider.value * 2.0f;
     }
