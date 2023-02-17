@@ -121,7 +121,7 @@ public class InkParser : MonoBehaviour
 
     void IsFinished(Group modifier)
     {
-        CustomerStory story = dMan.speakingCharacter.GetComponent<CustomerStory>();
+        CustomerCoordinator story = dMan.speakingCharacter.GetComponent<CustomerCoordinator>();
         story.NextStoryPhase();
     }
 

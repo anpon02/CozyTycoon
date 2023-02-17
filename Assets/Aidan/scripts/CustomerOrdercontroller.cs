@@ -34,7 +34,6 @@ public class CustomerOrderController : MonoBehaviour
         storyStarted = false;
         foodOrdered = true;
         timeSinceOrdering = 0;
-        print(custCoordinator);
         if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, custCoordinator.characterName);
         CustomerManager.instance.GoToTable(transform);
     }
@@ -54,8 +53,6 @@ public class CustomerOrderController : MonoBehaviour
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
         GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
-
-        CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
     }
 
     public bool alreadyOrdered()
@@ -106,7 +103,7 @@ public class CustomerOrderController : MonoBehaviour
     {
         timeSinceReceivedFood += Time.deltaTime;
         bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == custCoordinator.characterName;
-        if (!speaking && timeSinceReceivedFood >= eatTime) move.LeaveRestaurant();
+        if (!speaking && timeSinceReceivedFood >= eatTime) CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
     }
 
     private void Awake() {

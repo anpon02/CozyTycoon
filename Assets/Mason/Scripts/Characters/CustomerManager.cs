@@ -49,6 +49,7 @@ public class CustomerManager : MonoBehaviour
     }
 
     private void SetTodaysCustomers() {
+        todaysCustomers.Clear();
         foreach(Transform customer in customers) {
             CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
             if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
@@ -83,6 +84,7 @@ public class CustomerManager : MonoBehaviour
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
             customer.GetComponent<CustomerCoordinator>().SetStorySaid(false);
+            customer.GetComponent<CustomerMovement>().currentSpotInLine = -1;
         }
 
         // start customers coming
@@ -134,8 +136,9 @@ public class CustomerManager : MonoBehaviour
             todaysCustomers[i].GetComponent<CustomerCoordinator>().inRestaurant = true;
             todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
         }
-        //yield return new WaitUntil(())
+        yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
         print("DONE SENDING");
+        //gMan.timeScript.LastCustomerLeave();
     }
 
     private bool CustomerInRestaurant(int customerIndex) {
