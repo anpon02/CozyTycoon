@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class ScheduleDay {
+    public string dayName;      // this is purely for organization in the editor
+    public List<CharacterName> customers;
+}
+
 public class CustomerManager : MonoBehaviour
 {
     public static CustomerManager instance;
@@ -10,6 +16,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private float maxWaitTime;
     [SerializeField] private List<Transform> customers;
     [SerializeField] private List<Transform> tables;
+    [SerializeField] private List<ScheduleDay> schedule;
 
     private List<Transform> potentialCustomers;
     private List<Transform> potentialTables;
@@ -91,6 +98,7 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    // we do not need to calculate potential tables anymore
     public void GoToTable(Transform customer) {
         CalculatePotentialTables();
         if(potentialTables.Count > 0) {
