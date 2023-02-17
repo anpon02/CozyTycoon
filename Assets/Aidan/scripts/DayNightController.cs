@@ -13,7 +13,7 @@ public class DayNightController : MonoBehaviour
     TextMeshProUGUI timeDisplay;
     [SerializeField] GameObject wheel;
     [SerializeField] float wheelOffset;
-    bool paused;
+    [HideInInspector] public bool paused;
     public int day;
 
     [Header("CloseButton")]

@@ -39,6 +39,7 @@ public class WorkspaceController : MonoBehaviour
             var iCoord = iCoords[iCoords.Count - 1];
             iCoords.Remove(iCoord);
             iCoord.gameObject.SetActive(true);
+            kMan.lastRetrievedItem = iCoord.GetItem();
             kMan.chef.PickupItem(iCoord);
         }
     }
@@ -55,6 +56,7 @@ public class WorkspaceController : MonoBehaviour
         ItemCoordinator iCoord = null;
         if (iCoords.Count > index) iCoord = iCoords[index];
         if (iCoord == null) return;
+        kMan.lastRetrievedItem = iCoord.GetItem();
 
         iCoords.Remove(iCoord);
         iCoord.gameObject.SetActive(true);
@@ -90,6 +92,7 @@ public class WorkspaceController : MonoBehaviour
     {
         if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord || (iCoord.wsDest != null && iCoord.wsDest != this)) return;
 
+        kMan.lastAddedItem = iCoord.GetItem();
         iCoords.Add(iCoord);
         iCoord.gameObject.SetActive(false);
 

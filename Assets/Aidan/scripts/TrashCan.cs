@@ -21,7 +21,7 @@ public class TrashCan : MonoBehaviour
     {
         if (!SetChef() || !chef.IsHoldingItem()) return;
 
-         chef.RemoveHeldItem();
+         KitchenManager.instance.lastTrashedItem = chef.RemoveHeldItem();
     }
 
     bool SetChef()

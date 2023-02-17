@@ -21,14 +21,38 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public FollowCamera camScript;
     [HideInInspector] public bool TEMP_SELECTED_RECIPE;
     [HideInInspector] public bool TEMP_DELIVERED;
+    [SerializeField] bool notifsPaused = true;
+    GameObject loggedNotifObj;
+    UnityAction loggedNotifCallback;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
     }
 
+    public void PauseNotifs()
+    {
+        notifsPaused = true;
+    }
+
+    public void UnPauseNotifs()
+    {
+        notifsPaused = false;
+        Notify(loggedNotifObj, loggedNotifCallback);
+        loggedNotifObj = null;
+        loggedNotifCallback = null;
+    }
+
     public void Notify(GameObject obj = null, UnityAction callback = null)
     {
+        if (obj == null && callback == null) return;
+        if (notifsPaused) {
+            notifCoord.gameObject.SetActive(false);
+            loggedNotifObj = obj;
+            loggedNotifCallback = callback;
+            return;
+        }
+
         StartCoroutine(NotifyWhenPossible(obj, callback));
     }
     IEnumerator NotifyWhenPossible(GameObject obj, UnityAction callback)

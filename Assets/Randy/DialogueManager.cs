@@ -30,11 +30,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool showTextModifiers;
     [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float textRenderModifier = 1;
     [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float lineDelayModifier = 1;
-    
+    [HideInInspector] public bool ConvoStarted;
 
     [HideInInspector]public GameObject speakingCharacter;
     [HideInInspector] public Story currentStory { get; private set; }
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
+
+    private void Update()
+    {
+        if (speakingCharacter != null) ConvoStarted = true;
+    }
 
     public SpeakerData GetSpeakerData(CharacterName speakerName)
     {

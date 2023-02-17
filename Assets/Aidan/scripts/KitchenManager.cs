@@ -17,14 +17,35 @@ public class KitchenManager : MonoBehaviour {
     public List<Item> unlockedEquipment = new List<Item>();
     public List<Item> unlockedIngredients = new List<Item>();
     [HideInInspector] public List<ItemStorage> allStorage = new List<ItemStorage>();
-    public Sprite genericVeggies;
-    public Sprite genericMeat;
-    public float playerReach = 5;
+    public Sprite genericVeggies, genericMeat, genericBread;
+    public float playerReach = 5, tutorialStartTime = 2;
+    [SerializeField] TutorialController tutorial;
 
     [HideInInspector] public ToolipCoordinator ttCoord;
     [HideInInspector] public WorkspaceController hoveredController;
     [HideInInspector] public ChefController chef;
     bool enabledEquipment;
+    [HideInInspector] public Item lastAddedItem;
+    [HideInInspector] public Item lastRetrievedItem;
+    [HideInInspector] public Item lastTrashedItem;
+
+    private void Start()
+    {
+        NextTutSection();
+    }
+
+    public void NextTutSection()
+    {
+        StartCoroutine(startTutorial());
+    }
+
+    IEnumerator startTutorial()
+    {
+        tutorial.gameObject.SetActive(false);
+        yield return new WaitForSeconds(tutorialStartTime);
+        tutorial.gameObject.SetActive(true);
+        tutorial.DisplayLine();
+    }
 
     private void Update()
     {

@@ -51,7 +51,7 @@ public class ChefController : MonoBehaviour
 
     public void ReleaseItem(WorkspaceController controller)
     {
-        heldItem.SetPosition(controller.itemLerpTarget, controller);
+        heldItem.SetPosition(controller.itemLerpTarget, _wsDest:controller);
         heldItem = null;
     }
 

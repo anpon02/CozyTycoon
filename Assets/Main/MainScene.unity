@@ -650,6 +650,7 @@ MonoBehaviour:
   camScript: {fileID: 0}
   TEMP_SELECTED_RECIPE: 0
   TEMP_DELIVERED: 0
+  notifsPaused: 1
 --- !u!4 &554498485
 Transform:
   m_ObjectHideFlags: 0

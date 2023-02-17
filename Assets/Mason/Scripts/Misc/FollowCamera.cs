@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem.Android;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class FollowCamera : MonoBehaviour
     bool SetPlayer()
     {
         var unset = player == null;
-        if (player == null) 
+        if (GameManager.instance == null) return false;
         player = GameManager.instance.player.transform;
         if (unset && player != null) StartFollow();
         return player != null;
