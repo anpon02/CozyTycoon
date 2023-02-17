@@ -14,6 +14,6 @@ public class Helper : MonoBehaviour
         screenPos.x = Mathf.Clamp(screenPos.x, xLimits.x, xLimits.y);
         screenPos.y = Mathf.Clamp(screenPos.y, yLmits.x, yLmits.y);
         GetComponent<RectTransform>().position = screenPos;
-        transform.up = worldPosTarget - transform.position;
+        transform.up = transform.position - worldPosTarget;
     }
 }
