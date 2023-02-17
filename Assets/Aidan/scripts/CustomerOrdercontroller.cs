@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[RequireComponent(typeof(RelationshipStatus))]
-public class CustomerOrderController : MonoBehaviour {
+public class CustomerOrderController : MonoBehaviour
+{
     Item desiredItem;
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
@@ -108,8 +109,7 @@ public class CustomerOrderController : MonoBehaviour {
         if (!speaking && timeSinceReceivedFood >= eatTime) move.LeaveRestaurant();
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
@@ -129,8 +129,7 @@ public class CustomerOrderController : MonoBehaviour {
         return chef != null;
     }
 
-    public float GetPatience()
-    {
+    public float GetPatience() {
         return patience;
     }
 }
