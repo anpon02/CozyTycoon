@@ -88,7 +88,7 @@ public class WorkspaceController : MonoBehaviour
 
     void AddItem(ItemCoordinator iCoord)
     {
-        if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord) return;
+        if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord || (iCoord.wsDest != null && iCoord.wsDest != this)) return;
 
         iCoords.Add(iCoord);
         iCoord.gameObject.SetActive(false);

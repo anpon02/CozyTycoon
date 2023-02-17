@@ -10,12 +10,14 @@ public class ItemCoordinator : MonoBehaviour
     public bool travellingToChef;
     [SerializeField] GameObject plate;
     public bool plated;
+    [SerializeField] ParticleSystem particles;
 
     [HideInInspector] public ItemStorage home;
     ChefController chef;
     SpriteRenderer sRend;
     Vector3 targetPos;
     Rigidbody2D rb;
+    [HideInInspector] public WorkspaceController wsDest;
 
     public Sprite GetItemSprite()
     {
@@ -30,8 +32,9 @@ public class ItemCoordinator : MonoBehaviour
         sRend.sprite = item.GetSprite();
     }
 
-    public void SetPosition(Vector3 newPos, bool toChef = false)
+    public void SetPosition(Vector3 newPos, bool toChef = false, WorkspaceController _wsDest = null)
     {
+        wsDest = _wsDest;
         travellingToChef = toChef;
         targetPos = newPos;
     }
@@ -65,8 +68,10 @@ public class ItemCoordinator : MonoBehaviour
         if (Vector3.Distance(targetPos, transform.position) <= MinLerpDist) {
             travellingToChef = false;
             transform.position = targetPos;
+
             return;
         }
+
         transform.position = Vector3.Lerp(transform.position, targetPos, 0.025f);
     }
 
@@ -99,6 +104,7 @@ public class ItemCoordinator : MonoBehaviour
         targetPos = transform.position;
         item = Instantiate(item);
         GetReferences();
+        particles.Play();
     }
 
     void GetReferences() {

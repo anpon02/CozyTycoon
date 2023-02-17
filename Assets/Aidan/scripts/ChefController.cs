@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class ChefController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ChefController : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] int pickupSound;
+    [SerializeField] ParticleSystem footStepParticles;
 
     public bool IsHoldingItem() {
         return heldItem != null;
@@ -38,12 +40,18 @@ public class ChefController : MonoBehaviour
         var ws = KitchenManager.instance.hoveredController;
         if (ws == null) return;
 
-        ReleaseItem(KitchenManager.instance.hoveredController.itemLerpTarget);
+        ReleaseItem(KitchenManager.instance.hoveredController);
     }
 
-    public void ReleaseItem(Vector3 position)
+    public void ReleaseItem(Vector3 pos)
     {
-        heldItem.SetPosition(position);
+        heldItem.SetPosition(pos);
+        heldItem = null;
+    }
+
+    public void ReleaseItem(WorkspaceController controller)
+    {
+        heldItem.SetPosition(controller.itemLerpTarget, controller);
         heldItem = null;
     }
 
@@ -63,6 +71,10 @@ public class ChefController : MonoBehaviour
     {
         if (!player) player = GameManager.instance.player;
         if (!player) return;
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D)) footStepParticles.Play();
+        else footStepParticles.Stop();
+
         transform.position = player.transform.position;
     }
 

@@ -96,7 +96,7 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Update()
     {
-        print(custCoordinator);
+        //print(custCoordinator);
         if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
         if (recievedFood) Eat();
     }
@@ -110,7 +110,7 @@ public class CustomerOrderController : MonoBehaviour
 
     private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
-        print(custCoordinator);
+        //print(custCoordinator);
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
     }
