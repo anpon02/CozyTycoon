@@ -14,6 +14,7 @@ public class ChefController : MonoBehaviour
     [SerializeField] int pickupSound;
     [SerializeField] ParticleSystem footStepParticles;
 
+
     public bool IsHoldingItem() {
         return heldItem != null;
     }
@@ -40,6 +41,7 @@ public class ChefController : MonoBehaviour
         var ws = KitchenManager.instance.hoveredController;
         if (ws == null) return;
 
+
         ReleaseItem(KitchenManager.instance.hoveredController);
     }
 
@@ -47,6 +49,7 @@ public class ChefController : MonoBehaviour
     {
         heldItem.SetPosition(pos);
         heldItem = null;
+
     }
 
     public void ReleaseItem(WorkspaceController controller)
