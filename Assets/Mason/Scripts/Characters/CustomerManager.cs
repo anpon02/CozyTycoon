@@ -129,12 +129,17 @@ public class CustomerManager : MonoBehaviour
         print("SENDING");
         for(int i = 0; i < todaysCustomers.Count; ++i) {
             if(i > 0) {
-                yield return new WaitUntil(() => !todaysCustomers[i - 1].GetComponent<CustomerCoordinator>().inRestaurant);
+                yield return new WaitUntil(() => !CustomerInRestaurant(i - 1));
             }
             todaysCustomers[i].GetComponent<CustomerCoordinator>().inRestaurant = true;
             todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
         }
+        //yield return new WaitUntil(())
         print("DONE SENDING");
+    }
+
+    private bool CustomerInRestaurant(int customerIndex) {
+        return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().inRestaurant;
     }
 
     private IEnumerator ShiftLine() {
