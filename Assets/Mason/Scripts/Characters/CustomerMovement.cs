@@ -6,13 +6,13 @@ using Pathfinding;
 public class CustomerMovement : MonoBehaviour
 {
     [Header("Movement")]
+    [HideInInspector] public int currentSpotInLine;
     [SerializeField] private Vector3 exitPoint;
     [SerializeField] private Table sitSpot;
     private Seeker seek;
     private AIPath path;
     private CustomerOrderController cust;
     private Table currentTable;
-    private int currentSpotInLine;
 
     [Header("Animation")]
     [SerializeField] private float idleWaitMin;
@@ -112,7 +112,8 @@ public class CustomerMovement : MonoBehaviour
         GetInLine();
     }
 
-    public bool ComeToEat(List<Transform> potentialTables) {
+    // we do not need a list of potential tables anymore
+    public bool ComeToEat() { //List<Transform> potentialTables) {
         if(!cust.GetHasReceivedFood()) {
             LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
             LineManager.instance.UpdateNextOpenSpot();

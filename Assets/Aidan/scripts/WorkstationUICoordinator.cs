@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+[ExecuteAlways]
 public class WorkstationUICoordinator : MonoBehaviour
 {
     [SerializeField] WorkspaceController ws;
@@ -77,6 +78,13 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     private void Update()
     {
+        progressBarParent.SetActive(false);
+        panParent.SetActive(false);
+        knifeParent.SetActive(false);
+        mixerParent.SetActive(false);
+
+        if (!Application.isPlaying) return;
+
         DisplayContents();
         Radial();
         DoMinigame();

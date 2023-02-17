@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   player: {fileID: 0}
-  orderController: {fileID: 80386416467142801}
+  orderController: {fileID: 1441463931206898755}
   custCoordinator: {fileID: 80386416942563067}
 --- !u!1 &80386416467142802
 GameObject:
@@ -138,8 +138,8 @@ GameObject:
   m_Component:
   - component: {fileID: 80386416467142803}
   - component: {fileID: 80386416467143534}
-  - component: {fileID: 80386416467142801}
   - component: {fileID: 80386416467142800}
+  - component: {fileID: 1441463931206898755}
   m_Layer: 7
   m_Name: OrderAndParticle
   m_TagString: Untagged
@@ -4869,23 +4869,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &80386416467142801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80386416467142802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca1a2bd2ff0e5a40a56c8ce50abcb51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patience: 1500
-  eatTime: 15
-  storyStarted: 0
-  testCustomer: 0
-  foodValue: 0.5
 --- !u!199 &80386416467142800
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4958,6 +4941,23 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1441463931206898755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80386416467142802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688b14833d1469f4b8f34bc56a667ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patience: 1500
+  eatTime: 5
+  storyStarted: 0
+  testCustomer: 0
+  foodValue: 0
 --- !u!1 &80386416942563042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5180,6 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73e9e18f890c0e46ba948b3b6d62466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRestaurant: 0
   relationshipValue: 0
   characterName: 0
   inkStory: {fileID: 4900000, guid: 96cd0b36c718293448ca19536cd18ecd, type: 3}
@@ -5196,7 +5197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2544ab0f09b29e74e858d38fc46c1402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitPoint: {x: 18.06, y: -3.44, z: 0}
+  exitPoint: {x: 2.79, y: -21.51, z: -1}
   sitSpot: {fileID: 0}
   idleWaitMin: 2
   idleWaitMax: 5
@@ -5340,5 +5341,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   player: {fileID: 0}
-  orderController: {fileID: 80386416467142801}
+  orderController: {fileID: 1441463931206898755}
   custCoordinator: {fileID: 80386416942563067}
