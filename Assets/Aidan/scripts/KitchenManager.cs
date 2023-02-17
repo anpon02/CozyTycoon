@@ -20,17 +20,19 @@ public class KitchenManager : MonoBehaviour {
     public Sprite genericVeggies, genericMeat, genericBread;
     public float playerReach = 5, tutorialStartTime = 2;
     [SerializeField] TutorialController tutorial;
+    [HideInInspector] public bool tutorialEquipmentPause;
 
     [HideInInspector] public ToolipCoordinator ttCoord;
     [HideInInspector] public WorkspaceController hoveredController;
     [HideInInspector] public ChefController chef;
     bool enabledEquipment;
-    [HideInInspector] public Item lastAddedItem;
-    [HideInInspector] public Item lastRetrievedItem;
-    [HideInInspector] public Item lastTrashedItem;
+    [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
+    [HideInInspector] public bool minigameStarted, minigameCompleted;
 
     private void Start()
     {
+        //tutorialEquipmentPause = true;
+        //RecipeManager.instance.tutorialRecipeLimit = true;
         NextTutSection();
     }
 
@@ -54,6 +56,9 @@ public class KitchenManager : MonoBehaviour {
 
     void EnableStartingEquipment()
     {
+        if (tutorialEquipmentPause) return;
+        print("ENABLED");
+
         enabledEquipment = true;
         var list = new List<Item>(unlockedEquipment);
         unlockedEquipment.Clear();

@@ -70,7 +70,7 @@ public class DialogueCoordinator : MonoBehaviour
         float dist = dMan.SpeakerDistance;
         dist = Mathf.Min(dist * fadeModifier, maxDist);
 
-        panelGroup.alpha = 1 - Mathf.Max(dist / maxDist, minAlpha);
+        panelGroup.alpha = 1 - Mathf.Min(dist / maxDist, (1-minAlpha));
     }
 
     public void DisplayChoices(string prompt)

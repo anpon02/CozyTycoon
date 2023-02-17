@@ -62,6 +62,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     public void StartMinigame(Minigame minigame)
     {
+        KitchenManager.instance.minigameStarted = true;
         flipButton.SetActive(false);
         GameManager.instance.camScript.followMouse = false;
 
@@ -110,10 +111,11 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void CompleteRecipe()
     {
+
         progressSlider.value = 0;
         StopAllMinigames();
         ws.CompleteRecipe();
-        //GameManager.instance.camScript.followMouse = true;
+        KitchenManager.instance.minigameCompleted = true;
     }
 
     void DoMinigame()
@@ -316,7 +318,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void DisplayContents()
     {
-        contentsParent.SetActive(!radialParent.activeInHierarchy && ws == KitchenManager.instance.hoveredController);
+        contentsParent.SetActive(!IsMinigameActive() && !radialParent.activeInHierarchy && ws == KitchenManager.instance.hoveredController);
         content2.text = content3.text = content4.text = content5.text = "";
 
         content1.text = ws.workSpaceType.ToString();

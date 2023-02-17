@@ -706,7 +706,7 @@ MonoBehaviour:
   button3: {fileID: 677812329}
   fadeModifier: 0.5
   maxDist: 18
-  minAlpha: 0.1
+  minAlpha: 1
 --- !u!114 &535910281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,6 +1132,7 @@ MonoBehaviour:
   showTextModifiers: 0
   textRenderModifier: 1
   lineDelayModifier: 1
+  ConvoStarted: 0
   speakingCharacter: {fileID: 0}
 --- !u!4 &875716907
 Transform:

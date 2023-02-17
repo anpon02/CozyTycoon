@@ -13,6 +13,7 @@ public class RecipeManager : MonoBehaviour
     List<Item> unlockedResults = new List<Item>();
     public List<Item> Menu { get { return GetMenu(); } }
     KitchenManager kMan;
+    [HideInInspector] public bool tutorialRecipeLimit;
 
     public bool CanCombine(out Item result, out List<Item> consumed, List<Item> _ingredients, WorkspaceController ws) {
         result = null;
@@ -63,6 +64,8 @@ public class RecipeManager : MonoBehaviour
 
     private void Update()
     {
+        if (tutorialRecipeLimit) return;
+
         CheckForNewRecipes();
     }
 

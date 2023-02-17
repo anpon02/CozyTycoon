@@ -22,14 +22,24 @@ public class CustomerOrderController : MonoBehaviour
     bool recievedFood;
     float timeSinceOrdering;
     float timeSinceReceivedFood;
-    bool doneSpeaking;
+    bool doneSpeaking, setOrder;
     DialogueManager dMan;
+
+    public void SetOrder(Item order)
+    {
+        desiredItem = order;
+        setOrder = true;
+    }
 
     public void Order()
     {
-        var menu = RecipeManager.instance.Menu;
-        if (menu.Count == 0) return;
-        desiredItem = menu[Random.Range(0, menu.Count)];
+        if (!setOrder) {
+            var menu = RecipeManager.instance.Menu;
+            if (menu.Count == 0) return;
+            desiredItem = menu[Random.Range(0, menu.Count)];
+        }
+        setOrder = false;
+       
 
         storyStarted = false;
         foodOrdered = true;

@@ -24,7 +24,7 @@ public class OrderController : MonoBehaviour
 
     [SerializeField] List<OrderInfo> currentOrders = new List<OrderInfo>();
     [SerializeField] OrderUICoordinator UIcoord;
-    [HideInInspector] public bool TEMP_HAS_ORDER;
+    [HideInInspector] public bool TEMP_HAS_ORDER, completedOrder;
 
     private void Start()
     {
@@ -41,6 +41,7 @@ public class OrderController : MonoBehaviour
 
     public void CompleteOrder(CharacterName character)
     {
+        completedOrder = true;
         UIcoord.RemoveItem(character);
     }
 

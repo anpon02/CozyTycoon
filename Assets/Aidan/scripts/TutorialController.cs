@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class TutorialController : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class TutorialController : MonoBehaviour
     }
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
-    [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton;
-    [SerializeField] Item mixer, potato;
+    [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton, stove, pans, meatFridge;
+    [SerializeField] Item mixer, potato, lucaOrder, fryingPan, rawChicken;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
     [SerializeField] List<Instruction> instructions = new List<Instruction>();
@@ -30,7 +31,9 @@ public class TutorialController : MonoBehaviour
     KitchenManager kMan;
     string WASDstring = "";
     GameObject luca;
+    bool pointing;
 
+    int chickenProgress;
 
 
     private void Start()
@@ -38,9 +41,10 @@ public class TutorialController : MonoBehaviour
         if (startFromBeginning) {
             foreach (var i in instructions) i.complete = false;
         }
-
         gMan = GameManager.instance;
         kMan = KitchenManager.instance;
+
+        
         gMan.timeScript.PauseTime();
         gMan.PauseNotifs();
 
@@ -51,7 +55,6 @@ public class TutorialController : MonoBehaviour
         }
         currentInstruction = lastCompleted;
 
-        //category.text = "";
     }
 
     public void DisplayLine()
@@ -100,6 +103,83 @@ public class TutorialController : MonoBehaviour
         CheckForConvoStarted();
         CheckForRecipeBookOpen();
         CheckForRecipeBookClose();
+
+        if (currentInstruction == 10) {
+            pointing = true;
+
+            if (panOnStove() && chickenInHand()) PointToStove();
+            else if (panOnStove()) PointToChicken();
+            else if (panInHand()) PointToStove();
+            else PointToPan();
+
+            if (panOnStove() && chickenOnStove()) {
+                pointing = false;
+                instructions[10].complete = true;
+            }
+        }
+
+        CheckForMinigameStart();
+        CheckForMinigameComplete();
+
+        CheckIfPlated();
+        CheckIfDelivered();
+    }
+
+    void CheckIfDelivered()
+    {
+        if (gMan.orderController.completedOrder) instructions[14].complete = true;
+    }
+
+    void CheckIfPlated()
+    {
+        if (kMan.chef.GetHeldiCoord() != null && instructions[12].complete && kMan.chef.GetHeldiCoord().plated) instructions[13].complete = true;
+    }
+
+    void CheckForMinigameStart()
+    {
+        if (kMan.minigameStarted) instructions[11].complete = true;
+    }
+
+    void CheckForMinigameComplete()
+    {
+        if (kMan.minigameCompleted) instructions[12].complete = true;
+    }
+
+    void PointToChicken()
+    {
+        helpScript.gameObject.SetActive(true);
+        helpScript.worldPosTarget = meatFridge.transform.position + Vector3.up * offset;
+    }
+    void PointToStove()
+    {
+        helpScript.gameObject.SetActive(true);
+        helpScript.worldPosTarget = stove.transform.position + Vector3.up * offset;
+    }
+
+    void PointToPan()
+    {
+        helpScript.gameObject.SetActive(true);
+        helpScript.worldPosTarget = pans.transform.position + Vector3.up * offset;
+    }
+
+    bool chickenOnStove()
+    {
+        return rawChicken.IsPresentInList(stove.GetComponent<WorkspaceController>().GetItemList());
+    }
+
+    bool panOnStove()
+    {
+        return fryingPan.IsPresentInList(stove.GetComponent<WorkspaceController>().GetItemList());
+    }
+
+    bool chickenInHand()
+    {
+        return rawChicken.Equals(kMan.chef.GetHeldItem());
+    }
+
+    bool panInHand()
+    {
+        return fryingPan.Equals(kMan.chef.GetHeldItem());
     }
 
     void CheckForRecipeBookClose()
@@ -159,7 +239,7 @@ public class TutorialController : MonoBehaviour
 
     void DisplayHelpers()
     {
-        if (string.IsNullOrEmpty(category.text)) return;
+        if (pointing || string.IsNullOrEmpty(category.text)) return;
         CrossScenePointer();
         if (instructions[currentInstruction].pointer == null) { helpScript.gameObject.SetActive(false); return; }
 
@@ -171,8 +251,10 @@ public class TutorialController : MonoBehaviour
     {
         if (!kMan) return;
         luca = CustomerManager.instance.transform.GetChild(0).gameObject;
+        luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
         instructions[5].pointer = luca;
         instructions[7].pointer = luca;
+        instructions[14].pointer = luca;
     }
 
     void CheckForHeldPotato()

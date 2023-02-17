@@ -1103,12 +1103,15 @@ MonoBehaviour:
   playerReach: 10
   tutorialStartTime: 2
   tutorial: {fileID: 1290904217}
+  tutorialEquipmentPause: 0
   ttCoord: {fileID: 0}
   hoveredController: {fileID: 0}
   chef: {fileID: 0}
   lastAddedItem: {fileID: 0}
   lastRetrievedItem: {fileID: 0}
   lastTrashedItem: {fileID: 0}
+  minigameStarted: 0
+  minigameCompleted: 0
 --- !u!1 &121867796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,6 +2176,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184595368}
   m_CullTransparentMesh: 1
+--- !u!1 &189862863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+  m_PrefabInstance: {fileID: 2004201859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &197847164
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,6 +6575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stove
       objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 872336449425338784, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_SizeDelta.x
       value: 62.17
@@ -6613,7 +6625,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 96c9519bee5459940ba8d0d5627a9e54, type: 3}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363789204362744668, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
@@ -13951,6 +13963,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 921d88d1f2e84544b88382569718c980, type: 2}
     minigame: 2
   unlockedRecipes: []
+  tutorialRecipeLimit: 0
 --- !u!4 &992974426
 Transform:
   m_ObjectHideFlags: 0
@@ -14356,7 +14369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1050942516
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17191,10 +17204,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1290904216}
-  - component: {fileID: 1290904217}
   - component: {fileID: 1290904218}
   - component: {fileID: 1290904219}
   - component: {fileID: 1290904220}
+  - component: {fileID: 1290904217}
   m_Layer: 5
   m_Name: tutorial
   m_TagString: Untagged
@@ -17246,8 +17259,14 @@ MonoBehaviour:
   shopButton: {fileID: 694832965}
   recipeBook: {fileID: 1050942515}
   recipeButton: {fileID: 412383051}
+  stove: {fileID: 189862863}
+  pans: {fileID: 1520791211}
+  meatFridge: {fileID: 475832853}
   mixer: {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
   potato: {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+  lucaOrder: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+  fryingPan: {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+  rawChicken: {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
   offset: 1.7
   waitTime: 1
   helpScript: {fileID: 2026990139}
@@ -17257,7 +17276,7 @@ MonoBehaviour:
     category: The Basics
     complete: 1
     pointer: {fileID: 0}
-  - text: Try moving items around! Click on the sack of potatoes to grab one
+  - text: Try moving items around! Click on the rack of veggies to grab one
     subTitle: There are various item stockpiles located around the kitchen. click
       the arrow to cycle through the stored items
     category: The Basics
@@ -17320,12 +17339,24 @@ MonoBehaviour:
     subTitle: 
     category: How to Cook
     complete: 0
-    pointer: {fileID: 0}
+    pointer: {fileID: 189862863}
   - text: Complete the minigame to progress!
     subTitle: 
     category: How to Cook
     complete: 0
     pointer: {fileID: 0}
+  - text: "With the finished dish in hand, click on the stack of plates to plate
+      the customer\u2019s order "
+    subTitle: 
+    category: Delivery
+    complete: 0
+    pointer: {fileID: 2110195435}
+  - text: Click on fork and knife above the customer to deliver the food
+    subTitle: 
+    category: Delivery
+    complete: 0
+    pointer: {fileID: 0}
+  startFromBeginning: 1
 --- !u!223 &1290904218
 Canvas:
   m_ObjectHideFlags: 0
@@ -19860,6 +19891,7 @@ MonoBehaviour:
   currentOrders: []
   UIcoord: {fileID: 1453038237}
   TEMP_HAS_ORDER: 0
+  completedOrder: 0
 --- !u!224 &1453038236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21386,7 +21418,7 @@ PolygonCollider2D:
       - {x: 9.764147, y: 7.2403374}
       - {x: 0.28038692, y: 12.525318}
       - {x: 0.23280656, y: 4.717018}
-      - {x: 0.66270816, y: 4.282521}
+      - {x: 0.0903517, y: 4.0099707}
       - {x: 0.13409042, y: 3.117885}
       - {x: 3.779891, y: 1.1265755}
       - {x: 1.7665181, y: -0.19832754}
@@ -21417,12 +21449,14 @@ PolygonCollider2D:
       - {x: -17.232159, y: -2.282429}
       - {x: -17.21784, y: -3.4798062}
       - {x: -15.9053, y: -4.739292}
-      - {x: -12.083032, y: -2.498402}
-      - {x: -11.335598, y: -2.967564}
-      - {x: -9.475761, y: -1.810715}
-      - {x: -8.357281, y: -2.4323218}
-      - {x: -1.6892464, y: 1.2319256}
-      - {x: -1.6799287, y: 3.6616194}
+      - {x: -12.216519, y: -2.6023836}
+      - {x: -11.085507, y: -3.2958088}
+      - {x: -10.018823, y: -2.7553174}
+      - {x: -10.475525, y: -1.5491138}
+      - {x: -7.897062, y: 0.018076181}
+      - {x: -5.8407393, y: -0.978667}
+      - {x: -4.1588964, y: -0.06542194}
+      - {x: -5.3375115, y: 1.4733224}
       - {x: 0.027170658, y: 4.6377416}
     - - {x: -1.3174057, y: -4.285676}
       - {x: 1.347861, y: -5.7963977}
@@ -32004,7 +32038,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026990137}
   m_LocalRotation: {x: 0, y: -0, z: -1, w: -0.00000004371139}
-  m_LocalPosition: {x: 0, y: 0, z: 13.888887}
+  m_LocalPosition: {x: 0, y: 0, z: 18.518517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -32014,7 +32048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: -346}
+  m_AnchoredPosition: {x: 94.49999, y: -68.49996}
   m_SizeDelta: {x: -699.8148, y: -348.2163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2026990139
@@ -32103,7 +32137,7 @@ RectTransform:
   m_GameObject: {fileID: 2027052527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.63764, y: 0.63764, z: 0.63764}
+  m_LocalScale: {x: 0.46292025, y: 0.46292025, z: 0.46292025}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2026990138}
@@ -32126,7 +32160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &2027052530
@@ -33164,6 +33198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stove (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 872336449425338784, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_SizeDelta.x
       value: 62.17
@@ -33210,7 +33248,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 96c9519bee5459940ba8d0d5627a9e54, type: 3}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363789204362744668, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
