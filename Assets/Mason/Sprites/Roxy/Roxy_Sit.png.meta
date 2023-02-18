@@ -144,10 +144,10 @@ TextureImporter:
       name: Roxy_Sit_0
       rect:
         serializedVersion: 2
-        x: 211
-        y: 53
-        width: 765
-        height: 1202
+        x: 0
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Roxy_Sit_1
       rect:
         serializedVersion: 2
-        x: 1561
-        y: 53
-        width: 765
-        height: 1202
+        x: 1350
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Roxy_Sit_2
       rect:
         serializedVersion: 2
-        x: 2911
-        y: 58
-        width: 765
-        height: 1197
+        x: 2700
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Roxy_Sit_3
       rect:
         serializedVersion: 2
-        x: 4261
-        y: 47
-        width: 765
-        height: 1198
+        x: 4050
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Roxy_Sit_4
       rect:
         serializedVersion: 2
-        x: 5611
-        y: 47
-        width: 765
-        height: 1208
+        x: 5400
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Roxy_Sit_5
       rect:
         serializedVersion: 2
-        x: 6961
-        y: 53
-        width: 765
-        height: 1202
+        x: 6750
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Roxy_Sit_6
       rect:
         serializedVersion: 2
-        x: 8311
-        y: 53
-        width: 765
-        height: 1202
+        x: 8100
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Roxy_Sit_7
       rect:
         serializedVersion: 2
-        x: 9661
-        y: 53
-        width: 765
-        height: 1202
+        x: 9450
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -144,10 +144,10 @@ TextureImporter:
       name: Phil_Sit_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 146
-        width: 1325
-        height: 1200
+        x: 0
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Phil_Sit_1
       rect:
         serializedVersion: 2
-        x: 1553
-        y: 146
-        width: 1347
-        height: 1200
+        x: 1500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Phil_Sit_2
       rect:
         serializedVersion: 2
-        x: 3062
-        y: 146
-        width: 1340
-        height: 1200
+        x: 3000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Phil_Sit_3
       rect:
         serializedVersion: 2
-        x: 4556
-        y: 146
-        width: 1347
-        height: 1200
+        x: 4500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Phil_Sit_4
       rect:
         serializedVersion: 2
-        x: 6108
-        y: 146
-        width: 1297
-        height: 1200
+        x: 6000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Phil_Sit_5
       rect:
         serializedVersion: 2
-        x: 7507
-        y: 146
-        width: 1399
-        height: 1200
+        x: 7500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Phil_Sit_6
       rect:
         serializedVersion: 2
-        x: 9016
-        y: 146
-        width: 1384
-        height: 1200
+        x: 9000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Phil_Sit_7
       rect:
         serializedVersion: 2
-        x: 10518
-        y: 146
-        width: 1384
-        height: 1200
+        x: 10500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +312,10 @@ TextureImporter:
       name: Phil_Sit_8
       rect:
         serializedVersion: 2
-        x: 12019
-        y: 146
-        width: 1384
-        height: 1200
+        x: 12000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +333,10 @@ TextureImporter:
       name: Phil_Sit_9
       rect:
         serializedVersion: 2
-        x: 13521
-        y: 146
-        width: 1384
-        height: 1200
+        x: 13500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

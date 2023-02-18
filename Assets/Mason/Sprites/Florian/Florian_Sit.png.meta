@@ -144,12 +144,12 @@ TextureImporter:
       name: Florian_Sit_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 55
-        width: 1323
-        height: 1979
+        x: 0
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Florian_Sit_1
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 55
-        width: 1323
-        height: 1979
+        x: 1400
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: Florian_Sit_2
       rect:
         serializedVersion: 2
-        x: 2844
-        y: 55
-        width: 1323
-        height: 1979
+        x: 2800
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Florian_Sit_3
       rect:
         serializedVersion: 2
-        x: 4244
-        y: 55
-        width: 1323
-        height: 1979
+        x: 4200
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Florian_Sit_4
       rect:
         serializedVersion: 2
-        x: 5644
-        y: 55
-        width: 1296
-        height: 1979
+        x: 5600
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: Florian_Sit_5
       rect:
         serializedVersion: 2
-        x: 7058
-        y: 55
-        width: 1285
-        height: 2001
+        x: 7000
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: Florian_Sit_6
       rect:
         serializedVersion: 2
-        x: 8438
-        y: 55
-        width: 1362
-        height: 1958
+        x: 8400
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Florian_Sit_7
       rect:
         serializedVersion: 2
-        x: 9844
-        y: 55
-        width: 1323
-        height: 1979
+        x: 9800
+        y: 0
+        width: 1400
+        height: 2100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

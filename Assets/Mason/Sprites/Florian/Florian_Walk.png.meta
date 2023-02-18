@@ -144,10 +144,10 @@ TextureImporter:
       name: Florian_Walk_0
       rect:
         serializedVersion: 2
-        x: 170
-        y: 123
-        width: 1143
-        height: 2051
+        x: 0
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Florian_Walk_1
       rect:
         serializedVersion: 2
-        x: 1646
-        y: 129
-        width: 1190
-        height: 1998
+        x: 1500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Florian_Walk_2
       rect:
         serializedVersion: 2
-        x: 3199
-        y: 123
-        width: 1090
-        height: 2086
+        x: 3000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Florian_Walk_3
       rect:
         serializedVersion: 2
-        x: 4670
-        y: 88
-        width: 1143
-        height: 2150
+        x: 4500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Florian_Walk_4
       rect:
         serializedVersion: 2
-        x: 6170
-        y: 88
-        width: 1143
-        height: 2086
+        x: 6000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Florian_Walk_5
       rect:
         serializedVersion: 2
-        x: 7646
-        y: 100
-        width: 1190
-        height: 2027
+        x: 7500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Florian_Walk_6
       rect:
         serializedVersion: 2
-        x: 9199
-        y: 88
-        width: 1090
-        height: 2121
+        x: 9000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Florian_Walk_7
       rect:
         serializedVersion: 2
-        x: 10670
-        y: 135
-        width: 1143
-        height: 2103
+        x: 10500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

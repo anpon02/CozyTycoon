@@ -144,10 +144,10 @@ TextureImporter:
       name: Roxy_Idle_0
       rect:
         serializedVersion: 2
-        x: 137
-        y: 26
-        width: 1097
-        height: 1266
+        x: 0
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Roxy_Idle_1
       rect:
         serializedVersion: 2
-        x: 1487
-        y: 26
-        width: 1097
-        height: 1266
+        x: 1350
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Roxy_Idle_2
       rect:
         serializedVersion: 2
-        x: 2837
-        y: 26
-        width: 1097
-        height: 1266
+        x: 2700
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Roxy_Idle_3
       rect:
         serializedVersion: 2
-        x: 4187
-        y: 26
-        width: 1097
-        height: 1266
+        x: 4050
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Roxy_Idle_4
       rect:
         serializedVersion: 2
-        x: 5537
-        y: 26
-        width: 1097
-        height: 1266
+        x: 5400
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Roxy_Idle_5
       rect:
         serializedVersion: 2
-        x: 6908
-        y: 26
-        width: 1055
-        height: 1266
+        x: 6750
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Roxy_Idle_6
       rect:
         serializedVersion: 2
-        x: 8195
-        y: 26
-        width: 1176
-        height: 1266
+        x: 8100
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Roxy_Idle_7
       rect:
         serializedVersion: 2
-        x: 9566
-        y: 26
-        width: 1139
-        height: 1266
+        x: 9450
+        y: 0
+        width: 1350
+        height: 1350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

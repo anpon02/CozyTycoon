@@ -144,10 +144,10 @@ TextureImporter:
       name: Sally_Idle_0
       rect:
         serializedVersion: 2
-        x: 129
-        y: 74
-        width: 719
-        height: 1367
+        x: 0
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Sally_Idle_1
       rect:
         serializedVersion: 2
-        x: 1129
-        y: 74
-        width: 719
-        height: 1364
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Sally_Idle_2
       rect:
         serializedVersion: 2
-        x: 2129
-        y: 74
-        width: 719
-        height: 1375
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Sally_Idle_3
       rect:
         serializedVersion: 2
-        x: 3129
-        y: 74
-        width: 719
-        height: 1367
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Sally_Idle_4
       rect:
         serializedVersion: 2
-        x: 4129
-        y: 74
-        width: 719
-        height: 1367
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Sally_Idle_5
       rect:
         serializedVersion: 2
-        x: 5129
-        y: 74
-        width: 719
-        height: 1367
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Sally_Idle_6
       rect:
         serializedVersion: 2
-        x: 6129
-        y: 74
-        width: 719
-        height: 1367
+        x: 6000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Sally_Idle_7
       rect:
         serializedVersion: 2
-        x: 7129
-        y: 74
-        width: 719
-        height: 1367
+        x: 7000
+        y: 0
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
