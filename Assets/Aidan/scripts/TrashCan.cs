@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrashCan : MonoBehaviour
 {
     [SerializeField] Color hoverColor;
+    [SerializeField] int trashSound;
     ChefController chef;
 
     public void OnMouseEnter()
@@ -22,6 +23,7 @@ public class TrashCan : MonoBehaviour
         if (!SetChef() || !chef.IsHoldingItem()) return;
 
          KitchenManager.instance.lastTrashedItem = chef.RemoveHeldItem();
+         AudioManager.instance.PlaySound(trashSound, gameObject);
     }
 
     bool SetChef()

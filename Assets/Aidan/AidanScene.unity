@@ -3740,6 +3740,9 @@ MonoBehaviour:
   recipeEntryPrefab: {fileID: 5694330616345350687, guid: e6ce47c46ca623b48b6127976bcd64a7, type: 3}
   nextPage: {fileID: 197847164}
   prevPage: {fileID: 579206988}
+  openbookSound: 25
+  closebookSound: 0
+  flipPageSound: 26
 --- !u!114 &310355905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13714,6 +13717,7 @@ MonoBehaviour:
   heldItem: {fileID: 0}
   itemOffset: {x: 0, y: 0, z: 0}
   pickupSound: 13
+  putdownSound: 20
   footStepParticles: {fileID: 1665785790}
 --- !u!114 &982844497
 MonoBehaviour:
@@ -14248,6 +14252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   sRend: {fileID: 2110195437}
+  plateSound: 22
 --- !u!60 &1045125449
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27707,6 +27712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  trashSound: 21
 --- !u!60 &1681984389
 PolygonCollider2D:
   m_ObjectHideFlags: 0
