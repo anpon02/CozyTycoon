@@ -9,6 +9,9 @@ public class DialogueController : MonoBehaviour {
     DialogueManager dMan;
     [HideInInspector] public Choice choice1, choice2, choice3;
 
+    [Header("Sounds")]
+    [SerializeField] int uiclickSound;
+
     private void Start()
     {
         dMan = DialogueManager.instance;
@@ -53,7 +56,9 @@ public class DialogueController : MonoBehaviour {
         Story story = dMan.currentStory;
         story.ChooseChoiceIndex(choice.index);
         story.Continue();
+        AudioManager.instance.PlaySound(uiclickSound, gameObject);
         StartCoroutine(WriteDialogue());
+        
     }
 
     public bool IsDialogueActive()

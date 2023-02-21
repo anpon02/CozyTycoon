@@ -721,6 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parser: {fileID: 535910282}
   coordinator: {fileID: 535910280}
+  uiclickSound: 27
 --- !u!114 &535910282
 MonoBehaviour:
   m_ObjectHideFlags: 0
