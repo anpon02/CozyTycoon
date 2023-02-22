@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class ShopCoordinator : MonoBehaviour
 {
-    [SerializeField] GameObject listParent, listingPrefab;
+    [SerializeField] GameObject equipmentParent, specialityParent, listingPrefab;
     [SerializeField] TextMeshProUGUI money;
 
     public void DisplayProducts(List<Product> toDisplay)
     {
-        for (int i = 0; i < listParent.transform.childCount; i++) {
-            Destroy(listParent.transform.GetChild(i).gameObject);
+        for (int i = 0; i < equipmentParent.transform.childCount; i++) {
+            Destroy(equipmentParent.transform.GetChild(i).gameObject);
         }
         foreach (var product in toDisplay) {
             DisplayProduct(product);
@@ -20,7 +20,7 @@ public class ShopCoordinator : MonoBehaviour
     }
     void DisplayProduct(Product toDisplay)
     {
-        var newGO = Instantiate(listingPrefab, listParent.transform);
+        var newGO = Instantiate(listingPrefab, equipmentParent.transform);
         var coord = newGO.GetComponent<ShopListingCoordinator>();
         coord.controller = GetComponent<ShopController>();
         coord.Init(toDisplay);

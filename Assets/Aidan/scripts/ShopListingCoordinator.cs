@@ -10,6 +10,7 @@ public class ShopListingCoordinator : MonoBehaviour
     [SerializeField] TextMeshProUGUI listingName, description, unlock, price;
     public Product product;
     [HideInInspector] public ShopController controller;
+    [SerializeField] bool specailityItem;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class ShopListingCoordinator : MonoBehaviour
     {
         product = p;
         itemImg.sprite = p.imgSprite;
-        listingName.text = p.productName;
+        listingName.text = p.productName + (specailityItem ? " x" + p.quantity : "");
         description.text = p.description;
         unlock.text = p.unlocks;
         price.text = "$" + p.price;
@@ -36,7 +37,7 @@ public class ShopListingCoordinator : MonoBehaviour
         if (product.price > GameManager.instance.wallet.money) return;
         GameManager.instance.wallet.money -= product.price;
 
-        KitchenManager.instance.PurchaseProduct(product);
-        controller.Remove(product);
+        KitchenManager.instance.PurchaseProduct(product, !specailityItem);
+        if (!specailityItem) controller.Remove(product);
     }
 }

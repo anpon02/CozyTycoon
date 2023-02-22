@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     void Awake() { instance = this; }
 
+    public bool assistMode;
+
     public UnityEvent OnStoreOpen;
     public UnityEvent OnStoreClose;
 
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public FollowCamera camScript;
     [HideInInspector] public bool TEMP_SELECTED_RECIPE;
     [HideInInspector] public bool TEMP_DELIVERED;
+    [HideInInspector] public Notebook notebook;
     [SerializeField] bool notifsPaused = true;
     GameObject loggedNotifObj;
     UnityAction loggedNotifCallback;

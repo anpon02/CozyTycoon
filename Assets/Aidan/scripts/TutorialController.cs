@@ -81,6 +81,7 @@ public class TutorialController : MonoBehaviour
         AudioManager.instance.PlaySound(6);
         gameObject.SetActive(false);
         helpScript.gameObject.SetActive(false);
+        gMan.UnPauseNotifs();
     }
 
     void Update()

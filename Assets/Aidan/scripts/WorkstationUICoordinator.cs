@@ -19,12 +19,17 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] TextMeshProUGUI content4;
     [SerializeField] TextMeshProUGUI content5;
 
-    [Header("Radial")]
-    [SerializeField] GameObject radialParent;
-    [SerializeField] float minHoldTime = 0.4f;
-    [SerializeField] RadialCoordinator radial1;
-    [SerializeField] RadialCoordinator radial2;
-    [SerializeField] RadialCoordinator radial3;
+    [Header("Recipe Options")]
+    [SerializeField] TextMeshProUGUI ro1;
+    [SerializeField] TextMeshProUGUI ro2, ro3;
+    string roName1, roName2, roName3;
+
+    //radial 
+    GameObject radialParent;
+    float minHoldTime = 0.4f;
+    RadialCoordinator radial1;
+    RadialCoordinator radial2;
+    RadialCoordinator radial3;
     float holdTime;
     Vector3 radialStartScale;
 
@@ -48,9 +53,8 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] bool panActive;
     [SerializeField] GameObject panParent, flipButton, buttonBounds;
     [SerializeField] Vector2 flipTimeGap = new Vector2(0.1f, 0.6f);
-    [SerializeField] float panProgressSpeed = 0.1f, panPenalty = 0.2f, flipFloatMax = 0.6f;
-    float nextFlipTime = 0.2f;
-    float flipFailTime = 0.5f;
+    [SerializeField] float panProgressSpeed = 0.1f, panPenalty = 0.2f, flipFloatMax = 0.6f, panStunTime = 0.75f;
+    float nextFlipTime = 0.2f, flipFailTime = 0.5f;
 
     [Header("Mixer Minigame")]
     [SerializeField] bool mixerActive;
@@ -59,6 +63,41 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] float radius, mixerSpeed, maxPlayerDist, playerWinDist, mixerProgressSpeed;
     bool holdingPlayer;
     
+    public void SelectRecipeOption(int num)
+    {
+        if (num == 1) ws.chosenRecipe = roName1;
+        if (num == 2) ws.chosenRecipe = roName2;
+        if (num == 3) ws.chosenRecipe = roName3;
+        if (!string.IsNullOrEmpty(ws.chosenRecipe)) ws.StartCooking();
+        HideRecipeOptions();
+    }
+
+    public void ShowRecipeOptions(List<Item> options)
+    {
+        if (IsMinigameActive()) return;
+
+        if (options.Count > 0) SetupROButton(ro1, options[0].GetName(), 0);
+        if (options.Count > 1) SetupROButton(ro2, options[1].GetName(), 1);
+        if (options.Count > 2) SetupROButton(ro3, options[2].GetName(), 2);
+    }
+
+    void SetupROButton(TextMeshProUGUI text, string _name, int num)
+    {
+        text.text = _name;
+        if (num == 0) roName1 = _name;
+        if (num == 1) roName2 = _name;
+        if (num == 2) roName3 = _name;
+        text.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void HideRecipeOptions()
+    {
+        ws.chosenRecipe = "";
+        ro1.transform.parent.gameObject.SetActive(false);
+        ro2.transform.parent.gameObject.SetActive(false);
+        ro3.transform.parent.gameObject.SetActive(false);
+        roName1 = roName2 = roName3 = "";
+    }
 
     public void StartMinigame(Minigame minigame)
     {
@@ -74,7 +113,6 @@ public class WorkstationUICoordinator : MonoBehaviour
     private void Start()
     {
         GetComponent<Canvas>().worldCamera = Camera.main;
-        radialStartScale = radialParent.transform.localScale;
     }
 
     private void Update()
@@ -87,7 +125,6 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (!Application.isPlaying) return;
 
         DisplayContents();
-        Radial();
         DoMinigame();
         DisplayProgressSlider();
     }
@@ -99,7 +136,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (progressSlider.value >= 1) CompleteRecipe();
     }
 
-    bool IsMinigameActive()
+    public bool IsMinigameActive()
     {
         return panActive || knifeActive || mixerActive;
     }
@@ -201,12 +238,21 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void PanFail() {
         AudioManager.instance.PlaySound(failSound, gameObject);
-        progressSlider.value -= panPenalty;
+        StartCoroutine(WaitThenResumePan());
         ResetFlip();
+    }
+
+    IEnumerator WaitThenResumePan()
+    {
+        float speed = panProgressSpeed;
+        panProgressSpeed = 0;
+        yield return new WaitForSeconds(panStunTime);
+        panProgressSpeed = speed;
     }
 
     public void Flip() {
         AudioManager.instance.PlaySound(progressSound, gameObject);
+        StopAllCoroutines();
         ResetFlip();
     }
 
@@ -318,7 +364,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void DisplayContents()
     {
-        contentsParent.SetActive(!IsMinigameActive() && !radialParent.activeInHierarchy && ws == KitchenManager.instance.hoveredController);
+        contentsParent.SetActive(!IsMinigameActive() && ws == KitchenManager.instance.hoveredController);
         content2.text = content3.text = content4.text = content5.text = "";
 
         content1.text = ws.workSpaceType.ToString();

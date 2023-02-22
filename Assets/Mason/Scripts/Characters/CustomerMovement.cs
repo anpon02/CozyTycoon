@@ -39,7 +39,7 @@ public class CustomerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        if(PauseManager.instance && PauseManager.instance.paused) return;
         
         // idle anim
         if(GetCurrentTable() == null && !IsMoving()) {

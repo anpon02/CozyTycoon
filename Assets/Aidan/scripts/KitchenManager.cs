@@ -8,6 +8,7 @@ public class KitchenManager : MonoBehaviour {
 
     [System.Serializable]
     public class ProductObject {
+        [HideInInspector] public string name;
         public Product product;
         public Item item;
     }
@@ -20,6 +21,7 @@ public class KitchenManager : MonoBehaviour {
     public Sprite genericVeggies, genericMeat, genericBread;
     public float playerReach = 5, tutorialStartTime = 2;
     [SerializeField] TutorialController tutorial;
+    [SerializeField] bool playTutorial;
     [HideInInspector] public bool tutorialEquipmentPause;
 
     [HideInInspector] public ToolipCoordinator ttCoord;
@@ -29,11 +31,14 @@ public class KitchenManager : MonoBehaviour {
     [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
     [HideInInspector] public bool minigameStarted, minigameCompleted;
 
-    private void Start()
+    private void OnValidate()
     {
-        //tutorialEquipmentPause = true;
-        //RecipeManager.instance.tutorialRecipeLimit = true;
-        NextTutSection();
+        foreach (var p in productObjData) p.name = p.item.GetName();
+    }
+
+    private void Start() 
+    { 
+        if (playTutorial) NextTutSection();
     }
 
     public void NextTutSection()
@@ -57,7 +62,6 @@ public class KitchenManager : MonoBehaviour {
     void EnableStartingEquipment()
     {
         if (tutorialEquipmentPause) return;
-        //print("ENABLED");
 
         enabledEquipment = true;
         var list = new List<Item>(unlockedEquipment);
@@ -65,22 +69,25 @@ public class KitchenManager : MonoBehaviour {
         foreach (var e in list) EnableEquipment(e);
     }
 
-    public void PurchaseProduct(Product product)
+    public void PurchaseProduct(Product product, bool equipment = true)
     {
         foreach (var p in productObjData) {
             if (p.product.name == product.name) {
-                if (p.item) EnableEquipment(p.item);
+                if (p.item) {
+                    if (equipment) EnableEquipment(p.item);
+                    else EnableEquipment(p.item, product.quantity);
+                }
             }
         }
     }
     
-    public void EnableEquipment(Item newEquipment)
+    public void EnableEquipment(Item newEquipment, int quantity = -1)
     {
         if (unlockedEquipment.Contains(newEquipment)) return;
 
         unlockedEquipment.Add(newEquipment);
         foreach (var s in allStorage) {
-            s.Enable(newEquipment);
+            s.Enable(newEquipment, quantity);
         }
     }
 

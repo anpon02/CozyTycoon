@@ -23,7 +23,7 @@ public class CustomerInteractable : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        if(PauseManager.instance && PauseManager.instance.paused) return;
 
         // set opacity based on distance if mouse is not hovering over
         if(!mouseOn) {

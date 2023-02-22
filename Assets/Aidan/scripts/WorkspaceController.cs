@@ -15,7 +15,7 @@ public class WorkspaceController : MonoBehaviour
 
     public Vector3 itemLerpTarget;
     [SerializeField] int actionSoundID;
-    [SerializeField] WorkstationUICoordinator wsUIcoord;
+    public WorkstationUICoordinator wsUIcoord;
 
     [SerializeField] List<ItemCoordinator> iCoords;
 
@@ -27,6 +27,7 @@ public class WorkspaceController : MonoBehaviour
     Item result;
     List<Item> toRemove = new List<Item>();
     Minigame minigame;
+
 
     private void OnValidate()
     {
@@ -42,6 +43,9 @@ public class WorkspaceController : MonoBehaviour
             kMan.lastRetrievedItem = iCoord.GetItem();
             kMan.chef.PickupItem(iCoord);
         }
+
+        if (kMan.hoveredController == this) wsUIcoord.ShowRecipeOptions(GetValidRecipeResults());
+        else wsUIcoord.HideRecipeOptions();
     }
 
     private void Start()
@@ -95,7 +99,6 @@ public class WorkspaceController : MonoBehaviour
         kMan.lastAddedItem = iCoord.GetItem();
         iCoords.Add(iCoord);
         iCoord.gameObject.SetActive(false);
-
     }
 
     public List<Item> GetItemList()

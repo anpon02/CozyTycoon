@@ -2,30 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Android;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
     public static PauseManager instance;
 
-    [Header("Canvases")]
-    [SerializeField] private Canvas pauseCanvas;
-    [SerializeField] private Canvas settingsCanvas;
+    [SerializeField] GameObject mainParent, settingsParent, helpParent, greyOut;
 
-    [Header("Graphics Buttons")]
-    [SerializeField] private Color selectedColor;
-    [SerializeField] private Color unselectedColor;
-    [SerializeField] private List<Button> graphicsButtons;
-    private int selectedGraphicsButton;
-
-    [Header("Volume Settings")]
-    [SerializeField] private Slider volSlider;
-
-    [Header("Scenes")]
-    [SerializeField] private List<string> sceneNames;
+    [Header("Settings")]
+    [SerializeField] Slider masterVolSlider;
+    [SerializeField] Slider musicVolSlider, sfxVolSlider;
+    [SerializeField] Image assistUnchecked;
+    [SerializeField] GameObject assistChecked;
 
     private PauseInputActions pInputActions;
-    private bool paused;
+    [HideInInspector] public bool paused;
 
     private void Awake() {
         if(instance == null)
@@ -33,25 +26,22 @@ public class PauseManager : MonoBehaviour
         else if(instance != null)
             Destroy(this);
         
-        paused = false;
+        settingsParent.SetActive(false);
+        mainParent.SetActive(false);
+        helpParent.SetActive(false);
+        greyOut.SetActive(false);
 
-        // canvas setup
-        pauseCanvas.gameObject.SetActive(false);
-        settingsCanvas.gameObject.SetActive(false);
-
-        // graphics setup
-        selectedGraphicsButton = 2;
-        SelectGraphicsSetting(selectedGraphicsButton);
-
-        // input actions setup
         pInputActions = new PauseInputActions();
         pInputActions.Pause.TogglePause.performed += PauseEvent;
     }
 
     private void Start() {
-        // volume setup
-        volSlider.value = 0.5f;
-        ChangeVolume();
+        masterVolSlider.value = 1f;
+        musicVolSlider.value = 1f;
+        sfxVolSlider.value = 1f;
+        ChangeMasterVol();
+        ChangeMusicVol();
+        ChangeSFXVol();
     }
 
     private void OnEnable() {
@@ -66,61 +56,64 @@ public class PauseManager : MonoBehaviour
         TogglePauseMenu();
     }
 
-    private void SetPixelation() {
-        // TODO:
-        // MAKE A POST PROCESSING EFFECT THAT PIXELIZES SCREEN
-        // SET VALUE OF PIXELIZATION
-    }
-
     public void TogglePauseMenu() {
-        // if on pause screen, exit back to game
-        if(pauseCanvas.gameObject.activeInHierarchy) {
-            pauseCanvas.gameObject.SetActive(false);
-            settingsCanvas.gameObject.SetActive(false);
-            paused = false;
-            Time.timeScale = 1;
-        }
-        // open pause screen if not paused or in settings menu
-        else {
-            pauseCanvas.gameObject.SetActive(true);
-            settingsCanvas.gameObject.SetActive(false);
-            paused = true;
-            Time.timeScale = 0;
-            
-        }
+        if(mainParent.activeInHierarchy) UnPauseGame();
+        else PauseGame();
     }
 
-    public void SelectGraphicsSetting(int buttonIndex) {
-        // set selectedGraphicsButton to butotnIndex
-        selectedGraphicsButton = buttonIndex;
+    void UnPauseGame()
+    {
+        mainParent.SetActive(false);
+        settingsParent.SetActive(false);
+        paused = false;
+        greyOut.SetActive(false);
+        Time.timeScale = 1;
+    }
 
-        // loop through all buttons
-        for(int i = 0; i < graphicsButtons.Count; ++i) {
-            ColorBlock buttonColors = graphicsButtons[i].colors;
-            buttonColors.highlightedColor = selectedColor;
-
-            // if index == buttonIndex, make that button's color selected color
-            if(i == buttonIndex) {
-                buttonColors.normalColor = selectedColor;
-                SetPixelation();  // can probably set pixelization value using some math with the index
-            }
-            else {
-                buttonColors.normalColor = unselectedColor;
-                SetPixelation();  // can probably set pixelization value using some math with the index
-            }
-            graphicsButtons[i].colors = buttonColors;
-        }
+    void PauseGame()
+    {
+        mainParent.SetActive(true);
+        settingsParent.SetActive(false);
+        paused = true;
+        greyOut.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void QuitGame() {
         Application.Quit();
     }
 
-    public void ChangeVolume() {
-        AudioManager.instance.masterVolume = volSlider.value * 2.0f;
+    public void ChangeMasterVol() {
+        AudioManager.instance.masterVolume = masterVolSlider.value;
     }
 
-    public bool GetPaused() {
-        return paused;
+    public void ChangeSFXVol()
+    {
+        
+    }
+
+    public void ChangeMusicVol()
+    {
+
+    }
+
+    public void ToggleAssistMode()
+    {
+        if (!GameManager.instance.assistMode) EnableAssistMode();
+        else DisableAssistMode();
+    }
+
+    void DisableAssistMode()
+    {
+        GameManager.instance.assistMode = false;
+        assistChecked.SetActive(false);
+        assistUnchecked.color = new Color(1, 1, 1, 0.2f);
+    }
+
+    void EnableAssistMode()
+    {
+        GameManager.instance.assistMode = true;
+        assistChecked.SetActive(true);
+        assistUnchecked.color = new Color(1, 1, 1, 0.5f);
     }
 }

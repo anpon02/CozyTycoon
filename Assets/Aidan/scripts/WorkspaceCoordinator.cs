@@ -24,6 +24,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     private void Update()
     {
         UpdateItemDisplay();
+        if (ws.wsUIcoord.IsMinigameActive()) sRend.color = Color.white;
     }
 
     private void OnMouseEnter()

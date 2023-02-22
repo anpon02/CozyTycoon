@@ -10,4 +10,5 @@ public class Product : ScriptableObject
     public int price;
     [TextArea(4, 10)]
     public string unlocks;
+    public int quantity = -1;
 }

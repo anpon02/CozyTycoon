@@ -24,7 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     private void Update() {
-        if(PauseManager.instance && PauseManager.instance.GetPaused()) return;
+        if(PauseManager.instance && PauseManager.instance.paused) return;
         
         input = pInputActions.Player.Movement.ReadValue<Vector2>();
 

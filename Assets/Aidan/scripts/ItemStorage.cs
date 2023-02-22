@@ -36,10 +36,14 @@ public class ItemStorage : MonoBehaviour
         }
     }
 
-    public void Enable(Item toEnable)
+    public void Enable(Item toEnable, int quantity = -1)
     {
         foreach (var item in items) {
-            if (item.item.Equals(toEnable)) { item.enabled = true; item.numRemaining = item.maxNum; }
+            if (item.item.Equals(toEnable)) { 
+                item.enabled = true;
+                if (quantity == -1) item.numRemaining = item.maxNum;
+                else item.numRemaining += quantity;
+            }
         }
         gameObject.SetActive(NumEnabledItems() > 0);
     }
