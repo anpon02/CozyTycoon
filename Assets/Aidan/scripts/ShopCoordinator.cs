@@ -20,7 +20,7 @@ public class ShopCoordinator : MonoBehaviour
     }
     void DisplayProduct(Product toDisplay)
     {
-        var newGO = Instantiate(listingPrefab, equipmentParent.transform);
+        var newGO = Instantiate(listingPrefab, toDisplay.quantity == -1 ? equipmentParent.transform : specialityParent.transform);
         var coord = newGO.GetComponent<ShopListingCoordinator>();
         coord.controller = GetComponent<ShopController>();
         coord.Init(toDisplay);
