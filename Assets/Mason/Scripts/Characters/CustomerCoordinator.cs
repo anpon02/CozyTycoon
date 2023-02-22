@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class CustomerCoordinator : MonoBehaviour
 {
-    public bool inRestaurant;
+    [HideInInspector] public bool inRestaurant;
 
     [Header("Relationship Status")]
-    //[SerializeField] private CharacterName customerName;
     public int relationshipValue;
-    //CustomerParticle custParticle;
 
     [Header("Customer Story")]
     public CharacterName characterName;
@@ -22,8 +20,6 @@ public class CustomerCoordinator : MonoBehaviour
     private ParticleSystem pSystem;
 
     private void Awake() {
-        //custParticle = transform.parent.GetComponentInChildren<CustomerParticle>();
-
         // Customer Story
         storyPhaseNum = 0;
         storySaid = false;

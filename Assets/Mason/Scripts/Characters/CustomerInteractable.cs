@@ -45,8 +45,6 @@ public class CustomerInteractable : MonoBehaviour
     }
     
     private void OnMouseDown() {
-        //if (playerDistance > KitchenManager.instance.playerReach) return;
-
         mouseOn = false;
         gameObject.SetActive(false);
 
