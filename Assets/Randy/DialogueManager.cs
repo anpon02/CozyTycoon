@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     public DialogueController controller;
     [HideInInspector] public UnityEvent OnDialogueEnd = new UnityEvent();
     [HideInInspector] public CharacterName lastSpeaker;
+    [HideInInspector] public GameObject speakingCharacter;
+    [HideInInspector] public Story currentStory { get; private set; }
 
     [Header("Text Speed")]
     [SerializeField] private float textRenderDelay;
@@ -32,8 +34,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float lineDelayModifier = 1;
     [HideInInspector] public bool ConvoStarted;
 
-    [HideInInspector]public GameObject speakingCharacter;
-    [HideInInspector] public Story currentStory { get; private set; }
+    [Header("Notetaking")]
+    [HideInInspector] public bool allowNotes;
+    [SerializeField, Tooltip("Use as a debug tool, or if not using the parser to mark specific lines for notetaking")] private bool anyNotes;
+
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
 
     private void Update()
@@ -94,6 +98,7 @@ public class DialogueManager : MonoBehaviour
     {
         textRenderModifier = 1f;
         lineDelayModifier = 1f;
+        allowNotes = false;
     }
     #endregion
 
@@ -126,4 +131,12 @@ public class DialogueManager : MonoBehaviour
         controller.StopDialogue();
     }
 
+    public void TakeNotes()
+    {
+        if (!allowNotes || anyNotes)
+            return;
+        string note = currentStory.state.currentText.Trim();
+        AudioManager.instance.PlaySound(7);
+        GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
+    }
 }

@@ -46,33 +46,36 @@ public class InkParser : MonoBehaviour
             return;
         }
 
-        switch (section.Value) {
-            case "Voice":
+        switch (section.Value.ToLower()) {
+            case "voice":
                 //typeParseCall<int>(modifier, dMan.SetCharacterVoiceID);
                 return;
-            case "Textspeed":
+            case "textspeed":
                 typeParseCall<float>(modifier, dMan.SetTextRenderModifier);
                 return;
-            case "Linedelay":
+            case "linedelay":
                 typeParseCall<float>(modifier, dMan.SetLineDelayModifier);
                 return;
-            case "ForceVisible":
+            case "forcevisible":
                 //typeParseCall<bool>(modifier, dMan.SetForcedVisibility);
                 return;
-            case "Speaker":
+            case "speaker":
                 IsSpeaker(modifier);
                 return;
-            case "Image":
+            case "image":
                 IsImage(modifier);
                 return;
-            case "Finished":
+            case "finished":
                 IsFinished(modifier);
                 return;
-            case "CheckDistance":
+            case "checkdistance":
                 IsCheckDistance(modifier);
                 return;
-            case "Skippable":
+            case "skippable":
                 IsSkippable(modifier);
+                return;
+            case "notable":
+                IsNotable(modifier);
                 return;
         }
     }
@@ -136,6 +139,11 @@ public class InkParser : MonoBehaviour
         CanvasGroup panelGroup = coordinator.GetDialoguePanel().GetComponent<CanvasGroup>();
         if (panelGroup.alpha >= 0.001) return;
         dMan.currentStory.Continue();
+    }
+
+    void IsNotable(Group modifier)
+    {
+        dMan.allowNotes = true;
     }
 }
 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Aidan/TEMPfinishScene.unity
     guid: ac686b4cf9a3da74abd6c6af315bada5
+  - enabled: 1
+    path: Assets/title/Credits.unity
+    guid: da2b215290af3d94897fd0e1ca71ffa3
   m_configObjects: {}

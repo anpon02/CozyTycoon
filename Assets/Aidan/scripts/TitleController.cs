@@ -17,6 +17,16 @@ public class TitleController : MonoBehaviour
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene(8, LoadSceneMode.Additive);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void Update()
     {
         if (Camera.main != null) cam.SetActive(false);
