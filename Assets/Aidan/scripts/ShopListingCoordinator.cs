@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class ShopListingCoordinator : MonoBehaviour
 {
     [SerializeField] Image itemImg;
-    [SerializeField] TextMeshProUGUI listingName, description, unlock, price;
+    [SerializeField] TextMeshProUGUI listingName, description, unlock, price, specialityNote;
     public Product product;
     [HideInInspector] public ShopController controller;
     [SerializeField] bool specailityItem;
+    [SerializeField] GameObject unlockHeader, unlockUnderline;
 
     private void Start()
     {
@@ -19,12 +20,22 @@ public class ShopListingCoordinator : MonoBehaviour
 
     public void Init(Product p)
     {
+        specailityItem = p.quantity != -1;
+
         product = p;
         itemImg.sprite = p.imgSprite;
         listingName.text = p.productName + (specailityItem ? " x" + p.quantity : "");
         description.text = p.description;
         unlock.text = p.unlocks;
         price.text = "$" + p.price;
+        specialityNote.gameObject.SetActive(false);
+        
+        if (p.quantity == -1) return;
+        unlockHeader.SetActive(false);
+        unlockUnderline.SetActive(false);
+        unlock.gameObject.SetActive(false);
+        specialityNote.text = p.unlocks;
+        specialityNote.gameObject.SetActive(true);
     }
 
     private void Update()

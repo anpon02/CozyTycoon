@@ -12,5 +12,5 @@ public class Notebook : MonoBehaviour
     public void RecordInfo(string info, CharacterName character)
     {
 
-    } 
+    }
 }

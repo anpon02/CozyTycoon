@@ -117,7 +117,7 @@ public class CustomerOrderController : MonoBehaviour
 
     bool CorrectFoodHeld()
     {
-        if (!GetChef() || chef.GetHeldItem() == null) return false;
+        if (!GetChef() || chef.GetHeldItem() == null || !chef.GetHeldiCoord().plated) return false;
         return chef.GetHeldItem().Equals(desiredItem);
     }
 

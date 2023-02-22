@@ -636,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d88a5a74b222be4188e30ff878fec89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assistMode: 0
   OnStoreOpen:
     m_PersistentCalls:
       m_Calls: []
@@ -650,6 +651,7 @@ MonoBehaviour:
   camScript: {fileID: 0}
   TEMP_SELECTED_RECIPE: 0
   TEMP_DELIVERED: 0
+  notebook: {fileID: 0}
   notifsPaused: 1
 --- !u!4 &554498485
 Transform:

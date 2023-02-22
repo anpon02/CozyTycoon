@@ -37,8 +37,9 @@ public class KitchenManager : MonoBehaviour {
     }
 
     private void Start() 
-    { 
+    {
         if (playTutorial) NextTutSection();
+        else GameManager.instance.UnPauseNotifs();
     }
 
     public void NextTutSection()

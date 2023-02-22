@@ -14,6 +14,7 @@ public class TutorialController : MonoBehaviour
         public string category;
         public bool complete;
         public GameObject pointer;
+        public Vector3 pointerOffset;
     }
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
@@ -89,7 +90,7 @@ public class TutorialController : MonoBehaviour
         if (instructions[currentInstruction].complete) { currentInstruction += 1; DisplayLine(); }
         if (instructions.Count <= currentInstruction) return;
 
-        DisplayHelpers();
+        DisplayHelper();
         CheckWASD();
         CheckForHeldPotato();
         CheckForPlacedPotato();
@@ -236,14 +237,14 @@ public class TutorialController : MonoBehaviour
         if (kMan.lastAddedItem.Equals(potato)) instructions[2].complete = true;
     }
 
-    void DisplayHelpers()
+    void DisplayHelper()
     {
         if (pointing || string.IsNullOrEmpty(category.text)) return;
         CrossScenePointer();
         if (instructions[currentInstruction].pointer == null) { helpScript.gameObject.SetActive(false); return; }
 
         helpScript.gameObject.SetActive(true);
-        helpScript.worldPosTarget = instructions[currentInstruction].pointer.transform.position + Vector3.up * offset;
+        helpScript.worldPosTarget = (instructions[currentInstruction].pointer.transform.position + Vector3.up * offset) + instructions[currentInstruction].pointerOffset;
     }
 
     void CrossScenePointer()

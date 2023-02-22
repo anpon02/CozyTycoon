@@ -109,7 +109,7 @@ public class ItemStorage : MonoBehaviour
         foreach (var item in items) {
             if (item.instances.Contains(destroyed)) {
                 item.instances.Remove(destroyed);
-                item.numRemaining += 1;
+                if (item.maxNum > item.numRemaining) item.numRemaining += 1;
             }
         }
     }

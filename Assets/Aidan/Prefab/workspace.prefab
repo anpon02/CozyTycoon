@@ -1,5 +1,152 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6286087227047079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420176412239394708}
+  - component: {fileID: 265927881363828649}
+  m_Layer: 0
+  m_Name: bakingTrayMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1420176412239394708
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286087227047079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &265927881363828649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286087227047079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e5299015d9f13498b8e2bea80718fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &155846608887535228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5228329611230200594}
+  - component: {fileID: 2084008809197035773}
+  m_Layer: 0
+  m_Name: CoffeeMakerMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5228329611230200594
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155846608887535228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2084008809197035773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155846608887535228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9a9a07761e3d44fb32da0b5ff0a3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &295264501192795311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5438452415758844526}
+  - component: {fileID: 2243263587572036237}
+  m_Layer: 0
+  m_Name: BlenderMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5438452415758844526
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295264501192795311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2243263587572036237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295264501192795311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98532cda2950a14f97b34c13a79ce30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329358462848180895
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +743,55 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1930643776408229415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3227919150357550105}
+  - component: {fileID: 6831109522602075766}
+  m_Layer: 0
+  m_Name: PotMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3227919150357550105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930643776408229415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6831109522602075766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930643776408229415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49324c74f3eb1424eaf20ebdba8f416e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2054746163464519402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9126464736552787276}
+  - component: {fileID: 1362397109190030832}
   m_Layer: 0
   m_Name: panMinigame
   m_TagString: Untagged
@@ -1184,13 +1381,82 @@ RectTransform:
   - {fileID: 41273520086060857}
   - {fileID: 872336449425338784}
   m_Father: {fileID: 6363789205143126937}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1362397109190030832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443871060850883626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf098e682947234687e0de31a2366dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipButton: {fileID: 5206994559797486795}
+  buttonBounds: {fileID: 6072389838453667422}
+  flipTimeGap: {x: 1, y: 1.5}
+  panProgressSpeed: 0.1
+  flipFloatMax: 1
+  panStunTime: 0.75
+  panFlipPrompt: 18
+  uiCoord: {fileID: 6363789205143126933}
+--- !u!1 &3781824742625981498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5347421988785301977}
+  - component: {fileID: 3333243666679215133}
+  m_Layer: 0
+  m_Name: RollingPinMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5347421988785301977
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781824742625981498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3333243666679215133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781824742625981498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5479e2e3d9e628b448c31090fe1b42d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3837935696543609675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1490,7 @@ RectTransform:
   - {fileID: 2621571692352751798}
   - {fileID: 4207964691739306095}
   m_Father: {fileID: 6363789205143126937}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1380,8 +1646,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6363789205143126933}
-        m_TargetAssemblyTypeName: WorkstationUICoordinator, Assembly-CSharp
+      - m_Target: {fileID: 1362397109190030832}
+        m_TargetAssemblyTypeName: PanMinigame, Assembly-CSharp
         m_MethodName: Flip
         m_Mode: 1
         m_Arguments:
@@ -2782,10 +3048,16 @@ RectTransform:
   - {fileID: 6363789206356243695}
   - {fileID: 6363789204936323459}
   - {fileID: 6363789204362744671}
+  - {fileID: 2416735980375187780}
   - {fileID: 6363789205166076031}
   - {fileID: 9126464736552787276}
   - {fileID: 4427704344994522230}
-  - {fileID: 2416735980375187780}
+  - {fileID: 3227919150357550105}
+  - {fileID: 1420176412239394708}
+  - {fileID: 5347421988785301977}
+  - {fileID: 5228329611230200594}
+  - {fileID: 5438452415758844526}
+  - {fileID: 9091303815847822751}
   m_Father: {fileID: 329358462848180891}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2868,6 +3140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ws: {fileID: 329358462848180888}
+  knifeMG: {fileID: 3372105782042016386}
+  panMG: {fileID: 1362397109190030832}
+  mixerMG: {fileID: 4349559117790242871}
+  ongoingMinigames: 0
   contentsParent: {fileID: 6363789206356243692}
   content1: {fileID: 6363789206248755526}
   content2: {fileID: 6363789204258241357}
@@ -2879,41 +3155,9 @@ MonoBehaviour:
   ro3: {fileID: 7099093732345275418}
   progressBarParent: {fileID: 6363789204362744668}
   progressSlider: {fileID: 6363789204362744670}
-  knifeChopSound: 3
-  knifeMissSound: 1
   progressSound: 5
   completeSound: 6
-  panFlipPrompt: 18
   failSound: 19
-  knifeActive: 0
-  knifeParent: {fileID: 6363789205166076028}
-  knife: {fileID: 6363789205662785601}
-  leftEdge: {fileID: 6363789205767949342}
-  rightEdge: {fileID: 6363789204902330243}
-  central: {fileID: 6363789206033427188}
-  knifeTarget: {fileID: 6363789204364321659}
-  knifeSpeed: 3
-  knifePenalty: 0.75
-  requiredChops: 4
-  panActive: 0
-  panParent: {fileID: 3443871060850883626}
-  flipButton: {fileID: 5206994559797486795}
-  buttonBounds: {fileID: 6072389838453667422}
-  flipTimeGap: {x: 0.5, y: 1.5}
-  panProgressSpeed: 0.1
-  panPenalty: 0.25
-  flipFloatMax: 1
-  mixerActive: 0
-  mixerParent: {fileID: 8148254598314162383}
-  goalCircle: {fileID: 5894100290802308522}
-  playerCircle: {fileID: 8158386458305597918}
-  ringGuide: {fileID: 5260067543794114606}
-  circleCenter: {x: 0.04, y: 1.53}
-  radius: 0.7
-  mixerSpeed: 1
-  maxPlayerDist: 1.2
-  playerWinDist: 0.2
-  mixerProgressSpeed: 0.2
 --- !u!1 &6363789205166076028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2923,6 +3167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6363789205166076031}
+  - component: {fileID: 3372105782042016386}
   m_Layer: 0
   m_Name: knifeMinigame
   m_TagString: Untagged
@@ -2949,13 +3194,37 @@ RectTransform:
   - {fileID: 6363789204364321658}
   - {fileID: 6363789206337428075}
   m_Father: {fileID: 6363789205143126937}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.8, y: 57}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3372105782042016386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363789205166076028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb040c69ff4fd040bdef72dc6d8af16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knife: {fileID: 6363789205662785601}
+  leftEdge: {fileID: 6363789205767949342}
+  rightEdge: {fileID: 6363789204902330243}
+  central: {fileID: 6363789206033427188}
+  knifeTarget: {fileID: 6363789204364321659}
+  knifeSpeed: 4
+  knifePenalty: 2
+  chopLerpFactor: 0.5
+  requiredChops: 4
+  knifeChopSound: 3
+  knifeMissSound: 19
+  uiCoord: {fileID: 6363789205143126933}
 --- !u!1 &6363789205268647782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,8 +4348,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6363789205143126933}
-        m_TargetAssemblyTypeName: WorkstationUICoordinator, Assembly-CSharp
+      - m_Target: {fileID: 3372105782042016386}
+        m_TargetAssemblyTypeName: KnifeMinigame, Assembly-CSharp
         m_MethodName: Chop
         m_Mode: 1
         m_Arguments:
@@ -4601,6 +4870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427704344994522230}
+  - component: {fileID: 4349559117790242871}
   m_Layer: 0
   m_Name: mixerMinigame
   m_TagString: Untagged
@@ -4625,13 +4895,36 @@ RectTransform:
   - {fileID: 2938637429021784958}
   - {fileID: 7561968197551265783}
   m_Father: {fileID: 6363789205143126937}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4349559117790242871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148254598314162383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335db529e76e5e643a80a347bcf572d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalCircle: {fileID: 5894100290802308522}
+  playerCircle: {fileID: 8158386458305597918}
+  ringGuide: {fileID: 5260067543794114606}
+  circleCenter: {x: 0.04, y: 1.53}
+  radius: 0.7
+  progressSpeed: 1
+  mixerSpeed: 1.2
+  maxPlayerDist: 0.2
+  playerWinDist: 0.2
+  mixerProgressSpeed: 0.1
+  uiCoord: {fileID: 6363789205143126933}
 --- !u!1 &8158386458305597918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4726,8 +5019,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6363789205143126933}
-          m_TargetAssemblyTypeName: WorkstationUICoordinator, Assembly-CSharp
+        - m_Target: {fileID: 4349559117790242871}
+          m_TargetAssemblyTypeName: MixerMinigame, Assembly-CSharp
           m_MethodName: clickDownOnPlayer
           m_Mode: 1
           m_Arguments:
@@ -4873,6 +5166,55 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8486861572083511050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9091303815847822751}
+  - component: {fileID: 5869577420477500926}
+  m_Layer: 0
+  m_Name: GraterMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &9091303815847822751
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486861572083511050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6363789205143126937}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5869577420477500926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486861572083511050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d3118ef3183d8489cda528ea48e508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8959078836132023090
 GameObject:
   m_ObjectHideFlags: 0
