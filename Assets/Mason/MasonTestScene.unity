@@ -398,11 +398,11 @@ PrefabInstance:
       objectReference: {fileID: 249065124, guid: 7e77ceb36d6b95d43af47aff244ca01c, type: 3}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.72933334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9451757
+      value: 1.0019531
       objectReference: {fileID: 0}
     - target: {fileID: 80386417445366179, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: player
@@ -503,11 +503,11 @@ PrefabInstance:
       objectReference: {fileID: 140819258, guid: 91f8fb3a6d9fbb94580283d1190f6b7b, type: 3}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.32044443
+      value: 0.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9768889
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386417445366179, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: player
@@ -771,8 +771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81944d76232a4946abaf3b5a74e931a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitTime: 2
-  maxWaitTime: 5
   customers:
   - {fileID: 609868692}
   - {fileID: 1644568180}
@@ -838,7 +836,6 @@ MonoBehaviour:
   - dayName: 'Week 4: Saturday'
     customers: 000000000100000002000000030000000400000005000000
   todaysCombinedPatience: 0
-  dayIsOver: 0
 --- !u!4 &502880963
 Transform:
   m_ObjectHideFlags: 0
@@ -1438,11 +1435,11 @@ PrefabInstance:
       objectReference: {fileID: -1807097268, guid: 75964a797a82760478cc1888b7ee4031, type: 3}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.4793333
+      value: 0.53333336
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9113333
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386417445366179, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: player
@@ -1746,11 +1743,11 @@ PrefabInstance:
       objectReference: {fileID: -476494689, guid: 866fc222f1451ff4d9f1c2f9b855b970, type: 3}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.81259257
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.93777776
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386417445366179, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: player
@@ -1869,11 +1866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.49022222
+      value: 0.6666667
       objectReference: {fileID: 0}
     - target: {fileID: 80386416942563071, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9528889
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 80386417445366179, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: player
@@ -2090,10 +2087,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2315233000872723385, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4612032351456934185, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

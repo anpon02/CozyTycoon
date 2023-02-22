@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(RelationshipStatus))]
 public class CustomerOrderController : MonoBehaviour
 {
     Item desiredItem;
@@ -10,11 +9,6 @@ public class CustomerOrderController : MonoBehaviour
     [SerializeField] float eatTime = 5;
 
     [HideInInspector] public bool storyStarted;
-    [Header("Debug Tools")]
-    [SerializeField] private bool testCustomer;
-    [Range(0f, 1f)]
-    [SerializeField] private float foodValue;
-
     private CustomerCoordinator custCoordinator;
     ChefController chef;
     CustomerMovement move;
@@ -24,6 +18,24 @@ public class CustomerOrderController : MonoBehaviour
     float timeSinceReceivedFood;
     bool doneSpeaking, setOrder;
     DialogueManager dMan;
+
+    private void Awake() {
+        custCoordinator = GetComponentInParent<CustomerCoordinator>();
+        move = GetComponentInParent<CustomerMovement>();
+        recievedFood = false;
+    }
+
+    private void Start()
+    {
+        dMan = DialogueManager.instance;
+        if (dMan) dMan.OnDialogueEnd.AddListener(CheckToLeave);
+    }
+    
+    private void Update()
+    {
+        if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
+        if (recievedFood) Eat();
+    }
 
     public void SetOrder(Item order)
     {
@@ -38,9 +50,8 @@ public class CustomerOrderController : MonoBehaviour
             if (menu.Count == 0) return;
             desiredItem = menu[Random.Range(0, menu.Count)];
         }
-        setOrder = false;
-       
-
+        
+        setOrder = false;    
         storyStarted = false;
         foodOrdered = true;
         timeSinceOrdering = 0;
@@ -91,22 +102,10 @@ public class CustomerOrderController : MonoBehaviour
         return points;
     }
 
-    private void Start()
-    {
-        dMan = DialogueManager.instance;
-        if (dMan) dMan.OnDialogueEnd.AddListener(CheckToLeave);
-    }
-
     void CheckToLeave()
     {
         if (dMan.lastSpeaker != custCoordinator.characterName || timeSinceOrdering < eatTime || !recievedFood) return;
         move.LeaveRestaurant();
-    }
-
-    private void Update()
-    {
-        if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
-        if (recievedFood) Eat();
     }
 
     void Eat()
@@ -114,12 +113,6 @@ public class CustomerOrderController : MonoBehaviour
         timeSinceReceivedFood += Time.deltaTime;
         bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == custCoordinator.characterName;
         if (!speaking && timeSinceReceivedFood >= eatTime) CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
-    }
-
-    private void Awake() {
-        custCoordinator = GetComponentInParent<CustomerCoordinator>();
-        move = GetComponentInParent<CustomerMovement>();
-        recievedFood = false;
     }
 
     bool CorrectFoodHeld()

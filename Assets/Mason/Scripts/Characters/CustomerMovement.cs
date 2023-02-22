@@ -112,25 +112,15 @@ public class CustomerMovement : MonoBehaviour
         GetInLine();
     }
 
-    // we do not need a list of potential tables anymore
-    public bool ComeToEat() { //List<Transform> potentialTables) {
+    public void ComeToEat() {
         if(!cust.GetHasReceivedFood()) {
             LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
             LineManager.instance.UpdateNextOpenSpot();
 
-            /*
-            // pick a random available table, move to it, and reserve it
-            Transform tableChoice = potentialTables[Random.Range(0, potentialTables.Count -1)];
-            seek.StartPath(transform.position, tableChoice.position);
-            path.destination = tableChoice.position;
-            currentTable = tableChoice.GetComponent<Table>();
-            currentTable.SetIsTaken(true);*/
             seek.StartPath(transform.position, sitSpot.transform.position);
             path.destination = sitSpot.transform.position;
             currentTable = sitSpot;
-            return true;
         }
-        return false;
     }
 
     public void LeaveRestaurant() {

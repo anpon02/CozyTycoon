@@ -27,11 +27,12 @@ public class LineManager : MonoBehaviour
     }
 
     public void UpdateNextOpenSpot() {
-        for(int i = 0; i < lineSpots.Count; ++i)
+        for(int i = 0; i < lineSpots.Count; ++i) {
             if(!lineSpots[i].GetPlaceIsTaken()) {
                 nextOpenSpot = i;
                 return;
             }
+        }
     }
 
     public Vector3 GetNextSpotVector() {

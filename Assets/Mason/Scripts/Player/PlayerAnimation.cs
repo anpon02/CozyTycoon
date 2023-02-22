@@ -6,13 +6,11 @@ public class PlayerAnimation : MonoBehaviour
 {
     private PlayerInputActions pInputActions;
     private Animator anim;
-    private SpriteRenderer sprRenderer;
     private Vector2 input;
 
     private void Awake() {
         pInputActions = new PlayerInputActions();
         anim = GetComponent<Animator>();
-        sprRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable() {

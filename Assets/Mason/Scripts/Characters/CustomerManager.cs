@@ -13,23 +13,15 @@ public class CustomerManager : MonoBehaviour
 {
     public static CustomerManager instance;
 
-    [SerializeField] private float minWaitTime;
-    [SerializeField] private float maxWaitTime;
+    //[SerializeField] private float minWaitTime;
+    //[SerializeField] private float maxWaitTime;
     [SerializeField] private List<Transform> customers;
-    //[SerializeField] private List<Transform> tables;
     [SerializeField] private List<ScheduleDay> schedule;
 
+    [HideInInspector] public float todaysCombinedPatience;
     private List<Transform> todaysCustomers;
-    //private List<Transform> potentialCustomers;
-    //private List<Transform> potentialTables;
     private List<Transform> customersInLine;
-
     private GameManager gMan;
-
-    public float todaysCombinedPatience;
-    
-    [Header("DEBUG")]
-    [SerializeField] private bool dayIsOver;
 
     private void Awake() {
         if(instance == null)
@@ -38,7 +30,6 @@ public class CustomerManager : MonoBehaviour
             Destroy(this);
 
         todaysCustomers = new List<Transform>();
-        //potentialTables = new List<Transform>();
         customersInLine = new List<Transform>();
     }
 
@@ -55,7 +46,6 @@ public class CustomerManager : MonoBehaviour
             if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
                 todaysCustomers.Add(customer);
         }
-        //print("TODAYS CUSTOMERS");
     }
 
     private void CalculateCombinedPatience() {
@@ -79,7 +69,6 @@ public class CustomerManager : MonoBehaviour
     }
 
     public void WakeUp() {
-        //print("WAKEUP");
         // reset each character
         foreach(Transform customer in customers) {
             customer.GetComponentInChildren<CustomerOrderController>().SetHasReceivedFood(false);
@@ -88,7 +77,6 @@ public class CustomerManager : MonoBehaviour
         }
 
         // start customers coming
-        //potentialCustomers = new List<Transform>(customers);
         SetTodaysCustomers();
         CalculateCombinedPatience();
         StartCoroutine("StartSendingCustomers");
@@ -104,40 +92,15 @@ public class CustomerManager : MonoBehaviour
             }
         }
     }
-/*
-    private void CalculatePotentialTables() {
-        potentialTables.Clear();
 
-        // loop through and add any open tables to potentialTables
-        foreach(Transform table in tables)
-            if(!table.GetComponent<Table>().GetIsTaken())
-                potentialTables.Add(table);
-    }
-*/
     private IEnumerator StartSendingCustomers() {
-        /*
-        while(potentialCustomers.Count > 0) {
-            yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
-            AudioManager.instance.PlaySound(14);
-            if(dayIsOver) yield break;  // dayIsOver will eventually be swapped out for soemthing in the day/night cycle
-
-            // pick random customer to send to line
-            int customerChoice = Random.Range(0, potentialCustomers.Count);
-            potentialCustomers[customerChoice].GetComponent<CustomerMovement>().GetInLine();
-            customersInLine.Add(potentialCustomers[customerChoice]);
-            potentialCustomers.RemoveAt(customerChoice);
-        }
-        */
-        //print("SENDING");
         for(int i = 0; i < todaysCustomers.Count; ++i) {
-            if(i > 0) {
+            if(i > 0)
                 yield return new WaitUntil(() => !CustomerInRestaurant(i - 1));
-            }
             todaysCustomers[i].GetComponent<CustomerCoordinator>().inRestaurant = true;
             todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
         }
         yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
-        //print("DONE SENDING");
         gMan.timeScript.LastCustomerLeave();
     }
 
@@ -152,14 +115,9 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    // we do not need to calculate potential tables anymore
     public void GoToTable(Transform customer) {
-        //CalculatePotentialTables();
-        //if(potentialTables.Count > 0) {
-        //customer.GetComponentInParent<CustomerMovement>().ComeToEat(potentialTables);
         customer.GetComponentInParent<CustomerMovement>().ComeToEat();
         customersInLine.Remove(customer.parent);
         StartCoroutine("ShiftLine");
-        //}
     }
 }
