@@ -9,6 +9,11 @@ public class RecipeBookCoordinator : MonoBehaviour
     [SerializeField] GameObject bookParent, leftPage, rightPage, recipeEntryPrefab, nextPage, prevPage;
     List<RecipeEntryCoordinator> entryCoords = new List<RecipeEntryCoordinator>();
     
+    [Header("Sounds")]
+    [SerializeField] int openbookSound;
+    [SerializeField] int closebookSound;
+    [SerializeField] int flipPageSound;
+
     bool mouseOver;
     RecipeManager rMan;
     int currentPageIndex;
@@ -36,6 +41,7 @@ public class RecipeBookCoordinator : MonoBehaviour
             if (!AddNewUnlockedRecipe()) break;
         }
         DisplayCurrentPage();
+        AudioManager.instance.PlaySound(openbookSound, gameObject);
     }
 
     bool AddNewUnlockedRecipe()
@@ -86,6 +92,7 @@ public class RecipeBookCoordinator : MonoBehaviour
         currentPageIndex -= 1;
         DisplayCurrentPage();
         ShowButtons();
+        AudioManager.instance.PlaySound(flipPageSound, gameObject);
     }
 
     public void NextPage()
@@ -93,6 +100,7 @@ public class RecipeBookCoordinator : MonoBehaviour
         currentPageIndex += 1;
         DisplayCurrentPage();
         ShowButtons();
+        AudioManager.instance.PlaySound(flipPageSound, gameObject);
     }
 
     void ShowButtons()

@@ -12,6 +12,7 @@ public class ChefController : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] int pickupSound;
+    [SerializeField] int putdownSound;
     [SerializeField] ParticleSystem footStepParticles;
 
 
@@ -40,7 +41,7 @@ public class ChefController : MonoBehaviour
     {
         var ws = KitchenManager.instance.hoveredController;
         if (ws == null) return;
-
+        AudioManager.instance.PlaySound(putdownSound, gameObject);
 
         ReleaseItem(KitchenManager.instance.hoveredController);
     }

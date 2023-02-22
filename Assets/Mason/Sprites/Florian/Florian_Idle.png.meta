@@ -144,10 +144,10 @@ TextureImporter:
       name: Florian_Idle_0
       rect:
         serializedVersion: 2
-        x: 189
-        y: 53
-        width: 1103
-        height: 2144
+        x: 0
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Florian_Idle_1
       rect:
         serializedVersion: 2
-        x: 1696
-        y: 53
-        width: 1064
-        height: 2144
+        x: 1500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Florian_Idle_2
       rect:
         serializedVersion: 2
-        x: 3190
-        y: 53
-        width: 1068
-        height: 2144
+        x: 3000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Florian_Idle_3
       rect:
         serializedVersion: 2
-        x: 4658
-        y: 53
-        width: 1165
-        height: 2144
+        x: 4500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Florian_Idle_4
       rect:
         serializedVersion: 2
-        x: 6170
-        y: 53
-        width: 1143
-        height: 2144
+        x: 6000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Florian_Idle_5
       rect:
         serializedVersion: 2
-        x: 7673
-        y: 53
-        width: 1138
-        height: 2144
+        x: 7500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

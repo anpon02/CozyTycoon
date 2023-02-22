@@ -8,14 +8,14 @@ public class HideOrderUI : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!hiddenOnce) return;
-        AudioManager.instance.PlaySound(7, gameObject);
+        if (hiddenOnce) return;
+        AudioManager.instance.PlaySound(23, gameObject);
     }
 
     public void PlaySound()
     {
         hiddenOnce = true;
-        AudioManager.instance.PlaySound(7);
+        AudioManager.instance.PlaySound(24);
     }
 
 }

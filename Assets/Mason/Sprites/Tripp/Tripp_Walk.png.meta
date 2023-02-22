@@ -144,10 +144,10 @@ TextureImporter:
       name: Tripp_Walk_0
       rect:
         serializedVersion: 2
-        x: 182
-        y: 105
-        width: 1089
-        height: 2081
+        x: 0
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Tripp_Walk_1
       rect:
         serializedVersion: 2
-        x: 1658
-        y: 111
-        width: 1119
-        height: 2028
+        x: 1500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Tripp_Walk_2
       rect:
         serializedVersion: 2
-        x: 3182
-        y: 105
-        width: 1089
-        height: 2110
+        x: 3000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Tripp_Walk_3
       rect:
         serializedVersion: 2
-        x: 4869
-        y: 76
-        width: 692
-        height: 2156
+        x: 4500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Tripp_Walk_4
       rect:
         serializedVersion: 2
-        x: 6316
-        y: 105
-        width: 815
-        height: 2081
+        x: 6000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Tripp_Walk_5
       rect:
         serializedVersion: 2
-        x: 7746
-        y: 111
-        width: 897
-        height: 2028
+        x: 7500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Tripp_Walk_6
       rect:
         serializedVersion: 2
-        x: 9316
-        y: 105
-        width: 815
-        height: 2110
+        x: 9000
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Tripp_Walk_7
       rect:
         serializedVersion: 2
-        x: 10828
-        y: 94
-        width: 774
-        height: 2138
+        x: 10500
+        y: 0
+        width: 1500
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

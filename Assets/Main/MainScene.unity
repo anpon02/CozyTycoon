@@ -938,17 +938,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '3: SFX_Veg Chop4'
-      clip: {fileID: 8300000, guid: 63c01e1f3b91d784fa0ce1303fa2e0ed, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '4: SFX_Veg Chop5'
-      clip: {fileID: 8300000, guid: 17d69843259fcc744ab84a963fcb21d8, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    parentVolume: 1
+    parentVolume: 0.525
     parentPitch: 1
   - name: '4: pan sizzle'
     ID: 4
@@ -992,33 +982,8 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '1: SFX_Pencil Sketch2'
-      clip: {fileID: 8300000, guid: 2472edd37513aa648b70375e5bd4c6a3, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '2: SFX_Pencil Sketch3'
+    - name: '1: SFX_Pencil Sketch3'
       clip: {fileID: 8300000, guid: 12f78e2850a091b42905fa05257cf773, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '3: SFX_BookClose'
-      clip: {fileID: 8300000, guid: 5d09c3cda6764974187a3262af4aee08, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '4: SFX_Flip Page 1'
-      clip: {fileID: 8300000, guid: d3fd75ecb8f220840b164c03a1df11a9, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '5: SFX_Flip Page 2'
-      clip: {fileID: 8300000, guid: 72b43c8f94158fd448e51e40936ac685, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    - name: '6: SFX_Pull Paper'
-      clip: {fileID: 8300000, guid: c9ad2f2efa5ee744596a56b2a8b70dd3, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
@@ -1180,12 +1145,100 @@ MonoBehaviour:
       looping: 0
     parentVolume: 1
     parentPitch: 1
-  - name: '19: minigame fail'
+  - name: '19: knifeError1_SFX'
     ID: 19
     displayName: 
     clips:
-    - name: '0: minigame fail'
-      clip: {fileID: 8300000, guid: 47405f3e199f3d9418a1ee894b05ac8a, type: 3}
+    - name: '0: knifeError1_SFX'
+      clip: {fileID: 8300000, guid: 1737e05f562ecb048aaae6df36f09624, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 2
+    parentPitch: 1
+  - name: '20: Put down'
+    ID: 20
+    displayName: Put down
+    clips:
+    - name: '0: PickupPop_SFX'
+      clip: {fileID: 8300000, guid: 0eb68a6f782a38148b3b45f3d2750780, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.7
+    parentPitch: 0.85
+  - name: '21: Trash_SFX'
+    ID: 21
+    displayName: 
+    clips:
+    - name: '0: Trash_SFX'
+      clip: {fileID: 8300000, guid: aa954d8fd65b08844b3cf9b899bb6575, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 1
+  - name: '22: PlateSetting_SFX'
+    ID: 22
+    displayName: 
+    clips:
+    - name: '0: PlateSetting_SFX'
+      clip: {fileID: 8300000, guid: 7cb580111ede1744980222a339b42f31, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '23: checkOrder'
+    ID: 23
+    displayName: checkOrder
+    clips:
+    - name: '0: SFX_Pull Paper'
+      clip: {fileID: 8300000, guid: c9ad2f2efa5ee744596a56b2a8b70dd3, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '24: uncheckOrder'
+    ID: 24
+    displayName: uncheckOrder
+    clips:
+    - name: '0: SFX_Pull Paper'
+      clip: {fileID: 8300000, guid: c9ad2f2efa5ee744596a56b2a8b70dd3, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1.5
+  - name: '25: openBook'
+    ID: 25
+    displayName: openBook
+    clips:
+    - name: '0: SFX_Flip Page 2'
+      clip: {fileID: 8300000, guid: 72b43c8f94158fd448e51e40936ac685, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '26: flipPage'
+    ID: 26
+    displayName: flipPage
+    clips:
+    - name: '0: SFX_Flip Page 1'
+      clip: {fileID: 8300000, guid: d3fd75ecb8f220840b164c03a1df11a9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.9
+    parentPitch: 1.3
+  - name: '27: UIclick'
+    ID: 27
+    displayName: UIclick
+    clips:
+    - name: '0: UIClick_SFX'
+      clip: {fileID: 8300000, guid: 4e48c0cd5be6ee24c9e8eff59650a4d3, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0

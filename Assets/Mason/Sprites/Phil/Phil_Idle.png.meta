@@ -144,10 +144,10 @@ TextureImporter:
       name: Phil_Idle_0
       rect:
         serializedVersion: 2
-        x: 191
-        y: 46
-        width: 1094
-        height: 1415
+        x: 0
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Phil_Idle_1
       rect:
         serializedVersion: 2
-        x: 1694
-        y: 46
-        width: 1094
-        height: 1415
+        x: 1500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Phil_Idle_2
       rect:
         serializedVersion: 2
-        x: 3157
-        y: 46
-        width: 1128
-        height: 1415
+        x: 3000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Phil_Idle_3
       rect:
         serializedVersion: 2
-        x: 4680
-        y: 46
-        width: 1108
-        height: 1415
+        x: 4500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Phil_Idle_4
       rect:
         serializedVersion: 2
-        x: 6177
-        y: 46
-        width: 1107
-        height: 1415
+        x: 6000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,10 +249,10 @@ TextureImporter:
       name: Phil_Idle_5
       rect:
         serializedVersion: 2
-        x: 7679
-        y: 46
-        width: 1141
-        height: 1415
+        x: 7500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: Phil_Idle_6
       rect:
         serializedVersion: 2
-        x: 9163
-        y: 46
-        width: 1166
-        height: 1415
+        x: 9000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Phil_Idle_7
       rect:
         serializedVersion: 2
-        x: 10692
-        y: 46
-        width: 1088
-        height: 1415
+        x: 10500
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +312,10 @@ TextureImporter:
       name: Phil_Idle_8
       rect:
         serializedVersion: 2
-        x: 12195
-        y: 46
-        width: 1087
-        height: 1415
+        x: 12000
+        y: 0
+        width: 1500
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

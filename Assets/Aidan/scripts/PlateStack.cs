@@ -6,6 +6,7 @@ public class PlateStack : MonoBehaviour
 {
     [SerializeField] Color hoverColor;
     [SerializeField] SpriteRenderer sRend;
+    [SerializeField] int plateSound;
 
     private void OnMouseEnter() {
         sRend.color = hoverColor;
@@ -16,6 +17,10 @@ public class PlateStack : MonoBehaviour
 
     private void OnMouseDown() {
         ItemCoordinator iCoord = KitchenManager.instance.chef.GetHeldiCoord();
-        if (iCoord && iCoord.GetItem().type != FoodType.NONE) iCoord.plated = true;
+        if (iCoord && iCoord.GetItem().type != FoodType.NONE) { 
+            iCoord.plated = true;
+            AudioManager.instance.PlaySound(plateSound, gameObject);
+        }
+         
     }
 }
