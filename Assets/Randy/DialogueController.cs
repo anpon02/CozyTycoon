@@ -30,8 +30,9 @@ public class DialogueController : MonoBehaviour {
         {
             lineText = story.Continue().Trim();
             parser.ParseTags(story.currentTags);
+            bool notable = dMan.allowNotes;
             // Write and display dialogue line thorugh coordinator
-            yield return StartCoroutine(coordinator.DisplayText(lineText));
+            yield return StartCoroutine(coordinator.DisplayText(lineText, notable));
             yield return new WaitForSeconds(dMan.GetNextLineDelay() * dMan.GetLineDelayModifier());
             
             coordinator.ClearDialogueText();

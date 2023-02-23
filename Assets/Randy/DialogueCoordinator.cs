@@ -55,8 +55,18 @@ public class DialogueCoordinator : MonoBehaviour
         if (dMan.speakingCharacter) SetGroupAlpha();
     }
 
-    public IEnumerator DisplayText(string text)
+    public IEnumerator DisplayText(string text, bool notable)
     {
+        if(notable)
+        {
+            mainText.fontStyle = FontStyles.Italic;
+            mainText.color = dMan.notableTextColor;
+        }
+        else
+        {
+            mainText.fontStyle = FontStyles.Normal;
+            mainText.color = Color.black;
+        }
         for (int i = 0; i < text.Length; i++)
         {
             mainText.text += text[i];

@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Notetaking")]
     [HideInInspector] public bool allowNotes;
-    [SerializeField, Tooltip("Use as a debug tool, or if not using the parser to mark specific lines for notetaking")] private bool anyNotes;
+    public Color notableTextColor;
 
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
 
@@ -133,8 +133,8 @@ public class DialogueManager : MonoBehaviour
 
     public void TakeNotes()
     {
-        if (!allowNotes && !anyNotes) return;
-
+        if (!allowNotes) return;
+        allowNotes = false;
         string note = currentStory.state.currentText.Trim();
         AudioManager.instance.PlaySound(7);
         GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
