@@ -8,8 +8,7 @@ public class PanMinigame : MonoBehaviour
     [SerializeField] Vector2 flipTimeGap = new Vector2(0.1f, 0.6f);
     [SerializeField] float panProgressSpeed = 0.1f, flipFloatMax = 0.6f, panStunTime = 0.75f;
     float nextFlipTime = 0.2f, flipFailTime = 0.5f;
-    [SerializeField] AudioSource panloopingSource;
-    [SerializeField] AudioSource oneShotsSource;
+    [SerializeField] AudioSource panloopingSource, oneShotsSource;
     [SerializeField] int panFlipPrompt;
     float originalSpeed;
 
@@ -31,7 +30,7 @@ public class PanMinigame : MonoBehaviour
 
     public void Flip()
     {
-        AudioManager.instance.PlaySound(uiCoord.progressSound, gameObject);
+        AudioManager.instance.PlaySound(uiCoord.progressSound, oneShotsSource);
         StopAllCoroutines();
         panProgressSpeed = originalSpeed;
         ResetFlip();
@@ -52,7 +51,7 @@ public class PanMinigame : MonoBehaviour
 
     void DisplayFlipButton()
     {
-        AudioManager.instance.PlaySound(panFlipPrompt, gameObject);
+        AudioManager.instance.PlaySound(panFlipPrompt, oneShotsSource);
         flipButton.SetActive(true);
 
         Vector3 pos = flipButton.transform.position;

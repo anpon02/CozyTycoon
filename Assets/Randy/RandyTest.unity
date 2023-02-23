@@ -1136,7 +1136,7 @@ MonoBehaviour:
   lineDelayModifier: 1
   ConvoStarted: 0
   allowNotes: 0
-  anyNotes: 1
+  anyNotes: 0
 --- !u!4 &875716907
 Transform:
   m_ObjectHideFlags: 0
