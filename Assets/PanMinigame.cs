@@ -8,18 +8,22 @@ public class PanMinigame : MonoBehaviour
     [SerializeField] Vector2 flipTimeGap = new Vector2(0.1f, 0.6f);
     [SerializeField] float panProgressSpeed = 0.1f, flipFloatMax = 0.6f, panStunTime = 0.75f;
     float nextFlipTime = 0.2f, flipFailTime = 0.5f;
+    [SerializeField] AudioSource panloopingSource;
+    [SerializeField] AudioSource oneShotsSource;
     [SerializeField] int panFlipPrompt;
     float originalSpeed;
 
     [SerializeField] WorkstationUICoordinator uiCoord;
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound(4, panloopingSource);
         originalSpeed = panProgressSpeed;
         uiCoord.ongoingMinigames += 1;
         flipButton.SetActive(false);
     }
     void Complete()
     {
+        panloopingSource.Stop();
         uiCoord.ongoingMinigames -= 1;
         gameObject.SetActive(false);
         uiCoord.CompleteRecipe();
