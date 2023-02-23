@@ -27,90 +27,166 @@ VAR CurrentStoryState = 0
         -> Day_10
     - CurrentStoryState == 10:
         -> Day_11
-    - CurrentStoryState > 11:
+    - CurrentStoryState  10:
         -> Extra
         
      ->END
 }
 
 == Day_1 ==
-    Oh... uhm, hi. # Speaker: Luca # Voice: 12 #Image: Luca/placeholder
-    Anyways. See ya. # Finished
+    Oh ... uhm, hi.
+    I already ordered ... so, uh, yeah ... 
+    ...
+    Uh. My name is Luca. Nice to meet you.
 -> DONE
 
 
 == Day_2 ==
-
-    ... #Speaker: Luca #Textspeed: 0.75 #Voice:12
-    ... #Textspeed: 0.75
-    ... Huh? Oh, sorry- uh, my music was at max. What’s up?
-*   What music were you listening to?
-    Oh, geez. It’s not normie music. I dunno if you would know it.
-	Uh... man, lemme think of something you might actually know so you don’t look at me like I’m crazy.
-	Oh, shit, yeah- you know the Lightning Legends soundtrack? I’ve been listening to that a lot lately. 
-	They’re doing a remake of that game, actually. I mean, like, they’re calling it a remake but it’s obviously just a remaster. 
-	The only thing that’s changing is the graphics, like, the gameplay is pretty much already perfect so no chance they mess with it. 
-	But we’ll probably get a totally new cover of the OST, so I’ve been listening to the old one. 
-	... Oh man. I’m sorry. I was totally rambling like an absolute cringelord...
+    Oh. It’s you again. Do you run this place by yourself? 
+    Normally when I go to food places there's a different, depressed looking teenager working the register every time.
+    ... 
+    That’s kinda cool I guess. Seems like a lot of work.
 -> DONE
-
-
 
 == Day_3 ==
-    Oh. It’s you again. Do you run this place by yourself? #Speaker: Luca #Voice:12
-    Normally when I go to food places there's a different, depressed looking teenager working the register every time.
-    ... That’s kinda cool I guess. Seems like a lot of work.
-*   Did you see the new Lightning Legends announcement? 
-	Dude, yeah- like, holy shit?
-	I was wondering why they were revamping such an old ass game. 
-	And then they announced that the new MMO was gonna drop after the remake, like, my poor wallet dude. Oh my god. 
-	The world is never gonna see me when that drops. I’m gonna hole up in my room grinding until 4am like I’m 17 again.
-*   Did you see the new Lightspeed Legends announcement?
-	... Huh?...
-	Oh, you mean Lightning Legends?... Uh, yeah. Pretty stoked. 
-	... I don’t mean to gatekeep, but you probably should figure out the name of the game if you wanna get into it.
-- -> DONE
-
-
-== Day_4 ==
-// Story Content goes here
-
+    What’s up?
+*   How’s work?
+    Uh ... Hehe. Good question. I’m not actually working right now.
+    I was supposed to be working. But then I got distracted. I’m playing Lightning Legends.
+    The WiFi here is actually good enough to play. Which is good because I love this game. But bad because now I’m never going to get any work done.
+    But, like. The season is about to end and I’m only top 100. I just need a few more dubs and I’ll defo be in the top ten. Maybe top three again. Last season’s meta was waaay more fun though ...
+    ... Uh. Sorry. 
+    Those were probably all nothing words to you.
+    TLDR- I’m playing a cool video game instead of working. 
 -> DONE
 
-== Day_5 ==
-// Story Content goes here
+== Day_4 ==
+    Hey dude, how’s it goin’. 
+    I’m starting to like this place a lot. Having real food in my system is making me not tired and lazy all the time, shockingly.
+    I used to have a crate of this packet you could put into any pasta. 
+    It was like ... Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue. # Notable
+    I doubt you could find it anymore. It was a release promo for my favorite game.
+*   Lightyear Legends?
+    ... Uh. No, Lightning Legends. 
+	Anyways. I’m just rambling. Sorry ‘bout that.
+*   Lightning Legends?
+	Whoa, you actually remembered?
+	Hehe.. Yeah. The days when I picked up the game are pretty nostalgic for me. 
+	I don’t wanna get all lost in my feels. Just thought about it randomly.
+- -> DONE
 
+== Day_5 ==
+    Hey, what’s shakin’?
+    Back on the ‘actually doing my job’ grind. 
+*   How’s your job?
+    This gig’s pretty easy. Trying to get it done so I can just game the rest of the day. 
+    But oh man. This client is such a goober.
+    This guy wanted, like, a digital storefront. But he insists that I use Comic Sans for the font. It’s giving me brain damage a little bit looking at it.
+    And all the pictures he gave me to use have more artifacts than the Natural History Museum.
+    Whatever. If he’s happy I get paid n’ stuff. Not complaining.
+
+*   How’s your game?
+    Oh man. They buffed my main. I’m having a field day.
+    I’ve played the same hero for, like, eight years? And he’s always been kind of mid. But I refuse to main anyone else.
+    And they finally buffed my boy. I’m already one of the top players without the change. I’m gonna be an absolute menace.
+ -  I should focus right now, though. Thanks for always checking in. You’re real nice.
 -> DONE
 
 == Day_6 ==
-// Story Content goes here
+    Augh. Hey. I just pulled an all-nighter, sorry if I look like crap right now.
+    The new update of Lightning Legends dropped last night. I forgot how to not go to bed at four in the morning.
+    I’m so sleepy ...
+*   Sounds fun! (gains affection)
+    Yeah. You get it. It was super fun even though I’m suffering the sleepytime consequences. 
+    Grinded out a bunch of levels until my eyes were gonna fall out. The true gamer mindset.
+*   You shouldn’t do that ... (loses affection)
+    Aw ... Cmon. I’m an adult, I can do whatever I wanna.
+    That’s why its nice to have a freelance job. No boss telling me I gotta get up at eight in the morning. Or ten. Or.. noon.
+     ... Guh. Sorry. Almost nodded off again.
+-   It’s kinda nice getting to come here and see you sometimes. 
+    I mean, like, I like talking to you and stuff.
+    Oh geez, I’m being mega cringe. Sorry. Uhm. Back to my computer I go.
 
 -> DONE
 
 == Day_7 ==
-// Story Content goes here
-
+    ...
+    Huh? Oh, hey. Sorry. Was spacing out.
+    I got an invitation to play at the national Lightning Legends tournament. It’s like, a ‘huge money pool if you win’ sorta deal.
+    Like. HUGE. I think it's upwards of fifty grand ...
+    But. I don’t think I’m gonna go.
+*   Why not?
+    Well. Uh. See, its a big event. It’s gonna be streamed live on Jitter. And there’s no way I’d be able to play in front of that many people.
+    Just thinking about it has my stomach doing barrel rolls. Uhg.
+    Whatever. I’ve been invited before. I’ll just ignore it.
 -> DONE
 
 == Day_8 ==
-// Story Content goes here
+    ... Oh, hey. Sorry. Was messaging someone.
+    My friends keep bugging me to sign up for the nationals tournament and I keep telling them no chance.
+    And they keep saying that I’d totally sweep. Which isn’t ... y'know, what I’m worried about.
+    I know I’ve got the talent for it. But thinking about getting on a stage in front of people makes me wanna barf.
+    Like, what if they make fun of me? Or talk bad about me behind my back? Or think I’m cringe or something?
+    I can already barely walk around town by myself without getting so nervous I run back home. A big publicized tournament sounds like hell.
+    ... Whoa. That was. Kind of a lot. Uh.
+    Sorry ‘bout all that. I’ll be all good after I get some food in my system.
 
 -> DONE
 
 == Day_9 ==
-// Story Content goes here
+    Hey. I’m stress eating today. I can’t stop thinking about the tournament stuff.
+    There’s a more local event going on tonight at GameGo.
+    I was thinking about going in, like, a face mask or something. So I wouldn’t get nervous.
+    I’m not sure if I should do that, though.
 
--> DONE
+*   You shouldn’t.	
+    ... Oh. Harsh.
+    Man, if not even you think I can do it ...
+   ... Sigh. I dunno. I guess I’ll think about it.
+*   You should! (gain affection)
+    Oh maaan. You really think it’ll be okay?
+    I guess the worst thing that could happen is I go, fuck up so terribly that everyone laughs at me, go home, pack up, flee the country so I’ll never see those guys again-
+    No. No. You’re right. I should do it. Nobody cares about some loser tournament anyways.
+    ... Okay. I’ll be back with a status report.
+- -> DONE
 
 == Day_10 ==
-// Story Content goes here
-
--> DONE
+    Hey, man. I did it.
+*   Did it?
+    Yeah, uh. I went to the locals tournament. I completely mopped the floor with everyone, but that’s not the important bit.
+    I.. I really did it. I didn’t choke or anything. 
+    I mean. Getting on the stage was terrifying and all but once the actual game started I kinda blocked everything out.
+    Like, total focus mode. It was crazy! I never thought I’d actually be able to do that!
+    So ...
+* *     Congratulations!
+        Hehe. Thanks.
+        I’m feeling good enough to go to the nationals. I’m still gonna be hiding my face and all but. I wanna compete. I wanna see if I can do it.
+        Uh ... Thanks for believing in me and all.
+        Geez. That sounded corny. I mean it though.
+* *     I’m so sorry ...
+        ... Huh?... Were you listening to me?
+        Its like. A good thing. I’m gonna go to nationals.
+        Well. Anyways. I should get back to practicing.
+- -> DONE
 
 == Day_11 ==
-// Story Content goes here
+  Hey! Happy one month of cookin’.
 
--> DONE
+*  Thank you! (Affection Ending)
+  Yeah, no biggie. 
+  You probs won’t be seeing me next week. I’m going to that big nationals tournament.
+  Uhm.. Unless..
+  I got an extra ticket. Like, a plus one dealio.
+  And. Uh. This is gonna sound so lame. You’ve just been so nice to me I wanted to invite you.
+  You’d get to sit in the audience and cheer me on n’ stuff. And we could hang out while you aren’t cheffing things up.
+
+* Thank you! (Neutral Ending)
+  Yeah, no biggie. 
+  You probs won’t be seeing me next week. I’m going to that big nationals tournament.
+  Better hope I win, ‘cause that's more for my ‘eating food out instead of cooking’ fund.
+  Well, I’ll see you when I get back.
+
+- -> DONE
 
 == Extra ==
 // Extra Content goes here if we need it
@@ -118,10 +194,9 @@ VAR CurrentStoryState = 0
 -> DONE
 
 == Good_End ==
-    You’re pretty okay to hang out with, I guess. #Speaker: Luca #Voice:12
-    We could… hang out and game sometime… if you want... or whatever. Y’know.
+
 -> DONE
 
 == Bad_End ==
-    Uh, geez… I feel kinda bad saying this but, like, I’m probably just gonna stay in and eat ramen from now on. #Speaker: Luca #Voice:12
+
 -> DONE
