@@ -15,6 +15,11 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] KnifeMinigame knifeMG;
     [SerializeField] PanMinigame panMG;
     [SerializeField] MixerMinigame mixerMG;
+    [SerializeField] PotMinigame potMG;
+    [SerializeField] BakingMinigame bakingMG;
+    [SerializeField] RollingMinigame rollingMG;
+    [SerializeField] CoffeeMinigame coffeeMG;
+    [SerializeField] GraterMinigame graterMG;
     [HideInInspector] public int ongoingMinigames;
 
     [Header("Contents")]
@@ -82,6 +87,13 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (minigame == Minigame.KNIFE) knifeMG.gameObject.SetActive(true);
         if (minigame == Minigame.PAN) panMG.gameObject.SetActive(true);
         if (minigame == Minigame.MIXER) mixerMG.gameObject.SetActive(true);
+        if (minigame == Minigame.POT) potMG.gameObject.SetActive(true);
+        if (minigame == Minigame.ROLLING_PIN) rollingMG.gameObject.SetActive(true);
+        if (minigame == Minigame.COFFEE_MAKER) coffeeMG.gameObject.SetActive(true);
+        if (minigame == Minigame.GRATER) graterMG.gameObject.SetActive(true);
+        if (minigame == Minigame.BAKING_TRAY) bakingMG.gameObject.SetActive(true);
+
+        if (minigame == Minigame.NONE) CompleteRecipe();
     }
 
     private void Start()

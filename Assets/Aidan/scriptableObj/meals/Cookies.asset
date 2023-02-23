@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cookies
   m_EditorClassIdentifier: 
   itemName: Cookies
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: fb6b518514db877459a63679b834c8db, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1

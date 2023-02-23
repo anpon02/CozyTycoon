@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: mixer
   itemSprite: {fileID: 21300000, guid: 2fedeb92336fd374f9e35f7589176050, type: 3}
   throwSoundID: 0
-  isBigEquipment: 1
-  _scaleMult: 1
   value: 10
+  _scaleMult: 1
+  isBigEquipment: 1
+  menuItem: 0
   description: 
   type: 0

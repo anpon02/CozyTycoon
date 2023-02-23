@@ -14,9 +14,8 @@ public class Item : ScriptableObject {
     [SerializeField] float _scaleMult = 1;
     public bool isBigEquipment;
     public bool menuItem;
-    
-
     public string description;
+
     public FoodType type;
 
     public Sprite GetSprite() {

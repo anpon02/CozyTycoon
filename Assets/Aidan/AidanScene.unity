@@ -1418,6 +1418,42 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
+      value: -1.16211
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.6122313
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.1832194
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
+      value: -1.4882936
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: 2.0719585
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 1.3287091
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: 2.4610784
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
+      value: 1.5636231
+      objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1736,6 +1772,21 @@ MonoBehaviour:
   - name: mixer
     product: {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
     item: {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+  - name: Baking tray
+    product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+    item: {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+  - name: Coffee maker
+    product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+    item: {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+  - name: Rolling Pin
+    product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
+    item: {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+  - name: Pot
+    product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+    item: {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+  - name: Cheese grater
+    product: {fileID: 11400000, guid: 7fff9fa4ff73e0b48a370b57736c4a55, type: 2}
+    item: {fileID: 11400000, guid: 7b898c81eca8d014d822ea9d45ca6312, type: 2}
   - name: bread bowl
     product: {fileID: 11400000, guid: f03fe302d51638147923961f075d60ab, type: 2}
     item: {fileID: 11400000, guid: ec0fcd093b0a0e14e9dda3f02b07dbc2, type: 2}
@@ -6835,6 +6886,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: -0.87252927
       objectReference: {fileID: 0}
@@ -6884,18 +6939,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.9526906
+      value: -1.0516167
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: -0.44681644
+      value: 0.51954556
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
-      value: 2.5821342
+      value: -1.1321251
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.7817092
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.2233229
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
+      value: -1.7895193
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: 2.273197
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 0.2299881
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: 2.5821342
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
       value: 0.5432955
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
@@ -7871,17 +7950,33 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9e5aff823eff95240be35fc9ccff2514, type: 3}
+    - target: {fileID: 329358462848180886, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180886, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180886, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 329358462848180888, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180888, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: _workspaceType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
@@ -7933,18 +8028,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.04841602
+      value: -0.93283856
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: -0.31960964
+      value: -2.2277336
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
-      value: 2.0135717
+      value: 2.2501416
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.8281162
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.0135717
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.9391953
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
@@ -8025,11 +8128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55.4
+      value: -77.5
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6
+      value: -14.8
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8043,13 +8146,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: hoverColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: hoverColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: hoverColor.r
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: normalColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: normalColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180893, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: normalColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Name
-      value: stove
+      value: oven
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 872336449425338784, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8059,6 +8186,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 59
       objectReference: {fileID: 0}
+    - target: {fileID: 1332623206523740030, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332623206523740030, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332623206523740030, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332623206523740030, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2394553075597725347, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Type
       value: 0
@@ -8067,6 +8210,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 27f2ec8877e0a3e44a5298f86eda014f, type: 3}
+    - target: {fileID: 2621571692352751798, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621571692352751798, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621571692352751798, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621571692352751798, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.37724736
@@ -8087,6 +8246,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.047
       objectReference: {fileID: 0}
+    - target: {fileID: 4207964691739306095, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207964691739306095, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207964691739306095, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207964691739306095, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -8097,7 +8272,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 96c9519bee5459940ba8d0d5627a9e54, type: 3}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6363789204362744668, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
@@ -8373,13 +8548,6 @@ MonoBehaviour:
     enabled: 0
   - name: Raw Beef
     item: {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    maxNum: 10
-    numRemaining: 0
-    instances:
-    - {fileID: 0}
-    enabled: 0
-  - name: raw pork
-    item: {fileID: 11400000, guid: 9bfbb7e7e88fff34c8287fc86a62872b, type: 2}
     maxNum: 10
     numRemaining: 0
     instances:
@@ -11679,8 +11847,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676316066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.48, y: -10.29, z: -1}
-  m_LocalScale: {x: 0.77579004, y: 0.77579004, z: 0.77579004}
+  m_LocalPosition: {x: -13.8, y: -9.86, z: -1}
+  m_LocalScale: {x: 0.57008153, y: 0.57008153, z: 0.57008153}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2041791856}
@@ -11714,6 +11882,13 @@ MonoBehaviour:
     instances:
     - {fileID: 0}
     enabled: 0
+  - name: Coffee beans
+    item: {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
   toolTip: A sack of potatos
   itemSelectorCoord: {fileID: 2041791857}
   hoveredColor: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
@@ -11734,7 +11909,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.46, y: 4.62}
+    oldSize: {x: 10, y: 10}
     newSize: {x: 4.46, y: 4.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11742,10 +11917,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.6750855, y: 2.0114555}
-      - {x: -1.2943174, y: -1.830864}
-      - {x: 1.31, y: -2.11}
-      - {x: 1.5630323, y: 2.0885372}
+    - - {x: 2.6581526, y: 2.647279}
+      - {x: -0.42765224, y: 4.118231}
+      - {x: -3.2711854, y: 2.0981379}
+      - {x: -4.2327166, y: -0.88836026}
+      - {x: -2.9589925, y: -3.9395683}
+      - {x: 3.368281, y: -2.7993279}
+      - {x: 4.473708, y: -0.48948956}
 --- !u!212 &676316070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11787,7 +11965,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f85280b1ddd0d2d4b9d0d38c6e5d7f3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7b479b0a471f424f89e5038c8a120e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13915,9 +14093,21 @@ MonoBehaviour:
     numRemaining: 0
     instances: []
     enabled: 0
-  - name: Mallet
-    item: {fileID: 11400000, guid: df2f22154ef8f664b972be59fce5f87f, type: 2}
-    maxNum: 2
+  - name: Rolling Pin
+    item: {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    maxNum: 1
+    numRemaining: 0
+    instances: []
+    enabled: 0
+  - name: Cheese grater
+    item: {fileID: 11400000, guid: 7b898c81eca8d014d822ea9d45ca6312, type: 2}
+    maxNum: 1
+    numRemaining: 0
+    instances: []
+    enabled: 0
+  - name: Coffee maker
+    item: {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+    maxNum: 1
     numRemaining: 0
     instances: []
     enabled: 0
@@ -15935,7 +16125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247becb8da053f047bcd45508f95e621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 1000
 --- !u!1 &985116080
 GameObject:
   m_ObjectHideFlags: 0
@@ -16104,15 +16294,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allRecipes:
-  - name: choppedPotato recipe
+  - name: BeefStew recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 97bda6df8d301dc4dbcba6ffa233f049, type: 2}
+    minigame: 4
+  - name: Cake recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
+    minigame: 5
+  - name: chickenCeasarSalad recipe
     workSpace: 0
     requiredIngrd:
-    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    - {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: e475cb14d3611db4bab30bece7a4a0b9, type: 2}
+    minigame: 0
+  - name: ChickenVeggieSoup recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
-    minigame: 1
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 56dfde46623832044b51e07b6e8e84e8, type: 2}
+    minigame: 4
+  - name: coffee recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+    result: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    minigame: 7
+  - name: coffeeCake recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
+    minigame: 5
+  - name: Cookies recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
+    minigame: 5
+  - name: Croissant recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 5e9af02cda9dd7b49bf891e40cd4c6ed, type: 2}
+    minigame: 5
+  - name: Espresso recipe
+    workSpace: 0
+    requiredIngrd: []
+    equipment:
+    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+    result: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
+    minigame: 7
+  - name: Flan recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 617fab2e29d5872409b14290aeaa7a88, type: 2}
+    minigame: 5
   - name: frenchFries recipe
     workSpace: 2
     requiredIngrd:
@@ -16121,6 +16389,188 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 181aa0b1aab935d4594a4bf4bae062d5, type: 2}
     minigame: 2
+  - name: FriedEgg recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 0bb58749b5beee7468cec5b262280be5, type: 2}
+    minigame: 2
+  - name: GarlicBread recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 4bcb1f6c24f8378458cf1620003b90fc, type: 2}
+    minigame: 5
+  - name: GrilledCheese recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: b6c31dc15d823f749990be16ac1f4f21, type: 2}
+    minigame: 2
+  - name: hamburger recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
+    - {fileID: 11400000, guid: 28b8b757b1494e646a4b9c5d1de0cd8b, type: 2}
+    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: bb49849ce0914444d91baab675c54e9b, type: 2}
+    minigame: 2
+  - name: lasagna recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
+    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
+    minigame: 5
+  - name: MacnCheese recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 0e3854e08de48674aa26c8fb9e1fbd01, type: 2}
+    minigame: 4
+  - name: mashedPotatoes recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 377cbd2d04f0f464a8d36c39e995df7e, type: 2}
+    minigame: 3
+  - name: MozzarellaSticks recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: c276d0126c19e304cbe105ec0dd3bade, type: 2}
+    minigame: 2
+  - name: Omelette recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 860fccfd77399de499304ead7a2517a4, type: 2}
+    minigame: 2
+  - name: Pancakes recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 921d88d1f2e84544b88382569718c980, type: 2}
+    minigame: 2
+  - name: panFriedChicken recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+    minigame: 2
+  - name: panSearedSteak recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
+    minigame: 2
+  - name: salad recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: a36e41e2e01d78048af994bf923315c3, type: 2}
+    minigame: 0
+  - name: sauteedBroccoli recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: be1dde789fff52945a43a1087c1e1c19, type: 2}
+    minigame: 2
+  - name: sauteedCarrot recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 0c52b5d41cc217341ab353714f6aeeef, type: 2}
+    minigame: 2
+  - name: spaghetti recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    - {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: e0dbeac08dba00243a5b4cbf86c29f1d, type: 2}
+    minigame: 4
+  - name: SteakBites recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: cd4b7a6534aea7f4895a797fbeb06a2c, type: 2}
+    minigame: 2
+  - name: SteamedBroccoli recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
+    minigame: 4
+  - name: SteamedCarrot recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
+    minigame: 4
+  - name: toast recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: e1a34e2c3d2a05648ae99df1deecbbd3, type: 2}
+    minigame: 2
+  - name: VegetableSoup recipe
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: d8be587084fd30b45973a7ba6b87647d, type: 2}
+    minigame: 4
   - name: cubedBeef recipe
     workSpace: 0
     requiredIngrd:
@@ -16135,10 +16585,10 @@ MonoBehaviour:
     requiredIngrd:
     - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
     equipment:
-    - {fileID: 11400000, guid: df2f22154ef8f664b972be59fce5f87f, type: 2}
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
     result: {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
-    minigame: 0
+    minigame: 1
   - name: RawPatty recipe
     workSpace: 0
     requiredIngrd:
@@ -16154,80 +16604,15 @@ MonoBehaviour:
     equipment:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 28b8b757b1494e646a4b9c5d1de0cd8b, type: 2}
-    minigame: 0
-  - name: tenderChicken recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: df2f22154ef8f664b972be59fce5f87f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: b3dd38475f824004ab56b9777f5c1f8e, type: 2}
-    minigame: 0
+    minigame: 2
   - name: boiledPotato recipe
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 1baf5bc44e07cc04b8f90d9a8a91498c, type: 2}
-    result: {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
-    minigame: 0
-  - name: potWithWater recipe
-    workSpace: 3
-    requiredIngrd:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: 1baf5bc44e07cc04b8f90d9a8a91498c, type: 2}
-    minigame: 0
-  - name: mashedPotatoes recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 377cbd2d04f0f464a8d36c39e995df7e, type: 2}
-    minigame: 3
-  - name: panSearedSteak recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
-    minigame: 2
-  - name: friedChicken recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: b3dd38475f824004ab56b9777f5c1f8e, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 60629ca2cf909494b913ed349ad88e27, type: 2}
-    minigame: 2
-  - name: friedSteakBites recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: e3e3f6c493851214386ac253a089e6c9, type: 2}
-    minigame: 2
-  - name: porkChop recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 9bfbb7e7e88fff34c8287fc86a62872b, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 6c9f8c6fb1d660a49b38126dcb24545e, type: 2}
-    minigame: 2
-  - name: panFriedChicken recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
-    minigame: 2
+    result: {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
+    minigame: 4
   - name: PancakeBatter recipe
     workSpace: 0
     requiredIngrd:
@@ -16238,14 +16623,131 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
     result: {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
     minigame: 3
-  - name: Pancakes recipe
+  - name: cakeMix recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    minigame: 3
+  - name: choppedPotato recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
+    minigame: 1
+  - name: pastryDough recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    result: {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
+    minigame: 6
+  - name: rawCroisant recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
+    minigame: 0
+  - name: flanMixture recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
+    minigame: 3
+  - name: cookieDough recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    minigame: 3
+  - name: breadDough recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 73631315b97f95c4f80927a7942c576d, type: 2}
+    minigame: 3
+  - name: choppedTomato recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    minigame: 1
+  - name: slicedBread recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
+    minigame: 1
+  - name: bread recipe
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 73631315b97f95c4f80927a7942c576d, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
+    minigame: 5
+  - name: gratedCheese recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7b898c81eca8d014d822ea9d45ca6312, type: 2}
+    result: {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    minigame: 8
+  - name: tomatoSauce recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
+    minigame: 3
+  - name: meatball recipe
     workSpace: 2
     requiredIngrd:
-    - {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
+    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
     equipment:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 921d88d1f2e84544b88382569718c980, type: 2}
+    result: {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
     minigame: 2
+  - name: rawPasta recipe
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    result: {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    minigame: 6
   unlockedRecipes: []
   tutorialRecipeLimit: 0
 --- !u!4 &992974426
@@ -22182,6 +22684,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
   - {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
   - {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
+  - {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+  - {fileID: 11400000, guid: 7fff9fa4ff73e0b48a370b57736c4a55, type: 2}
   - {fileID: 11400000, guid: f03fe302d51638147923961f075d60ab, type: 2}
   coord: {fileID: 1424304280}
   content: {fileID: 894709095}
@@ -24255,6 +24759,13 @@ MonoBehaviour:
     enabled: 0
   - name: Pot
     item: {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    maxNum: 2
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Baking tray
+    item: {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     maxNum: 2
     numRemaining: 0
     instances:
@@ -31220,7 +31731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681984386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -60.2, y: -29.5, z: -1}
+  m_LocalPosition: {x: -51.3, y: -22.3, z: -1}
   m_LocalScale: {x: 11.078771, y: 11.078771, z: 11.078771}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31938,6 +32449,27 @@ MonoBehaviour:
     instances:
     - {fileID: 0}
     enabled: 0
+  - name: Milk
+    item: {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Egg
+    item: {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Cheese
+    item: {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
   toolTip: A fridge for butter and dairy
   itemSelectorCoord: {fileID: 1388177561}
   hoveredColor: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
@@ -32609,6 +33141,42 @@ PrefabInstance:
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
+      value: -0.8954649
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.9489627
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.287551
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
+      value: -1.5794003
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: 2.1962824
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 1.1492078
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: 2.4610784
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
+      value: 1.5636231
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Pivot.x
@@ -35721,6 +36289,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: 0.3501011
       objectReference: {fileID: 0}
@@ -35770,18 +36342,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 0.04841602
+      value: -1.156582
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: -0.31960964
+      value: -1.434233
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
-      value: 2.0135717
+      value: 2.1647382
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.3534335
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.0135717
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.9391953
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
@@ -36532,7 +37112,7 @@ RectTransform:
   m_GameObject: {fileID: 2041791855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49013814, y: 0.49013814, z: 0.49013814}
+  m_LocalScale: {x: 0.8626922, y: 0.8626922, z: 0.8626922}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1457177831}
@@ -38153,6 +38733,48 @@ MonoBehaviour:
     instances:
     - {fileID: 0}
     enabled: 0
+  - name: Broccoli
+    item: {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Carrot
+    item: {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Lettuce
+    item: {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Garlic
+    item: {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Tomato
+    item: {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
+  - name: Onion
+    item: {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    maxNum: 10
+    numRemaining: 0
+    instances:
+    - {fileID: 0}
+    enabled: 0
   toolTip: Various vegtables and produce
   itemSelectorCoord: {fileID: 2585778420219022924}
   hoveredColor: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
@@ -38580,6 +39202,42 @@ PrefabInstance:
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
+      value: -1.1373048
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: -1.6928881
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].x
+      value: 2.1641407
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
+      value: -1.4497594
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: 2.0835247
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 1.3356917
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: 2.4610784
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
+      value: 1.5636231
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180891, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Pivot.x

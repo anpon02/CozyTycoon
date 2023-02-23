@@ -6,7 +6,7 @@ using TMPro;
 public class WorkspaceCoordinator : MonoBehaviour
 {
     SpriteRenderer sRend;
-    [SerializeField] Color hoverColor;
+    [SerializeField] Color hoverColor, normalColor = Color.white;
     WorkspaceController ws;
     
     [SerializeField] SpriteRenderer bigDisplay;
@@ -24,7 +24,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     private void Update()
     {
         UpdateItemDisplay();
-        if (ws.wsUIcoord.IsMinigameActive()) sRend.color = Color.white;
+        if (ws.wsUIcoord.IsMinigameActive()) sRend.color = normalColor;
     }
 
     private void OnMouseEnter()
@@ -35,7 +35,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void OnMouseExit()
     {
-        sRend.color = Color.white;
+        sRend.color = normalColor;
         if (KitchenManager.instance.hoveredController == ws) KitchenManager.instance.hoveredController = null;
     }
 

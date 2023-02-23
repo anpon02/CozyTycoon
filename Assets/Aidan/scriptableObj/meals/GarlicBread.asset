@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GarlicBread
   m_EditorClassIdentifier: 
   itemName: Garlic bread
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 5042cdb50bc722841b626e19beb381db, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1

@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class CoffeeMinigame : MonoBehaviour
 {
+    [SerializeField] WorkstationUICoordinator uiCoord;
     private void OnEnable()
     {
-
+        Complete();
     }
-
-    private void Update()
-    {
-
-    }
-
     void Complete()
     {
-
+        uiCoord.ongoingMinigames -= 1;
+        gameObject.SetActive(false);
+        uiCoord.CompleteRecipe();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Minigame { NONE, KNIFE, PAN, MIXER }
+public enum Minigame { NONE, KNIFE, PAN, MIXER, POT, BAKING_TRAY, ROLLING_PIN, COFFEE_MAKER, GRATER }
 
 [System.Serializable]
 public class Recipe

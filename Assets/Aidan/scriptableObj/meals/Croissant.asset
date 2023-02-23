@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Croissant
   m_EditorClassIdentifier: 
   itemName: Croissant
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 8b4c36e1675240046b34a81159fc96e3, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
