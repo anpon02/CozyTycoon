@@ -14,6 +14,9 @@ public class Notebook : MonoBehaviour
     [SerializeField] List<Image> buttons = new List<Image>();
     [SerializeField] Color inactiveColor;
     [SerializeField] GameObject parent, noteBookButton;
+    [SerializeField] int notebookSound;
+    [SerializeField] int closebookSound;
+
     bool firstNote;
 
     public void OpenNoteBook()
@@ -24,6 +27,7 @@ public class Notebook : MonoBehaviour
         }
         parent.SetActive(true);
         noteBookButton.SetActive(true);
+        AudioManager.instance.PlaySound(notebookSound, gameObject);
     }
 
     private void Start()
@@ -32,6 +36,7 @@ public class Notebook : MonoBehaviour
         mainText.text = nameText.text = "";
         parent.SetActive(false);
         noteBookButton.SetActive(false);
+        
     }
 
     public void RecordInfo(string info, CharacterName character)

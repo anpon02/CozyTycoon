@@ -2819,6 +2819,8 @@ MonoBehaviour:
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   parent: {fileID: 1713076389}
   noteBookButton: {fileID: 499940860}
+  notebookSound: 25
+  closebookSound: 30
 --- !u!1 &184345003
 GameObject:
   m_ObjectHideFlags: 0
@@ -12007,6 +12009,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1424304278}
         m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
         m_MethodName: ToggleVisible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1424304278}
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22172,6 +22186,9 @@ MonoBehaviour:
   coord: {fileID: 1424304280}
   content: {fileID: 894709095}
   shopButton: {fileID: 694832965}
+  openshopSound: 28
+  purchaseSound: 29
+  startEnabled: 1
 --- !u!95 &1424304279
 Animator:
   serializedVersion: 4

@@ -1257,6 +1257,28 @@ MonoBehaviour:
       looping: 0
     parentVolume: 0.6
     parentPitch: 1
+  - name: '29: ShopPurchase_SFX'
+    ID: 29
+    displayName: 
+    clips:
+    - name: '0: ShopPurchase_SFX'
+      clip: {fileID: 8300000, guid: e87f77068aa88b04d95afcdaa14d0c70, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.4
+    parentPitch: 1
+  - name: '30: SFX_BookClose'
+    ID: 30
+    displayName: 
+    clips:
+    - name: '0: SFX_BookClose'
+      clip: {fileID: 8300000, guid: 5d09c3cda6764974187a3262af4aee08, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
   masterVolume: 1
 --- !u!1 &1650425993
 GameObject:

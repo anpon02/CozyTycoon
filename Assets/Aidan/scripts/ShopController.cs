@@ -9,11 +9,16 @@ public class ShopController : MonoBehaviour
     [SerializeField] ShopCoordinator coord;
     [SerializeField] GameObject content, shopButton;
     [SerializeField] int openshopSound;
+    [SerializeField] int purchaseSound;
     [SerializeField] bool startEnabled;
+
+    public void PlaySound()
+    {
+        AudioManager.instance.PlaySound(openshopSound, gameObject);
+    }
 
     private void Start()
     {
-        AudioManager.instance.PlaySound(openshopSound, gameObject);
         shopButton.SetActive(startEnabled);
     }
 
@@ -26,7 +31,7 @@ public class ShopController : MonoBehaviour
 
     public void Remove(Product toRemove)
     {
-        
+        AudioManager.instance.PlaySound(purchaseSound, gameObject);
         toSell.Remove(toRemove);
         DisplayProducts();
     }
