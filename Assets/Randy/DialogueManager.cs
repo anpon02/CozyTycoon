@@ -133,8 +133,8 @@ public class DialogueManager : MonoBehaviour
 
     public void TakeNotes()
     {
-        if (!allowNotes || anyNotes)
-            return;
+        if (!allowNotes && !anyNotes) return;
+
         string note = currentStory.state.currentText.Trim();
         AudioManager.instance.PlaySound(7);
         GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
