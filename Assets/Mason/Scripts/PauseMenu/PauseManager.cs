@@ -17,8 +17,15 @@ public class PauseManager : MonoBehaviour
     [SerializeField] Image assistUnchecked;
     [SerializeField] GameObject assistChecked;
 
+    [Header("Settings")]
+    [SerializeField] int menusclickSound;
+
     private PauseInputActions pInputActions;
     [HideInInspector] public bool paused;
+
+    public void PlaySound() {
+        AudioManager.instance.PlaySound(menusclickSound, gameObject);
+    }
 
     private void Awake() {
         if(instance == null)

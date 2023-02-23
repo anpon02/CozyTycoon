@@ -48,9 +48,11 @@ public class ItemStorage : MonoBehaviour
         gameObject.SetActive(NumEnabledItems() > 0);
     }
 
-    public void GetItem()
+    public void GetItem()   
     {
-        if (closed || !SetChef() || chef.IsHoldingItem() || !items[itemIndex].enabled) return;
+        
+        if (closed || !SetChef() || !items[itemIndex].enabled) return;
+        if (chef.IsHoldingItem()) { TryRestock(); return; }
 
         if (items[itemIndex].numRemaining == 0) return;
         items[itemIndex].numRemaining -= 1;
@@ -60,6 +62,18 @@ public class ItemStorage : MonoBehaviour
         coord.home = this;
 
         chef.PickupItem(coord);
+    }
+
+    void TryRestock()
+    {
+        var heldItem = chef.GetHeldiCoord();
+        foreach (var i in items) if (heldItem.GetItem().Equals(i.item)) RestockItem(i, heldItem);
+    }
+
+    void RestockItem(ItemData i, ItemCoordinator iCoord)
+    {
+        chef.RemoveHeldItem();
+        if (i.maxNum == 0 && i.enabled) i.numRemaining += 1;
     }
 
     int NumEnabledItems()

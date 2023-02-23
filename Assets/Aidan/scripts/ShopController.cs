@@ -7,7 +7,6 @@ public class ShopController : MonoBehaviour
 {
     public List<Product> toSell;
     [SerializeField] ShopCoordinator coord;
-
     public void ToggleVisible()
     {
         gameObject.SetActive(!gameObject.activeInHierarchy);
@@ -16,6 +15,7 @@ public class ShopController : MonoBehaviour
 
     public void Remove(Product toRemove)
     {
+        
         toSell.Remove(toRemove);
         DisplayProducts();
     }

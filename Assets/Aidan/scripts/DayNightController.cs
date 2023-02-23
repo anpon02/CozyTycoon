@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DayNightController : MonoBehaviour
-{
+public class DayNightController : MonoBehaviour {
+    public enum Day {Mon, Tue, Wed, Thur, Fri, Sat, Sun };
+    Day currentDay;
+
     [SerializeField] Gradient backgroundGradient;
     [SerializeField] float timeSpeed = 0.5f;
     [Range(0,1)] public float time;
@@ -15,6 +15,7 @@ public class DayNightController : MonoBehaviour
     [SerializeField] GameObject wheel;
     [SerializeField] float wheelOffset;
     [HideInInspector] public bool paused;
+    [SerializeField] TextMeshProUGUI date;
     public int day;
 
     [Header("CloseButton")]
@@ -33,6 +34,16 @@ public class DayNightController : MonoBehaviour
     {
         GameManager.instance.timeScript = this;
         UpdateButton();
+        DisplayDate();   
+    }
+
+    void DisplayDate()
+    {
+        string suffix = "th";
+        if (day == 0) suffix = "st";
+        if (day == 1) suffix = "nd";
+        if (day == 2) suffix = "rd";
+        date.text = currentDay.ToString() + ", " + (day + 1) + "<voffset=0.46em><size=60%>" + suffix;
     }
 
     public void PauseTime()
@@ -84,6 +95,8 @@ public class DayNightController : MonoBehaviour
     {
         time = 0; 
         day += 1;
+        currentDay = (Day) (day % 7);
+        DisplayDate();
     }
 
     void DisplayTime()
