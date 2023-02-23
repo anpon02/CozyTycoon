@@ -37,15 +37,29 @@ public class WorkspaceController : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kMan.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
-            var iCoord = iCoords[iCoords.Count - 1];
-            iCoords.Remove(iCoord);
-            iCoord.gameObject.SetActive(true);
-            kMan.lastRetrievedItem = iCoord.GetItem();
-            kMan.chef.PickupItem(iCoord);
+            RighClickOnWS();
         }
 
         if (kMan.hoveredController == this) wsUIcoord.ShowRecipeOptions(GetValidRecipeResults());
         else wsUIcoord.HideRecipeOptions();
+    }
+
+    void RighClickOnWS()
+    {
+        var iCoord = GetRighClickItem();
+        iCoords.Remove(iCoord);
+        iCoord.gameObject.SetActive(true);
+        kMan.lastRetrievedItem = iCoord.GetItem();
+        kMan.chef.PickupItem(iCoord);
+    }
+
+    ItemCoordinator GetRighClickItem()
+    {
+        var iCoord = iCoords[iCoords.Count - 1];
+        foreach (var i in iCoords) {
+            if (iCoord.GetItem().isBigEquipment && !i.GetItem().isBigEquipment) { iCoord = i; break; }
+        }
+        return iCoord;
     }
 
     private void Start()

@@ -43,6 +43,7 @@ public class CustomerManager : MonoBehaviour
         todaysCustomers.Clear();
         foreach(Transform customer in customers) {
             CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
+            if (schedule.Count <= gMan.timeScript.day) return;
             if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
                 todaysCustomers.Add(customer);
         }
