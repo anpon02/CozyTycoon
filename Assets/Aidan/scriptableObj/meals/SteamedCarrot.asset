@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: steakAndFries
+  m_Name: SteamedCarrot
   m_EditorClassIdentifier: 
-  itemName: Steak and Fries
-  itemSprite: {fileID: 21300000, guid: 899c0e4bbda34d7498de7b1ce9aeaef7, type: 3}
+  itemName: Steamed broccoli
+  itemSprite: {fileID: 0}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
   description: 
-  type: 2
+  type: 1
