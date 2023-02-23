@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CustomerOrderController : MonoBehaviour
 {
-    Item desiredItem;
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
+    [SerializeField] private Item favoriteEntree;
+    [SerializeField] private float favoriteItemChance = 80.0f;
 
     [HideInInspector] public bool storyStarted;
     private CustomerCoordinator custCoordinator;
     ChefController chef;
     CustomerMovement move;
+    Item desiredItem;
     bool foodOrdered;
     bool recievedFood;
     float timeSinceOrdering;
@@ -37,18 +39,17 @@ public class CustomerOrderController : MonoBehaviour
         if (recievedFood) Eat();
     }
 
-    public void SetOrder(Item order)
-    {
-        desiredItem = order;
-        setOrder = true;
-    }
-
     public void Order()
     {
         if (!setOrder) {
             var menu = RecipeManager.instance.Menu;
             if (menu.Count == 0) return;
-            desiredItem = menu[Random.Range(0, menu.Count)];
+
+            // order favorite entree if possible and random chance is hit, otherwise, order random item
+            if(favoriteEntree != null && menu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
+                desiredItem = favoriteEntree;
+            else
+                desiredItem = menu[Random.Range(0, menu.Count)];
         }
         
         setOrder = false;    
@@ -74,6 +75,12 @@ public class CustomerOrderController : MonoBehaviour
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
         GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
+    }
+
+    public void SetOrder(Item order)
+    {
+        desiredItem = order;
+        setOrder = true;
     }
 
     public bool alreadyOrdered()
