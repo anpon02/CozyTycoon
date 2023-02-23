@@ -897,8 +897,8 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    parentVolume: 1
-    parentPitch: 1
+    parentVolume: 0.2
+    parentPitch: 1.1
   - name: '1: SFX_ThrowWhoosh'
     ID: 1
     displayName: 
@@ -1245,6 +1245,17 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 1
+    parentPitch: 1
+  - name: '28: OpenShopMenu_SFX'
+    ID: 28
+    displayName: 
+    clips:
+    - name: '0: OpenShopMenu_SFX'
+      clip: {fileID: 8300000, guid: 950e5189d6cd0954b9fe02d89647a7e0, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.6
     parentPitch: 1
   masterVolume: 1
 --- !u!1 &1650425993
