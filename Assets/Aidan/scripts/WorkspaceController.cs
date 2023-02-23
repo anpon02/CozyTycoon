@@ -28,7 +28,6 @@ public class WorkspaceController : MonoBehaviour
     List<Item> toRemove = new List<Item>();
     Minigame minigame;
 
-
     private void OnValidate()
     {
         workSpaceType = _workspaceType;
