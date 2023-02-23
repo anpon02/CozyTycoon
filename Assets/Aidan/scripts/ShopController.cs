@@ -8,9 +8,11 @@ public class ShopController : MonoBehaviour
     public List<Product> toSell;
     [SerializeField] ShopCoordinator coord;
     [SerializeField] GameObject content, shopButton;
+    [SerializeField] int openshopSound;
 
     private void Start()
     {
+        AudioManager.instance.PlaySound(openshopSound, gameObject);
         shopButton.SetActive(false);
     }
 
