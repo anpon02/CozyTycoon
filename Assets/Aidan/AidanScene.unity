@@ -1802,7 +1802,7 @@ MonoBehaviour:
   playerReach: 10
   tutorialStartTime: 2
   tutorial: {fileID: 1290904217}
-  playTutorial: 0
+  playTutorial: 1
   tutorialEquipmentPause: 0
   ttCoord: {fileID: 0}
   hoveredController: {fileID: 0}
@@ -8289,6 +8289,10 @@ PrefabInstance:
     - target: {fileID: 6363789205143126938, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363789205143126939, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363789205166076028, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
