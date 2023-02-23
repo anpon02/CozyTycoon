@@ -1,5 +1,4 @@
 // Variables to be overwritten by Unity
-VAR CurrentMood = 0
 VAR CurrentStoryState = 0
 
 -> Selector
@@ -12,6 +11,25 @@ VAR CurrentStoryState = 0
         -> Day_2
     - CurrentStoryState == 2:
         -> Day_3
+    - CurrentStoryState == 3:
+        -> Day_4
+    - CurrentStoryState == 4:
+        -> Day_5
+    - CurrentStoryState == 5:
+        -> Day_6
+    - CurrentStoryState == 6:
+        -> Day_7
+    - CurrentStoryState == 7:
+        -> Day_8
+    - CurrentStoryState == 8:
+        -> Day_9
+    - CurrentStoryState == 9:
+        -> Day_10
+    - CurrentStoryState == 10:
+        -> Day_11
+    - CurrentStoryState > 11:
+        -> Extra
+        
      ->END
 }
 
@@ -53,6 +71,51 @@ VAR CurrentStoryState = 0
 	... I don’t mean to gatekeep, but you probably should figure out the name of the game if you wanna get into it.
 - -> DONE
 
+
+== Day_4 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_5 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_6 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_7 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_8 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_9 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_10 ==
+// Story Content goes here
+
+-> DONE
+
+== Day_11 ==
+// Story Content goes here
+
+-> DONE
+
+== Extra ==
+// Extra Content goes here if we need it
+
+-> DONE
 
 == Good_End ==
     You’re pretty okay to hang out with, I guess. #Speaker: Luca #Voice:12
