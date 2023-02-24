@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CustomerCoordinator : MonoBehaviour
 {
-    [HideInInspector] public bool inRestaurant;
-
     [Header("Relationship Status")]
     public int relationshipValue;
 
