@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private PlayerInputActions pInputActions;
+    private PlayerMovement movement;
     private Animator anim;
     private Vector2 input;
 
     private void Awake() {
-        pInputActions = new PlayerInputActions();
+        movement = GetComponent<PlayerMovement>();
         anim = GetComponent<Animator>();
-    }
-
-    private void OnEnable() {
-        pInputActions.Enable();
-    }
-
-    private void OnDisable() {
-        pInputActions.Disable();
     }
 
     private void Update() {
         if(PauseManager.instance && PauseManager.instance.paused) return;
         
-        input = pInputActions.Player.Movement.ReadValue<Vector2>();
+        input = movement.moveInput;
 
-        if(input.x < 0)
+        if(input.x < 0 || (movement.isometricMovement && input.y > 0))
             transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
-        else if(input.x > 0)
+        else if(input.x > 0 || (movement.isometricMovement && input.y < 0))
             transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             
         if(input.magnitude > 0.1f)

@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private int obstacleLayerNum;
 
+    public Vector2 moveInput { get; private set; }
+    public bool isometricMovement;
     private PlayerInputActions pInputActions;
     private Rigidbody2D body;
 
@@ -37,10 +39,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Move() {
-        Vector2 moveInput = pInputActions.Player.Movement.ReadValue<Vector2>();
-        Vector2 angleVec = new Vector2(Mathf.Cos(Mathf.PI / 6), Mathf.Sin(Mathf.PI / 6));
+        moveInput = pInputActions.Player.Movement.ReadValue<Vector2>();
         moveInput = Vector2.ClampMagnitude(moveInput, 1);
-        body.MovePosition(body.position + IsometricConversion(moveInput * moveSpeed * Time.fixedDeltaTime));
+
+        Vector2 moveVector = moveInput * moveSpeed * Time.fixedDeltaTime;
+        if(isometricMovement)
+            moveVector = IsometricConversion(moveVector);
+        body.MovePosition(body.position + moveVector);
     }
 
     private void FixedUpdate() {
