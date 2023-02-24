@@ -9,7 +9,6 @@ public class CustomerOrderController : MonoBehaviour
     [SerializeField] private Item favoriteEntree;
     [SerializeField] private float favoriteItemChance = 80.0f;
 
-    [HideInInspector] public bool storyStarted;
     private CustomerCoordinator custCoordinator;
     ChefController chef;
     CustomerMovement move;
@@ -55,7 +54,6 @@ public class CustomerOrderController : MonoBehaviour
         }
         
         setOrder = false;    
-        storyStarted = false;
         foodOrdered = true;
         timeSinceOrdering = 0;
         if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, custCoordinator.characterName);
@@ -109,11 +107,11 @@ public class CustomerOrderController : MonoBehaviour
     int UpdateAffection()
     {
         int points = 0;
-        if (timeSinceOrdering < patience) points += 1;
-        if (!storyStarted) points = 0;
+        if(timeSinceOrdering < patience * (1.0f / 3.0f)) points += 3;
+        else if(timeSinceOrdering < patience * (2.0f / 3.0f)) points += 2;
+        else if(timeSinceOrdering < patience) points += 1;
 
         custCoordinator.updateRelationshipValue(points);
-
         return points;
     }
 
