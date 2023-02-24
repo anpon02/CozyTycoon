@@ -16,4 +16,7 @@ MonoBehaviour:
   productName: Pot
   description: boil n roil babbyyy
   price: 175
-  unlocks: british food
+  unlocks: 'boiled food,
+
+    soups'
+  quantity: -1

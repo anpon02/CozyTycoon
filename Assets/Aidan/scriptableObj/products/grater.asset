@@ -16,7 +16,7 @@ MonoBehaviour:
   productName: Chese Grater
   description: make chese smaller!
   price: 20
-  unlocks: 'sandwhiches
+  unlocks: 'sandwiches
 
     burgers'
   quantity: -1

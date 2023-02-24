@@ -31,9 +31,8 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] TextMeshProUGUI content5;
 
     [Header("Recipe Options")]
-    [SerializeField] TextMeshProUGUI ro1;
-    [SerializeField] TextMeshProUGUI ro2, ro3;
-    string roName1, roName2, roName3;
+    [SerializeField] List<TextMeshProUGUI> recipeOptionTexts = new List<TextMeshProUGUI>();
+    List<string> recipeOptionNames = new List<string>();
 
     [Header("ProgressBar")]
     [SerializeField] GameObject progressBarParent;
@@ -43,11 +42,12 @@ public class WorkstationUICoordinator : MonoBehaviour
     public int progressSound;
     [SerializeField] int completeSound, failSound;
     
+
     public void SelectRecipeOption(int num)
     {
-        if (num == 1) ws.chosenRecipe = roName1;
-        if (num == 2) ws.chosenRecipe = roName2;
-        if (num == 3) ws.chosenRecipe = roName3;
+        int index = num - 1;
+
+        ws.chosenRecipe = recipeOptionNames[index];
         if (!string.IsNullOrEmpty(ws.chosenRecipe)) ws.StartCooking();
         HideRecipeOptions();
     }
@@ -56,27 +56,30 @@ public class WorkstationUICoordinator : MonoBehaviour
     {
         if (IsMinigameActive()) return;
 
-        if (options.Count > 0) SetupROButton(ro1, options[0].GetName(), 0);
-        if (options.Count > 1) SetupROButton(ro2, options[1].GetName(), 1);
-        if (options.Count > 2) SetupROButton(ro3, options[2].GetName(), 2);
+        for (int i = 0; i < options.Count; i++) {
+            SetupROButton(recipeOptionTexts[i], options[i].GetName(), i);
+        }
+    }
+
+    private void Start()
+    {
+        GetComponent<Canvas>().worldCamera = Camera.main;
+        for (int i = 0; i < 6; i++) {
+            recipeOptionNames.Add("");
+        }
     }
 
     void SetupROButton(TextMeshProUGUI text, string _name, int num)
     {
         text.text = _name;
-        if (num == 0) roName1 = _name;
-        if (num == 1) roName2 = _name;
-        if (num == 2) roName3 = _name;
+        recipeOptionNames[num] = _name;
         text.transform.parent.gameObject.SetActive(true);
     }
 
     public void HideRecipeOptions()
     {
         ws.chosenRecipe = "";
-        ro1.transform.parent.gameObject.SetActive(false);
-        ro2.transform.parent.gameObject.SetActive(false);
-        ro3.transform.parent.gameObject.SetActive(false);
-        roName1 = roName2 = roName3 = "";
+        foreach (var t in recipeOptionTexts) { t.text = ""; t.transform.parent.gameObject.SetActive(false); }
     }
 
     public void StartMinigame(Minigame minigame)
@@ -96,10 +99,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (minigame == Minigame.NONE) CompleteRecipe();
     }
 
-    private void Start()
-    {
-        GetComponent<Canvas>().worldCamera = Camera.main;
-    }
+    
 
     private void Update()
     {

@@ -16,6 +16,7 @@ MonoBehaviour:
   productName: Mixer!
   description: mix mix mix mix mix yeahhhh
   price: 200
-  unlocks: 'Crabs, lobsters
+  unlocks: 'batters, desserts,
 
-    johnson, ragoon'
+    breakfast'
+  quantity: -1

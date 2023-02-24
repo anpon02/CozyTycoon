@@ -40,7 +40,7 @@ public class ChefController : MonoBehaviour
     void PlaceItem()
     {
         var ws = KitchenManager.instance.hoveredController;
-        if (ws == null) return;
+        if (ws == null || (ws.hasBigEquipment && heldItem.GetItem().isBigEquipment)) return;
         AudioManager.instance.PlaySound(putdownSound, gameObject);
 
         ReleaseItem(KitchenManager.instance.hoveredController);
