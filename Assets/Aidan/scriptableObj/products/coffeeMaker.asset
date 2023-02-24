@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: coffeeMaker
   m_EditorClassIdentifier: 
   imgSprite: {fileID: 21300000, guid: f685285c5fd978e45996d86a909399df, type: 3}
-  productName: Coffe Maker
+  productName: Coffee Maker
   description: don't even talk to me
   price: 150
   unlocks: coffe!

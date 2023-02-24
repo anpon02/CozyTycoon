@@ -17,6 +17,11 @@ public class ShopController : MonoBehaviour
         AudioManager.instance.PlaySound(openshopSound, gameObject);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) CloseShop();
+    }
+
     private void Start()
     {
         shopButton.SetActive(startEnabled);
@@ -24,9 +29,26 @@ public class ShopController : MonoBehaviour
 
     public void ToggleVisible()
     {
-        content.SetActive(!content.activeInHierarchy);
-        if (content.activeInHierarchy) DisplayProducts();
+        if (content.activeInHierarchy) CloseShop();
+        else OpenShop();
+    }
+
+    public void OpenShop()
+    {
+        if (content.activeInHierarchy) return;
+        
+        content.SetActive(true);
+        DisplayProducts();
         shopButton.SetActive(true);
+        PauseManager.instance.numOpenMenus += 1;
+    }
+
+    public void CloseShop()
+    {
+        if (!content.activeInHierarchy) return;
+        
+        content.SetActive(false);
+        PauseManager.instance.numOpenMenus -= 1;
     }
 
     public void Remove(Product toRemove)

@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     public static PauseManager instance;
 
     [SerializeField] GameObject mainParent, settingsParent, helpParent, greyOut;
+    [HideInInspector] public int numOpenMenus;
 
     [Header("Settings")]
     [SerializeField] Slider masterVolSlider;
@@ -79,6 +80,7 @@ public class PauseManager : MonoBehaviour
 
     void PauseGame()
     {
+        if (numOpenMenus > 0) return;
         mainParent.SetActive(true);
         settingsParent.SetActive(false);
         paused = true;

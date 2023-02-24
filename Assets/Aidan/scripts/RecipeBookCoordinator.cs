@@ -33,8 +33,24 @@ public class RecipeBookCoordinator : MonoBehaviour
         mouseOver = false;
     }
 
+    public void ToggleBook()
+    {
+        if (bookParent.activeInHierarchy) CloseBook();
+        else OpenBook();
+
+    }
+
+    public void CloseBook()
+    {
+        if (!bookParent.activeInHierarchy) return;
+
+        bookParent.SetActive(false);
+        PauseManager.instance.numOpenMenus -= 1;
+    }
+
     public void OpenBook()
     {
+        if (bookParent.activeInHierarchy) return;
 
         bookParent.SetActive(true);
         while (rMan.unlockedRecipes.Count > entryCoords.Count) {
@@ -42,6 +58,7 @@ public class RecipeBookCoordinator : MonoBehaviour
         }
         DisplayCurrentPage();
         AudioManager.instance.PlaySound(openbookSound, gameObject);
+        PauseManager.instance.numOpenMenus += 1;
     }
 
     bool AddNewUnlockedRecipe()
@@ -111,6 +128,7 @@ public class RecipeBookCoordinator : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) CloseBook();
         if (rMan.unlockedRecipes.Count > entryCoords.Count) GameManager.instance.Notify(callback: OpenBook);
     }
 }

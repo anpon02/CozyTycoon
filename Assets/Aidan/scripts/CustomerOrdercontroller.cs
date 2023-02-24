@@ -86,6 +86,11 @@ public class CustomerOrderController : MonoBehaviour
         setOrder = true;
     }
 
+    public void UnsetOrder()
+    {
+        setOrder = false;
+    }
+
     public bool alreadyOrdered()
     {
         return foodOrdered;
