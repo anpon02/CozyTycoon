@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Toast
   itemSprite: {fileID: 21300000, guid: 88a5ecf42deec7b499a0dc1e16b32c8d, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 30
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

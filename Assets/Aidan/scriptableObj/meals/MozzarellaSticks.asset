@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Mozzarella sticks
   itemSprite: {fileID: 21300000, guid: e214cec8a8bf21c4892e110347502574, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 20
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

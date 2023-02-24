@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Fried Egg
   itemSprite: {fileID: 21300000, guid: 02c5adaf1a18b93488162779e8abf543, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 20
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

@@ -1115,13 +1115,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speakers:
-  - name: Luca
+  - name: LUCA
     characterName: 0
     portrait: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
     speakerSoundID: 12
-  - name: Roxy
+  - name: ROXY
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+    speakerSoundID: 0
+  - name: TRIPP
+    characterName: 2
+    portrait: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+    speakerSoundID: 0
+  - name: SALLY
+    characterName: 3
+    portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+    speakerSoundID: 0
+  - name: FLORIAN
+    characterName: 4
+    portrait: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+    speakerSoundID: 0
+  - name: PHIL
+    characterName: 5
+    portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
     speakerSoundID: 0
   controller: {fileID: 535910281}
   OnDialogueEnd:
@@ -1136,7 +1152,7 @@ MonoBehaviour:
   lineDelayModifier: 1
   ConvoStarted: 0
   allowNotes: 0
-  anyNotes: 0
+  notableTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &875716907
 Transform:
   m_ObjectHideFlags: 0

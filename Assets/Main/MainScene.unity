@@ -489,7 +489,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ba9060fad73e114882da350f60d8e68, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    parentVolume: 1
+    parentVolume: 0.8
     parentPitch: 1
   - name: '14: customer entrance'
     ID: 14

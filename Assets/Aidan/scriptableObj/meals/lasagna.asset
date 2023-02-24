@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Lasagna
   itemSprite: {fileID: 21300000, guid: d5fc0f1fe369edb4bbbdd888cc3c1c38, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 40
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

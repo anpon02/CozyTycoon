@@ -47,6 +47,7 @@ public class WorkspaceController : MonoBehaviour
     {
         var iCoord = GetRighClickItem();
         iCoords.Remove(iCoord);
+        if (iCoord == null) return;
         iCoord.gameObject.SetActive(true);
         kMan.lastRetrievedItem = iCoord.GetItem();
         kMan.chef.PickupItem(iCoord);

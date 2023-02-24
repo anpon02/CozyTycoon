@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void UnPauseNotifs()
     {
+        print("Unpaused!");
         notifsPaused = false;
         Notify(loggedNotifObj, loggedNotifCallback);
         loggedNotifObj = null;

@@ -16341,6 +16341,7 @@ MonoBehaviour:
     requiredIngrd:
     - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
     - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
     equipment:
     - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
     result: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
@@ -16372,7 +16373,8 @@ MonoBehaviour:
     minigame: 5
   - name: Espresso recipe
     workSpace: 0
-    requiredIngrd: []
+    requiredIngrd:
+    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
     equipment:
     - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
     result: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
@@ -20467,8 +20469,7 @@ MonoBehaviour:
     complete: 0
     pointer: {fileID: 0}
     pointerOffset: {x: 0, y: 0, z: 0}
-  - text: 'Once all the necessary ingredients are present, click and hold on the
-      workstation to bring up the recipe menu, then select your desired recipe. '
+  - text: 'Once all the necessary ingredients are present, select your desired recipe. '
     subTitle: 
     category: How to Cook
     complete: 0

@@ -38,6 +38,10 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector] public bool allowNotes;
     public Color notableTextColor;
 
+    private void OnValidate() {
+        foreach (var s in speakers) s.name = s.characterName.ToString();
+    }
+
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
 
     private void Update()
