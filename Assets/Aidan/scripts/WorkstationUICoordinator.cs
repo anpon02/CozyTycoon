@@ -131,6 +131,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         progressSlider.value = 0;
         ws.CompleteRecipe();
         KitchenManager.instance.minigameCompleted = true;
+        GameManager.instance.camScript.followMouse = true;
     }
 
     public void AddProgress(float amount)
