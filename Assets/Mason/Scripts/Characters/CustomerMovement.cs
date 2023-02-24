@@ -95,6 +95,7 @@ public class CustomerMovement : MonoBehaviour
     * MOVEMENT FUNCTIONS
     */
     public void GetInLine() {
+        GetComponent<CustomerCoordinator>().storyFinished = false;
         // if not in line or in a farther line spot
         if(currentSpotInLine > LineManager.instance.GetNextOpenSpot() || currentSpotInLine == -1) {
             // get the next available spot from lineManager
@@ -134,7 +135,7 @@ public class CustomerMovement : MonoBehaviour
             if(currentTable)
                 currentTable.SetIsTaken(false);
             currentTable = null;
-            StartCoroutine("AtExitPoint");
+            inRestaurant = false;
         }
     }
 
@@ -153,6 +154,5 @@ public class CustomerMovement : MonoBehaviour
     private IEnumerator AtExitPoint() {
         yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
         transform.position = exitPoint;
-        inRestaurant = false;
     }
 }

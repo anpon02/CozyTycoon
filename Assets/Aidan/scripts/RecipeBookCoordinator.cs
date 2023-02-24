@@ -72,9 +72,39 @@ public class RecipeBookCoordinator : MonoBehaviour
         newGo.SetActive(false);
 
         entryCoords.Add(newRecipeCoord);
+        SortEntryCoords();
         return true;
     }
 
+    void SortEntryCoords()
+    {
+        var temp = new List<RecipeEntryCoordinator>(entryCoords);
+        entryCoords.Clear();
+        
+
+        do {
+            var item = FindLowestIndexInList(temp);
+            if (item == null) break;
+            MoveFromList1ToList2(entryCoords, temp, item);
+        } while (temp.Count > 0);
+    }
+
+    void MoveFromList1ToList2(List<RecipeEntryCoordinator> list1, List<RecipeEntryCoordinator> list2, RecipeEntryCoordinator item)
+    {
+        list1.Add(item);
+        list2.Remove(item);
+    }
+
+    RecipeEntryCoordinator FindLowestIndexInList(List<RecipeEntryCoordinator> list)
+    {
+        if (list.Count == 0) return null;
+        var lowest = list[0];
+        for (int i = 0; i < list.Count; i++) {
+            if (list[i].recipe.index < lowest.recipe.index) lowest = list[i];
+        }
+        return lowest;
+    }
+    
     Recipe GetNewRecipe()
     {
         foreach (var rUnlocked in rMan.unlockedRecipes) {
@@ -129,6 +159,18 @@ public class RecipeBookCoordinator : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) CloseBook();
-        if (rMan.unlockedRecipes.Count > entryCoords.Count) GameManager.instance.Notify(callback: OpenBook);
+        if (rMan.unlockedRecipes.Count > entryCoords.Count) Notify();
+    }
+
+    void Notify()
+    {
+        GameManager.instance.Notify(callback: OpenBook);
+    }
+
+    string PrintList(string preface, List<Recipe> list)
+    {
+        string s = preface;
+        foreach (var i in list) s += i.GetResult().GetName() + ", ";
+        return s;
     }
 }

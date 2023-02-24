@@ -902,7 +902,7 @@ MonoBehaviour:
   - {fileID: 455528692}
   schedule:
   - dayName: 'Week 1: Sunday'
-    customers: 00000000
+    customers: 0000000001000000
   - dayName: 'Week 1: Monday'
     customers: 00000000
   - dayName: 'Week 1: Tuesday'

@@ -58,9 +58,11 @@ public class DayNightController : MonoBehaviour {
 
     public void LastCustomerLeave()
     {
-        time = closeTime + 0.1f;
+        NextDay();
+        time = openTime - 0.01f;
         if (!closed) Close();
         GoToSleep();
+        timeSpeed = 1;
     }
 
     private void Update()

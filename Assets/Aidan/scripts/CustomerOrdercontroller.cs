@@ -26,10 +26,6 @@ public class CustomerOrderController : MonoBehaviour
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
         foodAte = false;
-<<<<<<< HEAD
-        //print("this is literally just here for the meta file to be pushed. we don't like the meta file. down with the meta file.");
-=======
->>>>>>> 977418fb08b5906a7cfcfb0e8458a6a743028df4
     }
 
     private void Start()

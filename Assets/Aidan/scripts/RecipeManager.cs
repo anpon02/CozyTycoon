@@ -71,7 +71,7 @@ public class RecipeManager : MonoBehaviour
 
     void CheckForNewRecipes()
     {
-        if (allRecipes.Count == unlockedRecipes.Count) return;
+        //if (allRecipes.Count == unlockedRecipes.Count) return;
 
         List<Recipe> newUnlocked = GetNewUnlock();
         if (newUnlocked.Count == 0) return;
@@ -81,26 +81,95 @@ public class RecipeManager : MonoBehaviour
 
     List<Recipe> GetNewUnlock()
     {
-        var lockedRecipes = allRecipes.Except(unlockedRecipes);
+        List<Recipe> lockedRecipes = SubtractList(allRecipes, unlockedRecipes);
+
         List<Recipe> newUnlocked = new List<Recipe>();
-        int unlockedThisTime;
-        do {
-            unlockedThisTime = 0;
-            foreach (var r in lockedRecipes) {
-                if (Possible(r) && !newUnlocked.Contains(r)) { newUnlocked.Add(r); unlockedThisTime += 1; }
-            }
-        } while (unlockedThisTime > 0);
+        var lockedMeals = GetLockedMeals(lockedRecipes);
+        foreach (var l in lockedMeals) {
+            var possible = CheckIntermediates(l);
+            if (possible != null) newUnlocked.AddRange(possible);
+        }
 
         return newUnlocked;
     }
 
-    bool Possible(Recipe recipe)
+    List<Recipe> SubtractList(List<Recipe> list1, List<Recipe> list2)
     {
+        List<Recipe> list = new List<Recipe>();
+        foreach (var l in list1) if (!list2.Contains(l)) list.Add(l);
+        return list;
+    }
+
+    List<Item> SubtractList(List<Item> list1, List<Item> list2)
+    {
+        List<Item> list = new List<Item>();
+        foreach (var l in list1) if (!list2.Contains(l)) list.Add(l);
+        return list;
+    }
+
+    List<Recipe> CheckIntermediates(Recipe meal)
+    {
+        List<Recipe> intermediates = GetAllIntermediates(meal);
+        List<Recipe> newUnlocked = new List<Recipe>();
+        int unlockedThisTime;
+        do {
+            unlockedThisTime = 0;
+            foreach (var r in intermediates) {
+                if (Possible(r, newUnlocked) && !newUnlocked.Contains(r)) { newUnlocked.Add(r); unlockedThisTime += 1; }
+            }
+        } while (unlockedThisTime > 0);
+
+        string inter = "";
+        foreach (var i in intermediates) inter += i.GetResult().GetName() + ", ";
+        string unlocked = "";
+        foreach (var i in newUnlocked) unlocked += i.GetResult().GetName() + ", ";
+        //print("checking intermediates for: " + meal.GetResult().GetName() + ", intermediates: " + inter + ", unlcoked intermediates: " + unlocked);
+
+        if (newUnlocked.Count == intermediates.Count) return newUnlocked;
+        return null;
+    }
+
+    List<Recipe> GetAllIntermediates(Recipe top)
+    {
+        List<Recipe> list = new List<Recipe>();
+        list.Add(top);
+        foreach (var i in top.GetIngredients()) {
+            if (HasRecipe(i)) list.AddRange(GetAllIntermediates(GetRecipeForItem(i)));
+        }
+        return list;
+    }
+
+    List<Recipe> GetLockedMeals(List<Recipe> lockedRecipes)
+    {
+        var list = new List<Recipe>();
+        foreach (var r in lockedRecipes) if (r.GetResult().menuItem) list.Add(r);
+        return list;
+    }
+
+    Recipe GetRecipeForItem(Item item)
+    {
+        foreach (var recipe in allRecipes) if (recipe.GetResult().Equals(item)) return recipe;
+        return null;
+    }
+
+    bool Possible(Recipe recipe, List<Recipe> additionalUnlocked)
+    {
+        List<Item> totalUnlocked = new List<Item>();
+        foreach (var r in additionalUnlocked) totalUnlocked.Add(r.GetResult());
+        totalUnlocked.AddRange(unlockedResults);
+
         var equipment = kMan.unlockedEquipment;
         foreach (var e in recipe.GetEquipment()) if (!e.IsPresentInList(equipment)) return false;
-        foreach (var i in recipe.GetIngredients()) if (!i.IsPresentInList(unlockedResults) && HasRecipe(i)) return false;
+        foreach (var i in recipe.GetIngredients()) if (!i.IsPresentInList(totalUnlocked) && HasRecipe(i)) return false;
 
         return true;
+    }
+
+    string PrintList(string preface, List<Item> list)
+    {
+        string s = preface;
+        foreach (var i in list) s += i.GetName() + ", ";
+        return s;
     }
 
     bool HasRecipe(Item toCheck)
@@ -114,8 +183,8 @@ public class RecipeManager : MonoBehaviour
         var results = new List<Item>();
         foreach (var r in newUnlocked) results.Add(r.GetResult());
 
-        unlockedResults.AddRange(results);
-        unlockedRecipes.AddRange(newUnlocked);
+        foreach (var r in results) if (!unlockedResults.Contains(r)) unlockedResults.Add(r);
+        foreach (var u in newUnlocked) if (!unlockedRecipes.Contains(u)) unlockedRecipes.Add(u);
 
         AddIngredients(newUnlocked);
     }
@@ -136,8 +205,8 @@ public class RecipeManager : MonoBehaviour
     }
 
     void OnValidate() {
-        foreach (var r in allRecipes) {
-            r.OnValidate();
+        for (int i = 0; i < allRecipes.Count; i++) {
+            allRecipes[i].OnValidate(i);
         }
     }
 

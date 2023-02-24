@@ -13,11 +13,14 @@ public class Recipe
     [SerializeField] List<Item> equipment = new List<Item>();
     [SerializeField] Item result;
     [SerializeField] Minigame minigame;
+    [HideInInspector] public int index;
 
-    public void OnValidate() {
+    public void OnValidate(int _index) {
         if (result == null) return;
-
-        name = result.name + " recipe";
+        string ingrds = " ";
+        foreach (var i in requiredIngrd) ingrds += i.GetName() + ", ";
+        name = _index + ": " + result.name + ":" + ingrds;
+        index = _index;
     }
 
     public int GetIngredientCount() {

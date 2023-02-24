@@ -1772,6 +1772,9 @@ MonoBehaviour:
   lastTrashedItem: {fileID: 0}
   minigameStarted: 0
   minigameCompleted: 0
+  shopOpen: 0
+  specialtyTabSelected: 0
+  equipmentTabSelected: 0
 --- !u!1 &121867796
 GameObject:
   m_ObjectHideFlags: 0
@@ -12579,6 +12582,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1424304280}
+        m_TargetAssemblyTypeName: ShopCoordinator, Assembly-CSharp
+        m_MethodName: SwitchToEquipmentTab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &698220153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16519,7 +16534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allRecipes:
-  - name: BeefStew recipe
+  - name: '0: BeefStew: Raw Beef, Potato, Onion, '
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
@@ -16529,24 +16544,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: 97bda6df8d301dc4dbcba6ffa233f049, type: 2}
     minigame: 4
-  - name: Cake recipe
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
-    minigame: 5
-  - name: chickenCeasarSalad recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
-    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
-    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: e475cb14d3611db4bab30bece7a4a0b9, type: 2}
-    minigame: 0
-  - name: ChickenVeggieSoup recipe
+    index: 0
+  - name: '1: ChickenVeggieSoup: raw chicken, Broccoli, Carrot, Onion, '
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
@@ -16557,7 +16556,116 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: 56dfde46623832044b51e07b6e8e84e8, type: 2}
     minigame: 4
-  - name: coffee recipe
+    index: 1
+  - name: '2: VegetableSoup: Broccoli, Carrot, Onion, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: d8be587084fd30b45973a7ba6b87647d, type: 2}
+    minigame: 4
+    index: 2
+  - name: '3: Cake: Cake mix, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
+    minigame: 5
+    index: 3
+  - name: '4: cakeMix: butter, sugar, flour, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    minigame: 3
+    index: 4
+  - name: '5: Croissant: Raw croissant, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 5e9af02cda9dd7b49bf891e40cd4c6ed, type: 2}
+    minigame: 5
+    index: 5
+  - name: '6: rawCroisant: Pastry Dough, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
+    minigame: 0
+    index: 6
+  - name: '7: pastryDough: butter, sugar, flour, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    result: {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
+    minigame: 6
+    index: 7
+  - name: '8: Flan: Flan mixture, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 617fab2e29d5872409b14290aeaa7a88, type: 2}
+    minigame: 5
+    index: 8
+  - name: '9: flanMixture: sugar, Egg, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
+    minigame: 3
+    index: 9
+  - name: '10: coffeeCake: Cake mix, Coffee, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
+    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
+    minigame: 5
+    index: 10
+  - name: '11: Cookies: Cookie dough, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
+    minigame: 5
+    index: 11
+  - name: '12: cookieDough: butter, sugar, flour, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    minigame: 3
+    index: 12
+  - name: '13: coffee: Milk, sugar, Coffee beans, '
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
@@ -16567,32 +16675,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
     result: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
     minigame: 7
-  - name: coffeeCake recipe
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
-    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
-    minigame: 5
-  - name: Cookies recipe
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
-    minigame: 5
-  - name: Croissant recipe
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: 5e9af02cda9dd7b49bf891e40cd4c6ed, type: 2}
-    minigame: 5
-  - name: Espresso recipe
+    index: 13
+  - name: '14: Espresso: Coffee beans, '
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
@@ -16600,23 +16684,73 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
     result: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
     minigame: 7
-  - name: Flan recipe
-    workSpace: 1
+    index: 14
+  - name: '15: chickenCeasarSalad: Pan Fried Chicken, Lettuce, Chopped Tomato, '
+    workSpace: 0
     requiredIngrd:
-    - {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
+    - {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: e475cb14d3611db4bab30bece7a4a0b9, type: 2}
+    minigame: 0
+    index: 15
+  - name: '16: salad: Lettuce, Chopped Tomato, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
+    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: a36e41e2e01d78048af994bf923315c3, type: 2}
+    minigame: 0
+    index: 16
+  - name: '17: choppedTomato: Tomato, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
     equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: 617fab2e29d5872409b14290aeaa7a88, type: 2}
-    minigame: 5
-  - name: frenchFries recipe
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
+    minigame: 1
+    index: 17
+  - name: '18: sauteedBroccoli: Broccoli, '
     workSpace: 2
     requiredIngrd:
-    - {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
     equipment:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 181aa0b1aab935d4594a4bf4bae062d5, type: 2}
+    result: {fileID: 11400000, guid: be1dde789fff52945a43a1087c1e1c19, type: 2}
     minigame: 2
-  - name: FriedEgg recipe
+    index: 18
+  - name: '19: sauteedCarrot: Carrot, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 0c52b5d41cc217341ab353714f6aeeef, type: 2}
+    minigame: 2
+    index: 19
+  - name: '20: SteamedBroccoli: Broccoli, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
+    minigame: 4
+    index: 20
+  - name: '21: SteamedCarrot: Carrot, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
+    minigame: 4
+    index: 21
+  - name: '22: FriedEgg: Egg, '
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
@@ -16624,7 +16758,166 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 0bb58749b5beee7468cec5b262280be5, type: 2}
     minigame: 2
-  - name: GarlicBread recipe
+    index: 22
+  - name: '23: Omelette: Egg, Cheese, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 860fccfd77399de499304ead7a2517a4, type: 2}
+    minigame: 2
+    index: 23
+  - name: '24: Pancakes: pancake batter, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 921d88d1f2e84544b88382569718c980, type: 2}
+    minigame: 2
+    index: 24
+  - name: '25: PancakeBatter: butter, sugar, flour, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
+    minigame: 3
+    index: 25
+  - name: '26: lasagna: Raw pasta, Tomato sauce, Ground Beef, '
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
+    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
+    minigame: 5
+    index: 26
+  - name: '27: tomatoSauce: Tomato, sugar, Garlic, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
+    minigame: 3
+    index: 27
+  - name: '28: rawPasta: flour, Egg, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    result: {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    minigame: 6
+    index: 28
+  - name: '29: MacnCheese: Raw pasta, Grated cheese, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 0e3854e08de48674aa26c8fb9e1fbd01, type: 2}
+    minigame: 4
+    index: 29
+  - name: '30: spaghetti: Raw pasta, Grated cheese, Meatball, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    - {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: e0dbeac08dba00243a5b4cbf86c29f1d, type: 2}
+    minigame: 4
+    index: 30
+  - name: '31: gratedCheese: Cheese, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7b898c81eca8d014d822ea9d45ca6312, type: 2}
+    result: {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
+    minigame: 8
+    index: 31
+  - name: '32: meatball: Ground Beef, Garlic, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
+    minigame: 2
+    index: 32
+  - name: '33: mashedPotatoes: Boiled Potato, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 377cbd2d04f0f464a8d36c39e995df7e, type: 2}
+    minigame: 3
+    index: 33
+  - name: '34: boiledPotato: Potato, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
+    minigame: 4
+    index: 34
+  - name: '35: frenchFries: Chopped Potato, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 181aa0b1aab935d4594a4bf4bae062d5, type: 2}
+    minigame: 2
+    index: 35
+  - name: '36: choppedPotato: Potato, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
+    minigame: 1
+    index: 36
+  - name: '37: MozzarellaSticks: Cheese, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: c276d0126c19e304cbe105ec0dd3bade, type: 2}
+    minigame: 2
+    index: 37
+  - name: '38: toast: Sliced bread, butter, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: e1a34e2c3d2a05648ae99df1deecbbd3, type: 2}
+    minigame: 2
+    index: 38
+  - name: '39: GarlicBread: Bread, Garlic, '
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
@@ -16633,7 +16926,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: 4bcb1f6c24f8378458cf1620003b90fc, type: 2}
     minigame: 5
-  - name: GrilledCheese recipe
+    index: 39
+  - name: '40: GrilledCheese: Grated cheese, Sliced bread, '
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
@@ -16642,7 +16936,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: b6c31dc15d823f749990be16ac1f4f21, type: 2}
     minigame: 2
-  - name: hamburger recipe
+    index: 40
+  - name: '41: hamburger: Sliced bread, Cooked Patty, Lettuce, Tomato, '
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
@@ -16653,276 +16948,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: bb49849ce0914444d91baab675c54e9b, type: 2}
     minigame: 2
-  - name: lasagna recipe
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
-    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
-    minigame: 5
-  - name: MacnCheese recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 0e3854e08de48674aa26c8fb9e1fbd01, type: 2}
-    minigame: 4
-  - name: mashedPotatoes recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 377cbd2d04f0f464a8d36c39e995df7e, type: 2}
-    minigame: 3
-  - name: MozzarellaSticks recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: c276d0126c19e304cbe105ec0dd3bade, type: 2}
-    minigame: 2
-  - name: Omelette recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
-    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 860fccfd77399de499304ead7a2517a4, type: 2}
-    minigame: 2
-  - name: Pancakes recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 921d88d1f2e84544b88382569718c980, type: 2}
-    minigame: 2
-  - name: panFriedChicken recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
-    minigame: 2
-  - name: panSearedSteak recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
-    minigame: 2
-  - name: salad recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: faca68a11567f1141ac5aae37619d220, type: 2}
-    - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: a36e41e2e01d78048af994bf923315c3, type: 2}
-    minigame: 0
-  - name: sauteedBroccoli recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: be1dde789fff52945a43a1087c1e1c19, type: 2}
-    minigame: 2
-  - name: sauteedCarrot recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 0c52b5d41cc217341ab353714f6aeeef, type: 2}
-    minigame: 2
-  - name: spaghetti recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    - {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
-    - {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: e0dbeac08dba00243a5b4cbf86c29f1d, type: 2}
-    minigame: 4
-  - name: SteakBites recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: cd4b7a6534aea7f4895a797fbeb06a2c, type: 2}
-    minigame: 2
-  - name: SteamedBroccoli recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
-    minigame: 4
-  - name: SteamedCarrot recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
-    minigame: 4
-  - name: toast recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: e1a34e2c3d2a05648ae99df1deecbbd3, type: 2}
-    minigame: 2
-  - name: VegetableSoup recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
-    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
-    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: d8be587084fd30b45973a7ba6b87647d, type: 2}
-    minigame: 4
-  - name: cubedBeef recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
-    minigame: 1
-  - name: groundBeef recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    result: {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
-    minigame: 1
-  - name: RawPatty recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 831b189103e6032469c18c9084fc2d93, type: 2}
-    minigame: 0
-  - name: cookedPatty recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 831b189103e6032469c18c9084fc2d93, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 28b8b757b1494e646a4b9c5d1de0cd8b, type: 2}
-    minigame: 2
-  - name: boiledPotato recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 3f44074c8eef8b4458d11b7bd5a24417, type: 2}
-    minigame: 4
-  - name: PancakeBatter recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 3aedc0dcf6202bc4eac49e32b0b63c77, type: 2}
-    minigame: 3
-  - name: cakeMix recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: d209dde98a86e984b92312dded699d4f, type: 2}
-    minigame: 3
-  - name: choppedPotato recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 6d6d31720e288d3438dfd3052fdd6f7c, type: 2}
-    minigame: 1
-  - name: pastryDough recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
-    result: {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
-    minigame: 6
-  - name: rawCroisant recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: ab5c2521288be78488d9d7edf44065bd, type: 2}
-    minigame: 0
-  - name: flanMixture recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 914d475beff0ed64b9a76c076eb83b97, type: 2}
-    minigame: 3
-  - name: cookieDough recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
-    minigame: 3
-  - name: breadDough recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 73631315b97f95c4f80927a7942c576d, type: 2}
-    minigame: 3
-  - name: choppedTomato recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
-    minigame: 1
-  - name: slicedBread recipe
+    index: 41
+  - name: '42: slicedBread: Bread, '
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
@@ -16931,7 +16958,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: 55f396983ba6b494ea5a4d396c0e1c1f, type: 2}
     minigame: 1
-  - name: bread recipe
+    index: 42
+  - name: '43: bread: Bread dough, '
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: 73631315b97f95c4f80927a7942c576d, type: 2}
@@ -16939,42 +16967,81 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: ec07ea1f88800dd4d8ec783a57e9073c, type: 2}
     minigame: 5
-  - name: gratedCheese recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 7b898c81eca8d014d822ea9d45ca6312, type: 2}
-    result: {fileID: 11400000, guid: 62f9e73c375108245820a2d8716c7969, type: 2}
-    minigame: 8
-  - name: tomatoSauce recipe
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
-    result: {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
-    minigame: 3
-  - name: meatball recipe
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
-    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 932e37b919df9134a89234c65b8eb73e, type: 2}
-    minigame: 2
-  - name: rawPasta recipe
+    index: 43
+  - name: '44: breadDough: flour, '
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
     equipment:
-    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
-    result: {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    minigame: 6
+    - {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+    result: {fileID: 11400000, guid: 73631315b97f95c4f80927a7942c576d, type: 2}
+    minigame: 3
+    index: 44
+  - name: '45: cookedPatty: raw patty, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 831b189103e6032469c18c9084fc2d93, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 28b8b757b1494e646a4b9c5d1de0cd8b, type: 2}
+    minigame: 2
+    index: 45
+  - name: '46: RawPatty: Ground Beef, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 831b189103e6032469c18c9084fc2d93, type: 2}
+    minigame: 0
+    index: 46
+  - name: '47: groundBeef: Raw Beef, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    result: {fileID: 11400000, guid: 10d8a1e08064a12438ad66b883921f92, type: 2}
+    minigame: 1
+    index: 47
+  - name: '48: panFriedChicken: raw chicken, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+    minigame: 2
+    index: 48
+  - name: '49: panSearedSteak: Raw Beef, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
+    minigame: 2
+    index: 49
+  - name: '50: SteakBites: Cubed Beef, '
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: cd4b7a6534aea7f4895a797fbeb06a2c, type: 2}
+    minigame: 2
+    index: 50
+  - name: '51: cubedBeef: Raw Beef, '
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 117681340b682cb48ac9aeb5db4a1080, type: 2}
+    minigame: 1
+    index: 51
   unlockedRecipes: []
   tutorialRecipeLimit: 0
 --- !u!4 &992974426
@@ -20613,6 +20680,7 @@ MonoBehaviour:
   lucaOrder: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
   fryingPan: {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
   rawChicken: {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
+  pancakes: {fileID: 0}
   offset: 1.7
   waitTime: 1
   helpScript: {fileID: 2026990139}
@@ -20716,6 +20784,44 @@ MonoBehaviour:
     complete: 0
     pointer: {fileID: 0}
     pointerOffset: {x: 0, y: 1.3, z: 0}
+  - text: "The next thing to learn about is the shop! Click the \u2018shop\u2019
+      button to open it up"
+    subTitle: 
+    category: Progression
+    complete: 0
+    pointer: {fileID: 0}
+    pointerOffset: {x: 0, y: 0, z: 0}
+  - text: There are two sections here - equipment and specialty items. Open the specialty
+      items tab to continue.
+    subTitle: 
+    category: Progression
+    complete: 0
+    pointer: {fileID: 0}
+    pointerOffset: {x: 0, y: 0, z: 0}
+  - text: Unlike normal ingredients, items purchased here have a limited stock, and
+      will run out. Pay attention to customers to discover new specialty items. For
+      now, go back to the equipment tab.
+    subTitle: 
+    category: Progression
+    complete: 0
+    pointer: {fileID: 0}
+    pointerOffset: {x: 0, y: 0, z: 0}
+  - text: Here you can purchase new equipment for your restaurant, unlocking new
+      ingredients and recipes. Try buying a mixer to unlock some new recipes.
+    subTitle: 
+    category: Progression
+    complete: 0
+    pointer: {fileID: 0}
+    pointerOffset: {x: 0, y: 0, z: 0}
+  - text: "As your cookbook expands, customers will order more complicated dishes,
+      but they\u2019ll pay more for them. Additionally, each customer has some favorite
+      foods, and if you have unlocked those, those customers will be grateful and
+      more friendly. To complete the tutorial, make some pancakes with your new mixer"
+    subTitle: 
+    category: Progression
+    complete: 0
+    pointer: {fileID: 0}
+    pointerOffset: {x: 0, y: 0, z: 0}
   startFromBeginning: 1
 --- !u!223 &1290904218
 Canvas:
@@ -22907,12 +23013,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSell:
-  - {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
   - {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
   - {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+  - {fileID: 11400000, guid: 7fff9fa4ff73e0b48a370b57736c4a55, type: 2}
   - {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
   - {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
-  - {fileID: 11400000, guid: 7fff9fa4ff73e0b48a370b57736c4a55, type: 2}
+  - {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
   coord: {fileID: 1424304280}
   content: {fileID: 894709095}
   shopButton: {fileID: 694832965}
@@ -26899,6 +27005,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1424304280}
+        m_TargetAssemblyTypeName: ShopCoordinator, Assembly-CSharp
+        m_MethodName: SwitchToSpecialTab
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -36738,7 +36856,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026990137}
   m_LocalRotation: {x: 0, y: -0, z: -1, w: -0.00000004371139}
-  m_LocalPosition: {x: 0, y: 0, z: 18.518517}
+  m_LocalPosition: {x: 0, y: 0, z: 19.46472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -36748,7 +36866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 94.49999, y: -68.49996}
+  m_AnchoredPosition: {x: 94.42338, y: -68.44441}
   m_SizeDelta: {x: -699.8148, y: -348.2163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2026990139

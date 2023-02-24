@@ -11,7 +11,8 @@ public class CustomerCoordinator : MonoBehaviour
     public CharacterName characterName;
     [SerializeField] private TextAsset inkStory;
     private int storyPhaseNum;
-    private bool storySaid;
+    private bool storyStarted;
+    [HideInInspector] public bool storyFinished;
 
     [Header("Particle System")]
     [SerializeField] private float emitTime;
@@ -25,7 +26,7 @@ public class CustomerCoordinator : MonoBehaviour
     private void Awake() {
         // Customer Story
         storyPhaseNum = 0;
-        storySaid = false;
+        storyStarted = false;
 
         // Customer Particle
         pSystem = GetComponentInChildren<ParticleSystem>();
@@ -48,7 +49,11 @@ public class CustomerCoordinator : MonoBehaviour
             forkKnife.gameObject.SetActive(true);
         else
             forkKnife.gameObject.SetActive(false);
+
+        if (storyStarted && !storyFinished) CheckForStoryEnd();
     }
+
+    
 
     /*
     * RELATIONSHIP STATUS FUNCTIONS
@@ -85,18 +90,24 @@ public class CustomerCoordinator : MonoBehaviour
     public void StartStory() {
         if (!DialogueManager.instance) return;
 
+        storyFinished = false;
         DialogueManager.instance.speakingCharacter = gameObject;
         DialogueManager.instance.StartDialogueMainStory(inkStory, characterName, storyPhaseNum);
-        storySaid = true;
+        storyStarted = true;
         NextStoryPhase();
     }
 
     public bool GetStorySaid() {
-        return storySaid;
+        return storyStarted;
     }
 
     public void SetStorySaid(bool said) {
-        storySaid = said;
+        storyStarted = said;
+    }
+
+    void CheckForStoryEnd()
+    {
+        if (DialogueManager.instance.StoryEnded()) storyFinished = true;
     }
 
     /*

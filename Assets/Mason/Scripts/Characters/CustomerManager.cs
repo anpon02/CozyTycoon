@@ -94,12 +94,19 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator StartSendingCustomers() {
         for(int i = 0; i < todaysCustomers.Count; ++i) {
             if(i > 0)
-                yield return new WaitUntil(() => !CustomerInRestaurant(i - 1));
+                yield return new WaitUntil(() => CustomerFinishedTalking(i - 1));
             CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
             move.GetInLine();
         }
+        //print("AHHHH: " + todaysCustomers.Count);
         yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
+        //print("BRUHHH");
         gMan.timeScript.LastCustomerLeave();
+    }
+
+    bool CustomerFinishedTalking(int customerIndex)
+    {
+        return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().storyFinished;
     }
 
     private bool CustomerInRestaurant(int customerIndex) {

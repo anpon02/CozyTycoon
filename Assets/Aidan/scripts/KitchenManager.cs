@@ -29,7 +29,8 @@ public class KitchenManager : MonoBehaviour {
     [HideInInspector] public ChefController chef;
     bool enabledEquipment;
     [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
-    [HideInInspector] public bool minigameStarted, minigameCompleted;
+    [HideInInspector] public bool minigameStarted, minigameCompleted, shopOpen, specialtyTabSelected, equipmentTabSelected;
+    bool waitingToStartTutorialOnDay2;
 
     private void OnValidate()
     {
@@ -47,6 +48,13 @@ public class KitchenManager : MonoBehaviour {
         StartCoroutine(startTutorial());
     }
 
+    public void NextTutSectionTomorrow()
+    {
+        tutorial.gameObject.SetActive(false);
+        waitingToStartTutorialOnDay2 = true;
+    }
+    
+
     IEnumerator startTutorial()
     {
         tutorial.gameObject.SetActive(false);
@@ -58,6 +66,10 @@ public class KitchenManager : MonoBehaviour {
     private void Update()
     {
         if (!enabledEquipment && allStorage.Count > 0) EnableStartingEquipment();
+        if (waitingToStartTutorialOnDay2 && GameManager.instance.timeScript.day == 1) {
+            waitingToStartTutorialOnDay2 = false;
+            StartCoroutine(startTutorial());
+        }
     }
 
     void EnableStartingEquipment()

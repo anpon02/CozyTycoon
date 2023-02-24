@@ -19,7 +19,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
     [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton, stove, pans, meatFridge;
-    [SerializeField] Item mixer, potato, lucaOrder, fryingPan, rawChicken;
+    [SerializeField] Item mixer, potato, lucaOrder, fryingPan, rawChicken, pancakes;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
     [SerializeField] List<Instruction> instructions = new List<Instruction>();
@@ -66,7 +66,8 @@ public class TutorialController : MonoBehaviour
             category.text = "";
             AudioManager.instance.PlaySound(6);
             helpScript.gameObject.SetActive(false);
-            kMan.NextTutSection();
+            if (currentInstruction < 14) kMan.NextTutSection();
+            else kMan.NextTutSectionTomorrow();
             return;
         }
 
@@ -120,9 +121,40 @@ public class TutorialController : MonoBehaviour
 
         CheckForMinigameStart();
         CheckForMinigameComplete();
-
         CheckIfPlated();
         CheckIfDelivered();
+
+        //[15]
+        CheckForShopOpen();
+        CheckForSpecialtyTabSelected();
+        CheckForEquipmentTabSelected();
+        CheckForMixerBought();
+        CheckForPancakeMade();
+    }
+
+    void CheckForPancakeMade()
+    {
+        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(pancakes)) instructions[19].complete = true;
+    }
+
+    void CheckForMixerBought()
+    {
+        if (mixer.IsPresentInList(kMan.unlockedEquipment)) instructions[18].complete = true;
+    }
+
+    void CheckForEquipmentTabSelected()
+    {
+        if (instructions[16].complete && kMan.equipmentTabSelected) instructions[17].complete = true;
+    }
+
+    void CheckForSpecialtyTabSelected()
+    {
+        if (instructions[15].complete && kMan.specialtyTabSelected) instructions[16].complete = true;
+    }
+
+    void CheckForShopOpen()
+    {
+        if (instructions[14].complete && kMan.shopOpen) instructions[15].complete = true;
     }
 
     void CheckIfDelivered()
@@ -254,6 +286,7 @@ public class TutorialController : MonoBehaviour
         if (!instructions[14].complete) luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
         else luca.GetComponentInChildren<CustomerOrderController>().UnsetOrder();
         instructions[5].pointer = luca;
+        instructions[6].pointer = luca;
         instructions[7].pointer = luca;
         instructions[14].pointer = luca;
     }

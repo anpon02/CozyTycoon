@@ -41,6 +41,7 @@ public class ShopController : MonoBehaviour
         DisplayProducts();
         shopButton.SetActive(true);
         PauseManager.instance.numOpenMenus += 1;
+        KitchenManager.instance.shopOpen = true;
     }
 
     public void CloseShop()
@@ -49,6 +50,7 @@ public class ShopController : MonoBehaviour
         
         content.SetActive(false);
         PauseManager.instance.numOpenMenus -= 1;
+        KitchenManager.instance.shopOpen = false;
     }
 
     public void Remove(Product toRemove)

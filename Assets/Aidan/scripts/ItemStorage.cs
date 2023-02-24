@@ -11,7 +11,6 @@ public class ItemStorage : MonoBehaviour
         [HideInInspector] public string name;
         public Item item;
         public int maxNum;
-        //[HideInInspector] public int numRemaining;
         public int numRemaining;
         [HideInInspector] public List<ItemCoordinator> instances = new List<ItemCoordinator>();
         [HideInInspector] public bool enabled;
@@ -50,7 +49,6 @@ public class ItemStorage : MonoBehaviour
 
     public void GetItem()   
     {
-        
         if (closed || !SetChef() || !items[itemIndex].enabled) return;
         if (chef.IsHoldingItem()) { TryRestock(); return; }
 
