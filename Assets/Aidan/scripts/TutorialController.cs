@@ -77,7 +77,7 @@ public class TutorialController : MonoBehaviour
         details.text = instructions[currentInstruction].subTitle;
     }
 
-    void EndTut()
+    public void EndTut()
     {
         AudioManager.instance.PlaySound(6);
         gameObject.SetActive(false);
