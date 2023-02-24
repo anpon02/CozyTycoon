@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
   MinLerpDist: 0.01
-  moveSmoothness: 0.9
+  moveSmoothness: 1
   travellingToChef: 0
   plate: {fileID: 8858073164417920087}
   plated: 0

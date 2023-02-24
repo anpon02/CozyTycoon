@@ -19,10 +19,11 @@ public class WorkspaceController : MonoBehaviour
 
     [SerializeField] List<ItemCoordinator> iCoords;
 
-    public string chosenRecipe;
+    [HideInInspector] public string chosenRecipe;
 
     KitchenManager kMan;
     AudioSource source;
+    [HideInInspector] public bool hasBigEquipment;
 
     Item result;
     List<Item> toRemove = new List<Item>();
@@ -45,7 +46,10 @@ public class WorkspaceController : MonoBehaviour
 
     void RighClickOnWS()
     {
+        if (wsUIcoord.IsMinigameActive()) return;
+
         var iCoord = GetRighClickItem();
+        if (iCoord.GetItem().isBigEquipment) hasBigEquipment = false;
         iCoords.Remove(iCoord);
         if (iCoord == null) return;
         iCoord.gameObject.SetActive(true);
@@ -71,11 +75,15 @@ public class WorkspaceController : MonoBehaviour
 
     public void RemoveItemFromList(int index)
     {
+        if (wsUIcoord.IsMinigameActive()) return;
+
+
         ItemCoordinator iCoord = null;
         if (iCoords.Count > index) iCoord = iCoords[index];
         if (iCoord == null) return;
         kMan.lastRetrievedItem = iCoord.GetItem();
 
+        if (iCoord.GetItem().isBigEquipment) hasBigEquipment = false;
         iCoords.Remove(iCoord);
         iCoord.gameObject.SetActive(true);
         kMan.chef.PickupItem(iCoord);
@@ -109,6 +117,9 @@ public class WorkspaceController : MonoBehaviour
     void AddItem(ItemCoordinator iCoord)
     {
         if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord || (iCoord.wsDest != null && iCoord.wsDest != this)) return;
+        bool isBig = iCoord.GetItem().isBigEquipment;
+        if (isBig && hasBigEquipment) return;
+        if (isBig) hasBigEquipment = true;
 
         kMan.lastAddedItem = iCoord.GetItem();
         iCoords.Add(iCoord);
@@ -164,13 +175,6 @@ public class WorkspaceController : MonoBehaviour
         if (veg + meat == 0) return FoodType.NONE;
         if (veg == 0) return FoodType.MEAT;
         else return FoodType.VEGGIE;
-    }
-
-    void PlaySound()
-    {
-        if (source == null) source = gameObject.GetOrAddComponent<AudioSource>();
-
-        if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
     }
 
     ItemCoordinator RemoveItem(Item toRemove)

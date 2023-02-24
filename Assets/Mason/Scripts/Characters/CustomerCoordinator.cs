@@ -17,6 +17,11 @@ public class CustomerCoordinator : MonoBehaviour
     [SerializeField] private float emitTime;
     private ParticleSystem pSystem;
 
+    [Header("Customer Interactable")]
+    [SerializeField] private CustomerInteractable forkKnife;
+    private CustomerMovement movement;
+    private CustomerOrderController orderController;
+
     private void Awake() {
         // Customer Story
         storyPhaseNum = 0;
@@ -24,11 +29,25 @@ public class CustomerCoordinator : MonoBehaviour
 
         // Customer Particle
         pSystem = GetComponentInChildren<ParticleSystem>();
+
+        // customer interactable
+        movement = GetComponent<CustomerMovement>();
+        orderController = GetComponentInChildren<CustomerOrderController>();
     }
 
     private void Start() {
         // Customer Particle
         pSystem.Stop();
+    }
+
+    private void Update() {
+        if(PauseManager.instance && PauseManager.instance.paused) return;
+
+        // activate/deactivate forkKnife based on movement and if food is delivered
+        if(!movement.IsMoving() && !orderController.GetHasReceivedFood())
+            forkKnife.gameObject.SetActive(true);
+        else
+            forkKnife.gameObject.SetActive(false);
     }
 
     /*
