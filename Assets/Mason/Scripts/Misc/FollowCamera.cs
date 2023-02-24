@@ -40,7 +40,10 @@ public class FollowCamera : MonoBehaviour
     }
 
     private void SetTarget() {
-        if(!followMouse) return;
+        if(!followMouse) {
+            followVCam.gameObject.SetActive(true);
+            return;
+        }
 
         // get mouse position in world, move mouseCamTarget to it, and restrict it to max distance from player
         Vector3 mousePos = Input.mousePosition;

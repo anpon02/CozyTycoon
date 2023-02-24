@@ -24,7 +24,6 @@ public class OrderListItemCoordinator : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         UpdateCircle();
-        if (timeLeft <= 0 && red) FailCustomer(); 
     }
 
     void UpdateCircle()
@@ -35,12 +34,6 @@ public class OrderListItemCoordinator : MonoBehaviour
             timeLeft = patience;
             timer.color = Color.red;
         }
-    }
-
-    void FailCustomer()
-    {
-        var cMan = CustomerManager.instance;
-        if (cMan) cMan.MakeCustomerLeave(character);
     }
 
     public void Init(string _text, float time, CharacterName _customer)
