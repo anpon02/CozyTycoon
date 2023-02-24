@@ -17,6 +17,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField] Slider musicVolSlider, sfxVolSlider;
     [SerializeField] Image assistUnchecked;
     [SerializeField] GameObject assistChecked;
+    [SerializeField] Image isometricUnchecked;
+    [SerializeField] GameObject isometricChecked;
 
     [Header("Settings")]
     [SerializeField] int menusclickSound;
@@ -124,5 +126,24 @@ public class PauseManager : MonoBehaviour
         GameManager.instance.assistMode = true;
         assistChecked.SetActive(true);
         assistUnchecked.color = new Color(1, 1, 1, 0.5f);
+    }
+
+    public void ToggleIsometricMode() {
+        if(!GameManager.instance.player.GetComponent<PlayerMovement>().isometricMovement)
+            EnableIsometricMode();
+        else
+            DisableIsometricMode();
+    }
+
+    private void DisableIsometricMode() {
+        GameManager.instance.player.GetComponent<PlayerMovement>().isometricMovement = false;
+        isometricChecked.SetActive(false);
+        isometricUnchecked.color = new Color(1, 1, 1, 0.2f);
+    }
+
+    private void EnableIsometricMode() {
+        GameManager.instance.player.GetComponent<PlayerMovement>().isometricMovement = true;
+        isometricChecked.SetActive(true);
+        isometricUnchecked.color = new Color(1, 1, 1, 0.5f);
     }
 }

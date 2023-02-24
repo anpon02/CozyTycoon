@@ -35,6 +35,7 @@ public class FollowCamera : MonoBehaviour
     bool SetPlayer()
     {
         if (GameManager.instance == null) return false;
+        if (!GameManager.instance.player) return false;
         player = GameManager.instance.player.transform;
         return player != null;
     }
