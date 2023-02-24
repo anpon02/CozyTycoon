@@ -29,10 +29,18 @@ public class PlayerMovement : MonoBehaviour
         pInputActions.Disable();
     }
 
+    private Vector2 IsometricConversion(Vector2 position) {
+        Vector2 isoVec = new Vector2();
+        isoVec.x = position.x - position.y;
+        isoVec.y = (position.x + position.y) / 2;
+        return isoVec;
+    }
+
     private void Move() {
         Vector2 moveInput = pInputActions.Player.Movement.ReadValue<Vector2>();
+        Vector2 angleVec = new Vector2(Mathf.Cos(Mathf.PI / 6), Mathf.Sin(Mathf.PI / 6));
         moveInput = Vector2.ClampMagnitude(moveInput, 1);
-        body.MovePosition(body.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+        body.MovePosition(body.position + IsometricConversion(moveInput * moveSpeed * Time.fixedDeltaTime));
     }
 
     private void FixedUpdate() {
