@@ -42,6 +42,8 @@ public class OrderUICoordinator : MonoBehaviour
 
         listItems.Remove(listItem);
         Destroy(listItem.gameObject);
+
+        if (listItems.Count == 0) OrderParent.SetActive(false);
     }
 
     OrderListItemCoordinator FindListItem(CharacterName character)

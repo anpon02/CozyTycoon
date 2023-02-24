@@ -13,7 +13,7 @@ public class KitchenManager : MonoBehaviour {
         public Item item;
     }
 
-    [SerializeField] GameObject itemCoordPrefab;
+    [SerializeField] GameObject itemCoordPrefab, shopButton;
     [SerializeField] List<ProductObject> productObjData = new List<ProductObject>();
     public List<Item> unlockedEquipment = new List<Item>();
     public List<Item> unlockedIngredients = new List<Item>();
@@ -30,7 +30,7 @@ public class KitchenManager : MonoBehaviour {
     bool enabledEquipment;
     [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
     [HideInInspector] public bool minigameStarted, minigameCompleted, shopOpen, specialtyTabSelected, equipmentTabSelected;
-    bool waitingToStartTutorialOnDay2;
+    float nextTutorialMoneyAmount = Mathf.Infinity;
 
     private void OnValidate()
     {
@@ -39,7 +39,7 @@ public class KitchenManager : MonoBehaviour {
 
     private void Start() 
     {
-        if (playTutorial) NextTutSection();
+        if (playTutorial) { NextTutSection(); shopButton.SetActive(false); }
         else GameManager.instance.UnPauseNotifs();
     }
 
@@ -48,10 +48,10 @@ public class KitchenManager : MonoBehaviour {
         StartCoroutine(startTutorial());
     }
 
-    public void NextTutSectionTomorrow()
+    public void nextTutSectionWhenThisRich(int price)
     {
         tutorial.gameObject.SetActive(false);
-        waitingToStartTutorialOnDay2 = true;
+        nextTutorialMoneyAmount = price;
     }
     
 
@@ -66,8 +66,8 @@ public class KitchenManager : MonoBehaviour {
     private void Update()
     {
         if (!enabledEquipment && allStorage.Count > 0) EnableStartingEquipment();
-        if (waitingToStartTutorialOnDay2 && GameManager.instance.timeScript.day == 1) {
-            waitingToStartTutorialOnDay2 = false;
+        if (GameManager.instance.wallet.money > nextTutorialMoneyAmount && GameManager.instance.timeScript.day >= 1) {
+            nextTutorialMoneyAmount = Mathf.Infinity;
             StartCoroutine(startTutorial());
         }
     }

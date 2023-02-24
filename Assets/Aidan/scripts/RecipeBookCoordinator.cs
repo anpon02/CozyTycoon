@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class RecipeBookCoordinator : MonoBehaviour
 {
-    [SerializeField] GameObject bookParent, leftPage, rightPage, recipeEntryPrefab, nextPage, prevPage;
+    [SerializeField] GameObject bookParent, leftPage, rightPage, recipeEntryPrefab, nextPage, prevPage, recipeButton;
     List<RecipeEntryCoordinator> entryCoords = new List<RecipeEntryCoordinator>();
     
     [Header("Sounds")]
@@ -59,6 +59,7 @@ public class RecipeBookCoordinator : MonoBehaviour
         DisplayCurrentPage();
         AudioManager.instance.PlaySound(openbookSound, gameObject);
         PauseManager.instance.numOpenMenus += 1;
+        recipeButton.SetActive(true);
     }
 
     bool AddNewUnlockedRecipe()

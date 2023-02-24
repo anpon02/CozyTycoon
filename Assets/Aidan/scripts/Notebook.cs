@@ -41,7 +41,6 @@ public class Notebook : MonoBehaviour
 
     public void RecordInfo(string info, CharacterName character)
     {
-        print("AHHHH: " + info);
         int index = 0;
         for (int i = 0; i < names.Count; i++) {
             if (names[i] == character) index = i;

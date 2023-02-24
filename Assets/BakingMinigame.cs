@@ -7,6 +7,7 @@ public class BakingMinigame : MonoBehaviour
     [SerializeField] WorkstationUICoordinator uiCoord;
     private void OnEnable()
     {
+        uiCoord.ongoingMinigames += 1;
         Complete();
     }
     void Complete()

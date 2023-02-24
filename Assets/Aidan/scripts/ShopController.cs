@@ -11,6 +11,8 @@ public class ShopController : MonoBehaviour
     [SerializeField] int openshopSound;
     [SerializeField] int purchaseSound;
     [SerializeField] bool startEnabled;
+    List<Product> affordable = new List<Product>();
+    int notifiedNum;
 
     public void PlaySound()
     {
@@ -20,6 +22,14 @@ public class ShopController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) CloseShop();
+        NotifyAfford();
+    }
+
+    void NotifyAfford()
+    {
+        int num = affordable.Count;
+        foreach (var p in toSell) if (p.quantity == -1 && !affordable.Contains(p) && p.price <= GameManager.instance.wallet.money) affordable.Add(p);
+        if (num < affordable.Count) GameManager.instance.Notify(callback: OpenShop);
     }
 
     private void Start()

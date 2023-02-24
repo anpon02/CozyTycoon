@@ -90,7 +90,6 @@ public class CustomerCoordinator : MonoBehaviour
     public void StartStory() {
         if (!DialogueManager.instance) return;
 
-        storyFinished = false;
         DialogueManager.instance.speakingCharacter = gameObject;
         DialogueManager.instance.StartDialogueMainStory(inkStory, characterName, storyPhaseNum);
         storyStarted = true;

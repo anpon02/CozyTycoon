@@ -1728,6 +1728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCoordPrefab: {fileID: 1638153095855164743, guid: 36f97d043ab39074595e5886db6d795c, type: 3}
+  shopButton: {fileID: 694832965}
   productObjData:
   - name: mixer
     product: {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
@@ -4673,6 +4674,7 @@ MonoBehaviour:
   recipeEntryPrefab: {fileID: 5694330616345350687, guid: e6ce47c46ca623b48b6127976bcd64a7, type: 3}
   nextPage: {fileID: 197847164}
   prevPage: {fileID: 579206988}
+  recipeButton: {fileID: 412383051}
   openbookSound: 25
   closebookSound: 0
   flipPageSound: 26
@@ -6534,7 +6536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &412383052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8829,7 +8831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499940861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11009,8 +11011,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ingredients are stored in various places around the kitchen! One by one,
-    find the required items and bring them to the required workstation.
+  m_text: "As your cookbook expands, customers will order more complicated dishes,
+    but they\u2019ll pay more for them. Additionally, each customer has some favorite
+    foods, and if you have unlocked those, those customers will be grateful and more
+    friendly. To complete the tutorial, make some pancakes with your new mixer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1dafe13f0eb1c4a428d81469715b7e7a, type: 2}
   m_sharedMaterial: {fileID: -5613890805324018740, guid: 1dafe13f0eb1c4a428d81469715b7e7a, type: 2}
@@ -11037,11 +11041,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 14.19
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 14.19
   m_fontSizeMax: 25
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -12289,7 +12293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &694832966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14497,7 +14501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98ba7c48655930347b408fb460990e85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 968bd3f3b781f9c4fa1e350c6030910a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16365,7 +16369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247becb8da053f047bcd45508f95e621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 1000
+  money: 0
 --- !u!1 &985116080
 GameObject:
   m_ObjectHideFlags: 0
@@ -20675,12 +20679,13 @@ MonoBehaviour:
   stove: {fileID: 189862863}
   pans: {fileID: 1520791211}
   meatFridge: {fileID: 475832853}
-  mixer: {fileID: 11400000, guid: 29b3344cc148eb9418608e5c5222cefe, type: 2}
+  pot: {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
   potato: {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
   lucaOrder: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
   fryingPan: {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
   rawChicken: {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
-  pancakes: {fileID: 0}
+  veggieSoup: {fileID: 11400000, guid: d8be587084fd30b45973a7ba6b87647d, type: 2}
+  potProduct: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
   offset: 1.7
   waitTime: 1
   helpScript: {fileID: 2026990139}
@@ -20807,7 +20812,7 @@ MonoBehaviour:
     pointer: {fileID: 0}
     pointerOffset: {x: 0, y: 0, z: 0}
   - text: Here you can purchase new equipment for your restaurant, unlocking new
-      ingredients and recipes. Try buying a mixer to unlock some new recipes.
+      ingredients and recipes. Try buying a pot to unlock some new recipes.
     subTitle: 
     category: Progression
     complete: 0
@@ -20816,7 +20821,8 @@ MonoBehaviour:
   - text: "As your cookbook expands, customers will order more complicated dishes,
       but they\u2019ll pay more for them. Additionally, each customer has some favorite
       foods, and if you have unlocked those, those customers will be grateful and
-      more friendly. To complete the tutorial, make some pancakes with your new mixer"
+      more friendly. To complete the tutorial, make some vegtable soup with your
+      new pot"
     subTitle: 
     category: Progression
     complete: 0
@@ -23013,8 +23019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSell:
-  - {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
   - {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+  - {fileID: 11400000, guid: d3c737c3eec5dbe43a076093e65b5ed1, type: 2}
   - {fileID: 11400000, guid: 7fff9fa4ff73e0b48a370b57736c4a55, type: 2}
   - {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
   - {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
@@ -23024,7 +23030,7 @@ MonoBehaviour:
   shopButton: {fileID: 694832965}
   openshopSound: 28
   purchaseSound: 29
-  startEnabled: 1
+  startEnabled: 0
 --- !u!95 &1424304279
 Animator:
   serializedVersion: 4
@@ -34703,6 +34709,7 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   timeSpeed: 0.05
+  fastSpeed: 0.003
   time: 0.105
   wheel: {fileID: 246481874}
   wheelOffset: 130
@@ -39274,6 +39281,10 @@ PrefabInstance:
     - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Name
       value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180895, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2416735980375187780, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_AnchoredPosition.x

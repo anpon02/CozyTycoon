@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
 
     public void UnPauseNotifs()
     {
-        //print("Unpaused!");
         notifsPaused = false;
         Notify(loggedNotifObj, loggedNotifCallback);
         loggedNotifObj = null;
@@ -51,12 +50,12 @@ public class GameManager : MonoBehaviour
     {
         if (obj == null && callback == null) return;
         if (notifsPaused) {
-            notifCoord.gameObject.SetActive(false);
+            notifCoord.transform.parent.gameObject.SetActive(false);
             loggedNotifObj = obj;
             loggedNotifCallback = callback;
             return;
         }
-
+        StopAllCoroutines();
         StartCoroutine(NotifyWhenPossible(obj, callback));
     }
     IEnumerator NotifyWhenPossible(GameObject obj, UnityAction callback)

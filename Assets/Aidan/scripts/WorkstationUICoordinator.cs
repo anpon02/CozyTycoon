@@ -20,7 +20,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] RollingMinigame rollingMG;
     [SerializeField] CoffeeMinigame coffeeMG;
     [SerializeField] GraterMinigame graterMG;
-    [HideInInspector] public int ongoingMinigames;
+    public int ongoingMinigames;
 
     [Header("Contents")]
     [SerializeField] GameObject contentsParent;
@@ -41,6 +41,9 @@ public class WorkstationUICoordinator : MonoBehaviour
     [Header("Sounds")]
     public int progressSound;
     [SerializeField] int completeSound, failSound;
+
+    public GameObject bigEquipmentSprite;
+    public GameObject dispalyItemSprite;
     
 
     public void SelectRecipeOption(int num)

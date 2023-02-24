@@ -9,7 +9,7 @@ public class DayNightController : MonoBehaviour {
     Day currentDay;
 
     [SerializeField] Gradient backgroundGradient;
-    [SerializeField] float timeSpeed = 0.5f;
+    [SerializeField] float timeSpeed = 0.5f, fastSpeed = 0.5f;
     [Range(0,1)] public float time;
     TextMeshProUGUI timeDisplay;
     [SerializeField] GameObject wheel;
@@ -58,11 +58,10 @@ public class DayNightController : MonoBehaviour {
 
     public void LastCustomerLeave()
     {
-        NextDay();
-        time = openTime - 0.01f;
+        time = closeTime + 0.01f;
         if (!closed) Close();
         GoToSleep();
-        timeSpeed = 1;
+        timeSpeed = fastSpeed;
     }
 
     private void Update()

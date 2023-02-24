@@ -75,7 +75,7 @@ public class CustomerOrderController : MonoBehaviour
 
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
-        GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
+        GameManager.instance.wallet.money += Mathf.RoundToInt(deliveredItem.value * (1 + affection/3.0f));
     }
 
     public void SetOrder(Item order)

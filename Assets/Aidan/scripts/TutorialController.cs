@@ -19,7 +19,8 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
     [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton, stove, pans, meatFridge;
-    [SerializeField] Item mixer, potato, lucaOrder, fryingPan, rawChicken, pancakes;
+    [SerializeField] Item pot, potato, lucaOrder, fryingPan, rawChicken, veggieSoup;
+    [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
     [SerializeField] List<Instruction> instructions = new List<Instruction>();
@@ -67,7 +68,7 @@ public class TutorialController : MonoBehaviour
             AudioManager.instance.PlaySound(6);
             helpScript.gameObject.SetActive(false);
             if (currentInstruction < 14) kMan.NextTutSection();
-            else kMan.NextTutSectionTomorrow();
+            else kMan.nextTutSectionWhenThisRich(potProduct.price);
             return;
         }
 
@@ -84,6 +85,9 @@ public class TutorialController : MonoBehaviour
         gameObject.SetActive(false);
         helpScript.gameObject.SetActive(false);
         gMan.UnPauseNotifs();
+        shopButton.SetActive(true);
+        recipeButton.SetActive(true);
+        gMan.timeScript.UnpauseTime();
     }
 
     void Update()
@@ -124,22 +128,30 @@ public class TutorialController : MonoBehaviour
         CheckIfPlated();
         CheckIfDelivered();
 
-        //[15]
+        EnableShopButton();
         CheckForShopOpen();
         CheckForSpecialtyTabSelected();
         CheckForEquipmentTabSelected();
-        CheckForMixerBought();
-        CheckForPancakeMade();
+        CheckForPotBought();
+        CheckForSoupMade();
     }
 
-    void CheckForPancakeMade()
+    void EnableShopButton()
     {
-        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(pancakes)) instructions[19].complete = true;
+        if (instructions[14].complete && string.Equals(category.text, instructions[15].category)) {
+            shopButton.SetActive(true);
+            print("AHH");
+        }
     }
 
-    void CheckForMixerBought()
+    void CheckForSoupMade()
     {
-        if (mixer.IsPresentInList(kMan.unlockedEquipment)) instructions[18].complete = true;
+        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(veggieSoup)) instructions[19].complete = true;
+    }
+
+    void CheckForPotBought()
+    {
+        if (pot.IsPresentInList(kMan.unlockedEquipment)) instructions[18].complete = true;
     }
 
     void CheckForEquipmentTabSelected()

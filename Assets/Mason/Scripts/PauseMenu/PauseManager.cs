@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Android;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
@@ -82,7 +81,8 @@ public class PauseManager : MonoBehaviour
 
     void PauseGame()
     {
-        if (numOpenMenus > 0) return;
+        //if (numOpenMenus > 0) return;
+
         mainParent.SetActive(true);
         settingsParent.SetActive(false);
         paused = true;

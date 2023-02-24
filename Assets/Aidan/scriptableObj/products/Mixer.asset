@@ -15,7 +15,7 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: 2fedeb92336fd374f9e35f7589176050, type: 3}
   productName: Mixer!
   description: mix mix mix mix mix yeahhhh
-  price: 200
+  price: 125
   unlocks: 'batters, desserts,
 
     breakfast'
