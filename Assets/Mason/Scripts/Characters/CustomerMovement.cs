@@ -7,6 +7,7 @@ public class CustomerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [HideInInspector] public int currentSpotInLine;
+    [HideInInspector] public bool inRestaurant;
     [SerializeField] private Vector3 exitPoint;
     [SerializeField] private Table sitSpot;
     private Seeker seek;
@@ -22,7 +23,6 @@ public class CustomerMovement : MonoBehaviour
     private bool idleFinished;
     private bool coroutineRunning;
     
-
     private void Awake() {
         // movemenet
         cust = GetComponentInChildren<CustomerOrderController>();
@@ -41,6 +41,9 @@ public class CustomerMovement : MonoBehaviour
     private void Update() {
         if(PauseManager.instance && PauseManager.instance.paused) return;
         
+        if(Input.GetKeyDown(KeyCode.B))
+            print(gameObject.name + " " + Vector2.Distance(transform.position, exitPoint));
+
         // idle anim
         if(GetCurrentTable() == null && !IsMoving()) {
             anim.SetBool("Walking", false);
@@ -104,6 +107,7 @@ public class CustomerMovement : MonoBehaviour
             path.destination = spotCoords;
             spot.SetPlaceIsTaken(true);
             LineManager.instance.UpdateNextOpenSpot();
+            inRestaurant = true;
         }
     }
 
@@ -130,6 +134,7 @@ public class CustomerMovement : MonoBehaviour
             if(currentTable)
                 currentTable.SetIsTaken(false);
             currentTable = null;
+            StartCoroutine("AtExitPoint");
         }
     }
 
@@ -138,10 +143,16 @@ public class CustomerMovement : MonoBehaviour
     }
 
     public bool IsMoving() {
-        return path.remainingDistance > 0.1f && path.remainingDistance != Mathf.Infinity;
+        return path.remainingDistance > 0.15f && path.remainingDistance != Mathf.Infinity;
     }
 
     public bool MovingRight() {
         return path.destination.x > transform.position.x;
+    }
+
+    private IEnumerator AtExitPoint() {
+        yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
+        transform.position = exitPoint;
+        inRestaurant = false;
     }
 }

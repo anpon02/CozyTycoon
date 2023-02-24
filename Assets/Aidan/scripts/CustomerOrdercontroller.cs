@@ -19,12 +19,14 @@ public class CustomerOrderController : MonoBehaviour
     float timeSinceOrdering;
     float timeSinceReceivedFood;
     bool doneSpeaking, setOrder;
+    bool foodAte;
     DialogueManager dMan;
 
     private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
         move = GetComponentInParent<CustomerMovement>();
         recievedFood = false;
+        foodAte = false;
     }
 
     private void Start()
@@ -36,7 +38,7 @@ public class CustomerOrderController : MonoBehaviour
     private void Update()
     {
         if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
-        if (recievedFood) Eat();
+        if (recievedFood && !foodAte) Eat();
     }
 
     public void Order()
@@ -67,6 +69,7 @@ public class CustomerOrderController : MonoBehaviour
 
         foodOrdered = false;
         recievedFood = true;
+        foodAte = false;
         timeSinceReceivedFood = 0;
 
         Item deliveredItem = chef.RemoveHeldItem();
@@ -119,7 +122,10 @@ public class CustomerOrderController : MonoBehaviour
     {
         timeSinceReceivedFood += Time.deltaTime;
         bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == custCoordinator.characterName;
-        if (!speaking && timeSinceReceivedFood >= eatTime) CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
+        if (!speaking && timeSinceReceivedFood >= eatTime) { 
+            CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
+            foodAte = true;
+        }
     }
 
     bool CorrectFoodHeld()
