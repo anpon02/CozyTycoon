@@ -10,6 +10,7 @@ public class DialogueCoordinator : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] Image dialoguePanel, speakerPortrait;
+    [SerializeField] Button dialogueButton;
     [SerializeField] TextMeshProUGUI mainText, speakerName;
 
     [Header("Choices")]
@@ -53,6 +54,7 @@ public class DialogueCoordinator : MonoBehaviour
     private void Update()
     {
         if (dMan.speakingCharacter) SetGroupAlpha();
+        if (dMan.allowNotes != dialogueButton.interactable) dialogueButton.interactable = dMan.allowNotes;
     }
 
     public IEnumerator DisplayText(string text, bool notable)
