@@ -15,6 +15,6 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: 3aab9a44c230b1241a786c130380815d, type: 3}
   productName: Rolling pin
   description: roll on by......
-  price: 200
+  price: 10
   unlocks: pasta, pastries
   quantity: -1

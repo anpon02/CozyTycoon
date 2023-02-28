@@ -16,7 +16,7 @@ public class RecipeEntryCoordinator : MonoBehaviour
     [SerializeField] Color unreadColor;
     Color startingColor;
 
-    bool read;
+    [HideInInspector] public bool read;
     Vector3 originalScale;
 
     public void Init(Recipe _recipe)

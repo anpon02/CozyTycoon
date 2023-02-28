@@ -15,6 +15,6 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: 3a210f061a0faf7499a67c67fef8bbef, type: 3}
   productName: baking tray
   description: low and slow...
-  price: 200
+  price: 10
   unlocks: pastries, roasts
   quantity: -1

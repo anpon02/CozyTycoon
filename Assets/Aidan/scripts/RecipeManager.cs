@@ -9,7 +9,9 @@ public class RecipeManager : MonoBehaviour
     void Awake() { instance = this; }
 
     [SerializeField] List<Recipe> allRecipes = new List<Recipe>();
-    [HideInInspector] public List<Recipe> unlockedRecipes = new List<Recipe>();
+
+    [Header("Runtime")]
+    public List<Recipe> unlockedRecipes = new List<Recipe>();
     List<Item> unlockedResults = new List<Item>();
     public List<Item> Menu { get { return GetMenu(); } }
     KitchenManager kMan;

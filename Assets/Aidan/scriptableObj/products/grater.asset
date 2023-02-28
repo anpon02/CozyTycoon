@@ -15,7 +15,7 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: 044dd8b6d8aa4e4449f1cc32c5bcdf21, type: 3}
   productName: Chese Grater
   description: make chese smaller!
-  price: 200
+  price: 10
   unlocks: 'sandwiches
 
     burgers'

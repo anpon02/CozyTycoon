@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Mono.Cecil.Cil;
+using UnityEditor;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     WorkspaceController ws;
     
     [SerializeField] SpriteRenderer bigDisplay;
-    [SerializeField] SpriteRenderer itemDisplay;
+    [SerializeField] List<SpriteRenderer> itemDisplays;
     ItemCoordinator bigItem;
 
     private void Start()
@@ -53,10 +55,6 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
     }
 
-    bool roomForBigEquipment()
-    {
-        return bigItem == null && bigDisplay != null;
-    }
     void UpdateItemDisplay()
     {
         if (!ws) ws = GetComponent<WorkspaceController>();
@@ -65,10 +63,22 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach (var i in ws.GetItemList()) if (i.isBigEquipment) bigDisplay.sprite = i.GetSprite();
         bigDisplay.enabled = bigDisplay.sprite != null;
 
-        var type = ws.GetFoodType();
-        itemDisplay.gameObject.SetActive(type != FoodType.NONE);
-        itemDisplay.sprite = type == FoodType.MEAT ? KitchenManager.instance.genericMeat : KitchenManager.instance.genericVeggies;
         UpdateBigItemDisplay();
+        UpdateNormalItemDisplays();
+        
+    }
+
+    void UpdateNormalItemDisplays()
+    {
+        var list = ws.GetItemList();
+        for (int i = 0; i < list.Count; i++) if (list[i].isBigEquipment) list.RemoveAt(i);
+
+        for (int i = 0; i < itemDisplays.Count; i++) {
+            if (i >= list.Count) { itemDisplays[i].gameObject.SetActive(false); continue; }
+
+            itemDisplays[i].gameObject.SetActive(true);
+            itemDisplays[i].sprite = list[i].GetSprite();
+        }
     }
 
     void UpdateBigItemDisplay()

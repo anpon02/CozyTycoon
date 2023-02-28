@@ -18,6 +18,11 @@ public class RecipeBookCoordinator : MonoBehaviour
     RecipeManager rMan;
     int currentPageIndex;
 
+    private void Awake()
+    {
+        recipeButton.SetActive(false);
+    }
+
     private void Start()
     {
         rMan = RecipeManager.instance;
@@ -56,10 +61,22 @@ public class RecipeBookCoordinator : MonoBehaviour
         while (rMan.unlockedRecipes.Count > entryCoords.Count) {
             if (!AddNewUnlockedRecipe()) break;
         }
+        currentPageIndex = PageWithNewRecipes();
+
+
         DisplayCurrentPage();
         AudioManager.instance.PlaySound(openbookSound, gameObject);
         PauseManager.instance.numOpenMenus += 1;
         recipeButton.SetActive(true);
+    }
+
+    int PageWithNewRecipes()
+    {
+        for (int i = 0; i < entryCoords.Count; i++) {
+            if (!entryCoords[i].read) return Mathf.FloorToInt(i/6);
+        }
+
+        return currentPageIndex;
     }
 
     bool AddNewUnlockedRecipe()

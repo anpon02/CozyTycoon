@@ -44,6 +44,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     public GameObject bigEquipmentSprite;
     public GameObject dispalyItemSprite;
+    [HideInInspector] public bool showProgress;
     
 
     public void SelectRecipeOption(int num)
@@ -66,6 +67,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     private void Start()
     {
+        showProgress = true;
         GetComponent<Canvas>().worldCamera = Camera.main;
         for (int i = 0; i < 6; i++) {
             recipeOptionNames.Add("");
@@ -121,7 +123,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void DisplayProgressSlider()
     {
-        progressBarParent.SetActive(IsMinigameActive());
+        progressBarParent.SetActive(showProgress && IsMinigameActive());
     }
 
     public bool IsMinigameActive()

@@ -15,7 +15,7 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: 35d29d6536b06344ba06a628837c4cd4, type: 3}
   productName: Pot
   description: boil n roil babbyyy
-  price: 50
+  price: 10
   unlocks: 'boiled food,
 
     soups'

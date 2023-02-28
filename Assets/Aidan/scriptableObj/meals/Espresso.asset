@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: Espresso
+  m_Name: espresso
   m_EditorClassIdentifier: 
   itemName: Espresso
   itemSprite: {fileID: 21300000, guid: 0497352c6c3d5a342b8e03fe4d7270c3, type: 3}

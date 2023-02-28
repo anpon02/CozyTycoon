@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
   m_Name: choppedTomato
   m_EditorClassIdentifier: 
-  itemName: Chopped Tomato
+  itemName: Chopped tomato
   itemSprite: {fileID: 21300000, guid: 5e6f22fd4bce92b449dc6567757ef7d6, type: 3}
   throwSoundID: 1
   value: 10
@@ -20,4 +20,3 @@ MonoBehaviour:
   isBigEquipment: 0
   menuItem: 0
   description: 
-  type: 1

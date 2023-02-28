@@ -163,20 +163,6 @@ public class WorkspaceController : MonoBehaviour
         AddItem(newResult);
     }
 
-    public FoodType GetFoodType()
-    {
-        if (iCoords.Count == 0) return FoodType.NONE;
-        int veg = 0;
-        int meat = 0;
-        foreach (var i in GetItemList()) {
-            if (i.type == FoodType.MEAT) meat += 1;
-            if (i.type == FoodType.VEGGIE) veg += 1;
-        }
-        if (veg + meat == 0) return FoodType.NONE;
-        if (veg == 0) return FoodType.MEAT;
-        else return FoodType.VEGGIE;
-    }
-
     ItemCoordinator RemoveItem(Item toRemove)
     {
         ItemCoordinator iCoord = null;
