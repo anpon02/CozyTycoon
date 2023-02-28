@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Hamburger
   itemSprite: {fileID: 21300000, guid: 3bf2a6dd05d5dd5489d3e3b478e3ca4c, type: 3}
   throwSoundID: 0
-  value: 60
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
-  type: 1

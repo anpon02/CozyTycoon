@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Latte
   itemSprite: {fileID: 21300000, guid: d0af3e13ff827d64eacc5c01a69ad2db, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

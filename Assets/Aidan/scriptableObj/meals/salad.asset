@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Salad
   itemSprite: {fileID: 21300000, guid: a349ec4a8cf7e234985b59e1f115193d, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

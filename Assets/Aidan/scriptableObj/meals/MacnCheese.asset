@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: mac n cheese
   itemSprite: {fileID: 21300000, guid: 3e0360d25ec4c96438c9f007f60e275d, type: 3}
   throwSoundID: 0
-  value: 30
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
-  type: 0

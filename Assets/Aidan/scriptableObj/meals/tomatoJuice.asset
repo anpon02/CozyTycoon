@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Tomato juice
   itemSprite: {fileID: 21300000, guid: 52800f4d9679ed24db5986f64be41286, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

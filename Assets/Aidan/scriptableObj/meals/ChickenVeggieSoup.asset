@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Chicken veggie soup
   itemSprite: {fileID: 21300000, guid: 1678a0e1dd9651342b52ec19ca290241, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
-  type: 1

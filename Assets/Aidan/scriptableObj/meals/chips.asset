@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Tortilla chips
   itemSprite: {fileID: 21300000, guid: 791c837d6bea7784a86b503d805e8f21, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Chicken caesar salad
   itemSprite: {fileID: 21300000, guid: e55874f65c882544fb0a115f97a9fb85, type: 3}
   throwSoundID: 0
-  value: 30
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
-  type: 1

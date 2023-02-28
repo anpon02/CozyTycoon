@@ -100,8 +100,9 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (minigame == Minigame.COFFEE_MAKER) coffeeMG.gameObject.SetActive(true);
         if (minigame == Minigame.GRATER) graterMG.gameObject.SetActive(true);
         if (minigame == Minigame.BAKING_TRAY) bakingMG.gameObject.SetActive(true);
+        //if (minigame == Minigame.BLENDER) blenderMG.gameObject.SetActive(true);
 
-        if (minigame == Minigame.NONE) CompleteRecipe();
+        if (minigame == Minigame.NONE || minigame == Minigame.BLENDER) CompleteRecipe();
     }
 
     

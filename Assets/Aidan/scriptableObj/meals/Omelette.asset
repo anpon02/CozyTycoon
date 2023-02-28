@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Omelette
   itemSprite: {fileID: 21300000, guid: e38f7e64f04777246ad5ba58d8f828af, type: 3}
   throwSoundID: 0
-  value: 30
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: an omlette
-  type: 1

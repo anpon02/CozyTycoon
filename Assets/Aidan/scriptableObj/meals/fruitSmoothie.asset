@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Fruit smoothie
   itemSprite: {fileID: 21300000, guid: 022af06a377d19c4e9a7c316f5f5381e, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

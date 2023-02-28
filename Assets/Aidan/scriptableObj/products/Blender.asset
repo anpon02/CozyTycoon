@@ -15,6 +15,6 @@ MonoBehaviour:
   imgSprite: {fileID: 21300000, guid: f7b627d7b76e13b4c992f385110e6d06, type: 3}
   productName: Blender
   description: it goes brr
-  price: 10
+  price: 100
   unlocks: Smoothies, drinks
   quantity: -1

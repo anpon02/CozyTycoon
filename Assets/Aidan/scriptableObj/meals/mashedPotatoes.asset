@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Mashed Potatoes
   itemSprite: {fileID: 21300000, guid: 109a9adbbad9e014ba7c05dceba52bb8, type: 3}
   throwSoundID: 0
-  value: 30
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
-  type: 0

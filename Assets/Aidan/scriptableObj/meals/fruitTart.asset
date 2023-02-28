@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Fruit tart
   itemSprite: {fileID: 21300000, guid: 9bc4b4191ea8f3e458aba502787ad3d3, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 

@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Fettuccine alfreado
   itemSprite: {fileID: 21300000, guid: c5a1fcf2d233a5c46a2e80199e72322c, type: 3}
   throwSoundID: 0
-  value: 40
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 

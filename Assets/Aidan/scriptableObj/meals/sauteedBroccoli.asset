@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Sauteed broccoli
   itemSprite: {fileID: 21300000, guid: 308dd5ac446078144a8ab1d6795737d7, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

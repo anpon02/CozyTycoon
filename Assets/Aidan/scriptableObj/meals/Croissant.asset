@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Croissant
   itemSprite: {fileID: 21300000, guid: 8b4c36e1675240046b34a81159fc96e3, type: 3}
   throwSoundID: 0
-  value: 65
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 'Croissant: Flakey, buttery, delicious'
-  type: 1

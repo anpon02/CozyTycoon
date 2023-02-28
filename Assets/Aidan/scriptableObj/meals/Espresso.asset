@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Espresso
   itemSprite: {fileID: 21300000, guid: 0497352c6c3d5a342b8e03fe4d7270c3, type: 3}
   throwSoundID: 0
-  value: 10
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

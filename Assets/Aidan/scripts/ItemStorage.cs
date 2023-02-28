@@ -157,6 +157,8 @@ public class ItemStorage : MonoBehaviour
         for (int i = 0; i < items.Count; i++) {
             if (items[i].item.Equals(selected.item)) itemIndex = i;
         }
+
+        if (!KitchenManager.instance.chef.IsHoldingItem()) GetItem();
     }
 
     private void OnMouseEnter()

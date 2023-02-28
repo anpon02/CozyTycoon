@@ -417,6 +417,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &26632907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+  m_PrefabInstance: {fileID: 871060458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &29198101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1217,7 @@ MonoBehaviour:
   playerReach: 10
   tutorialStartTime: 2
   tutorial: {fileID: 1290904217}
-  playTutorial: 0
+  playTutorial: 1
   tutorialEquipmentPause: 0
   ttCoord: {fileID: 0}
   hoveredController: {fileID: 0}
@@ -14041,6 +14046,7 @@ MonoBehaviour:
   pickupSound: 13
   putdownSound: 20
   footStepParticles: {fileID: 1665785790}
+  JustGotItem: 0
 --- !u!114 &982844497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14115,7 +14121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247becb8da053f047bcd45508f95e621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 10000
+  money: 300
 --- !u!1 &992974424
 GameObject:
   m_ObjectHideFlags: 0
@@ -14408,7 +14414,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
     minigame: 6
     index: 25
-  - name: '26: Fettuccine alfreado: AlfreadoSauce, Raw pasta ( FryingPan) [stove]'
+  - name: '26: Fettuccine alfreado: Alfreado sauce, Raw pasta ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
@@ -14418,7 +14424,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 8190c162d0d7e2a49aa079e8bd2df104, type: 2}
     minigame: 2
     index: 26
-  - name: '27: AlfreadoSauce: Milk, butter, Cheese ( Blender) [counter]'
+  - name: '27: Alfreado sauce: Milk, butter, Cheese ( Blender) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
@@ -14429,7 +14435,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
     minigame: 9
     index: 27
-  - name: '28: Lasagna: Raw pasta, BologneseSauce ( FryingPan) [stove]'
+  - name: '28: Lasagna: Raw pasta, Bolognese sauce ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
@@ -14439,7 +14445,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
     minigame: 2
     index: 28
-  - name: '29: BologneseSauce: Tomato sauce, Raw Beef ( Pot) [stove]'
+  - name: '29: Bolognese sauce: Tomato sauce, Raw Beef ( Pot) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
@@ -17835,10 +17841,10 @@ MonoBehaviour:
   recipeBook: {fileID: 1050942515}
   recipeButton: {fileID: 412383051}
   stove: {fileID: 189862863}
-  pans: {fileID: 0}
-  meatFridge: {fileID: 0}
+  pans: {fileID: 1427447152}
+  meatFridge: {fileID: 26632907}
   pot: {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-  potato: {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
+  broccoli: {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
   lucaOrder: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
   fryingPan: {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
   rawChicken: {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
@@ -17861,7 +17867,7 @@ MonoBehaviour:
     complete: 1
     pointer: {fileID: 1473943505267928740}
     pointerOffset: {x: 0, y: -0.7, z: 0}
-  - text: Next try placing a potato in a counter by left clicking on the counter
+  - text: Next try placing the broccoli in a counter by left clicking on the counter
     subTitle: 
     category: The Basics
     complete: 1
@@ -17875,7 +17881,7 @@ MonoBehaviour:
     complete: 1
     pointer: {fileID: 0}
     pointerOffset: {x: 0, y: 0, z: 0}
-  - text: Throw the potato into the trash bin to continue.
+  - text: Throw the broccoli into the trash bin to continue.
     subTitle: wasting food is wrong, but sometimes there's no other option
     category: The Basics
     complete: 1
@@ -19272,7 +19278,7 @@ MonoBehaviour:
   shopButton: {fileID: 694832965}
   openshopSound: 28
   purchaseSound: 29
-  startEnabled: 1
+  startEnabled: 0
 --- !u!95 &1424304279
 Animator:
   serializedVersion: 4
@@ -19387,6 +19393,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!1 &1427447152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+  m_PrefabInstance: {fileID: 1436718487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1436718487
 PrefabInstance:
   m_ObjectHideFlags: 0

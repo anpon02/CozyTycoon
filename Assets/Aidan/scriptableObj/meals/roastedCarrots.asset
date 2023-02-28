@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Roasted carrots
   itemSprite: {fileID: 21300000, guid: 4feb9bc8edd7c9944b4e1354b7c1ac81, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 

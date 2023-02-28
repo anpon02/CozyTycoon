@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Carrot sticks
   itemSprite: {fileID: 21300000, guid: 210f177fc91dbe4438a9c63ca0703824, type: 3}
   throwSoundID: 0
-  value: 40
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1

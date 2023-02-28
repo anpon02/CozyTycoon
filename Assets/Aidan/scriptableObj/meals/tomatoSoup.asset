@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: TomatoSoup
   itemSprite: {fileID: 21300000, guid: 72c58a16705268c4d80f9647e40f0ead, type: 3}
   throwSoundID: 0
-  value: 20
+  value: 0
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 0
   description: 
