@@ -7,7 +7,7 @@ public class OrderUICoordinator : MonoBehaviour
 {
     [SerializeField] GameObject listElementPrefab, OrderParent;
     [SerializeField] Transform listParent;
-    List<OrderListItemCoordinator> listItems = new List<OrderListItemCoordinator>();
+    List<OrderListItemCoordinator> listItem = new List<OrderListItemCoordinator>();
     
     public void AddNew(string itemName, float patience, CharacterName character)
     {
@@ -24,33 +24,37 @@ public class OrderUICoordinator : MonoBehaviour
         var newListItem = Instantiate(listElementPrefab, listParent);
         var listScript = newListItem.GetComponent<OrderListItemCoordinator>();
         listScript.Init(itemName, patience, character);
-        listItems.Add(listScript);
+        listItem.Add(listScript);
     }
 
     public void completeItem(CharacterName character)
     {
-        var listItem = FindListItem(character);
-        if (listItem == null) return;
+        var list = FindListItem(character);
+        if (list.Count == 0) return;
 
-        listItem.MarkComplete();
+        foreach (var l in list) l.MarkComplete();
     }
 
     public void RemoveItem(CharacterName character)
     {
-        var listItem = FindListItem(character);
-        if (listItem == null) return;
+        var toRemove = FindListItem(character);
+        if (toRemove.Count == 0) return;
 
-        listItems.Remove(listItem);
-        Destroy(listItem.gameObject);
+        foreach (var r in toRemove) 
+        for (int i = 0; i < toRemove.Count; i++) {
+            listItem.Remove(toRemove[i]);
+                Destroy(toRemove[i].gameObject);
+        }
 
-        if (listItems.Count == 0) OrderParent.SetActive(false);
+        if (listItem.Count == 0) OrderParent.SetActive(false);
     }
 
-    OrderListItemCoordinator FindListItem(CharacterName character)
+    List<OrderListItemCoordinator> FindListItem(CharacterName character)
     {
-        for (int i = 0; i < listItems.Count; i++) {
-            if (listItems[i].character == character) return listItems[i];
+        var list = new List<OrderListItemCoordinator>();
+        for (int i = 0; i < listItem.Count; i++) {
+            if (listItem[i].character == character) list.Add(listItem[i]);
         }
-        return null;
+        return list;
     }
 }

@@ -19,5 +19,5 @@ MonoBehaviour:
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 1
+  side: 1
   description: butter all the way to the edges
-  type: 1

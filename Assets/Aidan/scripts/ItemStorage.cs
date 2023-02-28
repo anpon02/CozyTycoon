@@ -38,7 +38,9 @@ public class ItemStorage : MonoBehaviour
 
     public void DisplayGrid()
     {
-        itemGrid.DisplayGrid(items);
+        var list = new List<ItemData>();
+        foreach (var i in items) if (i.enabled) list.Add(i);
+        itemGrid.DisplayGrid(list);
     }
 
     public void Enable(Item toEnable, int quantity = -1)
@@ -148,7 +150,13 @@ public class ItemStorage : MonoBehaviour
     {
         if (_itemIndex == -1) return;
 
-        itemIndex = _itemIndex;
+        var list = new List<ItemData>();
+        foreach (var i in items) if (i.enabled) list.Add(i);
+        var selected = list[_itemIndex];
+        
+        for (int i = 0; i < items.Count; i++) {
+            if (items[i].item.Equals(selected.item)) itemIndex = i;
+        }
     }
 
     private void OnMouseEnter()

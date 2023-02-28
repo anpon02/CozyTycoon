@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ItemCoordinator : MonoBehaviour
 {
-    public Item item;
+    public Item item, side;
     [SerializeField] float MinLerpDist = 0.25f;
     [SerializeField] float moveSmoothness = 0.025f;
     public bool travellingToChef;
     [SerializeField] GameObject plate;
     public bool plated;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] SpriteRenderer sideSRend;
 
     [HideInInspector] public ItemStorage home;
     ChefController chef;
@@ -26,10 +27,7 @@ public class ItemCoordinator : MonoBehaviour
 
     private void OnValidate()
     {
-        if (item == null || string.IsNullOrEmpty(item.GetName())) return;
-
-        if (sRend == null) GetReferences();
-        sRend.sprite = item.GetSprite();
+        UpdateDisplay();
     }
 
     public void SetPosition(Vector3 newPos, bool toChef = false, WorkspaceController _wsDest = null)
@@ -39,9 +37,21 @@ public class ItemCoordinator : MonoBehaviour
         targetPos = newPos;
     }
 
+    void UpdateDisplay()
+    {
+        if (sRend == null) GetReferences();
+
+        sRend.sprite = item == null ? null : item.GetSprite();
+        plate.SetActive(plated);
+      
+        if (side == null) { sideSRend.gameObject.SetActive(false); return; }
+        sideSRend.sprite = side.GetSprite();
+        sideSRend.gameObject.SetActive(true);
+    }
+
     private void Awake()
     {
-        if (Application.isPlaying) gameObject.name = item.GetName();
+        if (Application.isPlaying && item != null) gameObject.name = item.GetName();
     }
 
     private void OnMouseEnter()
@@ -57,10 +67,10 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Update()
     {
-        plate.SetActive(plated);
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
         MoveToTargetPos();
+        UpdateDisplay();
     }
 
     void MoveToTargetPos()
@@ -91,10 +101,29 @@ public class ItemCoordinator : MonoBehaviour
         return chef != null;
     }
 
+    public bool CanAccept(Item _item)
+    {
+        if (!plated || !_item.menuItem || !item.menuItem) return false;
+        if (_item.side != item.side && (item == null || side == null)) return true;
+        return false;
+    }
+
+    public void AddItem(Item _item)
+    {
+        if (!CanAccept(_item)) return;
+
+        if (item.side) {
+            side = item;
+            item = _item;
+        }
+        else side = _item;
+    }
+
     public void SetItem(Item _item) {
         item = _item;
-        OnValidate();
+        UpdateDisplay();
     }
+
     public Item GetItem() {
         return item;
     }

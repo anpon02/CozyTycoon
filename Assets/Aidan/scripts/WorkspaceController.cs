@@ -23,7 +23,7 @@ public class WorkspaceController : MonoBehaviour
 
     KitchenManager kMan;
     AudioSource source;
-    [HideInInspector] public bool hasBigEquipment;
+    [HideInInspector] public bool hasBigEquipment, minigameActive;
 
     Item result;
     List<Item> toRemove = new List<Item>();
@@ -36,8 +36,10 @@ public class WorkspaceController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kMan.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
-            RighClickOnWS();
+        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && kMan.hoveredController == this) {
+
+            if (!kMan.chef.IsHoldingItem() || kMan.chef.GetHeldiCoord().CanAccept(GetRighClickItem().GetItem())) 
+                RighClickOnWS();
         }
 
         if (kMan.hoveredController == this) wsUIcoord.ShowRecipeOptions(GetValidRecipeResults());
@@ -54,7 +56,11 @@ public class WorkspaceController : MonoBehaviour
         if (iCoord == null) return;
         iCoord.gameObject.SetActive(true);
         kMan.lastRetrievedItem = iCoord.GetItem();
-        kMan.chef.PickupItem(iCoord);
+
+        if (!kMan.chef.IsHoldingItem()) { kMan.chef.PickupItem(iCoord); return; }
+        kMan.chef.GetHeldiCoord().AddItem(iCoord.GetItem());
+        kMan.chef.JustGotItem = true;
+        Destroy(iCoord.gameObject);
     }
 
     ItemCoordinator GetRighClickItem()
@@ -77,16 +83,22 @@ public class WorkspaceController : MonoBehaviour
     {
         if (wsUIcoord.IsMinigameActive()) return;
 
-
         ItemCoordinator iCoord = null;
         if (iCoords.Count > index) iCoord = iCoords[index];
         if (iCoord == null) return;
-        kMan.lastRetrievedItem = iCoord.GetItem();
 
+        if (kMan.chef.GetHeldiCoord() != null && !kMan.chef.GetHeldiCoord().CanAccept(iCoord.GetItem())) return;
+
+        
+        kMan.lastRetrievedItem = iCoord.GetItem();
         if (iCoord.GetItem().isBigEquipment) hasBigEquipment = false;
         iCoords.Remove(iCoord);
         iCoord.gameObject.SetActive(true);
-        kMan.chef.PickupItem(iCoord);
+
+        if (kMan.chef.GetHeldiCoord() == null) { kMan.chef.PickupItem(iCoord); return; }
+        kMan.chef.GetHeldiCoord().AddItem(iCoord.GetItem());
+        kMan.chef.JustGotItem = true;
+        Destroy(iCoord.gameObject);
     }
 
     public void HaltRecipe()
@@ -150,6 +162,7 @@ public class WorkspaceController : MonoBehaviour
 
         GameManager.instance.TEMP_SELECTED_RECIPE = true;
         wsUIcoord.StartMinigame(minigame);
+        minigameActive = true;
     }
 
     public void CompleteRecipe()
@@ -161,6 +174,13 @@ public class WorkspaceController : MonoBehaviour
 
         ItemCoordinator newResult = kMan.CreateNewItemCoord(result, transform.position);
         AddItem(newResult);
+        StartCoroutine(WaitThenMinigameInactive());
+    }
+
+    IEnumerator WaitThenMinigameInactive()
+    {
+        yield return new WaitForSeconds(0.5f);
+        minigameActive = false;
     }
 
     ItemCoordinator RemoveItem(Item toRemove)

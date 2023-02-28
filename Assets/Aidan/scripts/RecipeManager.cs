@@ -14,6 +14,7 @@ public class RecipeManager : MonoBehaviour
     public List<Recipe> unlockedRecipes = new List<Recipe>();
     List<Item> unlockedResults = new List<Item>();
     public List<Item> Menu { get { return GetMenu(); } }
+    public List<Item> Sides { get { return GetSides(); } }
     KitchenManager kMan;
     [HideInInspector] public bool tutorialRecipeLimit;
 
@@ -56,6 +57,13 @@ public class RecipeManager : MonoBehaviour
     {
         var list = new List<Item>();
         foreach (var i in unlockedResults) if (i.menuItem) list.Add(i);
+        return list;
+    }
+
+    List<Item> GetSides()
+    {
+        var list = new List<Item>();
+        foreach (var i in unlockedResults) if (i.side) list.Add(i);
         return list;
     }
 

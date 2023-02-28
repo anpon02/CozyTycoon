@@ -6,6 +6,7 @@ using UnityEngine;
 public class PotMinigame : MonoBehaviour
 {
     [SerializeField] WorkstationUICoordinator uiCoord;
+    [SerializeField] WorkspaceCoordinator wsCoord;
     [SerializeField] GameObject pot, fire;
     [SerializeField] Vector2 potYlimits, potSpeedLimits = new Vector2(-10, 10), fireScaleLimits = new Vector2(0.1f, 2), changeAmountRange = new Vector2(1, 3), goodZone;
     [SerializeField] float potSpeed, progressSpeed;
@@ -14,7 +15,7 @@ public class PotMinigame : MonoBehaviour
         uiCoord.ongoingMinigames += 1;
 
         uiCoord.bigEquipmentSprite.SetActive(false);
-        uiCoord.dispalyItemSprite.GetComponent<SpriteRenderer>().enabled = false;
+        wsCoord.hideItems = true;
     }
 
     public void IncreaseSpeed()
@@ -59,7 +60,7 @@ public class PotMinigame : MonoBehaviour
     void Complete()
     {
         uiCoord.bigEquipmentSprite.SetActive(true);
-        uiCoord.dispalyItemSprite.GetComponent<SpriteRenderer>().enabled = true;
+        wsCoord.hideItems = false;
         uiCoord.ongoingMinigames -= 1;
         gameObject.SetActive(false);
         uiCoord.CompleteRecipe();

@@ -14,7 +14,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     [SerializeField] SpriteRenderer bigDisplay;
     [SerializeField] List<SpriteRenderer> itemDisplays;
     ItemCoordinator bigItem;
-
+    [HideInInspector] public bool hideItems;
     private void Start()
     {
         ws = GetComponent<WorkspaceController>();
@@ -76,7 +76,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         for (int i = 0; i < itemDisplays.Count; i++) {
             if (i >= list.Count) { itemDisplays[i].gameObject.SetActive(false); continue; }
 
-            itemDisplays[i].gameObject.SetActive(true);
+            itemDisplays[i].gameObject.SetActive(!hideItems);
             itemDisplays[i].sprite = list[i].GetSprite();
         }
     }

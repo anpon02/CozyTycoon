@@ -12,8 +12,7 @@ public class Item : ScriptableObject {
     [SerializeField] int throwSoundID;
     public int value = 10;
     [SerializeField] float _scaleMult = 1;
-    public bool isBigEquipment;
-    public bool menuItem;
+    public bool isBigEquipment, menuItem, side;
     public string description;
 
     public Sprite GetSprite() {
