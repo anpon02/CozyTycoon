@@ -12,18 +12,19 @@ public class CustomerOrderController : MonoBehaviour
     private CustomerCoordinator custCoordinator;
     ChefController chef;
     CustomerMovement move;
-    Item desiredItem;
-    bool foodOrdered;
+    List<Item> orderedItems;
     bool recievedFood;
     float timeSinceOrdering;
     float timeSinceReceivedFood;
-    bool doneSpeaking, setOrder;
+    bool doneSpeaking;
+    public bool setOrder { get; private set; }
     bool foodAte;
     DialogueManager dMan;
 
     private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
         move = GetComponentInParent<CustomerMovement>();
+        orderedItems = new List<Item>();
         recievedFood = false;
         foodAte = false;
     }
@@ -36,28 +37,41 @@ public class CustomerOrderController : MonoBehaviour
     
     private void Update()
     {
-        if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
+        if(orderedItems.Count > 0 && !recievedFood) timeSinceOrdering += Time.deltaTime;
         if (recievedFood && !foodAte) Eat();
     }
 
     public void Order()
     {
-        if (!setOrder) {
-            var menu = RecipeManager.instance.Menu;
-            if (menu.Count == 0) return;
+        var entreeMenu = RecipeManager.instance.Menu;
+        var sideMenu = RecipeManager.instance.Sides;
+
+        // pick entree
+        if (!setOrder && entreeMenu.Count > 0) {
 
             // order favorite entree if possible and random chance is hit, otherwise, order random item
-            if(favoriteEntree != null && menu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
-                desiredItem = favoriteEntree;
+            if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
+                orderedItems.Add(favoriteEntree);
             else
-                desiredItem = menu[Random.Range(0, menu.Count)];
+                orderedItems.Add(entreeMenu[Random.Range(0, entreeMenu.Count)]);
+        }
+
+        // 50% chance to pick side if possible
+        if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= 50) {
+            orderedItems.Add(sideMenu[Random.Range(0, sideMenu.Count)]);
         }
         
-        setOrder = false;    
-        foodOrdered = true;
-        timeSinceOrdering = 0;
-        if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, custCoordinator.characterName);
-        CustomerManager.instance.GoToTable(transform);
+        // process order
+        if(orderedItems.Count > 0) {
+            setOrder = false;  
+            timeSinceOrdering = 0;
+            if (GameManager.instance.orderController) {
+                foreach(Item item in orderedItems) {
+                    GameManager.instance.orderController.Order(item, patience, custCoordinator.characterName);
+                }
+            }
+            CustomerManager.instance.GoToTable(transform);
+        }
     }
 
     public void DeliverFood()
@@ -65,7 +79,7 @@ public class CustomerOrderController : MonoBehaviour
         if (!chef) chef = KitchenManager.instance.chef;
         if (!CorrectFoodHeld()) return;
 
-        foodOrdered = false;
+        orderedItems.Clear();
         recievedFood = true;
         foodAte = false;
         timeSinceReceivedFood = 0;
@@ -80,8 +94,10 @@ public class CustomerOrderController : MonoBehaviour
 
     public void SetOrder(Item order)
     {
-        desiredItem = order;
-        setOrder = true;
+        if(orderedItems.Count == 0) {
+            orderedItems.Add(order);
+            setOrder = true;
+        }
     }
 
     public void UnsetOrder()
@@ -91,7 +107,7 @@ public class CustomerOrderController : MonoBehaviour
 
     public bool alreadyOrdered()
     {
-        return foodOrdered;
+        return orderedItems.Count > 0;
     }
 
     public bool GetHasReceivedFood()
@@ -134,7 +150,13 @@ public class CustomerOrderController : MonoBehaviour
     bool CorrectFoodHeld()
     {
         if (!GetChef() || chef.GetHeldItem() == null || !chef.GetHeldiCoord().plated) return false;
-        return chef.GetHeldItem().Equals(desiredItem);
+        if(orderedItems.Count == 1) {
+            return chef.GetHeldItem().Equals(orderedItems[0]) && chef.GetHeldiCoord().side == null;
+        }
+        else if(orderedItems.Count == 2 && chef.GetHeldiCoord().side != null) {
+            return chef.GetHeldItem().Equals(orderedItems[0]) && chef.GetHeldiCoord().side.Equals(orderedItems[1]);
+        }
+        return false;
     }
 
     bool GetChef()

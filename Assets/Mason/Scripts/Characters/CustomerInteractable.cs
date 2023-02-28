@@ -45,7 +45,7 @@ public class CustomerInteractable : MonoBehaviour
         mouseOn = false;
         gameObject.SetActive(false);
 
-        if(orderController.alreadyOrdered()) 
+        if(orderController.alreadyOrdered() && !orderController.setOrder) 
             orderController.DeliverFood();
         else {
             custCoordinator.StartStory();
