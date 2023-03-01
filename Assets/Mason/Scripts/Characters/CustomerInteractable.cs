@@ -8,7 +8,6 @@ public class CustomerInteractable : MonoBehaviour
     [SerializeField] private CustomerOrderController orderController;
     [SerializeField] private CustomerCoordinator custCoordinator;
 
-    public bool tellStory;
     private SpriteRenderer sprRenderer;
     private Transform parent;
     private float playerDistance;
@@ -49,7 +48,7 @@ public class CustomerInteractable : MonoBehaviour
         if(orderController.alreadyOrdered() && !orderController.setOrder) 
             orderController.DeliverFood();
         else {
-            if(tellStory) custCoordinator.StartStory();
+            custCoordinator.StartStory();
             orderController.Order();
         }
     }

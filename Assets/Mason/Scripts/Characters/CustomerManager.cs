@@ -39,11 +39,12 @@ public class CustomerManager : MonoBehaviour
 
     private void SetTodaysCustomers() {
         todaysCustomers.Clear();
-        foreach(Transform customer in customers) {
-            CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
-            if (schedule.Count <= gMan.timeScript.day) return;
-            if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
-                todaysCustomers.Add(customer);
+        if (schedule.Count <= gMan.timeScript.day) return;
+        foreach (var customer in schedule[gMan.timeScript.day].customers) {
+            Transform c = customers.Find( c => c.GetComponent<CustomerCoordinator>().characterName == customer);
+            if (c != null) {
+                todaysCustomers.Add(c);
+            }
         }
     }
 
@@ -93,8 +94,10 @@ public class CustomerManager : MonoBehaviour
 
     private IEnumerator StartSendingCustomers() {
         for(int i = 0; i < todaysCustomers.Count; ++i) {
-            if(i > 0)
-                yield return new WaitUntil(() => CustomerFinishedTalking(i - 1));
+            if (i > 0)
+                if(DialogueManager.instance.StoryDisabled(todaysCustomers[i - 1].GetComponent <CustomerCoordinator>().characterName))
+                    yield return new WaitUntil(() => todaysCustomers[i - 1].GetComponent<CustomerMovement>().InLine() );
+                else yield return new WaitUntil(() =>  CustomerFinishedTalking(i - 1));
             CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
             move.GetInLine();
         }

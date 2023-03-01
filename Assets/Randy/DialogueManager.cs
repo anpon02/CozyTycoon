@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
         public CharacterName characterName;
         public Sprite portrait;
         public int speakerSoundID;
+        public bool disabled;
     }
     
     [SerializeField] List<SpeakerData> speakers = new List<SpeakerData>();
@@ -142,5 +143,10 @@ public class DialogueManager : MonoBehaviour
         string note = currentStory.state.currentText.Trim();
         AudioManager.instance.PlaySound(7);
         GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
+    }
+
+    public bool StoryDisabled(CharacterName name)
+    {
+        return speakers.Find(s => s.characterName == name).disabled;
     }
 }

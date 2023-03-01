@@ -45,14 +45,14 @@ public class CustomerMovement : MonoBehaviour
             print(gameObject.name + " " + Vector2.Distance(transform.position, exitPoint));
 
         // idle anim
-        if(GetCurrentTable() == null && !IsMoving()) {
+        if(InLine()) {
             anim.SetBool("Walking", false);
             if(!coroutineRunning) {
                 StartCoroutine("RandomIdle");
             }
         }
         // sitting anim
-        else if(GetCurrentTable() != null && !IsMoving()) {
+        else if(AtTable()) {
             anim.SetBool("Walking", false);
             anim.SetTrigger("Sit");
             coroutineRunning = false;
@@ -154,5 +154,13 @@ public class CustomerMovement : MonoBehaviour
     private IEnumerator AtExitPoint() {
         yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
         transform.position = exitPoint;
+    }
+
+    public bool InLine() {
+        return GetCurrentTable() == null && !IsMoving() && Vector2.Distance(transform.position,exitPoint) > 1;
+    }
+
+    public bool AtTable() {
+        return GetCurrentTable() != null && !IsMoving();
     }
 }

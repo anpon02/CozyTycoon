@@ -88,7 +88,7 @@ public class CustomerCoordinator : MonoBehaviour
     }
 
     public void StartStory() {
-        if (!DialogueManager.instance) return;
+        if (!DialogueManager.instance || DialogueManager.instance.StoryDisabled(characterName)) return;
 
         DialogueManager.instance.speakingCharacter = gameObject;
         DialogueManager.instance.StartDialogueMainStory(inkStory, characterName, storyPhaseNum);
