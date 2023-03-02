@@ -145,6 +145,17 @@ public class DialogueManager : MonoBehaviour
         GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
     }
 
+    public void DisableCharacterStory(CharacterName name)
+    {
+        SpeakerData character = speakers.Find(s => s.characterName == name);
+        if (character == default(SpeakerData))
+        {
+            Debug.LogWarning("DisableCharacterStory: " + name + " not found");
+            return;
+        }
+        character.disabled = true;
+    }
+
     public bool StoryDisabled(CharacterName name)
     {
         return speakers.Find(s => s.characterName == name).disabled;
