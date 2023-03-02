@@ -16,5 +16,5 @@ MonoBehaviour:
   productName: Rolling pin
   description: roll on by......
   price: 100
-  unlocks: pasta, pastries
+  unlocks: '[unlocks pastas]'
   quantity: -1

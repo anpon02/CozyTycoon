@@ -12,35 +12,79 @@ public class KitchenManager : MonoBehaviour {
         public Product product;
         public Item item;
     }
+    [System.Serializable]
+    public class ChoiceData
+    {
+        [System.Serializable]
+        public class Option
+        {
+            public Product product;
+            public  string quote;
+            public Sprite characterSprite;
+        }
 
-    [SerializeField] GameObject itemCoordPrefab, shopButton;
+        [HideInInspector] public string name;
+        public List<Option> options;
+        public int dayNum = 0;
+
+        public void OnValidate()
+        {
+            string s = "";
+            foreach (var o in options) s += o.product.productName + ", ";
+            s = s.TrimEnd();
+            s = s.TrimEnd(',');
+            name = "day " + dayNum + ": " + s;
+        }
+    }
+
+    [SerializeField] GameObject itemCoordPrefab;
+    public float playerReach = 5;
+
+    [Header("Shop"), SerializeField] GameObject shopButton;
     [SerializeField] List<ProductObject> productObjData = new List<ProductObject>();
-    public List<Item> unlockedEquipment = new List<Item>();
-    public List<Item> unlockedIngredients = new List<Item>();
-    [HideInInspector] public List<ItemStorage> allStorage = new List<ItemStorage>();
-    public Sprite genericVeggies, genericMeat, genericBread;
-    public float playerReach = 5, tutorialStartTime = 2;
-    [SerializeField] TutorialController tutorial;
+    
+    [Header("Tutorial"), SerializeField] TutorialController tutorial; 
+    [SerializeField] float tutorialStartTime = 2;
     [SerializeField] bool playTutorial;
-    [HideInInspector] public bool tutorialEquipmentPause;
 
+    [Header("Choices")]
+    [SerializeField] List<ChoiceData> allChoices;
+    [SerializeField] ChoiceController choiceController;
+
+    [HideInInspector] public List<Item> unlockedEquipment = new List<Item>(), unlockedIngredients = new List<Item>();
+    [HideInInspector] public List<ItemStorage> allStorage = new List<ItemStorage>();
+    [HideInInspector] public bool tutorialEquipmentPause;
     [HideInInspector] public ToolipCoordinator ttCoord;
     [HideInInspector] public WorkspaceController hoveredController;
     [HideInInspector] public ChefController chef;
-    bool enabledEquipment;
     [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
     [HideInInspector] public bool minigameStarted, minigameCompleted, shopOpen, specialtyTabSelected, equipmentTabSelected;
+
+    bool enabledEquipment;
     float nextTutorialMoneyAmount = Mathf.Infinity;
 
     private void OnValidate()
     {
         foreach (var p in productObjData) p.name = p.item.GetName();
+        foreach (var c in allChoices) c.OnValidate();
     }
 
     private void Start() 
     {
         if (playTutorial) { NextTutSection(); shopButton.SetActive(false); }
         else GameManager.instance.UnPauseNotifs();
+        GameManager.instance.OnStoreClose.AddListener(CheckForChoice);
+    }
+
+    void CheckForChoice()
+    {
+        foreach (var choice in allChoices) {
+            if (choice.dayNum == GameManager.instance.timeScript.day) {
+                GameManager.instance.timeScript.PauseTime();
+                choiceController.OpenChoiceUI(choice.options);
+                break;
+            }
+        }
     }
 
     public void NextTutSection()
@@ -84,6 +128,8 @@ public class KitchenManager : MonoBehaviour {
 
     public void PurchaseProduct(Product product, bool equipment = true)
     {
+        GameManager.instance.timeScript.UnpauseTime();
+        choiceController.gameObject.SetActive(false);
         foreach (var p in productObjData) {
             if (p.product.name == product.name) {
                 if (p.item) {

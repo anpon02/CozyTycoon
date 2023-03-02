@@ -16,5 +16,5 @@ MonoBehaviour:
   productName: Coffee Maker
   description: don't even talk to me
   price: 100
-  unlocks: coffe!
+  unlocks: '[unlocks coffee]'
   quantity: -1

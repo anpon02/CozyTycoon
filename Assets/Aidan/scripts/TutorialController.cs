@@ -18,7 +18,7 @@ public class TutorialController : MonoBehaviour
     }
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
-    [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton, stove, pans, meatFridge;
+    [SerializeField] GameObject shop, recipeBook, recipeButton, stove, pans, meatFridge;
     [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup;
     [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
@@ -85,7 +85,6 @@ public class TutorialController : MonoBehaviour
         gameObject.SetActive(false);
         helpScript.gameObject.SetActive(false);
         gMan.UnPauseNotifs();
-        shopButton.SetActive(true);
         recipeButton.SetActive(true);
         gMan.timeScript.UnpauseTime();
     }
@@ -128,20 +127,11 @@ public class TutorialController : MonoBehaviour
         CheckIfPlated();
         CheckIfDelivered();
 
-        EnableShopButton();
         CheckForShopOpen();
         CheckForSpecialtyTabSelected();
         CheckForEquipmentTabSelected();
         CheckForPotBought();
         CheckForSoupMade();
-    }
-
-    void EnableShopButton()
-    {
-        if (instructions[14].complete && string.Equals(category.text, instructions[15].category)) {
-            shopButton.SetActive(true);
-            print("AHH");
-        }
     }
 
     void CheckForSoupMade()

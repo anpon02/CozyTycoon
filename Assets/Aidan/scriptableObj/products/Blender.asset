@@ -16,5 +16,5 @@ MonoBehaviour:
   productName: Blender
   description: it goes brr
   price: 100
-  unlocks: Smoothies, drinks
+  unlocks: '[unlocks smoothies and drinks]'
   quantity: -1
