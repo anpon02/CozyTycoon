@@ -8,6 +8,7 @@ public class CustomerOrderController : MonoBehaviour
     [SerializeField] float eatTime = 5;
     [SerializeField] private Item favoriteEntree;
     [SerializeField] private float favoriteItemChance = 80.0f;
+    [SerializeField] private float sideOrderChance = 50.0f;
 
     private CustomerCoordinator custCoordinator;
     ChefController chef;
@@ -57,7 +58,7 @@ public class CustomerOrderController : MonoBehaviour
         }
 
         // 50% chance to pick side if possible
-        if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= 50) {
+        if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= sideOrderChance) {
             orderedItems.Add(sideMenu[Random.Range(0, sideMenu.Count)]);
         }
         
