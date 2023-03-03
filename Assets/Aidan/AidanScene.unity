@@ -1179,6 +1179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCoordPrefab: {fileID: 1638153095855164743, guid: 36f97d043ab39074595e5886db6d795c, type: 3}
   playerReach: 10
+  unlockedEquipment:
+  - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+  - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+  - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
   shopButton: {fileID: 694832965}
   productObjData:
   - name: mixer
@@ -1209,8 +1213,9 @@ MonoBehaviour:
     product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
     item: {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
   tutorial: {fileID: 1290904217}
-  tutorialStartTime: 2
-  playTutorial: 1
+  tutorialStartTime: 0.5
+  recipeButton: {fileID: 412383051}
+  playTutorial: 0
   allChoices:
   - name: 'day 0: Rolling pin, Coffee Maker'
     options:
@@ -1221,10 +1226,16 @@ MonoBehaviour:
       quote: '"I can''t think striaght until I''ve got some caffine"'
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
     dayNum: 0
+  - name: 'day 1: Rolling pin, Coffee Maker'
+    options:
+    - product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
+      quote: '"My aunt used to make ravioli when she had more free time"'
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+    - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+      quote: '"I can''t think striaght until I''ve got some caffine"'
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+    dayNum: 1
   choiceController: {fileID: 2005229560}
-  unlockedEquipment:
-  - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-  - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
   unlockedIngredients: []
   allStorage: []
   tutorialEquipmentPause: 0
@@ -3696,6 +3707,7 @@ MonoBehaviour:
   nextPage: {fileID: 197847164}
   prevPage: {fileID: 579206988}
   recipeButton: {fileID: 412383051}
+  recipeButtonAnim: {fileID: 412383059}
   openbookSound: 25
   closebookSound: 0
   flipPageSound: 26
@@ -5204,6 +5216,7 @@ GameObject:
   - component: {fileID: 412383055}
   - component: {fileID: 412383054}
   - component: {fileID: 412383053}
+  - component: {fileID: 412383059}
   m_Layer: 5
   m_Name: recipeButton
   m_TagString: Untagged
@@ -5221,7 +5234,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1642406304}
   m_Father: {fileID: 31104454}
@@ -5383,6 +5396,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412383051}
   m_CullTransparentMesh: 1
+--- !u!95 &412383059
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412383051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87357e280094f72428883e926ae67115, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &418435303
 GameObject:
   m_ObjectHideFlags: 0
@@ -19438,7 +19471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1424304277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21340,7 +21373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1589836225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32809,6 +32842,26 @@ PrefabInstance:
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: toolTip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[7].item
+      value: 
+      objectReference: {fileID: 11400000, guid: be8e79204627ca04d91c7349964e7c3e, type: 2}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[7].name
+      value: Spinach
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[7].maxNum
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[7].instances.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Name

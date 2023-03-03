@@ -14,7 +14,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     [Header("Minigames")]
     [SerializeField] KnifeMinigame knifeMG;
     [SerializeField] PanMinigame panMG;
-    [SerializeField] MixerMinigame mixerMG;
+    [SerializeField] BlenderMinigame blenderMG;
     [SerializeField] PotMinigame potMG;
     [SerializeField] BakingMinigame bakingMG;
     [SerializeField] RollingMinigame rollingMG;
@@ -94,15 +94,14 @@ public class WorkstationUICoordinator : MonoBehaviour
 
         if (minigame == Minigame.KNIFE) knifeMG.gameObject.SetActive(true);
         if (minigame == Minigame.PAN) panMG.gameObject.SetActive(true);
-        if (minigame == Minigame.MIXER) mixerMG.gameObject.SetActive(true);
+        if (minigame == Minigame.BLENDER) blenderMG.gameObject.SetActive(true);
         if (minigame == Minigame.POT) potMG.gameObject.SetActive(true);
         if (minigame == Minigame.ROLLING_PIN) rollingMG.gameObject.SetActive(true);
         if (minigame == Minigame.COFFEE_MAKER) coffeeMG.gameObject.SetActive(true);
         if (minigame == Minigame.GRATER) graterMG.gameObject.SetActive(true);
         if (minigame == Minigame.BAKING_TRAY) bakingMG.gameObject.SetActive(true);
-        //if (minigame == Minigame.BLENDER) blenderMG.gameObject.SetActive(true);
 
-        if (minigame == Minigame.NONE || minigame == Minigame.BLENDER) CompleteRecipe();
+        if (minigame == Minigame.NONE) CompleteRecipe();
     }
 
     

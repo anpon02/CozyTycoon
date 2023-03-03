@@ -19,9 +19,11 @@ public class GizmoIconUtility {
         if (obj != null) {
             rect.height *= 0.8f;
             rect.width = rect.height;
-            
 
-            GUI.DrawTexture(rect, obj.GetSprite().texture);
+            var texture = obj.GetSprite().texture;
+            if (texture == null) return;
+
+            GUI.DrawTexture(rect, texture);
         }
     }
 }

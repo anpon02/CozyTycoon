@@ -7217,7 +7217,7 @@ MonoBehaviour:
   ws: {fileID: 329358462848180888}
   knifeMG: {fileID: 3372105782042016386}
   panMG: {fileID: 1362397109190030832}
-  mixerMG: {fileID: 4349559117790242871}
+  blenderMG: {fileID: 4349559117790242871}
   potMG: {fileID: 6831109522602075766}
   bakingMG: {fileID: 265927881363828649}
   rollingMG: {fileID: 3333243666679215133}
@@ -9393,7 +9393,7 @@ GameObject:
   - component: {fileID: 4427704344994522230}
   - component: {fileID: 4349559117790242871}
   m_Layer: 0
-  m_Name: mixerMinigame
+  m_Name: blenderMinigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

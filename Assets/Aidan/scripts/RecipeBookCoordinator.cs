@@ -8,6 +8,7 @@ public class RecipeBookCoordinator : MonoBehaviour
 {
     [SerializeField] GameObject bookParent, leftPage, rightPage, recipeEntryPrefab, nextPage, prevPage, recipeButton;
     List<RecipeEntryCoordinator> entryCoords = new List<RecipeEntryCoordinator>();
+    [SerializeField] Animator recipeButtonAnim;
     
     [Header("Sounds")]
     [SerializeField] int openbookSound;
@@ -77,6 +78,12 @@ public class RecipeBookCoordinator : MonoBehaviour
         }
 
         return currentPageIndex;
+    }
+
+    bool newRecipes()
+    {
+        foreach (var e in entryCoords) if (!e.read) return true;
+        return false;
     }
 
     bool AddNewUnlockedRecipe()
@@ -177,12 +184,7 @@ public class RecipeBookCoordinator : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) CloseBook();
-        if (rMan.unlockedRecipes.Count > entryCoords.Count) Notify();
-    }
-
-    void Notify()
-    {
-        GameManager.instance.Notify(callback: OpenBook);
+        recipeButtonAnim.SetBool("wiggle", newRecipes() || rMan.unlockedRecipes.Count > entryCoords.Count); 
     }
 
     string PrintList(string preface, List<Recipe> list)
