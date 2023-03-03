@@ -7,7 +7,7 @@ public class BakingMinigame : MonoBehaviour
 {
     [SerializeField] WorkstationUICoordinator uiCoord;
     [SerializeField] TextMeshProUGUI buttonText;
-    [SerializeField] float progressSpeed;
+    [SerializeField] float progressSpeed, progressPenalty = 0.1f;
     bool open;
     private void OnEnable()
     {
@@ -23,6 +23,7 @@ public class BakingMinigame : MonoBehaviour
         uiCoord.showProgress = open;
 
         if (open && uiCoord.progressSlider.value >= 1) Complete();
+        else if (open) uiCoord.AddProgress(-progressPenalty);
     }
 
     private void FixedUpdate()

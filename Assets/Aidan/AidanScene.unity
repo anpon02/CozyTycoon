@@ -1182,7 +1182,8 @@ MonoBehaviour:
   unlockedEquipment:
   - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
   - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-  - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+  - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+  - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
   shopButton: {fileID: 694832965}
   productObjData:
   - name: mixer
@@ -5900,14 +5901,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4349559117790242871, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: mouseSpeedMod
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349559117790242871, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: playerFollowSmoothness
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -6644,6 +6637,10 @@ PrefabInstance:
     - target: {fileID: 155846608887535228, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: progressSpeed
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180886, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Sprite
