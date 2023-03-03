@@ -6,14 +6,12 @@ public class KitchenManager : MonoBehaviour {
     public static KitchenManager instance;
     void Awake() { instance = this; }
 
-    [System.Serializable]
-    public class ProductObject {
+    [System.Serializable] public class ProductObject {
         [HideInInspector] public string name;
         public Product product;
         public Item item;
     }
-    [System.Serializable]
-    public class ChoiceData
+    [System.Serializable] public class ChoiceData
     {
         [System.Serializable]
         public class Option
@@ -21,6 +19,7 @@ public class KitchenManager : MonoBehaviour {
             public Product product;
             public  string quote;
             public Sprite characterSprite;
+            public CharacterName character;
         }
 
         [HideInInspector] public string name;
@@ -36,6 +35,7 @@ public class KitchenManager : MonoBehaviour {
             name = "day " + dayNum + ": " + s;
         }
     }
+
 
     [SerializeField] GameObject itemCoordPrefab;
     public float playerReach = 5;
@@ -64,6 +64,7 @@ public class KitchenManager : MonoBehaviour {
 
     bool enabledEquipment;
     float nextTutorialMoneyAmount = Mathf.Infinity;
+    List<CharacterName> chosenThisWeek = new List<CharacterName>();
 
     private void OnValidate()
     {
@@ -148,6 +149,13 @@ public class KitchenManager : MonoBehaviour {
         foreach (var e in list) EnableEquipment(e);
     }
 
+    public void PurchaseProduct(Product product, CharacterName character)
+    {
+        chosenThisWeek.Add(character);
+        if (GameManager.instance.timeScript.day % 6 == 0) DisableCharacters();
+
+        PurchaseProduct(product);
+    }
     public void PurchaseProduct(Product product, bool equipment = true)
     {
         GameManager.instance.timeScript.UnpauseTime();
@@ -157,6 +165,20 @@ public class KitchenManager : MonoBehaviour {
         if (item == null) return;
 
         EnableEquipment(item.item, equipment ? product.quantity : -1);
+    }
+
+    void DisableCharacters()
+    {
+        List<CharacterName> toRemove = new List<CharacterName>();
+        toRemove.Add(CharacterName.ROXY);
+        toRemove.Add(CharacterName.LUCA);
+        toRemove.Add(CharacterName.PHIL);
+        toRemove.Add(CharacterName.SALLY);
+        toRemove.Add(CharacterName.TRIPP);
+        toRemove.Add(CharacterName.FLORIAN);
+
+        foreach (var c in chosenThisWeek) toRemove.Remove(c);
+        foreach (var c in toRemove) DialogueManager.instance.DisableCharacterStory(c);
     }
 
     ProductObject getObjFromProduct(Product product)
