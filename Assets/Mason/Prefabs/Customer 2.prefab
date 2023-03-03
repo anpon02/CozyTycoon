@@ -4829,6 +4829,7 @@ MonoBehaviour:
   eatTime: 5
   favoriteEntree: {fileID: 0}
   favoriteItemChance: 80
+  sideOrderChance: 50
 --- !u!1 &80386416942563042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,6 +5053,7 @@ MonoBehaviour:
   relationshipValue: 0
   characterName: 0
   inkStory: {fileID: 4900000, guid: 96cd0b36c718293448ca19536cd18ecd, type: 3}
+  storyFinished: 0
   emitTime: 0.5
   forkKnife: {fileID: 80386417445366179}
 --- !u!114 &80386416942563040
@@ -5070,6 +5072,8 @@ MonoBehaviour:
   inRestaurant: 0
   exitPoint: {x: -7.91, y: -28.5, z: -1}
   sitSpot: {fileID: 0}
+  minSpeed: 3
+  maxSpeed: 5
   idleWaitMin: 2
   idleWaitMax: 5
 --- !u!1 &80386417445366181

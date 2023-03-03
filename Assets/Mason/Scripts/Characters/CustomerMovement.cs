@@ -10,6 +10,8 @@ public class CustomerMovement : MonoBehaviour
     [HideInInspector] public bool inRestaurant;
     [SerializeField] private Vector3 exitPoint;
     [SerializeField] private Table sitSpot;
+    [SerializeField] private float minSpeed = 3.0f;
+    [SerializeField] private float maxSpeed = 5.0f;
     private Seeker seek;
     private AIPath path;
     private CustomerOrderController cust;
@@ -40,9 +42,6 @@ public class CustomerMovement : MonoBehaviour
 
     private void Update() {
         if(PauseManager.instance && PauseManager.instance.paused) return;
-        
-        if(Input.GetKeyDown(KeyCode.B))
-            print(gameObject.name + " " + Vector2.Distance(transform.position, exitPoint));
 
         // idle anim
         if(InLine()) {
@@ -64,6 +63,9 @@ public class CustomerMovement : MonoBehaviour
         }
         sprRenderer.flipX = MovingRight();
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+        // move faster when closer to exit point
+        ChangeSpeed();
     }
 
     /*
@@ -94,6 +96,19 @@ public class CustomerMovement : MonoBehaviour
     /*
     * MOVEMENT FUNCTIONS
     */
+    private void ChangeSpeed() {
+        // this is kinda jankily done, I'm gonna make this more smooth later
+        if(Vector2.Distance(transform.position, exitPoint) < 15.0f)
+            path.maxSpeed = maxSpeed;
+        else
+            path.maxSpeed = minSpeed;
+    }
+
+    private IEnumerator AtExitPoint() {
+        yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
+        transform.position = exitPoint;
+    }
+
     public void GetInLine() {
         GetComponent<CustomerCoordinator>().storyFinished = false;
         // if not in line or in a farther line spot
@@ -149,11 +164,6 @@ public class CustomerMovement : MonoBehaviour
 
     public bool MovingRight() {
         return path.destination.x > transform.position.x;
-    }
-
-    private IEnumerator AtExitPoint() {
-        yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
-        transform.position = exitPoint;
     }
 
     public bool InLine() {

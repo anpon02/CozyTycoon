@@ -96,14 +96,13 @@ public class CustomerManager : MonoBehaviour
         for(int i = 0; i < todaysCustomers.Count; ++i) {
             if (i > 0)
                 if(DialogueManager.instance.StoryDisabled(todaysCustomers[i - 1].GetComponent <CustomerCoordinator>().characterName))
-                    yield return new WaitUntil(() => todaysCustomers[i - 1].GetComponent<CustomerMovement>().InLine() );
-                else yield return new WaitUntil(() =>  CustomerFinishedTalking(i - 1));
+                    yield return new WaitUntil(() => todaysCustomers[i - 1].GetComponent<CustomerMovement>().InLine());
+                else 
+                    yield return new WaitUntil(() =>  CustomerFinishedTalking(i - 1));
             CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
             move.GetInLine();
         }
-        //print("AHHHH: " + todaysCustomers.Count);
-        yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
-        //print("BRUHHH");
+        yield return new WaitUntil(() => !CustomersInRestaurant(todaysCustomers.Count - 1));
         gMan.timeScript.LastCustomerLeave();
     }
 
@@ -112,8 +111,12 @@ public class CustomerManager : MonoBehaviour
         return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().storyFinished;
     }
 
-    private bool CustomerInRestaurant(int customerIndex) {
-        return todaysCustomers[customerIndex].GetComponent<CustomerMovement>().inRestaurant;
+    private bool CustomersInRestaurant(int customerIndex) {
+        foreach(Transform customer in todaysCustomers) {
+            if(customer.GetComponent<CustomerMovement>().inRestaurant)
+                return true;
+        }
+        return false;
     }
 
     private IEnumerator ShiftLine() {
