@@ -27,7 +27,7 @@ VAR CurrentStoryState = 0
         -> Day_10
     - CurrentStoryState == 10:
         -> Day_11
-    - CurrentStoryState    11:
+    - CurrentStoryState >= 11:
         -> Extra
         
      ->END
@@ -55,7 +55,10 @@ VAR CurrentStoryState = 0
     Not too uncommon. We’ve got to stay ahead in this business, so everyone needs to do their part.
     Means I haven’t had much time to myself, but I’m sure the company will reward me for my loyalty.
 -   I’ve got to get back to it. Lovely talking with you.
-
+*   Is there anything you’d like to see on the menu?
+    Hmmm…
+    Well, I eat a lot of meals at the BeigeTech cafeteria. Get my coffee there too. But the pasta they make is always pretty bad. 
+    So… eating nice pasta for a change would be nice. 
 -> DONE
 
 == Day_3 ==
@@ -83,7 +86,6 @@ VAR CurrentStoryState = 0
     ... Then they took the coffee maker out. Said the employees were spending too much time standing around it instead of being at their desks.
     Oh well. I guess I’m happy with a normal cup of coffee. Don’t want to be spending too much on frivolous things.
     I’m happy just being able to get outside the office for a little while. Stretch my legs.
-
 -> DONE
 
 == Day_5 ==
@@ -163,7 +165,6 @@ VAR CurrentStoryState = 0
 	    Maybe you’re right.
 
 -   I’ll think about it. Nothing else I can do right now.
-
 -> DONE
 
 == Day_10 ==

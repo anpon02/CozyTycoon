@@ -60,6 +60,9 @@ VAR CurrentStoryState = 0
     ... Perhaps that was a joke? Ah, I’m sorry. 
     ... Anyways.
 -   Thank you for the lovely chat. It’s quite pleasant talking to you.
+*   Is there anything you’d like to see on the menu?
+    Oho! You’re asking my opinion?
+    Well, I must admit I’m rather fond of salads. Light meals to tide me over… uhm. Ahem. 
 -> DONE
 
 == Day_3 ==

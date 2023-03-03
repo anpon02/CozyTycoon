@@ -46,6 +46,10 @@ VAR CurrentStoryState = 0
     Normally when I go to food places there's a different, depressed looking teenager working the register every time.
     ... 
     That’s kinda cool I guess. Seems like a lot of work.
+*   Is there anything you’d like to see on the menu?
+    Coffee.
+    That was kinda blunt. Uh… yeah, coffee. Saves me making a trip to a cafe. I can’t live without caffeine in my system.
+
 -> DONE
 
 == Day_3 ==

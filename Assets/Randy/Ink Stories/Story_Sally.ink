@@ -27,7 +27,7 @@ VAR CurrentStoryState = 0
         -> Day_10
     - CurrentStoryState == 10:
         -> Day_11
-    - CurrentStoryState    11:
+    - CurrentStoryState >= 11:
         -> Extra
         
      ->END
@@ -51,6 +51,10 @@ VAR CurrentStoryState = 0
     It’s just sssoup in a sssourdough bowl instead’a normal one. But somethin’ about it is just so delicious.
     You ssshould try it! You could stop by, but maybe itsss more fun making it for yourself.
     Oh, look at me, trying to tell you how to do your job. Thanksss for indulging me.
+*   Is there anything you’d like to see on the menu?
+    Oh! Well, I’m a big fan of sssoups. Easssier for me, sssince I don’t gotta cut up everythin’ into little bitsss.
+    Any kinda sssoup, really!
+
 -> DONE
 
 == Day_3 ==

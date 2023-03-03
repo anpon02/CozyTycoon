@@ -27,7 +27,7 @@ VAR CurrentStoryState = 0
         -> Day_10
     - CurrentStoryState == 10:
         -> Day_11
-    - CurrentStoryState    11:
+    - CurrentStoryState >= 11:
         -> Extra
         
      ->END
@@ -53,6 +53,12 @@ VAR CurrentStoryState = 0
     Uh. Anyways. This place smells nice. 
     You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
     ... I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
+-
+*   Is there anything you’d like to see on the menu?
+    What, like, new menu items?
+    Dude, just hook me up with any dessert and I’ll be fine. 
+    Like, cookies and shit. All warm and gooey…
+
 -> DONE
 
 == Day_3 ==

@@ -27,7 +27,7 @@ VAR CurrentStoryState = 0
         -> Day_10
     - CurrentStoryState == 10:
         -> Day_11
-    - CurrentStoryState    11:
+    - CurrentStoryState >= 11:
         -> Extra
         
      ->END
@@ -53,6 +53,9 @@ VAR CurrentStoryState = 0
     A consistent schedule is KEY TO GROWTH!!! Remember that! 
 
 -   HAHA! Is that my food you’re cooking up? I can smell it! Cook faster little guy! Go! Go! Go!
+*   Is there anything you’d like to see on the menu?
+    Oh, YEAH! This place could totally use a SMOOTHIE-MAKER-THING!!!
+    Smoothies are GREAT!!! You can pack a whole bunch of nutrients into a TASTY LITTLE DRINK!!!
 -> DONE
 
 == Day_3 ==
