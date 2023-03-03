@@ -791,7 +791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5694330616345350687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -872,9 +872,12 @@ MonoBehaviour:
     equipment: []
     result: {fileID: 0}
     minigame: 0
+    index: 0
   wiggleSpeedAndStr: {x: 20, y: 0.01}
   backing: {fileID: 4506102740698261906}
+  imgBacking: {fileID: 1431156129682188956}
   unreadColor: {r: 0.8207547, g: 0.38012725, b: 0.21293166, a: 1}
+  read: 0
 --- !u!1 &6131091091490996841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.54901963, g: 0.44705886, b: 0.32156864, a: 1}
+  m_Color: {r: 0.69803923, g: 0.6431373, b: 0.5882353, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1112,7 +1115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7342599012944622769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 

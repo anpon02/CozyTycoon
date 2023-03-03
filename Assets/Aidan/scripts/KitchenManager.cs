@@ -84,8 +84,9 @@ public class KitchenManager : MonoBehaviour {
 
     void CheckForChoice()
     {
+        int daynum = GameManager.instance.timeScript.day + 1;
         foreach (var choice in allChoices) {
-            if (choice.dayNum == GameManager.instance.timeScript.day) {
+            if (choice.dayNum == daynum) {
                 GameManager.instance.timeScript.PauseTime();
 
                 choice.options = RemoveAlreadySelected(choice.options);
@@ -152,7 +153,7 @@ public class KitchenManager : MonoBehaviour {
     public void PurchaseProduct(Product product, CharacterName character)
     {
         chosenThisWeek.Add(character);
-        if (GameManager.instance.timeScript.day % 6 == 0) DisableCharacters();
+        if (GameManager.instance.timeScript.day+1 % 6 == 0) DisableCharacters();
 
         PurchaseProduct(product);
     }

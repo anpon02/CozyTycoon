@@ -101,10 +101,10 @@ public class CustomerOrderController : MonoBehaviour
 
     public void SetOrder(Item order)
     {
-        if(orderedItems.Count == 0) {
-            orderedItems.Add(order);
-            setOrder = true;
-        }
+        if (orderedItems.Count != 0) return;
+        
+        orderedItems.Add(order);
+        setOrder = true;
     }
 
     public void UnsetOrder()
