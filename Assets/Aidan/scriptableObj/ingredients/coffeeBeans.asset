@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: coffeeBeans
   m_EditorClassIdentifier: 
   itemName: Coffee beans
-  itemSprite: {fileID: 21300000, guid: 7ff47cee4efed544ea49c7beaaeeb48a, type: 3}
+  itemSprite: {fileID: 21300000, guid: 2120c7f762da6bb4791200015cce3925, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

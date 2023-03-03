@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: broccoli
   m_EditorClassIdentifier: 
   itemName: Broccoli
-  itemSprite: {fileID: 21300000, guid: 00554d2b8d42a3c408f5396b7e6c86ca, type: 3}
+  itemSprite: {fileID: 21300000, guid: d0a8aced89d3a684cb39728b8678bac6, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

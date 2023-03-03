@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: carrot
   m_EditorClassIdentifier: 
   itemName: Carrot
-  itemSprite: {fileID: 21300000, guid: 8126278587ece7b4ab659bef7610179b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 5ad61a5fc306ff043ae7ab33def5d013, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

@@ -5900,18 +5900,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4349559117790242871, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: mixerSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349559117790242871, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: maxPlayerDist
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349559117790242871, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: progressSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_FlipX
       value: 0

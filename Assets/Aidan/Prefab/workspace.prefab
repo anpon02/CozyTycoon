@@ -9440,9 +9440,9 @@ MonoBehaviour:
   ringGuide: {fileID: 5260067543794114606}
   circleCenter: {x: 0.04, y: 1.53}
   radius: 0.7
-  progressSpeed: 1
-  mixerSpeed: 1.2
-  maxPlayerDist: 0.2
+  progressSpeed: 0.2
+  mixerSpeed: 1
+  maxPlayerDist: 1.2
   playerWinDist: 0.2
   uiCoord: {fileID: 6363789205143126933}
 --- !u!1 &8158386458305597918

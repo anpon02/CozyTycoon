@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: chocolateChipCookies
   m_EditorClassIdentifier: 
   itemName: Chocolate chip cookies
-  itemSprite: {fileID: 21300000, guid: dc60e00e3ff9a484c8115669427a18e4, type: 3}
+  itemSprite: {fileID: 21300000, guid: a8697a025a77090409551ab1cdf4489b, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

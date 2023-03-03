@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Egg
   m_EditorClassIdentifier: 
   itemName: Egg
-  itemSprite: {fileID: 21300000, guid: c07f6990bf4b2ab4a91ef0bbd04c4f53, type: 3}
+  itemSprite: {fileID: 21300000, guid: 77a667a275316b746a39e70f501ccf74, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

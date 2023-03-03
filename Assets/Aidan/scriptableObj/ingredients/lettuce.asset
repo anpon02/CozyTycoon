@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: lettuce
   m_EditorClassIdentifier: 
   itemName: Lettuce
-  itemSprite: {fileID: 21300000, guid: 143c1662b46b88148ae75ad6b0583f9b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 9f4ab8a7d9d5c0d4bb54319e7a9c48eb, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

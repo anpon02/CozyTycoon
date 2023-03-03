@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: milk
   m_EditorClassIdentifier: 
   itemName: Milk
-  itemSprite: {fileID: 21300000, guid: 28b0589a206fce54f86a1c20d45fa50e, type: 3}
+  itemSprite: {fileID: 21300000, guid: ef6013a5b5bc2f94f9b15bf509f2ecf5, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

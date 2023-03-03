@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fruitSmoothie
   m_EditorClassIdentifier: 
   itemName: Fruit smoothie
-  itemSprite: {fileID: 21300000, guid: 022af06a377d19c4e9a7c316f5f5381e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 2ab04d6f23741834fb71f4958007c106, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: tomato
   m_EditorClassIdentifier: 
   itemName: Tomato
-  itemSprite: {fileID: 21300000, guid: 3ffed3bec17326242a03bd50433962ba, type: 3}
+  itemSprite: {fileID: 21300000, guid: 9d8c6b0a12883c548ae12664f0fee59f, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1

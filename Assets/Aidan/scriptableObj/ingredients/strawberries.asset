@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: strawberries
   m_EditorClassIdentifier: 
   itemName: Strawberries
-  itemSprite: {fileID: 21300000, guid: fda15cdbefc6e16409338dbc19b9c17b, type: 3}
+  itemSprite: {fileID: 21300000, guid: d852a7b1e1fcb8e4bbe973de3f4527aa, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 

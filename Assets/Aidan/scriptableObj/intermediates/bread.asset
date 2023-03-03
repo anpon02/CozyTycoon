@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: bread
   m_EditorClassIdentifier: 
   itemName: Bread
-  itemSprite: {fileID: 21300000, guid: 78837ef41d627734aa27b0eb073727f9, type: 3}
+  itemSprite: {fileID: 21300000, guid: d33e271a06011f04c897393cd01d2aa7, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 1
