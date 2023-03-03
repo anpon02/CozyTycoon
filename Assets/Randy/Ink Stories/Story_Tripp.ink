@@ -1,5 +1,5 @@
 // Variable(s) to be overwritten by Unity
-VAR CurrentStoryState = 0
+VAR CurrentStoryState = 1
 
 // Story starts here, and the proper ink storylet is chosen with help from Unity
 -> Selector
@@ -51,8 +51,8 @@ VAR CurrentStoryState = 0
     This is the nicer part of town so I doubt that’ll ever mean anything to you. Just keep your head up. 
 *   ... What?...
     Uh. Anyways. This place smells nice. 
-    You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
-    ... I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
+    // You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
+    // ... I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
 -
 *   Is there anything you’d like to see on the menu?
     What, like, new menu items?
