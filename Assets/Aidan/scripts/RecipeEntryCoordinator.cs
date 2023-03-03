@@ -12,7 +12,7 @@ public class RecipeEntryCoordinator : MonoBehaviour
 
     [Header("Unread")]
     [SerializeField] Vector2 wiggleSpeedAndStr;
-    [SerializeField] Image backing;
+    [SerializeField] Image backing, imgBacking;
     [SerializeField] Color unreadColor;
     Color startingColor;
 
@@ -56,6 +56,7 @@ public class RecipeEntryCoordinator : MonoBehaviour
     private void Update()
     { 
         backing.color = read ? startingColor : unreadColor;
+        imgBacking.color = read ? startingColor : unreadColor;
 
         if (read) return;
 

@@ -19,7 +19,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
     [SerializeField] GameObject shop, recipeBook, recipeButton, stove, pans, meatFridge;
-    [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup, friedChicken;
+    [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup, friedChicken, roxyMan, roxySide;
     [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
@@ -260,10 +260,15 @@ public class TutorialController : MonoBehaviour
         luca = CustomerManager.instance.transform.GetChild(0).gameObject;
         if (!instructions[14].complete) luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
         else luca.GetComponentInChildren<CustomerOrderController>().UnsetOrder();
+
         instructions[5].pointer = luca;
         instructions[6].pointer = luca;
         instructions[7].pointer = luca;
-        instructions[14].pointer = luca;
+        instructions[15].pointer = luca;
+
+        /*var roxy = CustomerManager.instance.transform.GetChild(1).gameObject;
+        if (!instructions[14].complete) roxy.GetComponentInChildren<CustomerOrderController>().SetOrder(roxyMan, roxySide);
+        else roxy.GetComponentInChildren<CustomerOrderController>().UnsetOrder();*/
     }
 
     void CheckForHeldBroccoli()

@@ -34,6 +34,7 @@ public class ItemStorage : MonoBehaviour
         foreach (var item in items) {
             if (item.item != null) item.name = item.item.GetName();
         }
+        itemSelectorCoord.gameObject.SetActive(false);
     }
 
     public void DisplayGrid()

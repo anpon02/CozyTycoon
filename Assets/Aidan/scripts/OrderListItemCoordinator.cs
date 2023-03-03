@@ -47,13 +47,6 @@ public class OrderListItemCoordinator : MonoBehaviour
 
     }
 
-    public void MarkComplete()
-    {
-        strikeThrough.SetActive(true);
-        label.color = completeCol;
-        label.fontStyle = FontStyles.Italic;
-    }
-
     public string GetItemName()
     {
         return itemName;

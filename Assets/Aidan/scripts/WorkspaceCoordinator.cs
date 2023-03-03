@@ -46,6 +46,8 @@ public class WorkspaceCoordinator : MonoBehaviour
         if (bigDisplay) {
             bigDisplay.enabled = false;
         }
+        foreach (var d in itemDisplays) d.gameObject.SetActive(false);
+        foreach (var d in itemDisplays) d.enabled = true;
     }
 
     void ShowSprites()
@@ -53,6 +55,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         if (bigDisplay) {
             bigDisplay.enabled = true;
         }
+        foreach (var d in itemDisplays) d.gameObject.SetActive(true);
     }
 
     void UpdateItemDisplay()
