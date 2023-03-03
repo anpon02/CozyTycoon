@@ -1190,6 +1190,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
   - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
   - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+  - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
   shopButton: {fileID: 694832965}
   productObjData:
   - name: mixer
@@ -5908,7 +5909,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: coffeeloopSound
+      propertyPath: buttonSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: buttonSounds.Array.data[0]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: buttonSounds.Array.data[1]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: buttonSounds.Array.data[2]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: buttonSounds.Array.data[3]
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
@@ -11848,9 +11865,17 @@ PrefabInstance:
       value: Cheese
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b7b479b0a471f424f89e5038c8a120e8, type: 3}
+      objectReference: {fileID: 21300000, guid: 22a0cae406d81394380ac1e287b6642c, type: 3}
     - target: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Name
       value: grains

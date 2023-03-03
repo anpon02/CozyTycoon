@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class CoffeeMinigame : MonoBehaviour
 {
     [SerializeField] WorkstationUICoordinator uiCoord;
-    [SerializeField] int buttonSound, failSound, coffeeloopSound, winTimeRequirement = 6, patternStartLength = 3;
+    [SerializeField] int failSound, coffeeloopSound, winTimeRequirement = 6, patternStartLength = 3;
     [SerializeField] AudioSource coffeeloopSource, oneShotsSource;
     [SerializeField] float patternDisplayDelay = 0.5f;
     [SerializeField] Color failColor;
+    [SerializeField] List<int> buttonSounds = new List<int>();
     [SerializeField] List<Image> buttons = new List<Image>();
     [SerializeField] List<Color> highlightColors = new List<Color>();
 
@@ -18,7 +19,7 @@ public class CoffeeMinigame : MonoBehaviour
 
     public void PressButton(int index)
     {
-        AudioManager.instance.PlaySound(buttonSound, oneShotsSource);
+        AudioManager.instance.PlaySound(buttonSounds[index], oneShotsSource);
         inputPattern.Add(index);
         if (!PatternsMatch()) { StartCoroutine(FailPattern()); return;}
         else uiCoord.AddProgress(1 / (float) winTimeRequirement);
@@ -39,7 +40,7 @@ public class CoffeeMinigame : MonoBehaviour
         DisablePlayerInput();
         inputPattern.Clear();
         pattern.Clear();
-        AudioManager.instance.PlaySound(failSound, gameObject);
+        //AudioManager.instance.PlaySound(failSound, gameObject);
         foreach (var b in buttons) b.color = failColor;
         yield return new WaitForSeconds(1.5f);
         foreach (var b in buttons) b.color = originalButtonColor;
@@ -108,7 +109,7 @@ public class CoffeeMinigame : MonoBehaviour
     {
         print("INDEX: " + index);
         buttons[index].color = highlightColors[index];
-        AudioManager.instance.PlaySound(buttonSound, oneShotsSource);
+        AudioManager.instance.PlaySound(buttonSounds[index], oneShotsSource);
     }
 
     void EnablePlayerInput()
