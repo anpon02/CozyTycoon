@@ -10,6 +10,7 @@ public class RollingMinigame : MonoBehaviour
     [SerializeField] Image arrow;
     [SerializeField] Vector2 rollPinYLimits;
     [SerializeField] float mouseMod = 0.9f, activexPosition, timesRequired = 6;
+    [SerializeField] int rollingSound;
     
     Vector3 idlePosition;
     bool holdingDown, goalTop;
@@ -68,6 +69,7 @@ public class RollingMinigame : MonoBehaviour
         SetNewGoal();
         uiCoord.AddProgress(1.0f / timesRequired);
         if (uiCoord.progressSlider.value >= 1) Complete();
+        AudioManager.instance.PlaySound(rollingSound, gameObject);
     }
 
     void MovePin()

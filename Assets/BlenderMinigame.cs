@@ -7,6 +7,7 @@ public class BlenderMinigame : MonoBehaviour
     [SerializeField] GameObject goalCircle, playerCircle, ringGuide;
     [SerializeField] Vector2 circleCenter;
     [SerializeField] float radius, progressSpeed, mixerSpeed, maxPlayerDist, playerWinDist, playerFollowSmoothness, mouseSpeedMod;
+    [SerializeField] int blenderSound;
     bool holdingPlayer;
     float progress;
 
@@ -15,6 +16,7 @@ public class BlenderMinigame : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound(blenderSound, gameObject);
         uiCoord.ongoingMinigames += 1;     
     }
     void Complete()

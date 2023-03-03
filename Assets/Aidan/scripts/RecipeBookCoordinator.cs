@@ -29,6 +29,11 @@ public class RecipeBookCoordinator : MonoBehaviour
         rMan = RecipeManager.instance;
     }
 
+    public void CloseBookSoundPlay()
+    {
+        AudioManager.instance.PlaySound(closebookSound, gameObject);
+    }
+
     public void Hover()
     {
         mouseOver = true;

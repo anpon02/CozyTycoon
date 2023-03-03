@@ -8,9 +8,11 @@ public class BakingMinigame : MonoBehaviour
     [SerializeField] WorkstationUICoordinator uiCoord;
     [SerializeField] TextMeshProUGUI buttonText;
     [SerializeField] float progressSpeed, progressPenalty = 0.1f;
+    [SerializeField] int flameSound;
     bool open;
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound(flameSound, gameObject);
         uiCoord.ongoingMinigames += 1;
         open = false;
         Click();

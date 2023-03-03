@@ -1004,42 +1004,37 @@ MonoBehaviour:
       looping: 0
     parentVolume: 1
     parentPitch: 1
-  - name: '12: Character Voice 1'
+  - name: '12: Luca Voice'
     ID: 12
-    displayName: Character Voice 1
+    displayName: Luca Voice
     clips:
-    - name: '0: MidVoice1_SFX'
-      clip: {fileID: 8300000, guid: 3fa0666d78915224796d0981e68a551f, type: 3}
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '1: MidVoice2_SFX'
-      clip: {fileID: 8300000, guid: 0ba7308eaa3d26b49bcfda485022768d, type: 3}
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '2: MidVoice3_SFX'
-      clip: {fileID: 8300000, guid: 1d40112b6b0c3f34486d734724683328, type: 3}
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '3: MidVoice4_SFX'
-      clip: {fileID: 8300000, guid: 339dcf907885c9e4ab1c966e5acf5f78, type: 3}
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '4: MidVoice5_SFX'
-      clip: {fileID: 8300000, guid: 3e528565de3979f4ca3418dd84918a64, type: 3}
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
       localVolume: 0
       localPitch: 0
       looping: 0
-    - name: '5: MidVoice6_SFX'
-      clip: {fileID: 8300000, guid: ee2ba414d7eb8864ca24997d9c36560c, type: 3}
-      localVolume: 0
-      localPitch: 0
-      looping: 0
-    parentVolume: 0.2
-    parentPitch: 1
+    parentVolume: 0.1
+    parentPitch: 0.9
   - name: '13: PickupPop_SFX'
     ID: 13
     displayName: 
@@ -1274,6 +1269,50 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 1
+    parentVolume: 1
+    parentPitch: 1
+  - name: '34: Bake Open Flame'
+    ID: 34
+    displayName: Bake Open Flame
+    clips:
+    - name: '0: SFX_StoveFlameLoop'
+      clip: {fileID: 8300000, guid: 97894792def44d94bb2bcbcc6f27507e, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 1
+    parentVolume: 1
+    parentPitch: 1
+  - name: '35: Blender'
+    ID: 35
+    displayName: Blender
+    clips:
+    - name: '0: Mixer_SFX'
+      clip: {fileID: 8300000, guid: a1da9d4030db76f42b085a3e31d6d5bc, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 1
+    parentVolume: 0.5
+    parentPitch: 0.9
+  - name: '36: Rolling Pin'
+    ID: 36
+    displayName: Rolling Pin
+    clips:
+    - name: '0: rolling'
+      clip: {fileID: 8300000, guid: 9d1438e0dbf85ca4dae0621529995c35, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '37: Close Book'
+    ID: 37
+    displayName: Close Book
+    clips:
+    - name: '0: SFX_BookClose'
+      clip: {fileID: 8300000, guid: 5d09c3cda6764974187a3262af4aee08, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
     parentVolume: 1
     parentPitch: 1
   masterVolume: 1

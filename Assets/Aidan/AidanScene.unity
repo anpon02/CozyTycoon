@@ -2250,6 +2250,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 310355904}
+        m_TargetAssemblyTypeName: RecipeBookCoordinator, Assembly-CSharp
+        m_MethodName: CloseBookSoundPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &176727747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3759,7 +3771,7 @@ MonoBehaviour:
   recipeButton: {fileID: 412383051}
   recipeButtonAnim: {fileID: 412383059}
   openbookSound: 25
-  closebookSound: 0
+  closebookSound: 37
   flipPageSound: 26
 --- !u!114 &310355905
 MonoBehaviour:
@@ -6801,6 +6813,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: flameSound
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: progressSpeed
       value: 0.001
       objectReference: {fileID: 0}
@@ -6830,6 +6846,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
@@ -31675,6 +31699,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 329358462848180889, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}

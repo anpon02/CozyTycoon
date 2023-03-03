@@ -54,6 +54,7 @@ MonoBehaviour:
   buttonText: {fileID: 7940227570770681247}
   progressSpeed: 0.01
   progressPenalty: 0.1
+  flameSound: 0
 --- !u!1 &57146735645689623
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCoord: {fileID: 6363789205143126933}
-  buttonSound: 31
   failSound: 0
   coffeeloopSound: 33
   winTimeRequirement: 11
@@ -195,6 +195,7 @@ MonoBehaviour:
   oneShotsSource: {fileID: 6880137040095420268}
   patternDisplayDelay: 0.5
   failColor: {r: 1, g: 0, b: 0, a: 1}
+  buttonSounds: 
   buttons:
   - {fileID: 7868583036968506819}
   - {fileID: 3005602617747148813}
@@ -4307,6 +4308,7 @@ MonoBehaviour:
   mouseMod: 0.015
   activexPosition: 0
   timesRequired: 6
+  rollingSound: 36
 --- !u!1 &3808528522659903465
 GameObject:
   m_ObjectHideFlags: 0
@@ -9777,6 +9779,7 @@ MonoBehaviour:
   playerWinDist: 0.2
   playerFollowSmoothness: 0.5
   mouseSpeedMod: 0.1
+  blenderSound: 35
   uiCoord: {fileID: 6363789205143126933}
 --- !u!1 &8158386458305597918
 GameObject:
