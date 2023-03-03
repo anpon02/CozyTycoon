@@ -9444,6 +9444,8 @@ MonoBehaviour:
   mixerSpeed: 1
   maxPlayerDist: 1.2
   playerWinDist: 0.2
+  playerFollowSmoothness: 0.5
+  mouseSpeedMod: 0.1
   uiCoord: {fileID: 6363789205143126933}
 --- !u!1 &8158386458305597918
 GameObject:
