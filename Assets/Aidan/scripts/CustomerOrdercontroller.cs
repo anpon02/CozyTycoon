@@ -73,9 +73,10 @@ public class CustomerOrderController : MonoBehaviour
 
             // order
             if (GameManager.instance.orderController) {
-                foreach(Item item in orderedItems) {
-                    GameManager.instance.orderController.Order(item, patience, custCoordinator.characterName);
-                }
+                if(orderedItems.Count == 1)
+                    GameManager.instance.orderController.Order(orderedItems[0], custCoordinator.characterName);
+                else
+                    GameManager.instance.orderController.Order(orderedItems[0], custCoordinator.characterName, orderedItems[1]);
             }
             CustomerManager.instance.GoToTable(transform);
         }
@@ -101,19 +102,12 @@ public class CustomerOrderController : MonoBehaviour
 
     public void SetOrder(Item order, Item side = null)
     {
-<<<<<<< HEAD
-        if (orderedItems.Count != 0) return;
-        
-        orderedItems.Add(order);
-        setOrder = true;
-=======
         if(orderedItems.Count == 0) {
             orderedItems.Add(order);
             if(side != null)
                 orderedItems.Add(side);
             setOrder = true;
         }
->>>>>>> 744cd6d15955db3f9c41b3df3ece7bb2ebc29805
     }
 
     public void UnsetOrder()
