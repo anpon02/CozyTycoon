@@ -1243,6 +1243,39 @@ MonoBehaviour:
       looping: 0
     parentVolume: 1
     parentPitch: 1
+  - name: '31: coffeebleep'
+    ID: 31
+    displayName: coffeebleep
+    clips:
+    - name: '0: coffeeBleep'
+      clip: {fileID: 8300000, guid: 4a6f15e041c036d4182ae3ac6d03b9c9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 1
+  - name: '32: potsizzle'
+    ID: 32
+    displayName: potsizzle
+    clips:
+    - name: '0: BubblingPotSizzle_SFX'
+      clip: {fileID: 8300000, guid: 8f1d15ad775de85468a2d8258d5a8b40, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1
+    parentPitch: 1
+  - name: '33: Coffee Loop'
+    ID: 33
+    displayName: Coffee Loop
+    clips:
+    - name: '0: coffeeMachine2'
+      clip: {fileID: 8300000, guid: f3dcf4197dfdb05468714104afadf54b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 1
+    parentVolume: 1
+    parentPitch: 1
   masterVolume: 1
 --- !u!1 &1650425993
 GameObject:

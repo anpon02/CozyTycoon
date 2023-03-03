@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CoffeeMinigame : MonoBehaviour
 {
     [SerializeField] WorkstationUICoordinator uiCoord;
-    [SerializeField] int buttonSound, failSound, winTimeRequirement = 6, patternStartLength = 3;
+    [SerializeField] int buttonSound, failSound, coffeeloopSound, winTimeRequirement = 6, patternStartLength = 3;
+    [SerializeField] AudioSource coffeeloopSource, oneShotsSource;
     [SerializeField] float patternDisplayDelay = 0.5f;
     [SerializeField] Color failColor;
     [SerializeField] List<Image> buttons = new List<Image>();
@@ -17,7 +18,7 @@ public class CoffeeMinigame : MonoBehaviour
 
     public void PressButton(int index)
     {
-        AudioManager.instance.PlaySound(buttonSound, buttons[index].gameObject);
+        AudioManager.instance.PlaySound(buttonSound, oneShotsSource);
         inputPattern.Add(index);
         if (!PatternsMatch()) { StartCoroutine(FailPattern()); return;}
         else uiCoord.AddProgress(1 / (float) winTimeRequirement);
@@ -53,6 +54,7 @@ public class CoffeeMinigame : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound(coffeeloopSound, coffeeloopSource);
         uiCoord.ongoingMinigames += 1;
         StartNewPattern();
     }
@@ -106,7 +108,7 @@ public class CoffeeMinigame : MonoBehaviour
     {
         print("INDEX: " + index);
         buttons[index].color = highlightColors[index];
-        AudioManager.instance.PlaySound(buttonSound, buttons[index].gameObject);
+        AudioManager.instance.PlaySound(buttonSound, oneShotsSource);
     }
 
     void EnablePlayerInput()
