@@ -19,7 +19,7 @@ public class TutorialController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
     [SerializeField] GameObject shop, recipeBook, recipeButton, stove, pans, meatFridge;
-    [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup;
+    [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup, friedChicken;
     [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
@@ -32,8 +32,6 @@ public class TutorialController : MonoBehaviour
     string WASDstring = "";
     GameObject luca;
     bool pointing;
-
-    int chickenProgress;
 
 
     private void Start()
@@ -124,49 +122,24 @@ public class TutorialController : MonoBehaviour
 
         CheckForMinigameStart();
         CheckForMinigameComplete();
+        CheckForFoodHeld();
         CheckIfPlated();
         CheckIfDelivered();
-
-        CheckForShopOpen();
-        CheckForSpecialtyTabSelected();
-        CheckForEquipmentTabSelected();
-        CheckForPotBought();
-        CheckForSoupMade();
     }
 
-    void CheckForSoupMade()
+    void CheckForFoodHeld()
     {
-        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(veggieSoup)) instructions[19].complete = true;
-    }
-
-    void CheckForPotBought()
-    {
-        if (pot.IsPresentInList(kMan.unlockedEquipment)) instructions[18].complete = true;
-    }
-
-    void CheckForEquipmentTabSelected()
-    {
-        if (instructions[16].complete && kMan.equipmentTabSelected) instructions[17].complete = true;
-    }
-
-    void CheckForSpecialtyTabSelected()
-    {
-        if (instructions[15].complete && kMan.specialtyTabSelected) instructions[16].complete = true;
-    }
-
-    void CheckForShopOpen()
-    {
-        if (instructions[14].complete && kMan.shopOpen) instructions[15].complete = true;
+        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(friedChicken)) instructions[13].complete = true;
     }
 
     void CheckIfDelivered()
     {
-        if (gMan.orderController.completedOrder) instructions[14].complete = true;
+        if (gMan.orderController.completedOrder) instructions[15].complete = true;
     }
 
     void CheckIfPlated()
     {
-        if (kMan.chef.GetHeldiCoord() != null && instructions[12].complete && kMan.chef.GetHeldiCoord().plated) instructions[13].complete = true;
+        if (kMan.chef.GetHeldiCoord() != null && instructions[13].complete && kMan.chef.GetHeldiCoord().plated) instructions[14].complete = true;
     }
 
     void CheckForMinigameStart()

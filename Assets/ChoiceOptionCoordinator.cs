@@ -8,10 +8,12 @@ public class ChoiceOptionCoordinator : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI quote, unlockText;
     [SerializeField] Image itemImg, speakerPotrait;
-    [SerializeField] Product product;
+    Product product;
+    CharacterName character;
 
     public void Init(KitchenManager.ChoiceData.Option data)
     {
+        character = data.character;
         product = data.product;
         itemImg.sprite = product.imgSprite;
         unlockText.text = product.unlocks;
@@ -22,7 +24,7 @@ public class ChoiceOptionCoordinator : MonoBehaviour
 
     public void OnClick()
     {
-        KitchenManager.instance.PurchaseProduct(product);
+        KitchenManager.instance.PurchaseProduct(product, character);
         Destroy(gameObject);
     }
 }
