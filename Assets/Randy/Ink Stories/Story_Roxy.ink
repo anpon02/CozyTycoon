@@ -64,10 +64,10 @@ VAR CurrentStoryState = 0
     I showed her how good my TubeYou channel was going and she still went off on me about getting a ‘real job.’
     It IS a real job!!! I make workout videos so people can get RIPPED at home! And people LOVE my energy!
     It’s just as much a job as anything else, right!?
-* *     Yeah! (gain affection)
+* *     Yeah!
         YEAH!!! You get it! She’s just too old fashioned..
         Wants me to come home and be someone's wife... but I’m married to the GAINS!!!
-* *     Erm... I dunno.. (lose affection)
+* *     Erm... I dunno..
         WHAT!? CMON!!! I put time and effort into my videos!
         I gotta make the workout routines, film them, edit the videos... It’s more than just looking AWESOME in front of a camera!!!
 -   WHATEVER! I don’t need to think about all that. I need NUTRIENTS!
@@ -78,7 +78,7 @@ VAR CurrentStoryState = 0
     I didn’t know they made food this tasty outside of Magma Mountain!!! But yours come PRETTY CLOSE!!!
 *   Magma Mountain?
     YEAH!! That’s the region I come from!!!
-    There’s a traditional ingredient from my hometown called Volcano Spice. It’s fiery hot flavor that’s UNMATCHED!!! Plus, it’s GREAT for pre workout meals!!! # Notable
+    There’s a traditional ingredient from my hometown called Volcano Spice. It’s fiery hot flavor that’s UNMATCHED!!! Plus, it’s GREAT for pre workout meals!!!
     It’s just too hot for most people to handle... they don’t sell it at grocery stores... I only ever get to have it when I go home... 
     I’d give anything to taste that SWEET SWEET spice again! My mouth is watering just thinking about it!
     GAH!! Cook faster!!! My stomach is growling for some good eats!!!
@@ -105,7 +105,7 @@ VAR CurrentStoryState = 0
     Just got back from a farmers market event!!! I got to teach a yoga class for all the local ladies.
     One of them recognized me from my TubeYou channel!!! She said my videos helped her feel more CONFIDENT in herself!!! It was COOL.
     I get comments all the time from ladies saying that my videos help them. But hearing a testimonial in person is a WHOLE NEW FEELING!
-    She gave me some cookies from her booth!!! I never knew Oatmeal Cookies could taste SO GOOD!!! # Notable
+    She gave me some cookies from her booth!!! I never knew Oatmeal Cookies could taste SO GOOD!!!
 *   Oatmeal cookies?
     UH HUH! I’m not usually a cookie fan, but those cookies were GOOD!
     The flavor of the oatmeal with the sweetness of the cookie... DELICIOUS!
@@ -159,9 +159,9 @@ VAR CurrentStoryState = 0
 == Day_10 ==
     HEY little buddy!
     Just got back from Magma Mountain!
-*    How’d it go with your mom? (gain affection) 
+*    How’d it go with your mom?
     It went... BETTER THAN I EXPECTED!!!
-*    How’d it go with your dad? (lose affection) 
+*    How’d it go with your dad?
     Huh?... Get the wax out of your ears!!! I was visiting my MOM!!!
 -   We talked for a long time. She tried convincing me to stay home, said I should be focused on starting a family.
     She told me she didn’t understand my job. But I wouldn’t back down!!! I told her about what I do!!!

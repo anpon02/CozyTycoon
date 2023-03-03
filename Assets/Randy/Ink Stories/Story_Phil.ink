@@ -65,10 +65,10 @@ VAR CurrentStoryState = 0
     ... I had a date last night. It didn’t go very well.
     One of my coworkers, Elaine. I thought since we work together she would have understood when I needed to take an important call.
     She was very upset with me for it. I don’t think there will be a second date.
-*   Poor Ellen...
+* * Poor Ellen...
     ... Elaine. Her name was Elaine. Were you listening to me?...
     Uhg, my apologies. I shouldn’t be rambling on and on to someone like this. 
-*   Poor Elaine...
+* * Poor Elaine...
     ... Yeah, you’re right. It wasn’t my intention, but I’m sure it felt like I wasn’t valuing our time together.
     Maybe dating just isn’t in the cards for me. I hardly have any free time, and when I do I’m usually exhausted.
     ... Sigh.
@@ -79,7 +79,7 @@ VAR CurrentStoryState = 0
     I love the smells of this place. It’s creating a relaxing environment for me to get things done in.
     The cafeteria is... not a relaxing environment. It’s loud, the food is bad, and it kind of smells like eggs.
     We used to have a coffee maker in there that could add flavorings to your coffee.
-    I always got the Caramel flavorings. Just a little bit of sweetness, but it really helped wake me up with something delicious. # Notable
+    I always got the Caramel flavorings. Just a little bit of sweetness, but it really helped wake me up with something delicious.
     ... Then they took the coffee maker out. Said the employees were spending too much time standing around it instead of being at their desks.
     Oh well. I guess I’m happy with a normal cup of coffee. Don’t want to be spending too much on frivolous things.
     I’m happy just being able to get outside the office for a little while. Stretch my legs.
@@ -112,7 +112,7 @@ VAR CurrentStoryState = 0
 == Day_7 ==
     Where do you get your ingredients?
     Probably local, I’m guessing. All the meals here have tasted very fresh.
-    My family makes cheeses and stuff out in the Grasslands. There's a Three-Cheese Blend in particular that’s quite popular. # Notable
+    My family makes cheeses and stuff out in the Grasslands. There's a Three-Cheese Blend in particular that’s quite popular.
     My brother and I would eat it with pasta all the time. It’s really quite good.
     Your cooking is about as close to a home-cooked meal that I’ve got in a while. I don’t have time to cook nice things for myself, so I usually eat takeout or microwave meals.
     There’s the occasional fancy corporate dinner. I shouldn’t complain.

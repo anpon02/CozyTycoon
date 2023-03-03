@@ -64,7 +64,7 @@ VAR CurrentStoryState = 0
     Hey dude, how’s it goin’. 
     I’m starting to like this place a lot. Having real food in my system is making me not tired and lazy all the time, shockingly.
     I used to have a crate of this packet you could put into any pasta. 
-    It was like ... Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue. # Notable
+    It was like ... Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue. 
     I doubt you could find it anymore. It was a release promo for my favorite game.
 *   Lightyear Legends?
     ... Uh. No, Lightning Legends. 
@@ -96,10 +96,10 @@ VAR CurrentStoryState = 0
     Augh. Hey. I just pulled an all-nighter, sorry if I look like crap right now.
     The new update of Lightning Legends dropped last night. I forgot how to not go to bed at four in the morning.
     I’m so sleepy ...
-*   Sounds fun! (gains affection)
+*   Sounds fun!
     Yeah. You get it. It was super fun even though I’m suffering the sleepytime consequences. 
     Grinded out a bunch of levels until my eyes were gonna fall out. The true gamer mindset.
-*   You shouldn’t do that ... (loses affection)
+*   You shouldn’t do that ...
     Aw ... Cmon. I’m an adult, I can do whatever I wanna.
     That’s why its nice to have a freelance job. No boss telling me I gotta get up at eight in the morning. Or ten. Or.. noon.
      ... Guh. Sorry. Almost nodded off again.
@@ -143,7 +143,7 @@ VAR CurrentStoryState = 0
     ... Oh. Harsh.
     Man, if not even you think I can do it ...
    ... Sigh. I dunno. I guess I’ll think about it.
-*   You should! (gain affection)
+*   You should!
     Oh maaan. You really think it’ll be okay?
     I guess the worst thing that could happen is I go, fuck up so terribly that everyone laughs at me, go home, pack up, flee the country so I’ll never see those guys again-
     No. No. You’re right. I should do it. Nobody cares about some loser tournament anyways.

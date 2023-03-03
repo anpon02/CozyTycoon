@@ -51,7 +51,7 @@ VAR CurrentStoryState = 0
     This is the nicer part of town so I doubt that’ll ever mean anything to you. Just keep your head up. 
 *   ... What?...
     Uh. Anyways. This place smells nice. 
-    You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing. # Notable
+    You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
     ... I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
 -> DONE
 
@@ -73,7 +73,7 @@ VAR CurrentStoryState = 0
     Hey. 
     Was gonna go out to lunch somewhere else but the damn place finally got shut down.
     I don’t care if there’s “health code” violations, that’s what makes the food taste so good.
-    Can’t get Animal Fries anywhere else in town. Normal fries just don’t hit nearly as hard. # Notable
+    Can’t get Animal Fries anywhere else in town. Normal fries just don’t hit nearly as hard.
     Shit sucks. I used to go to that diner with my aunt all the time. Little upset about it...
     But not that much. Obviously.
 *   Your aunt?
