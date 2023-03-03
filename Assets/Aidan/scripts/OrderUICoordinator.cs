@@ -8,31 +8,25 @@ public class OrderUICoordinator : MonoBehaviour
     [SerializeField] GameObject listElementPrefab, OrderParent;
     [SerializeField] Transform listParent;
     List<OrderListItemCoordinator> listItem = new List<OrderListItemCoordinator>();
+    [HideInInspector] public List<OrderEntryCoordinator> orderEntryCoords = new List<OrderEntryCoordinator>();
     
-    public void AddNew(string itemName, float patience, CharacterName character)
+    public void AddNew(string itemName, string sideName, CharacterName character)
     {
-        StartCoroutine(WaitThenAdd(itemName, patience, character, OrderParent.activeInHierarchy ? 0 : 0.5f)); 
-    }
-
-    IEnumerator WaitThenAdd(string itemName, float patience, CharacterName character, float waitTime)
-    {
-        OrderParent.SetActive(true);
-
-        yield return new WaitForSeconds(waitTime);
-
         AudioManager.instance.PlaySound(7, gameObject);
         var newListItem = Instantiate(listElementPrefab, listParent);
-        var listScript = newListItem.GetComponent<OrderListItemCoordinator>();
-        listScript.Init(itemName, patience, character);
-        listItem.Add(listScript);
+        var listScript = newListItem.GetComponent<OrderEntryCoordinator>();
+        listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).portrait);
+    }
+
+    public void HideAllOrders()
+    {
+        foreach (var o in orderEntryCoords) o.Hide();
     }
 
     public void completeItem(CharacterName character)
     {
         var list = FindListItem(character);
         if (list.Count == 0) return;
-
-        foreach (var l in list) l.MarkComplete();
     }
 
     public void RemoveItem(CharacterName character)

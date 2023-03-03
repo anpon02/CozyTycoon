@@ -356,6 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  img: {fileID: 0}
+  txt: {fileID: 0}
 --- !u!114 &6530698609664612682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1802829676068904933
 RectTransform:
   m_ObjectHideFlags: 0

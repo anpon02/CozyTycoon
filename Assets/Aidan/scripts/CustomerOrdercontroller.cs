@@ -99,12 +99,21 @@ public class CustomerOrderController : MonoBehaviour
         GameManager.instance.wallet.money += Mathf.RoundToInt(deliveredItem.value * (1 + affection/3.0f));
     }
 
-    public void SetOrder(Item order)
+    public void SetOrder(Item order, Item side = null)
     {
+<<<<<<< HEAD
         if (orderedItems.Count != 0) return;
         
         orderedItems.Add(order);
         setOrder = true;
+=======
+        if(orderedItems.Count == 0) {
+            orderedItems.Add(order);
+            if(side != null)
+                orderedItems.Add(side);
+            setOrder = true;
+        }
+>>>>>>> 744cd6d15955db3f9c41b3df3ece7bb2ebc29805
     }
 
     public void UnsetOrder()

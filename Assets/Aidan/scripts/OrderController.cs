@@ -7,18 +7,20 @@ public class OrderController : MonoBehaviour
     [System.Serializable]
     public class OrderInfo
     {
-        CharacterName customer;
-        Item orderedItem;
+        public CharacterName customer;
+        public Item main, side;
 
-        public OrderInfo(CharacterName customer, Item orderedItem)
+        public OrderInfo(CharacterName customer, Item main, Item side)
         {
             this.customer = customer;
-            this.orderedItem = orderedItem;
+            this.main = main;
+            this.side = side;
         }
 
-        public Item GetItem()
+        public string GetSideName()
         {
-            return orderedItem;
+            if (side) return side.GetName();
+            return "";
         }
     }
 
@@ -31,12 +33,12 @@ public class OrderController : MonoBehaviour
         GameManager.instance.orderController = this;
     }
 
-    public void Order(Item desire, float patience, CharacterName customerName)
+    public void Order(Item mainItem, CharacterName customerName, Item sideItem = null)
     {
         TEMP_HAS_ORDER = true;
         gameObject.SetActive(true);
-        var newOrder = new OrderInfo(customerName, desire);
-        AddToOrderList(newOrder, patience, customerName);
+        var newOrder = new OrderInfo(customerName, mainItem, sideItem);
+        AddToOrderList(newOrder);
     }
 
     public void CompleteOrder(CharacterName character)
@@ -45,9 +47,9 @@ public class OrderController : MonoBehaviour
         UIcoord.RemoveItem(character);
     }
 
-    void AddToOrderList(OrderInfo newOrder, float patience, CharacterName customerName)
+    void AddToOrderList(OrderInfo newOrder)
     {
-        UIcoord.AddNew(newOrder.GetItem().GetName(), patience, customerName);
+        UIcoord.AddNew(newOrder.main.GetName(), newOrder.GetSideName(), newOrder.customer) ;
     }
 
 }

@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 3649570689964818320}
   - component: {fileID: 3649570689964818325}
   m_Layer: 5
-  m_Name: OrderListItem
+  m_Name: OLD ORDER ENTRY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

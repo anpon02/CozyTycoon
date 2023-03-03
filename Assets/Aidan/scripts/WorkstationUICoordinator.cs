@@ -45,7 +45,6 @@ public class WorkstationUICoordinator : MonoBehaviour
     public GameObject dispalyItemSprite;
     [HideInInspector] public bool showProgress;
     
-
     public void SelectRecipeOption(int num)
     {
         int index = num - 1;
@@ -107,6 +106,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     private void Update()
     {
         progressBarParent.SetActive(false);
+        contentsParent.SetActive(false);
 
         if (!Application.isPlaying) return;
 
