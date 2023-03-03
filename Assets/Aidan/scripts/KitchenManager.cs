@@ -39,19 +39,21 @@ public class KitchenManager : MonoBehaviour {
 
     [SerializeField] GameObject itemCoordPrefab;
     public float playerReach = 5;
+    public List<Item> unlockedEquipment = new List<Item>();
 
     [Header("Shop"), SerializeField] GameObject shopButton;
     [SerializeField] List<ProductObject> productObjData = new List<ProductObject>();
     
     [Header("Tutorial"), SerializeField] TutorialController tutorial; 
     [SerializeField] float tutorialStartTime = 2;
+    [SerializeField] GameObject recipeButton;
     [SerializeField] bool playTutorial;
 
     [Header("Choices")]
     [SerializeField] List<ChoiceData> allChoices;
     [SerializeField] ChoiceController choiceController;
 
-    [HideInInspector] public List<Item> unlockedEquipment = new List<Item>(), unlockedIngredients = new List<Item>();
+    [HideInInspector] public List<Item> unlockedIngredients = new List<Item>();
     [HideInInspector] public List<ItemStorage> allStorage = new List<ItemStorage>();
     [HideInInspector] public bool tutorialEquipmentPause;
     [HideInInspector] public ToolipCoordinator ttCoord;
@@ -72,7 +74,10 @@ public class KitchenManager : MonoBehaviour {
     private void Start() 
     {
         if (playTutorial) { NextTutSection(); shopButton.SetActive(false); }
-        else GameManager.instance.UnPauseNotifs();
+        else {
+            recipeButton.SetActive(true);
+            GameManager.instance.UnPauseNotifs();
+        }
         GameManager.instance.OnStoreClose.AddListener(CheckForChoice);
     }
 
@@ -81,10 +86,27 @@ public class KitchenManager : MonoBehaviour {
         foreach (var choice in allChoices) {
             if (choice.dayNum == GameManager.instance.timeScript.day) {
                 GameManager.instance.timeScript.PauseTime();
+
+                choice.options = RemoveAlreadySelected(choice.options);
+                if (choice.options.Count <= 0) return;
+
                 choiceController.OpenChoiceUI(choice.options);
                 break;
             }
         }
+    }
+    
+    List<ChoiceData.Option> RemoveAlreadySelected(List<ChoiceData.Option> old)
+    {
+        var newList = new List<ChoiceData.Option>();
+
+        foreach (var o in old) {
+            var productObj = getObjFromProduct(o.product);
+
+            if (!productObj.item.IsPresentInList(unlockedEquipment)) newList.Add(o);
+        }
+
+        return newList;
     }
 
     public void NextTutSection()
@@ -130,14 +152,20 @@ public class KitchenManager : MonoBehaviour {
     {
         GameManager.instance.timeScript.UnpauseTime();
         choiceController.gameObject.SetActive(false);
+
+        var item = getObjFromProduct(product);
+        if (item == null) return;
+
+        EnableEquipment(item.item, equipment ? product.quantity : -1);
+    }
+
+    ProductObject getObjFromProduct(Product product)
+    {
         foreach (var p in productObjData) {
-            if (p.product.name == product.name) {
-                if (p.item) {
-                    if (equipment) EnableEquipment(p.item);
-                    else EnableEquipment(p.item, product.quantity);
-                }
-            }
+            if (p.product.name == product.name) return p;
         }
+
+        return null;
     }
     
     public void EnableEquipment(Item newEquipment, int quantity = -1)
