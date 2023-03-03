@@ -36,18 +36,18 @@ public class OrderUICoordinator : MonoBehaviour
 
         foreach (var r in toRemove) 
         for (int i = 0; i < toRemove.Count; i++) {
-            listItem.Remove(toRemove[i]);
+            orderEntryCoords.Remove(toRemove[i]);
                 Destroy(toRemove[i].gameObject);
         }
 
         if (listItem.Count == 0) OrderParent.SetActive(false);
     }
 
-    List<OrderListItemCoordinator> FindListItem(CharacterName character)
+    List<OrderEntryCoordinator> FindListItem(CharacterName character)
     {
-        var list = new List<OrderListItemCoordinator>();
-        for (int i = 0; i < listItem.Count; i++) {
-            if (listItem[i].character == character) list.Add(listItem[i]);
+        var list = new List<OrderEntryCoordinator>();
+        for (int i = 0; i < orderEntryCoords.Count; i++) {
+            if (listItem[i].character == character) list.Add(orderEntryCoords[i]);
         }
         return list;
     }
