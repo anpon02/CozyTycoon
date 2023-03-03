@@ -19,10 +19,11 @@ public class WorkspaceController : MonoBehaviour
 
     [SerializeField] List<ItemCoordinator> iCoords;
 
-    public string chosenRecipe;
+    [HideInInspector] public string chosenRecipe;
 
     KitchenManager kMan;
     AudioSource source;
+    [HideInInspector] public bool hasBigEquipment, minigameActive;
 
     Item result;
     List<Item> toRemove = new List<Item>();
@@ -35,8 +36,10 @@ public class WorkspaceController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && !kMan.chef.IsHoldingItem() && KitchenManager.instance.hoveredController == this) {
-            RighClickOnWS();
+        if (Input.GetMouseButtonDown(1) && iCoords.Count > 0 && kMan.hoveredController == this) {
+
+            if (!kMan.chef.IsHoldingItem() || kMan.chef.GetHeldiCoord().CanAccept(GetRighClickItem().GetItem())) 
+                RighClickOnWS();
         }
 
         if (kMan.hoveredController == this) wsUIcoord.ShowRecipeOptions(GetValidRecipeResults());
@@ -45,11 +48,19 @@ public class WorkspaceController : MonoBehaviour
 
     void RighClickOnWS()
     {
+        if (wsUIcoord.IsMinigameActive()) return;
+
         var iCoord = GetRighClickItem();
+        if (iCoord.GetItem().isBigEquipment) hasBigEquipment = false;
         iCoords.Remove(iCoord);
+        if (iCoord == null) return;
         iCoord.gameObject.SetActive(true);
         kMan.lastRetrievedItem = iCoord.GetItem();
-        kMan.chef.PickupItem(iCoord);
+
+        if (!kMan.chef.IsHoldingItem()) { kMan.chef.PickupItem(iCoord); return; }
+        kMan.chef.GetHeldiCoord().AddItem(iCoord.GetItem());
+        kMan.chef.JustGotItem = true;
+        Destroy(iCoord.gameObject);
     }
 
     ItemCoordinator GetRighClickItem()
@@ -70,14 +81,24 @@ public class WorkspaceController : MonoBehaviour
 
     public void RemoveItemFromList(int index)
     {
+        if (wsUIcoord.IsMinigameActive()) return;
+
         ItemCoordinator iCoord = null;
         if (iCoords.Count > index) iCoord = iCoords[index];
         if (iCoord == null) return;
-        kMan.lastRetrievedItem = iCoord.GetItem();
 
+        if (kMan.chef.GetHeldiCoord() != null && !kMan.chef.GetHeldiCoord().CanAccept(iCoord.GetItem())) return;
+
+        
+        kMan.lastRetrievedItem = iCoord.GetItem();
+        if (iCoord.GetItem().isBigEquipment) hasBigEquipment = false;
         iCoords.Remove(iCoord);
         iCoord.gameObject.SetActive(true);
-        kMan.chef.PickupItem(iCoord);
+
+        if (kMan.chef.GetHeldiCoord() == null) { kMan.chef.PickupItem(iCoord); return; }
+        kMan.chef.GetHeldiCoord().AddItem(iCoord.GetItem());
+        kMan.chef.JustGotItem = true;
+        Destroy(iCoord.gameObject);
     }
 
     public void HaltRecipe()
@@ -108,6 +129,9 @@ public class WorkspaceController : MonoBehaviour
     void AddItem(ItemCoordinator iCoord)
     {
         if (iCoords.Contains(iCoord) || iCoord.travellingToChef || kMan.chef.GetHeldiCoord() == iCoord || (iCoord.wsDest != null && iCoord.wsDest != this)) return;
+        bool isBig = iCoord.GetItem().isBigEquipment;
+        if (isBig && hasBigEquipment) return;
+        if (isBig) hasBigEquipment = true;
 
         kMan.lastAddedItem = iCoord.GetItem();
         iCoords.Add(iCoord);
@@ -138,6 +162,7 @@ public class WorkspaceController : MonoBehaviour
 
         GameManager.instance.TEMP_SELECTED_RECIPE = true;
         wsUIcoord.StartMinigame(minigame);
+        minigameActive = true;
     }
 
     public void CompleteRecipe()
@@ -149,27 +174,13 @@ public class WorkspaceController : MonoBehaviour
 
         ItemCoordinator newResult = kMan.CreateNewItemCoord(result, transform.position);
         AddItem(newResult);
+        StartCoroutine(WaitThenMinigameInactive());
     }
 
-    public FoodType GetFoodType()
+    IEnumerator WaitThenMinigameInactive()
     {
-        if (iCoords.Count == 0) return FoodType.NONE;
-        int veg = 0;
-        int meat = 0;
-        foreach (var i in GetItemList()) {
-            if (i.type == FoodType.MEAT) meat += 1;
-            if (i.type == FoodType.VEGGIE) veg += 1;
-        }
-        if (veg + meat == 0) return FoodType.NONE;
-        if (veg == 0) return FoodType.MEAT;
-        else return FoodType.VEGGIE;
-    }
-
-    void PlaySound()
-    {
-        if (source == null) source = gameObject.GetOrAddComponent<AudioSource>();
-
-        if (!source.isPlaying) AudioManager.instance.PlaySound(actionSoundID, source);
+        yield return new WaitForSeconds(0.5f);
+        minigameActive = false;
     }
 
     ItemCoordinator RemoveItem(Item toRemove)

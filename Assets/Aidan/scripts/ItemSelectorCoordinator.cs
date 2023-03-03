@@ -10,11 +10,17 @@ public class ItemSelectorCoordinator : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemLabel;
     [SerializeField] ItemStorage storage;
     [SerializeField] GameObject nextItemButton;
+    [HideInInspector] public bool buttonVisible;
+
+    private void Awake()
+    {
+        buttonVisible = true;
+    }
 
     private void Update()
     {
         displayImg.sprite = storage.currentItem.GetSprite();
         itemLabel.text = storage.currentItem.GetName();
-        nextItemButton.SetActive(storage.numItems > 1);
+        nextItemButton.SetActive(buttonVisible && storage.numItems > 1);
     }
 }

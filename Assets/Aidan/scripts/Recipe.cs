@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Minigame { NONE, KNIFE, PAN, MIXER }
+public enum Minigame { NONE, KNIFE, PAN, MIXER, POT, BAKING_TRAY, ROLLING_PIN, COFFEE_MAKER, GRATER, BLENDER }
 
 [System.Serializable]
 public class Recipe
@@ -13,11 +13,20 @@ public class Recipe
     [SerializeField] List<Item> equipment = new List<Item>();
     [SerializeField] Item result;
     [SerializeField] Minigame minigame;
+    [HideInInspector] public int index;
 
-    public void OnValidate() {
+    public void OnValidate(int _index) {
         if (result == null) return;
-
-        name = result.name + " recipe";
+        string ingrds = " ";
+        foreach (var i in requiredIngrd) ingrds += i.GetName() + ", ";
+        ingrds = ingrds.TrimEnd();
+        ingrds = ingrds.TrimEnd(',');
+        string equipments = " ";
+        if (equipment.Count > 0 && equipment[0] != null) foreach (var e in equipment) equipments += e.GetName() + ", ";
+        equipments = equipments.TrimEnd();
+        equipments = equipments.TrimEnd(',');
+        name = _index + ": " + result.GetName() + ":" + ingrds + " (" + equipments + ")" + " [" + workSpace.ToString().ToLower() + "]";
+        index = _index;
     }
 
     public int GetIngredientCount() {

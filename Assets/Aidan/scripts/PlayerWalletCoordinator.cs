@@ -55,13 +55,13 @@ public class PlayerWalletCoordinator : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        yield return new WaitForSeconds(showTime);
+        /*yield return new WaitForSeconds(showTime);
 
 
         while (Vector2.Distance(transform.parent.localPosition, hiddenPosition) > 0.01f) {
             transform.parent.localPosition = Vector3.Lerp(transform.parent.localPosition, hiddenPosition, 0.025f);
             yield return new WaitForEndOfFrame();
-        }
+        }*/
         animating = false;
     }
 }

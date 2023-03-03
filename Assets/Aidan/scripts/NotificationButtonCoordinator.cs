@@ -11,6 +11,8 @@ public class NotificationButtonCoordinator : MonoBehaviour
 
     public void Notify(GameObject _toShow, UnityAction _callback = null)
     {
+        if (toShow == _toShow && callback == _callback) return;
+        
         callback = _callback;
         toShow = _toShow;
         transform.parent.gameObject.SetActive(true);
@@ -38,5 +40,8 @@ public class NotificationButtonCoordinator : MonoBehaviour
 
         if (callback != null) callback.Invoke();
         if (toShow) toShow.SetActive(true);
+
+        callback = null;
+        toShow = null;
     }
 }

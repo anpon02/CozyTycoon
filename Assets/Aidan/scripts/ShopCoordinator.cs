@@ -25,4 +25,20 @@ public class ShopCoordinator : MonoBehaviour
         coord.controller = GetComponent<ShopController>();
         coord.Init(toDisplay);
     }
+
+    public void SwitchToEquipmentTab()
+    {
+        equipmentParent.SetActive(true);
+        specialityParent.SetActive(false);
+        KitchenManager.instance.equipmentTabSelected = KitchenManager.instance.shopOpen;
+        KitchenManager.instance.specialtyTabSelected = false;
+    }
+
+    public void SwitchToSpecialTab()
+    {
+        equipmentParent.SetActive(false);
+        specialityParent.SetActive(true);
+        KitchenManager.instance.specialtyTabSelected = KitchenManager.instance.shopOpen;
+        KitchenManager.instance.equipmentTabSelected = false;
+    }
 }

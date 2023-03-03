@@ -7,6 +7,7 @@ public class CustomerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [HideInInspector] public int currentSpotInLine;
+    [HideInInspector] public bool inRestaurant;
     [SerializeField] private Vector3 exitPoint;
     [SerializeField] private Table sitSpot;
     private Seeker seek;
@@ -22,7 +23,6 @@ public class CustomerMovement : MonoBehaviour
     private bool idleFinished;
     private bool coroutineRunning;
     
-
     private void Awake() {
         // movemenet
         cust = GetComponentInChildren<CustomerOrderController>();
@@ -41,15 +41,18 @@ public class CustomerMovement : MonoBehaviour
     private void Update() {
         if(PauseManager.instance && PauseManager.instance.paused) return;
         
+        if(Input.GetKeyDown(KeyCode.B))
+            print(gameObject.name + " " + Vector2.Distance(transform.position, exitPoint));
+
         // idle anim
-        if(GetCurrentTable() == null && !IsMoving()) {
+        if(InLine()) {
             anim.SetBool("Walking", false);
             if(!coroutineRunning) {
                 StartCoroutine("RandomIdle");
             }
         }
         // sitting anim
-        else if(GetCurrentTable() != null && !IsMoving()) {
+        else if(AtTable()) {
             anim.SetBool("Walking", false);
             anim.SetTrigger("Sit");
             coroutineRunning = false;
@@ -92,6 +95,7 @@ public class CustomerMovement : MonoBehaviour
     * MOVEMENT FUNCTIONS
     */
     public void GetInLine() {
+        GetComponent<CustomerCoordinator>().storyFinished = false;
         // if not in line or in a farther line spot
         if(currentSpotInLine > LineManager.instance.GetNextOpenSpot() || currentSpotInLine == -1) {
             // get the next available spot from lineManager
@@ -104,6 +108,7 @@ public class CustomerMovement : MonoBehaviour
             path.destination = spotCoords;
             spot.SetPlaceIsTaken(true);
             LineManager.instance.UpdateNextOpenSpot();
+            inRestaurant = true;
         }
     }
 
@@ -130,6 +135,7 @@ public class CustomerMovement : MonoBehaviour
             if(currentTable)
                 currentTable.SetIsTaken(false);
             currentTable = null;
+            inRestaurant = false;
         }
     }
 
@@ -138,10 +144,23 @@ public class CustomerMovement : MonoBehaviour
     }
 
     public bool IsMoving() {
-        return path.remainingDistance > 0.1f && path.remainingDistance != Mathf.Infinity;
+        return path.remainingDistance > 0.15f && path.remainingDistance != Mathf.Infinity;
     }
 
     public bool MovingRight() {
         return path.destination.x > transform.position.x;
+    }
+
+    private IEnumerator AtExitPoint() {
+        yield return new WaitUntil(() => Vector2.Distance(transform.position, exitPoint) < 0.15f);
+        transform.position = exitPoint;
+    }
+
+    public bool InLine() {
+        return GetCurrentTable() == null && !IsMoving() && Vector2.Distance(transform.position,exitPoint) > 1;
+    }
+
+    public bool AtTable() {
+        return GetCurrentTable() != null && !IsMoving();
     }
 }

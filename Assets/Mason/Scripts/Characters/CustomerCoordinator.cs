@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CustomerCoordinator : MonoBehaviour
 {
-    [HideInInspector] public bool inRestaurant;
-
     [Header("Relationship Status")]
     public int relationshipValue;
 
@@ -13,25 +11,49 @@ public class CustomerCoordinator : MonoBehaviour
     public CharacterName characterName;
     [SerializeField] private TextAsset inkStory;
     private int storyPhaseNum;
-    private bool storySaid;
+    private bool storyStarted;
+    [HideInInspector] public bool storyFinished;
 
     [Header("Particle System")]
     [SerializeField] private float emitTime;
     private ParticleSystem pSystem;
 
+    [Header("Customer Interactable")]
+    [SerializeField] private CustomerInteractable forkKnife;
+    private CustomerMovement movement;
+    private CustomerOrderController orderController;
+
     private void Awake() {
         // Customer Story
         storyPhaseNum = 0;
-        storySaid = false;
+        storyStarted = false;
 
         // Customer Particle
         pSystem = GetComponentInChildren<ParticleSystem>();
+
+        // customer interactable
+        movement = GetComponent<CustomerMovement>();
+        orderController = GetComponentInChildren<CustomerOrderController>();
     }
 
     private void Start() {
         // Customer Particle
         pSystem.Stop();
     }
+
+    private void Update() {
+        if(PauseManager.instance && PauseManager.instance.paused) return;
+
+        // activate/deactivate forkKnife based on movement and if food is delivered
+        if(!movement.IsMoving() && !orderController.GetHasReceivedFood())
+            forkKnife.gameObject.SetActive(true);
+        else
+            forkKnife.gameObject.SetActive(false);
+
+        if (storyStarted && !storyFinished) CheckForStoryEnd();
+    }
+
+    
 
     /*
     * RELATIONSHIP STATUS FUNCTIONS
@@ -66,20 +88,25 @@ public class CustomerCoordinator : MonoBehaviour
     }
 
     public void StartStory() {
-        if (!DialogueManager.instance) return;
+        if (!DialogueManager.instance || DialogueManager.instance.StoryDisabled(characterName)) return;
 
         DialogueManager.instance.speakingCharacter = gameObject;
         DialogueManager.instance.StartDialogueMainStory(inkStory, characterName, storyPhaseNum);
-        storySaid = true;
+        storyStarted = true;
         NextStoryPhase();
     }
 
     public bool GetStorySaid() {
-        return storySaid;
+        return storyStarted;
     }
 
     public void SetStorySaid(bool said) {
-        storySaid = said;
+        storyStarted = said;
+    }
+
+    void CheckForStoryEnd()
+    {
+        if (DialogueManager.instance.StoryEnded()) storyFinished = true;
     }
 
     /*

@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
         public CharacterName characterName;
         public Sprite portrait;
         public int speakerSoundID;
+        public bool disabled;
     }
     
     [SerializeField] List<SpeakerData> speakers = new List<SpeakerData>();
@@ -36,7 +37,11 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Notetaking")]
     [HideInInspector] public bool allowNotes;
-    [SerializeField, Tooltip("Use as a debug tool, or if not using the parser to mark specific lines for notetaking")] private bool anyNotes;
+    public Color notableTextColor;
+
+    private void OnValidate() {
+        foreach (var s in speakers) s.name = s.characterName.ToString();
+    }
 
     public float SpeakerDistance { get { return GetPlayerDistance(); } }
 
@@ -133,10 +138,26 @@ public class DialogueManager : MonoBehaviour
 
     public void TakeNotes()
     {
-        if (!allowNotes || anyNotes)
-            return;
+        if (!allowNotes) return;
+        allowNotes = false;
         string note = currentStory.state.currentText.Trim();
         AudioManager.instance.PlaySound(7);
         GameManager.instance.notebook.RecordInfo(note, lastSpeaker);
+    }
+
+    public void DisableCharacterStory(CharacterName name)
+    {
+        SpeakerData character = speakers.Find(s => s.characterName == name);
+        if (character == default(SpeakerData))
+        {
+            Debug.LogWarning("DisableCharacterStory: " + name + " not found");
+            return;
+        }
+        character.disabled = true;
+    }
+
+    public bool StoryDisabled(CharacterName name)
+    {
+        return speakers.Find(s => s.characterName == name).disabled;
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e82fe11f37df945b76526192d58b15, type: 3}
+  m_Name: grater
+  m_EditorClassIdentifier: 
+  imgSprite: {fileID: 21300000, guid: 044dd8b6d8aa4e4449f1cc32c5bcdf21, type: 3}
+  productName: Chese Grater
+  description: make chese smaller!
+  price: 100
+  unlocks: 'sandwiches
+
+    burgers'
+  quantity: -1

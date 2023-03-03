@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e82fe11f37df945b76526192d58b15, type: 3}
   m_Name: Mixer
   m_EditorClassIdentifier: 
-  imgSprite: {fileID: 21300000, guid: 2fedeb92336fd374f9e35f7589176050, type: 3}
+  imgSprite: {fileID: 21300000, guid: 1b00153e77de8b04e8d30eab91f1164a, type: 3}
   productName: Mixer!
   description: mix mix mix mix mix yeahhhh
-  price: 200
-  unlocks: 'Crabs, lobsters
+  price: 100
+  unlocks: 'batters, desserts,
 
-    johnson, ragoon'
+    breakfast'
+  quantity: -1

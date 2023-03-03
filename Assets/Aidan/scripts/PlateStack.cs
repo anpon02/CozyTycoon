@@ -17,7 +17,7 @@ public class PlateStack : MonoBehaviour
 
     private void OnMouseDown() {
         ItemCoordinator iCoord = KitchenManager.instance.chef.GetHeldiCoord();
-        if (iCoord && iCoord.GetItem().type != FoodType.NONE) { 
+        if (iCoord && iCoord.GetItem().menuItem) { 
             iCoord.plated = true;
             AudioManager.instance.PlaySound(plateSound, gameObject);
         }

@@ -13,8 +13,6 @@ public class CustomerManager : MonoBehaviour
 {
     public static CustomerManager instance;
 
-    //[SerializeField] private float minWaitTime;
-    //[SerializeField] private float maxWaitTime;
     [SerializeField] private List<Transform> customers;
     [SerializeField] private List<ScheduleDay> schedule;
 
@@ -41,11 +39,12 @@ public class CustomerManager : MonoBehaviour
 
     private void SetTodaysCustomers() {
         todaysCustomers.Clear();
-        foreach(Transform customer in customers) {
-            CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
-            if (schedule.Count <= gMan.timeScript.day) return;
-            if(schedule[gMan.timeScript.day].customers.Contains(coord.characterName))
-                todaysCustomers.Add(customer);
+        if (schedule.Count <= gMan.timeScript.day) return;
+        foreach (var customer in schedule[gMan.timeScript.day].customers) {
+            Transform c = customers.Find( c => c.GetComponent<CustomerCoordinator>().characterName == customer);
+            if (c != null) {
+                todaysCustomers.Add(c);
+            }
         }
     }
 
@@ -63,8 +62,8 @@ public class CustomerManager : MonoBehaviour
         foreach (var c in customers) {
             CustomerCoordinator coord = c.GetComponent<CustomerCoordinator>();
             if (coord.characterName == character) {
-                c.GetComponent<CustomerMovement>().LeaveRestaurant();
-                coord.inRestaurant = false;
+                CustomerMovement move = c.GetComponent<CustomerMovement>();
+                move.LeaveRestaurant();
             }
         }
     }
@@ -86,27 +85,35 @@ public class CustomerManager : MonoBehaviour
     public void EveryoneLeave() {
         StopCoroutine("StartSendingCustomers");
         foreach(Transform customer in customers) {
-            CustomerCoordinator coord = customer.GetComponent<CustomerCoordinator>();
-            if(coord.inRestaurant) {
-                customer.GetComponent<CustomerMovement>().LeaveRestaurant();
-                coord.inRestaurant = false;
+            CustomerMovement move = customer.GetComponent<CustomerMovement>();
+            if(move.inRestaurant) {
+                move.LeaveRestaurant();
             }
         }
     }
 
     private IEnumerator StartSendingCustomers() {
         for(int i = 0; i < todaysCustomers.Count; ++i) {
-            if(i > 0)
-                yield return new WaitUntil(() => !CustomerInRestaurant(i - 1));
-            todaysCustomers[i].GetComponent<CustomerCoordinator>().inRestaurant = true;
-            todaysCustomers[i].GetComponent<CustomerMovement>().GetInLine();
+            if (i > 0)
+                if(DialogueManager.instance.StoryDisabled(todaysCustomers[i - 1].GetComponent <CustomerCoordinator>().characterName))
+                    yield return new WaitUntil(() => todaysCustomers[i - 1].GetComponent<CustomerMovement>().InLine() );
+                else yield return new WaitUntil(() =>  CustomerFinishedTalking(i - 1));
+            CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
+            move.GetInLine();
         }
+        //print("AHHHH: " + todaysCustomers.Count);
         yield return new WaitUntil(() => !CustomerInRestaurant(todaysCustomers.Count - 1));
+        //print("BRUHHH");
         gMan.timeScript.LastCustomerLeave();
     }
 
+    bool CustomerFinishedTalking(int customerIndex)
+    {
+        return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().storyFinished;
+    }
+
     private bool CustomerInRestaurant(int customerIndex) {
-        return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().inRestaurant;
+        return todaysCustomers[customerIndex].GetComponent<CustomerMovement>().inRestaurant;
     }
 
     private IEnumerator ShiftLine() {

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CustomerInteractable : MonoBehaviour
 {
-    private enum InteractableType { ORDER, STORY};
-
-    [SerializeField] private InteractableType type;
     [SerializeField] private Transform player;
     [SerializeField] private CustomerOrderController orderController;
     [SerializeField] private CustomerCoordinator custCoordinator;
@@ -48,12 +45,11 @@ public class CustomerInteractable : MonoBehaviour
         mouseOn = false;
         gameObject.SetActive(false);
 
-        if (type == InteractableType.STORY) { 
+        if(orderController.alreadyOrdered() && !orderController.setOrder) 
+            orderController.DeliverFood();
+        else {
             custCoordinator.StartStory();
-            orderController.storyStarted = true;
-            return; 
+            orderController.Order();
         }
-        if(orderController.alreadyOrdered()) orderController.DeliverFood(); 
-        else orderController.Order();  
     }
 }

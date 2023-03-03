@@ -11,7 +11,6 @@ public class ItemStorage : MonoBehaviour
         [HideInInspector] public string name;
         public Item item;
         public int maxNum;
-        //[HideInInspector] public int numRemaining;
         public int numRemaining;
         [HideInInspector] public List<ItemCoordinator> instances = new List<ItemCoordinator>();
         [HideInInspector] public bool enabled;
@@ -21,6 +20,7 @@ public class ItemStorage : MonoBehaviour
     [SerializeField] string toolTip;
     [SerializeField] ItemSelectorCoordinator itemSelectorCoord;
     [SerializeField] Color hoveredColor;
+    [SerializeField] itemGridCoordinator itemGrid;
 
     public Item currentItem { get {return items[itemIndex].item; } }
     public int numItems { get { return NumEnabledItems(); } }
@@ -36,6 +36,13 @@ public class ItemStorage : MonoBehaviour
         }
     }
 
+    public void DisplayGrid()
+    {
+        var list = new List<ItemData>();
+        foreach (var i in items) if (i.enabled) list.Add(i);
+        itemGrid.DisplayGrid(list);
+    }
+
     public void Enable(Item toEnable, int quantity = -1)
     {
         foreach (var item in items) {
@@ -48,9 +55,20 @@ public class ItemStorage : MonoBehaviour
         gameObject.SetActive(NumEnabledItems() > 0);
     }
 
+    private void OnEnable()
+    {
+        if (items[itemIndex].enabled) return;
+
+        int startingIndex = itemIndex;
+        while (!items[itemIndex].enabled) {
+            itemIndex += 1;
+            if (itemIndex >= items.Count) itemIndex = 0;
+            if (itemIndex == startingIndex) return;
+        }
+    }
+
     public void GetItem()   
     {
-        
         if (closed || !SetChef() || !items[itemIndex].enabled) return;
         if (chef.IsHoldingItem()) { TryRestock(); return; }
 
@@ -128,11 +146,19 @@ public class ItemStorage : MonoBehaviour
         }
     }
 
-    public void NextItem()
-    { 
-        itemIndex += 1;
-        if (itemIndex >= items.Count) itemIndex = 0;
-        if (NumEnabledItems() > 0 && !items[itemIndex].enabled) NextItem();
+    public void SelectItem(int _itemIndex)
+    {
+        if (_itemIndex == -1) return;
+
+        var list = new List<ItemData>();
+        foreach (var i in items) if (i.enabled) list.Add(i);
+        var selected = list[_itemIndex];
+        
+        for (int i = 0; i < items.Count; i++) {
+            if (items[i].item.Equals(selected.item)) itemIndex = i;
+        }
+
+        if (!KitchenManager.instance.chef.IsHoldingItem()) GetItem();
     }
 
     private void OnMouseEnter()

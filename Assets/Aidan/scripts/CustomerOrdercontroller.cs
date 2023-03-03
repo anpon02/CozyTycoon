@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class CustomerOrderController : MonoBehaviour
 {
-    Item desiredItem;
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
+    [SerializeField] private Item favoriteEntree;
+    [SerializeField] private float favoriteItemChance = 80.0f;
+    [SerializeField] private float sideOrderChance = 50.0f;
 
-    [HideInInspector] public bool storyStarted;
     private CustomerCoordinator custCoordinator;
     ChefController chef;
     CustomerMovement move;
-    bool foodOrdered;
+    List<Item> orderedItems;
     bool recievedFood;
     float timeSinceOrdering;
     float timeSinceReceivedFood;
-    bool doneSpeaking, setOrder;
+    bool doneSpeaking;
+    public bool setOrder { get; private set; }
+    bool foodAte;
     DialogueManager dMan;
 
     private void Awake() {
         custCoordinator = GetComponentInParent<CustomerCoordinator>();
         move = GetComponentInParent<CustomerMovement>();
+        orderedItems = new List<Item>();
         recievedFood = false;
+        foodAte = false;
     }
 
     private void Start()
@@ -33,30 +38,41 @@ public class CustomerOrderController : MonoBehaviour
     
     private void Update()
     {
-        if (foodOrdered && !recievedFood) timeSinceOrdering += Time.deltaTime;
-        if (recievedFood) Eat();
-    }
-
-    public void SetOrder(Item order)
-    {
-        desiredItem = order;
-        setOrder = true;
+        if(orderedItems.Count > 0 && !recievedFood) timeSinceOrdering += Time.deltaTime;
+        if (recievedFood && !foodAte) Eat();
     }
 
     public void Order()
     {
-        if (!setOrder) {
-            var menu = RecipeManager.instance.Menu;
-            if (menu.Count == 0) return;
-            desiredItem = menu[Random.Range(0, menu.Count)];
+        var entreeMenu = RecipeManager.instance.Menu;
+        var sideMenu = RecipeManager.instance.Sides;
+
+        // pick entree
+        if (!setOrder && entreeMenu.Count > 0) {
+
+            // order favorite entree if possible and random chance is hit, otherwise, order random item
+            if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
+                orderedItems.Add(favoriteEntree);
+            else
+                orderedItems.Add(entreeMenu[Random.Range(0, entreeMenu.Count)]);
+        }
+
+        // 50% chance to pick side if possible
+        if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= sideOrderChance) {
+            orderedItems.Add(sideMenu[Random.Range(0, sideMenu.Count)]);
         }
         
-        setOrder = false;    
-        storyStarted = false;
-        foodOrdered = true;
-        timeSinceOrdering = 0;
-        if (GameManager.instance.orderController) GameManager.instance.orderController.Order(desiredItem, patience, custCoordinator.characterName);
-        CustomerManager.instance.GoToTable(transform);
+        // process order
+        if(orderedItems.Count > 0) {
+            setOrder = false;  
+            timeSinceOrdering = 0;
+            if (GameManager.instance.orderController) {
+                foreach(Item item in orderedItems) {
+                    GameManager.instance.orderController.Order(item, patience, custCoordinator.characterName);
+                }
+            }
+            CustomerManager.instance.GoToTable(transform);
+        }
     }
 
     public void DeliverFood()
@@ -64,8 +80,9 @@ public class CustomerOrderController : MonoBehaviour
         if (!chef) chef = KitchenManager.instance.chef;
         if (!CorrectFoodHeld()) return;
 
-        foodOrdered = false;
+        orderedItems.Clear();
         recievedFood = true;
+        foodAte = false;
         timeSinceReceivedFood = 0;
 
         Item deliveredItem = chef.RemoveHeldItem();
@@ -73,12 +90,25 @@ public class CustomerOrderController : MonoBehaviour
 
         GameManager.instance.TEMP_DELIVERED = true;
         var affection = UpdateAffection();
-        GameManager.instance.wallet.money += deliveredItem.value * (1 + affection);
+        GameManager.instance.wallet.money += Mathf.RoundToInt(deliveredItem.value * (1 + affection/3.0f));
+    }
+
+    public void SetOrder(Item order)
+    {
+        if(orderedItems.Count == 0) {
+            orderedItems.Add(order);
+            setOrder = true;
+        }
+    }
+
+    public void UnsetOrder()
+    {
+        setOrder = false;
     }
 
     public bool alreadyOrdered()
     {
-        return foodOrdered;
+        return orderedItems.Count > 0;
     }
 
     public bool GetHasReceivedFood()
@@ -94,11 +124,11 @@ public class CustomerOrderController : MonoBehaviour
     int UpdateAffection()
     {
         int points = 0;
-        if (timeSinceOrdering < patience) points += 1;
-        if (!storyStarted) points = 0;
+        if(timeSinceOrdering < patience * (1.0f / 3.0f)) points += 3;
+        else if(timeSinceOrdering < patience * (2.0f / 3.0f)) points += 2;
+        else if(timeSinceOrdering < patience) points += 1;
 
         custCoordinator.updateRelationshipValue(points);
-
         return points;
     }
 
@@ -112,13 +142,22 @@ public class CustomerOrderController : MonoBehaviour
     {
         timeSinceReceivedFood += Time.deltaTime;
         bool speaking = dMan.IsDialogueActive() && dMan.lastSpeaker == custCoordinator.characterName;
-        if (!speaking && timeSinceReceivedFood >= eatTime) CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
+        if (!speaking && timeSinceReceivedFood >= eatTime) { 
+            CustomerManager.instance.MakeCustomerLeave(custCoordinator.characterName);
+            foodAte = true;
+        }
     }
 
     bool CorrectFoodHeld()
     {
         if (!GetChef() || chef.GetHeldItem() == null || !chef.GetHeldiCoord().plated) return false;
-        return chef.GetHeldItem().Equals(desiredItem);
+        if(orderedItems.Count == 1) {
+            return chef.GetHeldItem().Equals(orderedItems[0]) && chef.GetHeldiCoord().side == null;
+        }
+        else if(orderedItems.Count == 2 && chef.GetHeldiCoord().side != null) {
+            return chef.GetHeldItem().Equals(orderedItems[0]) && chef.GetHeldiCoord().side.Equals(orderedItems[1]);
+        }
+        return false;
     }
 
     bool GetChef()

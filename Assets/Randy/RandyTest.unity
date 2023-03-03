@@ -697,6 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1019308768}
   speakerPortrait: {fileID: 4970070}
+  dialogueButton: {fileID: 1019308774}
   mainText: {fileID: 1365309189}
   speakerName: {fileID: 1085247857}
   choiceParent: {fileID: 1439928345}
@@ -1115,14 +1116,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speakers:
-  - name: Luca
+  - name: LUCA
     characterName: 0
     portrait: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
     speakerSoundID: 12
-  - name: Roxy
+    disabled: 0
+  - name: ROXY
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
-    speakerSoundID: 0
+    speakerSoundID: 12
+    disabled: 0
+  - name: TRIPP
+    characterName: 2
+    portrait: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+    speakerSoundID: 12
+    disabled: 0
+  - name: SALLY
+    characterName: 3
+    portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+    speakerSoundID: 12
+    disabled: 0
+  - name: FLORIAN
+    characterName: 4
+    portrait: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+    speakerSoundID: 12
+    disabled: 0
+  - name: PHIL
+    characterName: 5
+    portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+    speakerSoundID: 12
+    disabled: 0
   controller: {fileID: 535910281}
   OnDialogueEnd:
     m_PersistentCalls:
@@ -1136,7 +1159,7 @@ MonoBehaviour:
   lineDelayModifier: 1
   ConvoStarted: 0
   allowNotes: 0
-  anyNotes: 0
+  notableTextColor: {r: 0.19607843, g: 0.19607843, b: 1, a: 1}
 --- !u!4 &875716907
 Transform:
   m_ObjectHideFlags: 0
@@ -1193,7 +1216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 208.3, y: 54.8}
+  m_AnchoredPosition: {x: 208.2998, y: 54.80005}
   m_SizeDelta: {x: 500, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019308768
@@ -1283,10 +1306,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

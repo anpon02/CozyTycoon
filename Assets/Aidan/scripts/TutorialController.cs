@@ -18,8 +18,9 @@ public class TutorialController : MonoBehaviour
     }
 
     [SerializeField] TextMeshProUGUI mainText, category, details;
-    [SerializeField] GameObject shop, shopButton, recipeBook, recipeButton, stove, pans, meatFridge;
-    [SerializeField] Item mixer, potato, lucaOrder, fryingPan, rawChicken;
+    [SerializeField] GameObject shop, recipeBook, recipeButton, stove, pans, meatFridge;
+    [SerializeField] Item pot, broccoli, lucaOrder, fryingPan, rawChicken, veggieSoup;
+    [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
     [SerializeField] List<Instruction> instructions = new List<Instruction>();
@@ -66,7 +67,8 @@ public class TutorialController : MonoBehaviour
             category.text = "";
             AudioManager.instance.PlaySound(6);
             helpScript.gameObject.SetActive(false);
-            kMan.NextTutSection();
+            if (currentInstruction < 14) kMan.NextTutSection();
+            else kMan.nextTutSectionWhenThisRich(potProduct.price);
             return;
         }
 
@@ -77,12 +79,14 @@ public class TutorialController : MonoBehaviour
         details.text = instructions[currentInstruction].subTitle;
     }
 
-    void EndTut()
+    public void EndTut()
     {
         AudioManager.instance.PlaySound(6);
         gameObject.SetActive(false);
         helpScript.gameObject.SetActive(false);
         gMan.UnPauseNotifs();
+        recipeButton.SetActive(true);
+        gMan.timeScript.UnpauseTime();
     }
 
     void Update()
@@ -92,7 +96,7 @@ public class TutorialController : MonoBehaviour
 
         DisplayHelper();
         CheckWASD();
-        CheckForHeldPotato();
+        CheckForHeldBroccoli();
         CheckForPlacedPotato();
         CheckForRetrievedPotato();
         CheckForTrashedPotato();
@@ -120,9 +124,39 @@ public class TutorialController : MonoBehaviour
 
         CheckForMinigameStart();
         CheckForMinigameComplete();
-
         CheckIfPlated();
         CheckIfDelivered();
+
+        CheckForShopOpen();
+        CheckForSpecialtyTabSelected();
+        CheckForEquipmentTabSelected();
+        CheckForPotBought();
+        CheckForSoupMade();
+    }
+
+    void CheckForSoupMade()
+    {
+        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(veggieSoup)) instructions[19].complete = true;
+    }
+
+    void CheckForPotBought()
+    {
+        if (pot.IsPresentInList(kMan.unlockedEquipment)) instructions[18].complete = true;
+    }
+
+    void CheckForEquipmentTabSelected()
+    {
+        if (instructions[16].complete && kMan.equipmentTabSelected) instructions[17].complete = true;
+    }
+
+    void CheckForSpecialtyTabSelected()
+    {
+        if (instructions[15].complete && kMan.specialtyTabSelected) instructions[16].complete = true;
+    }
+
+    void CheckForShopOpen()
+    {
+        if (instructions[14].complete && kMan.shopOpen) instructions[15].complete = true;
     }
 
     void CheckIfDelivered()
@@ -222,19 +256,19 @@ public class TutorialController : MonoBehaviour
     void CheckForTrashedPotato()
     {
         if (kMan.lastTrashedItem == null) return;
-        if (kMan.lastTrashedItem.Equals(potato) && instructions[3].complete) instructions[4].complete = true;
+        if (kMan.lastTrashedItem.Equals(broccoli) && instructions[3].complete) instructions[4].complete = true;
     }
 
     void CheckForRetrievedPotato()
     {
         if (kMan.lastRetrievedItem == null) return;
-        if (kMan.lastRetrievedItem.Equals(potato) && instructions[2].complete) instructions[3].complete = true;
+        if (kMan.lastRetrievedItem.Equals(broccoli) && instructions[2].complete) instructions[3].complete = true;
     }
 
     void CheckForPlacedPotato()
     {
         if (kMan.lastAddedItem == null) return;
-        if (kMan.lastAddedItem.Equals(potato)) instructions[2].complete = true;
+        if (kMan.lastAddedItem.Equals(broccoli)) instructions[2].complete = true;
     }
 
     void DisplayHelper()
@@ -251,15 +285,17 @@ public class TutorialController : MonoBehaviour
     {
         if (!kMan) return;
         luca = CustomerManager.instance.transform.GetChild(0).gameObject;
-        luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
+        if (!instructions[14].complete) luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
+        else luca.GetComponentInChildren<CustomerOrderController>().UnsetOrder();
         instructions[5].pointer = luca;
+        instructions[6].pointer = luca;
         instructions[7].pointer = luca;
         instructions[14].pointer = luca;
     }
 
-    void CheckForHeldPotato()
+    void CheckForHeldBroccoli()
     {
-        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(potato)) instructions[1].complete = true;
+        if (kMan.chef.IsHoldingItem() && kMan.chef.GetHeldItem().Equals(broccoli)) instructions[1].complete = true;
     }
     
     void CheckWASD()

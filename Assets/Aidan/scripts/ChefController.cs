@@ -14,6 +14,8 @@ public class ChefController : MonoBehaviour
     [SerializeField] int pickupSound;
     [SerializeField] int putdownSound;
     [SerializeField] ParticleSystem footStepParticles;
+    
+    [HideInInspector] public bool JustGotItem;
 
 
     public bool IsHoldingItem() {
@@ -22,6 +24,7 @@ public class ChefController : MonoBehaviour
 
     public void PickupItem(ItemCoordinator iCoord)
     {
+        JustGotItem = true;
         AudioManager.instance.PlaySound(pickupSound, gameObject);
         heldItem = iCoord;
     }
@@ -29,7 +32,8 @@ public class ChefController : MonoBehaviour
     public void ReadClickInput(InputAction.CallbackContext ctx)
     {
         if (heldItem == null) return;
-        if (ctx.started) PlaceItem(); 
+        if (ctx.started) JustGotItem = false;
+        if (ctx.canceled && JustGotItem == false) PlaceItem();
     }
 
     private void Start()
@@ -40,7 +44,7 @@ public class ChefController : MonoBehaviour
     void PlaceItem()
     {
         var ws = KitchenManager.instance.hoveredController;
-        if (ws == null) return;
+        if (ws == null || (ws.hasBigEquipment && heldItem.GetItem().isBigEquipment) || ws.minigameActive) return;
         AudioManager.instance.PlaySound(putdownSound, gameObject);
 
         ReleaseItem(KitchenManager.instance.hoveredController);

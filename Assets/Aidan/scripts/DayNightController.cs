@@ -9,7 +9,7 @@ public class DayNightController : MonoBehaviour {
     Day currentDay;
 
     [SerializeField] Gradient backgroundGradient;
-    [SerializeField] float timeSpeed = 0.5f;
+    [SerializeField] float timeSpeed = 0.5f, fastSpeed = 0.5f;
     [Range(0,1)] public float time;
     TextMeshProUGUI timeDisplay;
     [SerializeField] GameObject wheel;
@@ -22,7 +22,6 @@ public class DayNightController : MonoBehaviour {
     [SerializeField] Image buttonImg;
     [SerializeField] Color openColor;
     [SerializeField] Color closedColor;
-    [SerializeField] Color sleepColor;
    
     [Header("Schedule")]
     [SerializeField] float openTime = 0.25f;
@@ -58,9 +57,10 @@ public class DayNightController : MonoBehaviour {
 
     public void LastCustomerLeave()
     {
-        time = closeTime + 0.1f;
+        time = closeTime + 0.01f;
         if (!closed) Close();
         GoToSleep();
+        timeSpeed = fastSpeed;
     }
 
     private void Update()
@@ -129,34 +129,18 @@ public class DayNightController : MonoBehaviour {
 
     void Open()
     {
-        //print("STORE OPEN");
         AudioManager.instance.PlaySound(10, gameObject);
         GameManager.instance.OnStoreOpen.Invoke();
         closed = asleep = false;
         UpdateButton();
-        SetTimeScaleBasedOnPatience();
+        timeSpeed = 0;
     }
 
-    void SetTimeScaleBasedOnPatience() {
-        float totalTime = CustomerManager.instance.todaysCombinedPatience;
-        totalTime *= 3f;
-
-        float _timeScale = 1;
-
-        float dayLength = closeTime - time;
-
-        _timeScale = (dayLength / totalTime);
-
-        //print("total time: " + totalTime + ", timeScale: " + _timeScale + ", dayLength: " + dayLength);
-        timeSpeed = _timeScale;
-    }
 
     void UpdateButton()
     {
-        var text = "asleep...";
-        Color col = sleepColor;
         var buttonText = buttonImg.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = asleep ? text : (closed ? (time > closeTime ? "go to sleep" : "closed") : "open");
-        buttonImg.color = asleep ? col : (closed ? openColor : closedColor);
+        buttonText.text = closed ? "CLOSED" : "OPEN";
+        buttonImg.color = closed ? closedColor : openColor;
     }
 }

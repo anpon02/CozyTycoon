@@ -4,17 +4,18 @@ using Cinemachine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera followVCam;
-    [SerializeField] private CinemachineVirtualCamera stationaryVCam;
-    [SerializeField] Transform cameraTarget;
+    [SerializeField] private CinemachineVirtualCamera mouseVCam;
+    [SerializeField] Transform mouseCamTarget;
+    [SerializeField] float exitDistance = 1.5f;
     [SerializeField] float maxDistFromPlayer = 2.5f;
-    [SerializeField] Vector4 screenEdge = new Vector4(0.2f, 0.2f, 0.2f, 0.1f);
+
     private Transform player;
     public bool followMouse;
 
-
     private void Awake() {
         followVCam.Priority = 2;
-        stationaryVCam.Priority = 1;
+        mouseVCam.Priority = 1;
+        mouseVCam.Follow = mouseCamTarget;
     }
 
     private void Start()
@@ -24,60 +25,34 @@ public class FollowCamera : MonoBehaviour
 
     private void Update() {
         if (!SetPlayer()) return;
+        else
+            followVCam.Follow = player;
 
-        FollowMouse();
-    }
-
-    void FollowMouse()
-    {
-        var screenPos = Input.mousePosition;
-        screenPos.x /= Screen.width;
-        screenPos.y /= Screen.height;
-        bool mouseInBounds = screenPos.y < screenEdge.w || screenPos.y > 1 - screenEdge.y || screenPos.x < screenEdge.x || screenPos.x > 1 - screenEdge.z;
-        mouseInBounds = mouseInBounds && followMouse;
-
-        var worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var targetPos = Vector3.Lerp(cameraTarget.position, mouseInBounds ? worldMousePos : player.position, 0.2f);
-
-        targetPos = LimitPosition(targetPos);
-        
-        cameraTarget.transform.position = targetPos;
-    }
-
-    Vector2 LimitPosition(Vector2 input)
-    {
-        input.x = Mathf.Clamp(input.x, player.position.x - maxDistFromPlayer, player.position.x + maxDistFromPlayer);
-        input.y = Mathf.Clamp(input.y, player.position.y - maxDistFromPlayer, player.position.y + maxDistFromPlayer);
-        return input;
+        //FollowMouse();
+        SetTarget();
     }
 
     bool SetPlayer()
     {
-        var unset = player == null;
         if (GameManager.instance == null) return false;
+        if (!GameManager.instance.player) return false;
         player = GameManager.instance.player.transform;
-        if (unset && player != null) StartFollow();
         return player != null;
     }
 
-    void StartFollow()
-    {
-        cameraTarget.transform.position = player.position;
-        followVCam.Follow = cameraTarget;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        // follow player
-        if(other.tag == "Player") {
-            followVCam.enabled = true;
+    private void SetTarget() {
+        if(!followMouse) {
+            followVCam.gameObject.SetActive(true);
+            return;
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        // stationary view
-        if(other.tag == "Player") {
-            stationaryVCam.transform.position = new Vector3(player.position.x, player.position.y, stationaryVCam.transform.position.z);
-            followVCam.enabled = false;
-        }
+        // get mouse position in world, move mouseCamTarget to it, and restrict it to max distance from player
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseCamTarget.position = player.position + (worldMousePos - player.position).normalized * maxDistFromPlayer;
+
+        // follow mouseCamTarget if mouse is beyond exit radius
+        bool mouseInBounds = Vector2.Distance(worldMousePos, player.position) > exitDistance;
+        followVCam.gameObject.SetActive(!mouseInBounds);
     }
 }

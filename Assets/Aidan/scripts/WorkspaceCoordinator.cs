@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Mono.Cecil.Cil;
+using UnityEditor;
 
 public class WorkspaceCoordinator : MonoBehaviour
 {
     SpriteRenderer sRend;
-    [SerializeField] Color hoverColor;
+    [SerializeField] Color hoverColor, normalColor = Color.white;
     WorkspaceController ws;
     
     [SerializeField] SpriteRenderer bigDisplay;
-    [SerializeField] SpriteRenderer itemDisplay;
+    [SerializeField] List<SpriteRenderer> itemDisplays;
     ItemCoordinator bigItem;
-
+    [HideInInspector] public bool hideItems;
     private void Start()
     {
         ws = GetComponent<WorkspaceController>();
@@ -24,7 +26,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     private void Update()
     {
         UpdateItemDisplay();
-        if (ws.wsUIcoord.IsMinigameActive()) sRend.color = Color.white;
+        if (ws.wsUIcoord.IsMinigameActive()) sRend.color = normalColor;
     }
 
     private void OnMouseEnter()
@@ -35,7 +37,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void OnMouseExit()
     {
-        sRend.color = Color.white;
+        sRend.color = normalColor;
         if (KitchenManager.instance.hoveredController == ws) KitchenManager.instance.hoveredController = null;
     }
 
@@ -53,10 +55,6 @@ public class WorkspaceCoordinator : MonoBehaviour
         }
     }
 
-    bool roomForBigEquipment()
-    {
-        return bigItem == null && bigDisplay != null;
-    }
     void UpdateItemDisplay()
     {
         if (!ws) ws = GetComponent<WorkspaceController>();
@@ -65,10 +63,22 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach (var i in ws.GetItemList()) if (i.isBigEquipment) bigDisplay.sprite = i.GetSprite();
         bigDisplay.enabled = bigDisplay.sprite != null;
 
-        var type = ws.GetFoodType();
-        itemDisplay.gameObject.SetActive(type != FoodType.NONE);
-        itemDisplay.sprite = type == FoodType.MEAT ? KitchenManager.instance.genericMeat : KitchenManager.instance.genericVeggies;
         UpdateBigItemDisplay();
+        UpdateNormalItemDisplays();
+        
+    }
+
+    void UpdateNormalItemDisplays()
+    {
+        var list = ws.GetItemList();
+        for (int i = 0; i < list.Count; i++) if (list[i].isBigEquipment) list.RemoveAt(i);
+
+        for (int i = 0; i < itemDisplays.Count; i++) {
+            if (i >= list.Count) { itemDisplays[i].gameObject.SetActive(false); continue; }
+
+            itemDisplays[i].gameObject.SetActive(!hideItems);
+            itemDisplays[i].sprite = list[i].GetSprite();
+        }
     }
 
     void UpdateBigItemDisplay()

@@ -15,7 +15,12 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] KnifeMinigame knifeMG;
     [SerializeField] PanMinigame panMG;
     [SerializeField] MixerMinigame mixerMG;
-    [HideInInspector] public int ongoingMinigames;
+    [SerializeField] PotMinigame potMG;
+    [SerializeField] BakingMinigame bakingMG;
+    [SerializeField] RollingMinigame rollingMG;
+    [SerializeField] CoffeeMinigame coffeeMG;
+    [SerializeField] GraterMinigame graterMG;
+    public int ongoingMinigames;
 
     [Header("Contents")]
     [SerializeField] GameObject contentsParent;
@@ -26,9 +31,8 @@ public class WorkstationUICoordinator : MonoBehaviour
     [SerializeField] TextMeshProUGUI content5;
 
     [Header("Recipe Options")]
-    [SerializeField] TextMeshProUGUI ro1;
-    [SerializeField] TextMeshProUGUI ro2, ro3;
-    string roName1, roName2, roName3;
+    [SerializeField] List<TextMeshProUGUI> recipeOptionTexts = new List<TextMeshProUGUI>();
+    List<string> recipeOptionNames = new List<string>();
 
     [Header("ProgressBar")]
     [SerializeField] GameObject progressBarParent;
@@ -37,12 +41,17 @@ public class WorkstationUICoordinator : MonoBehaviour
     [Header("Sounds")]
     public int progressSound;
     [SerializeField] int completeSound, failSound;
+
+    public GameObject bigEquipmentSprite;
+    public GameObject dispalyItemSprite;
+    [HideInInspector] public bool showProgress;
     
+
     public void SelectRecipeOption(int num)
     {
-        if (num == 1) ws.chosenRecipe = roName1;
-        if (num == 2) ws.chosenRecipe = roName2;
-        if (num == 3) ws.chosenRecipe = roName3;
+        int index = num - 1;
+
+        ws.chosenRecipe = recipeOptionNames[index];
         if (!string.IsNullOrEmpty(ws.chosenRecipe)) ws.StartCooking();
         HideRecipeOptions();
     }
@@ -51,27 +60,31 @@ public class WorkstationUICoordinator : MonoBehaviour
     {
         if (IsMinigameActive()) return;
 
-        if (options.Count > 0) SetupROButton(ro1, options[0].GetName(), 0);
-        if (options.Count > 1) SetupROButton(ro2, options[1].GetName(), 1);
-        if (options.Count > 2) SetupROButton(ro3, options[2].GetName(), 2);
+        for (int i = 0; i < options.Count; i++) {
+            SetupROButton(recipeOptionTexts[i], options[i].GetName(), i);
+        }
+    }
+
+    private void Start()
+    {
+        showProgress = true;
+        GetComponent<Canvas>().worldCamera = Camera.main;
+        for (int i = 0; i < 6; i++) {
+            recipeOptionNames.Add("");
+        }
     }
 
     void SetupROButton(TextMeshProUGUI text, string _name, int num)
     {
         text.text = _name;
-        if (num == 0) roName1 = _name;
-        if (num == 1) roName2 = _name;
-        if (num == 2) roName3 = _name;
+        recipeOptionNames[num] = _name;
         text.transform.parent.gameObject.SetActive(true);
     }
 
     public void HideRecipeOptions()
     {
         ws.chosenRecipe = "";
-        ro1.transform.parent.gameObject.SetActive(false);
-        ro2.transform.parent.gameObject.SetActive(false);
-        ro3.transform.parent.gameObject.SetActive(false);
-        roName1 = roName2 = roName3 = "";
+        foreach (var t in recipeOptionTexts) { t.text = ""; t.transform.parent.gameObject.SetActive(false); }
     }
 
     public void StartMinigame(Minigame minigame)
@@ -82,12 +95,17 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (minigame == Minigame.KNIFE) knifeMG.gameObject.SetActive(true);
         if (minigame == Minigame.PAN) panMG.gameObject.SetActive(true);
         if (minigame == Minigame.MIXER) mixerMG.gameObject.SetActive(true);
+        if (minigame == Minigame.POT) potMG.gameObject.SetActive(true);
+        if (minigame == Minigame.ROLLING_PIN) rollingMG.gameObject.SetActive(true);
+        if (minigame == Minigame.COFFEE_MAKER) coffeeMG.gameObject.SetActive(true);
+        if (minigame == Minigame.GRATER) graterMG.gameObject.SetActive(true);
+        if (minigame == Minigame.BAKING_TRAY) bakingMG.gameObject.SetActive(true);
+        //if (minigame == Minigame.BLENDER) blenderMG.gameObject.SetActive(true);
+
+        if (minigame == Minigame.NONE || minigame == Minigame.BLENDER) CompleteRecipe();
     }
 
-    private void Start()
-    {
-        GetComponent<Canvas>().worldCamera = Camera.main;
-    }
+    
 
     private void Update()
     {
@@ -106,7 +124,7 @@ public class WorkstationUICoordinator : MonoBehaviour
 
     void DisplayProgressSlider()
     {
-        progressBarParent.SetActive(IsMinigameActive());
+        progressBarParent.SetActive(showProgress && IsMinigameActive());
     }
 
     public bool IsMinigameActive()
@@ -119,6 +137,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         progressSlider.value = 0;
         ws.CompleteRecipe();
         KitchenManager.instance.minigameCompleted = true;
+        GameManager.instance.camScript.followMouse = true;
     }
 
     public void AddProgress(float amount)
