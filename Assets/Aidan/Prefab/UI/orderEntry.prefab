@@ -81,11 +81,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expandedParent: {fileID: 8036774403953375068}
+  plus: {fileID: 8036774404423617254}
   mainText: {fileID: 8036774404262932301}
   sideText: {fileID: 8036774403960627612}
   portrait: {fileID: 8036774403252917169}
   layoutElement: {fileID: 8036774402464437742}
   prefferedSizes: {x: 33, y: 135}
+  uiCoord: {fileID: 0}
 --- !u!1 &8036774402654074922
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +563,9 @@ MonoBehaviour:
   m_fontSize: 31
   m_fontSizeBase: 31
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 31
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
@@ -574,7 +576,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -696,9 +698,9 @@ MonoBehaviour:
   m_fontSize: 31
   m_fontSizeBase: 31
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 31
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096

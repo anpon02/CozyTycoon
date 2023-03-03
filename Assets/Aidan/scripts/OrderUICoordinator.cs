@@ -7,15 +7,16 @@ public class OrderUICoordinator : MonoBehaviour
 {
     [SerializeField] GameObject listElementPrefab, OrderParent;
     [SerializeField] Transform listParent;
-    List<OrderListItemCoordinator> listItem = new List<OrderListItemCoordinator>();
     [HideInInspector] public List<OrderEntryCoordinator> orderEntryCoords = new List<OrderEntryCoordinator>();
     
     public void AddNew(string itemName, string sideName, CharacterName character)
     {
+        print("ADDING NEW: " + itemName + ", " + sideName + ", char: " + character);
         AudioManager.instance.PlaySound(7, gameObject);
         var newListItem = Instantiate(listElementPrefab, listParent);
         var listScript = newListItem.GetComponent<OrderEntryCoordinator>();
-        listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).portrait);
+        listScript.uiCoord = this;
+        listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).portrait, character);
     }
 
     public void HideAllOrders()
@@ -32,22 +33,25 @@ public class OrderUICoordinator : MonoBehaviour
     public void RemoveItem(CharacterName character)
     {
         var toRemove = FindListItem(character);
+        print("TO REMOVE : " + toRemove.Count);
+
         if (toRemove.Count == 0) return;
 
         foreach (var r in toRemove) 
         for (int i = 0; i < toRemove.Count; i++) {
             orderEntryCoords.Remove(toRemove[i]);
-                Destroy(toRemove[i].gameObject);
+            Destroy(toRemove[i].gameObject);
         }
 
-        if (listItem.Count == 0) OrderParent.SetActive(false);
+        //if (orderEntryCoords.Count == 0) OrderParent.SetActive(false);
     }
 
     List<OrderEntryCoordinator> FindListItem(CharacterName character)
     {
         var list = new List<OrderEntryCoordinator>();
+
         for (int i = 0; i < orderEntryCoords.Count; i++) {
-            if (listItem[i].character == character) list.Add(orderEntryCoords[i]);
+            if (orderEntryCoords[i].character == character) list.Add(orderEntryCoords[i]);
         }
         return list;
     }

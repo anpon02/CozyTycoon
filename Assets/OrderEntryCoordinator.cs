@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 public class OrderEntryCoordinator : MonoBehaviour
 {
-    [SerializeField] GameObject expandedParent;
+    [SerializeField] GameObject expandedParent, plus;
     [SerializeField] TextMeshProUGUI mainText, sideText;
     [SerializeField] Image portrait;
     [SerializeField] LayoutElement layoutElement;
@@ -14,21 +15,30 @@ public class OrderEntryCoordinator : MonoBehaviour
     bool expanded;
     string main, side;
     public OrderUICoordinator uiCoord;
+    public CharacterName character;
 
     private void Start()
     {
         uiCoord.orderEntryCoords.Add(this);
     }
 
-    public void Init(string _main, string _side, Sprite portrait)
+    public void Init(string _main, string _side, Sprite _portrait, CharacterName _character)
     {
-        //main = 
+        character = _character;
+        mainText.text = _main;
+        sideText.text = _side;
+        portrait.sprite = _portrait;
+        plus.SetActive(!string.IsNullOrEmpty(_side));
+        expanded = false;
+        Toggle();
     }
 
     public void Toggle()
     {
         expanded = !expanded;
-        if (expanded) uiCoord.HideAllOrders();
+        if (!expanded) return;
+
+        uiCoord.HideAllOrders();
         expanded = true;
     }
 
