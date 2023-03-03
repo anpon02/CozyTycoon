@@ -14,6 +14,7 @@ public class CustomerOrderController : MonoBehaviour
     ChefController chef;
     CustomerMovement move;
     List<Item> orderedItems;
+    List<Item> lastOrder;
     bool recievedFood;
     float timeSinceOrdering;
     float timeSinceReceivedFood;
@@ -49,23 +50,28 @@ public class CustomerOrderController : MonoBehaviour
 
         // pick entree
         if (!setOrder && entreeMenu.Count > 0) {
-
             // order favorite entree if possible and random chance is hit, otherwise, order random item
             if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
                 orderedItems.Add(favoriteEntree);
-            else
-                orderedItems.Add(entreeMenu[Random.Range(0, entreeMenu.Count)]);
+            else {
+                // never select same entree twice
+                orderedItems.Add(PickItem(entreeMenu));
+            }
         }
 
-        // 50% chance to pick side if possible
+        // chance to pick side if possible
         if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= sideOrderChance) {
-            orderedItems.Add(sideMenu[Random.Range(0, sideMenu.Count)]);
+            // never select same side twice
+            orderedItems.Add(PickItem(sideMenu));
         }
         
         // process order
         if(orderedItems.Count > 0) {
             setOrder = false;  
             timeSinceOrdering = 0;
+            lastOrder = new List<Item>(orderedItems);
+
+            // order
             if (GameManager.instance.orderController) {
                 foreach(Item item in orderedItems) {
                     GameManager.instance.orderController.Order(item, patience, custCoordinator.characterName);
@@ -166,6 +172,14 @@ public class CustomerOrderController : MonoBehaviour
         if (!KitchenManager.instance) return false;
         chef = KitchenManager.instance.chef;
         return chef != null;
+    }
+
+    private Item PickItem(List<Item> menu) {
+        Item selectedItem;
+        do {
+            selectedItem = menu[Random.Range(0, menu.Count)];
+        } while(lastOrder != null && lastOrder.Contains(selectedItem) && orderedItems.Contains(selectedItem));
+        return selectedItem;
     }
 
     public float GetPatience() {
