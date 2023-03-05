@@ -1119,31 +1119,37 @@ MonoBehaviour:
   - name: LUCA
     characterName: 0
     portrait: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+    lilPortrait: {fileID: 21300000, guid: e26f1b47279e46d4a8441a5a28b14cf5, type: 3}
     speakerSoundID: 12
     disabled: 0
   - name: ROXY
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+    lilPortrait: {fileID: 21300000, guid: e22d3b0a3fcaacc4db937710ad78895a, type: 3}
     speakerSoundID: 12
     disabled: 0
   - name: TRIPP
     characterName: 2
     portrait: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+    lilPortrait: {fileID: 21300000, guid: c0bd9aa027affac4e9fec0e9183c6609, type: 3}
     speakerSoundID: 12
     disabled: 0
   - name: SALLY
     characterName: 3
     portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+    lilPortrait: {fileID: 21300000, guid: d4e0fb118efb8f846a540ca7fa95848a, type: 3}
     speakerSoundID: 12
     disabled: 0
   - name: FLORIAN
     characterName: 4
     portrait: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+    lilPortrait: {fileID: 21300000, guid: 72ce3324fac59164f8831b9000ae8816, type: 3}
     speakerSoundID: 12
     disabled: 0
   - name: PHIL
     characterName: 5
     portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+    lilPortrait: {fileID: 21300000, guid: a47a24a6bfb99e64b8b8bf1b047a49ce, type: 3}
     speakerSoundID: 12
     disabled: 0
   controller: {fileID: 535910281}

@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
         [HideInInspector] public string name;
         public CharacterName characterName;
         public Sprite portrait;
+        public Sprite lilPortrait;
         public int speakerSoundID;
         public bool disabled;
     }

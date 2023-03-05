@@ -16,7 +16,7 @@ public class OrderUICoordinator : MonoBehaviour
         var newListItem = Instantiate(listElementPrefab, listParent);
         var listScript = newListItem.GetComponent<OrderEntryCoordinator>();
         listScript.uiCoord = this;
-        listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).portrait, character);
+        listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).lilPortrait, character);
     }
 
     public void HideAllOrders()
@@ -33,7 +33,7 @@ public class OrderUICoordinator : MonoBehaviour
     public void RemoveItem(CharacterName character)
     {
         var toRemove = FindListItem(character);
-        print("TO REMOVE : " + toRemove.Count);
+        //print("TO REMOVE : " + toRemove.Count);
 
         if (toRemove.Count == 0) return;
 

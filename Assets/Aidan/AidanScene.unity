@@ -6625,7 +6625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 556492405641286451, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 872336449425338784, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6641,11 +6641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014360903733994850, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1319488325216629829, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1332623206523740030, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6721,11 +6721,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.119
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744990931448984303, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -6761,15 +6761,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3942514139479513817, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4014678452407216910, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4123368328542458200, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4207964691739306095, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6782,6 +6782,10 @@ PrefabInstance:
     - target: {fileID: 4782386144640401310, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4912428274320655603, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -6797,7 +6801,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 3a210f061a0faf7499a67c67fef8bbef, type: 3}
     - target: {fileID: 5552018075054044925, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6086557971339182271, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
@@ -6805,11 +6809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6171902217659216696, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6219033194755008816, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363789204258241357, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_fontSize
@@ -14673,7 +14677,18 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 02993f05294481248bd468f8a0f12e84, type: 2}
     minigame: 5
     index: 37
-  - name: '38: Chopped berries: Strawberries, Blueberries ( Knife, cutting board)
+  - name: '38: Pastry Dough: Egg, flour, sugar ( Rolling Pin) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    result: {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
+    minigame: 6
+    index: 38
+  - name: '39: Chopped berries: Strawberries, Blueberries ( Knife, cutting board)
       [counter]'
     workSpace: 0
     requiredIngrd:
@@ -14684,8 +14699,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: da41b7ef99c6a7442885e530937025cc, type: 2}
     minigame: 1
-    index: 38
-  - name: '39: Coffee cake: Cake batter, Coffee ( Baking tray) [oven]'
+    index: 39
+  - name: '40: Coffee cake: Cake batter, Coffee ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
@@ -14694,8 +14709,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
     minigame: 5
-    index: 39
-  - name: '40: Carrot sticks: Carrot ( Knife, cutting board) [counter]'
+    index: 40
+  - name: '41: Carrot sticks: Carrot ( Knife, cutting board) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -14704,8 +14719,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: 609772c9f3e9bbb41a08c1460a5b32e9, type: 2}
     minigame: 1
-    index: 40
-  - name: '41: Steamed carrot: Carrot ( Pot) [stove]'
+    index: 41
+  - name: '42: Steamed carrot: Carrot ( Pot) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -14713,8 +14728,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
     minigame: 4
-    index: 41
-  - name: '42: Steamed broccoli: Broccoli ( Pot) [stove]'
+    index: 42
+  - name: '43: Steamed broccoli: Broccoli ( Pot) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
@@ -14722,8 +14737,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
     minigame: 4
-    index: 42
-  - name: '43: Roasted carrots: Carrot ( Baking tray) [oven]'
+    index: 43
+  - name: '44: Roasted carrots: Carrot ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -14731,8 +14746,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: c17a45bf2d34d88489b28fce3189e545, type: 2}
     minigame: 5
-    index: 43
-  - name: '44: Carrot juice: Carrot ( Blender) [counter]'
+    index: 44
+  - name: '45: Carrot juice: Carrot ( Blender) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -14740,8 +14755,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
     result: {fileID: 11400000, guid: 8132ee27b1e266e4b803b0f0307b3678, type: 2}
     minigame: 9
-    index: 44
-  - name: '45: Tomato juice: Tomato ( Blender) [counter]'
+    index: 45
+  - name: '46: Tomato juice: Tomato ( Blender) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
@@ -14749,7 +14764,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
     result: {fileID: 11400000, guid: 3ca394823acb4224ba7bd81bb727f01c, type: 2}
     minigame: 9
-    index: 45
+    index: 46
   unlockedRecipes: []
   tutorialRecipeLimit: 0
 --- !u!4 &992974426
@@ -17637,7 +17652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3007777827383798113, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3515766147911475592, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -31593,11 +31608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744990931448984303, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -31678,6 +31693,14 @@ PrefabInstance:
     - target: {fileID: 4782386144640401310, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.287
       objectReference: {fileID: 0}
     - target: {fileID: 4912428274320655603, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -34497,11 +34520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744990931448984303, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -34582,6 +34605,14 @@ PrefabInstance:
     - target: {fileID: 4782386144640401310, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.287
       objectReference: {fileID: 0}
     - target: {fileID: 4912428274320655603, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -36624,11 +36655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.119
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2697979792895565067, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2744990931448984303, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
@@ -36685,6 +36716,10 @@ PrefabInstance:
     - target: {fileID: 4782386144640401310, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808199356677037792, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4912428274320655603, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
