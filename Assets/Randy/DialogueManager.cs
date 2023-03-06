@@ -176,7 +176,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Skip()
     {
-        if(!skipPrint && lineDone)
+        if(!skipPrint && !lineDone)
         {
             skipPrint = true;
             return;
