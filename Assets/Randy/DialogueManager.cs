@@ -169,10 +169,11 @@ public class DialogueManager : MonoBehaviour
         return speakers.Find(s => s.characterName == name).disabled;
     }
 
-    public void EnableTextSkip()
+    public void SetTextSkip(bool state)
     {
-        convoSkippable = true;
+        convoSkippable = state;
     }
+
     public void Skip()
     {
         if(!skipPrint && lineDone)
