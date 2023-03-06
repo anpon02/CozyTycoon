@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
-//using UnityEditor.Callbacks;
+using UnityEditor.Callbacks;
 
 public class GizmoIconUtility {
-    /*
+    
     [DidReloadScripts]
     static GizmoIconUtility()
     {
@@ -26,5 +26,5 @@ public class GizmoIconUtility {
 
             GUI.DrawTexture(rect, texture);
         }
-    }*/
+    }
 }

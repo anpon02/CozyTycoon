@@ -8,7 +8,12 @@ public class OrderUICoordinator : MonoBehaviour
     [SerializeField] GameObject listElementPrefab, OrderParent;
     [SerializeField] Transform listParent;
     [HideInInspector] public List<OrderEntryCoordinator> orderEntryCoords = new List<OrderEntryCoordinator>();
-    
+
+    private void Update()
+    {
+        DialogueManager.instance.SetTextSkip(orderEntryCoords.Count == 0);
+    }
+
     public void AddNew(string itemName, string sideName, CharacterName character)
     {
         print("ADDING NEW: " + itemName + ", " + sideName + ", char: " + character);
@@ -17,6 +22,7 @@ public class OrderUICoordinator : MonoBehaviour
         var listScript = newListItem.GetComponent<OrderEntryCoordinator>();
         listScript.uiCoord = this;
         listScript.Init(itemName, sideName, DialogueManager.instance.GetSpeakerData(character).lilPortrait, character);
+
     }
 
     public void HideAllOrders()
@@ -33,8 +39,6 @@ public class OrderUICoordinator : MonoBehaviour
     public void RemoveItem(CharacterName character)
     {
         var toRemove = FindListItem(character);
-        //print("TO REMOVE : " + toRemove.Count);
-
         if (toRemove.Count == 0) return;
 
         foreach (var r in toRemove) 
@@ -42,8 +46,6 @@ public class OrderUICoordinator : MonoBehaviour
             orderEntryCoords.Remove(toRemove[i]);
             Destroy(toRemove[i].gameObject);
         }
-
-        //if (orderEntryCoords.Count == 0) OrderParent.SetActive(false);
     }
 
     List<OrderEntryCoordinator> FindListItem(CharacterName character)

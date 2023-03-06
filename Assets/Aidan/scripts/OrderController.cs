@@ -23,8 +23,6 @@ public class OrderController : MonoBehaviour
             return "";
         }
     }
-
-    [SerializeField] List<OrderInfo> currentOrders = new List<OrderInfo>();
     [SerializeField] OrderUICoordinator UIcoord;
     [HideInInspector] public bool TEMP_HAS_ORDER, completedOrder;
 
@@ -49,7 +47,7 @@ public class OrderController : MonoBehaviour
 
     void AddToOrderList(OrderInfo newOrder)
     {
-        UIcoord.AddNew(newOrder.main.GetName(), newOrder.GetSideName(), newOrder.customer) ;
+        UIcoord.AddNew(newOrder.main.GetName(), newOrder.GetSideName(), newOrder.customer);
     }
 
 }
