@@ -33,7 +33,7 @@ public class DialogueController : MonoBehaviour {
             bool notable = dMan.allowNotes;
             // Write and display dialogue line thorugh coordinator
             yield return StartCoroutine(coordinator.DisplayText(lineText, notable));
-            yield return new WaitForSeconds(dMan.GetNextLineDelay() * dMan.GetLineDelayModifier());
+            yield return new WaitForSecondsSkippable(dMan.GetNextLineDelay() * dMan.GetLineDelayModifier(), () => dMan.skipLine);
             
             coordinator.ClearDialogueText();
             dMan.ResetModifiers();

@@ -24,8 +24,6 @@ public class DialogueCoordinator : MonoBehaviour
     public float minAlpha = 0.1f;
     CanvasGroup panelGroup;
 
-    private Coroutine writeDialogue;
-
     void Start()
     {
         panelGroup = dialoguePanel.transform.parent.GetOrAddComponent<CanvasGroup>();
@@ -54,7 +52,8 @@ public class DialogueCoordinator : MonoBehaviour
     private void Update()
     {
         if (dMan.speakingCharacter) SetGroupAlpha();
-        if (dMan.allowNotes != dialogueButton.interactable) dialogueButton.interactable = dMan.allowNotes;
+        if ((dMan.allowNotes || dMan.convoSkippable) != dialogueButton.interactable)
+            dialogueButton.interactable = (dMan.allowNotes || dMan.convoSkippable);
     }
 
     public IEnumerator DisplayText(string text, bool notable)
@@ -71,10 +70,16 @@ public class DialogueCoordinator : MonoBehaviour
         }
         for (int i = 0; i < text.Length; i++)
         {
+            if(dMan.skipPrint)
+            {
+                mainText.text = text;
+                break;
+            }
             mainText.text += text[i];
             AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
             yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
         }
+        dMan.lineDone = true;
     }
 
     void SetGroupAlpha()

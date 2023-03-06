@@ -35,6 +35,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float textRenderModifier = 1;
     [SerializeField, ConditionalHide(nameof(showTextModifiers))] private float lineDelayModifier = 1;
     [HideInInspector] public bool ConvoStarted;
+    [HideInInspector] public bool convoSkippable;
+    [HideInInspector] public bool lineDone;
+    [HideInInspector] public bool skipPrint;
+    [HideInInspector] public bool skipLine;
 
     [Header("Notetaking")]
     [HideInInspector] public bool allowNotes;
@@ -105,6 +109,8 @@ public class DialogueManager : MonoBehaviour
         textRenderModifier = 1f;
         lineDelayModifier = 1f;
         allowNotes = false;
+        skipPrint = false;
+        skipLine = false;
     }
     #endregion
 
@@ -160,5 +166,19 @@ public class DialogueManager : MonoBehaviour
     public bool StoryDisabled(CharacterName name)
     {
         return speakers.Find(s => s.characterName == name).disabled;
+    }
+
+    public void EnableTextSkip()
+    {
+        convoSkippable = true;
+    }
+    public void Skip()
+    {
+        if(!skipPrint)
+        {
+            skipPrint = true;
+            return;
+        }
+        skipLine = true;
     }
 }
