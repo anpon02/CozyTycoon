@@ -109,6 +109,7 @@ public class DialogueManager : MonoBehaviour
         textRenderModifier = 1f;
         lineDelayModifier = 1f;
         allowNotes = false;
+        lineDone = false;
         skipPrint = false;
         skipLine = false;
     }
@@ -174,7 +175,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void Skip()
     {
-        if(!skipPrint)
+        if(!skipPrint && lineDone)
         {
             skipPrint = true;
             return;
