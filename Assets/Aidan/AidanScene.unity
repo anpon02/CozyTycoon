@@ -17605,7 +17605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[0].item
@@ -17654,6 +17654,14 @@ PrefabInstance:
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[5].name
       value: Blueberries
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[6].item
+      value: 
+      objectReference: {fileID: 11400000, guid: e6f786a939a00c241a10ae1a249b1b43, type: 2}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[6].name
+      value: Chocolate
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_FlipX
