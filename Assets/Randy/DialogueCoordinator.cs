@@ -76,7 +76,7 @@ public class DialogueCoordinator : MonoBehaviour
                 break;
             }
             mainText.text += text[i];
-            AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
+            if (mainText.text.Length % 2 == 1) AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
             yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
         }
         dMan.lineDone = true;
