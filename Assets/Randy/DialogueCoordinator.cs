@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class DialogueCoordinator : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] Image dialoguePanel, speakerPortrait;
+    [SerializeField] Image dialoguePanel, speakerPortrait, skipButton;
     [SerializeField] Button dialogueButton;
     [SerializeField] TextMeshProUGUI mainText, speakerName;
 
@@ -52,8 +52,8 @@ public class DialogueCoordinator : MonoBehaviour
     private void Update()
     {
         if (dMan.speakingCharacter) SetGroupAlpha();
-        if ((dMan.allowNotes || dMan.convoSkippable) != dialogueButton.interactable)
-            dialogueButton.interactable = (dMan.allowNotes || dMan.convoSkippable);
+        if (dMan.allowNotes != dialogueButton.interactable) dialogueButton.interactable = dMan.allowNotes;
+        if (dMan.convoSkippable != skipButton.IsActive()) skipButton.gameObject.SetActive(dMan.convoSkippable);
     }
 
     public IEnumerator DisplayText(string text, bool notable)
