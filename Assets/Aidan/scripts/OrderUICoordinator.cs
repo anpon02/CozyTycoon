@@ -16,7 +16,6 @@ public class OrderUICoordinator : MonoBehaviour
 
     public void AddNew(string itemName, string sideName, CharacterName character)
     {
-        print("ADDING NEW: " + itemName + ", " + sideName + ", char: " + character);
         AudioManager.instance.PlaySound(7, gameObject);
         var newListItem = Instantiate(listElementPrefab, listParent);
         var listScript = newListItem.GetComponent<OrderEntryCoordinator>();
