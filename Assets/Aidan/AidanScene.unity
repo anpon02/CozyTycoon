@@ -6397,10 +6397,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: flameSound
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: progressSpeed
       value: 0.001
       objectReference: {fileID: 0}
@@ -20417,6 +20413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1061fefaf265d6346b1f3552fc00b9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completeorderSound: 41
   UIcoord: {fileID: 1453038237}
   TEMP_HAS_ORDER: 0
   completedOrder: 0
@@ -32979,10 +32976,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.04
       objectReference: {fileID: 0}
-    - target: {fileID: 2084008809197035773, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: coffeeloopSound
-      value: 31
-      objectReference: {fileID: 0}
     - target: {fileID: 2129250409186378967, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -36336,10 +36329,6 @@ PrefabInstance:
     - target: {fileID: 174510575993608631, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
-      propertyPath: flameSound
-      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 265927881363828649, guid: 555ee99a759b22943bc9f087da4b7dfd, type: 3}
       propertyPath: progressSpeed

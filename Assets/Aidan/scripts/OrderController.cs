@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OrderController : MonoBehaviour
 {
+    [SerializeField] int completeorderSound;
     [System.Serializable]
     public class OrderInfo
     {
@@ -41,6 +42,7 @@ public class OrderController : MonoBehaviour
 
     public void CompleteOrder(CharacterName character)
     {
+        AudioManager.instance.PlaySound(completeorderSound, gameObject);
         completedOrder = true;
         UIcoord.RemoveItem(character);
     }

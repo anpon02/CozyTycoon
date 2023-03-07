@@ -1248,7 +1248,7 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 0.8
-    parentPitch: 1
+    parentPitch: 0.8
   - name: '32: potsizzle'
     ID: 32
     displayName: potsizzle
@@ -1269,7 +1269,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 1
-    parentVolume: 1
+    parentVolume: 0.8
     parentPitch: 1
   - name: '34: Bake Open Flame'
     ID: 34
@@ -1314,6 +1314,61 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 1
+    parentPitch: 1
+  - name: '38: coffee Button 2'
+    ID: 38
+    displayName: coffee Button 2
+    clips:
+    - name: '0: coffeeBleep'
+      clip: {fileID: 8300000, guid: 4a6f15e041c036d4182ae3ac6d03b9c9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 0.9
+  - name: '39: coffee Button 3'
+    ID: 39
+    displayName: coffee Button 3
+    clips:
+    - name: '0: coffeeBleep'
+      clip: {fileID: 8300000, guid: 4a6f15e041c036d4182ae3ac6d03b9c9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 1
+  - name: '40: coffee Button 4'
+    ID: 40
+    displayName: coffee Button 4
+    clips:
+    - name: '0: coffeeBleep'
+      clip: {fileID: 8300000, guid: 4a6f15e041c036d4182ae3ac6d03b9c9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 1.1
+  - name: '41: Complete order'
+    ID: 41
+    displayName: Complete order
+    clips:
+    - name: '0: happyHarp1'
+      clip: {fileID: 8300000, guid: cc31d0e0c9b454c4db643ba7fd466c7e, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.8
+    parentPitch: 1
+  - name: '42: Sheet Pull'
+    ID: 42
+    displayName: Sheet Pull
+    clips:
+    - name: '0: cookingsheet2'
+      clip: {fileID: 8300000, guid: ce4b6a36eb61fdc42b6e1be610d9bb93, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 1.2
     parentPitch: 1
   masterVolume: 1
 --- !u!1 &1650425993
