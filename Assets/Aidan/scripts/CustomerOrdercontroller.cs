@@ -6,9 +6,10 @@ public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
-    [SerializeField] private Item favoriteEntree;
+    //[SerializeField] private Item favoriteEntree;
     [SerializeField] private float favoriteItemChance = 80.0f;
     [SerializeField] private float sideOrderChance = 50.0f;
+    [SerializeField] private List<Item> favoriteItems;
 
     private CustomerCoordinator custCoordinator;
     ChefController chef;
@@ -50,9 +51,13 @@ public class CustomerOrderController : MonoBehaviour
 
         // pick entree
         if (!setOrder && entreeMenu.Count > 0) {
+            List<Item> availableFavorites = GetAvailableFavorites(entreeMenu);
+
             // order favorite entree if possible and random chance is hit, otherwise, order random item
-            if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
-                orderedItems.Add(favoriteEntree);
+            // if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
+            //     orderedItems.Add(favoriteEntree);
+            if(availableFavorites.Count > 0 && Random.Range(0, 101) <= favoriteItemChance)
+                orderedItems.Add(PickItem(availableFavorites));
             else {
                 // never select same entree twice
                 orderedItems.Add(PickItem(entreeMenu));
@@ -175,6 +180,15 @@ public class CustomerOrderController : MonoBehaviour
         if (!KitchenManager.instance) return false;
         chef = KitchenManager.instance.chef;
         return chef != null;
+    }
+
+    private List<Item> GetAvailableFavorites(List<Item> menu) {
+        List<Item> availableFavorites = new List<Item>();
+        foreach(Item i in favoriteItems) {
+            if(menu.Contains(i))
+                availableFavorites.Add(i);
+        }
+        return availableFavorites;
     }
 
     private Item PickItem(List<Item> menu) {
