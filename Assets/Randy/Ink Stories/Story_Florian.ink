@@ -36,8 +36,7 @@ VAR CurrentStoryState = 0
 
 == Day_1 ==
     Ah, well met!
-    My name is Florian. How nice it is to see a restaurant owner who takes the time to greet their guests. 
-    And one with a ‘welcome in’ sign outside. Very... handy.. Ahem.
+    My name is Florian. How nice it is to see a restaurant owner who takes the time to greet their guests. And one with a ‘welcome in’ sign outside. Very… handy.. Ahem.
     Well, I’m pleased to meet your acquaintance! I’m sure I’ll be stopping in here for a bite everyone once in a while.
     A bite of... food, yes. Anyways. Thank you!
 -> DONE

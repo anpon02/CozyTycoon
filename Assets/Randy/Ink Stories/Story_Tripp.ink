@@ -44,15 +44,11 @@ VAR CurrentStoryState = 1
 -> DONE
 
 == Day_2 ==
-    ... Hi. 
     Sorry about yesterday. I was a bit jumpy. Had a bunch of guys tailing me. 
     Uh. My name’s Tripp. 
-    Just a head’s up- your new little shop is in Yellow Jacket territory, but three blocks away is Sewer Snake territory.
-    This is the nicer part of town so I doubt that’ll ever mean anything to you. Just keep your head up. 
-*   ... What?...
-    Uh. Anyways. This place smells nice. 
-    // You ever cooked with Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
-    // ... I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
+    Just a head’s up- your new little shop is in Yellow Jacket territory, but three blocks away is Sewer Snake territory. This is a nicer part of town so I doubt that’ll ever matter. Just keep your head up. 
+*    … What?...
+	Uh. Anyways. This place smells nice. 
 -
 *   Is there anything you’d like to see on the menu?
     What, like, new menu items?
@@ -62,17 +58,17 @@ VAR CurrentStoryState = 1
 -> DONE
 
 == Day_3 ==
-    Ow...
+    Ow…
     Uhg. Sorry. Got into a fight on the way over here.
-    You should see the other guy. Got me pretty good in the eye, I’ll admit. But he was a chump.
-*   The Sewer Rats?
+    You should see the other guy. Got me pretty good in the eye, I’ll admit. But he was a chump. 
+*   a Sewer Rat? (lose affection)
     Uhg, no- Sewer Snakes. You gotta pay attention to this stuff or it’ll come back to bite you.
-*   The Sewer Snakes?
-    Good. You pay attention.
--   It was one of those chumps. Needed to go into their part of town to get my aunt’s medicine, they like to start shit for no reason.
-    I wasn’t doing nothin’ and they try to rough me up anyways. Like I look like someone who’ll just roll over and take it.
-    Uhg. Whatever. Worked up a hell of an appetite... You keep quiet about all this stuff, yeah? 
-    If anyone asks, I was never here.
+*   a Sewer Snake? (gain affection)
+	Good. You pay attention.
+    Needed to go into their part of town to get my aunt’s medicine and they like to start shit for no reason.  I wasn’t doing nothin’ and they try to rough me up anyways. Like I look I’ll just roll over and take it.
+    Uhg. Whatever. Worked up a hell of an appetite… You keep quiet about all this stuff, yeah? 
+- If anyone asks, I was never here.
+
 -> DONE
 
 == Day_4 ==
