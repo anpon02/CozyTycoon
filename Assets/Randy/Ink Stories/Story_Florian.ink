@@ -37,7 +37,7 @@ VAR CurrentStoryState = 0
 == Day_1 ==
     Ah, well met!
     My name is Florian. How nice it is to see a restaurant owner who takes the time to greet their guests. And one with a ‘welcome in’ sign outside. Very… handy.. Ahem.
-    Well, I’m pleased to meet your acquaintance! I’m sure I’ll be stopping in here for a bite everyone once in a while.
+    Well, I’m pleased to meet your acquaintance! I’m sure I’ll be stopping in here for a bite every once in a while.
     A bite of... food, yes. Anyways. Thank you!
 -> DONE
 
@@ -70,7 +70,7 @@ VAR CurrentStoryState = 0
     I don’t know what all goes into every dish, but please refrain from adding garlic to anything I order. It's a... food allergy. Very severe. I’m sure you understand.
     Thank you ever so much!
     Oh, while I have you here, might I ask another question?
-    I am... ahem, not from here. Yes. And in my, er, hometown.. It is quite common to make soup dishes with Blood. You might feel your hairs stand on end hearing that, but it is not that abnormal.
+    I am... ahem, not from here. Yes. And in my, er, hometown.. It is quite common to make soup dishes with blood. You might feel your hairs stand on end hearing that, but it is not that abnormal.
     I have not found a single establishment that serves a dish in that manner. If you’re looking to expand your menu, I recommend you look into it.
     I would be willing to pay a premium for that sort of thing.
     ... Ahem. Yes, that is all. Good day.
@@ -131,7 +131,7 @@ VAR CurrentStoryState = 0
 == Day_7 ==
     Hello again.
     Try as I might, I cannot rid from my mind the thought that I may be going about my own life the wrong way.
-    For the last sixty years I’ve kept to myself, keeping my acquaintances at arms reach. 
+    For the last sixty years I’ve kept to myself, keeping my acquaintances at arm's reach. 
     It’s incredibly difficult, you must understand. To know that all the bonds I make are only temporary- that I will outlive all the people who become dear to me.
     But, now, I’ve isolated myself out of fear of losing someone. My only friend is you, truly.
     If you consider me that?..

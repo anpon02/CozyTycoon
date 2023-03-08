@@ -22,12 +22,8 @@ VAR CurrentStoryState = 0
     - CurrentStoryState == 7:
         -> Day_8
     - CurrentStoryState == 8:
-        -> Day_9
-    - CurrentStoryState == 9:
-        -> Day_10
-    - CurrentStoryState == 10:
-        -> Day_11
-    - CurrentStoryState >= 11:
+        -> Ending
+    - CurrentStoryState >= 9:
         -> Extra
         
      ->END
@@ -56,39 +52,12 @@ VAR CurrentStoryState = 0
     Means I haven’t had much time to myself, but I’m sure the company will reward me for my loyalty.
 -   I’ve got to get back to it. Lovely talking with you.
 *   Is there anything you’d like to see on the menu?
-    Hmmm…
+    Hmmm...
     Well, I eat a lot of meals at the BeigeTech cafeteria. Get my coffee there too. But the pasta they make is always pretty bad. 
-    So… eating nice pasta for a change would be nice. 
+    So... eating nice pasta for a change would be nice. 
 -> DONE
 
 == Day_3 ==
-    ... Sigh.
-*   What’s wrong?
-    Oh, personal things...
-    ... I had a date last night. It didn’t go very well.
-    One of my coworkers, Elaine. I thought since we work together she would have understood when I needed to take an important call.
-    She was very upset with me for it. I don’t think there will be a second date.
-* * Poor Ellen...
-    ... Elaine. Her name was Elaine. Were you listening to me?...
-    Uhg, my apologies. I shouldn’t be rambling on and on to someone like this. 
-* * Poor Elaine...
-    ... Yeah, you’re right. It wasn’t my intention, but I’m sure it felt like I wasn’t valuing our time together.
-    Maybe dating just isn’t in the cards for me. I hardly have any free time, and when I do I’m usually exhausted.
-    ... Sigh.
--   I need to focus on my work again. Don’t want to fall behind.
--> DONE
-
-== Day_4 ==
-    I love the smells of this place. It’s creating a relaxing environment for me to get things done in.
-    The cafeteria is... not a relaxing environment. It’s loud, the food is bad, and it kind of smells like eggs.
-    We used to have a coffee maker in there that could add flavorings to your coffee.
-    I always got the Caramel flavorings. Just a little bit of sweetness, but it really helped wake me up with something delicious.
-    ... Then they took the coffee maker out. Said the employees were spending too much time standing around it instead of being at their desks.
-    Oh well. I guess I’m happy with a normal cup of coffee. Don’t want to be spending too much on frivolous things.
-    I’m happy just being able to get outside the office for a little while. Stretch my legs.
--> DONE
-
-== Day_5 ==
     Sigh. Just got off the phone with my younger brother.
     Peter’s back home in the Enchanted Grasslands. Keeps calling me to try and get me to go on some backpacking trip with him.
     We used to go hiking all the time when we were kids. It’s really beautiful out there- nice to gallop- er, run around.
@@ -97,28 +66,33 @@ VAR CurrentStoryState = 0
     ... Sigh. I haven’t been home in a while, though. Maybe I owe him a visit. I’ll go this weekend.
 -> DONE
 
-== Day_6 ==
-    Sorry. Can’t talk.
-    There’s a big promotion on the table- I’ll probably be working overtime all week to get it. Weekend too.
-*   What about your brother?
-    Peter? Oh. You remembered him. I wasn’t sure if you were paying attention to my rambles...
-*   What about your sister?
-    My... who? I don’t have a sister. Only one younger brother.
-    I swear I’ve mentioned him before..
--   Uhg... I did promise him I was going to visit over the weekend. But I can’t anymore, I need to secure this promotion.
-    I’m the most qualified for the job, and I’ve been at the company the longest. Taking personal time off right now will make it seem like I’m not serious about the position.
-    Sorry. I’m rambling again. Back to work for both of us. 
-
+== Day_4 ==
+    ... Sigh.
+*   What’s wrong?
+    Oh, personal things...
+    ... I had a date last night. It didn’t go very well.
+    One of my coworkers, Elaine. I thought since we work together she would have understood when I needed to take an important call.
+    She was very upset with me for it. I don’t think there will be a second date.
+    Maybe dating just isn’t in the cards for me. I hardly have any free time, and when I do I’m usually exhausted.
+    ... Sigh.
+    I need to focus on my work again. Don’t want to fall behind.
 -> DONE
 
-== Day_7 ==
-    Where do you get your ingredients?
-    Probably local, I’m guessing. All the meals here have tasted very fresh.
+== Day_5 ==
+    Where do you get your ingredients? Probably local, I’m guessing. All the meals here have tasted very fresh.
     My family makes cheeses and stuff out in the Grasslands. There's a Three-Cheese Blend in particular that’s quite popular.
     My brother and I would eat it with pasta all the time. It’s really quite good.
     Your cooking is about as close to a home-cooked meal that I’ve got in a while. I don’t have time to cook nice things for myself, so I usually eat takeout or microwave meals.
-    There’s the occasional fancy corporate dinner. I shouldn’t complain.
-*   How are the Grasslands?
+    Especially not recently. There’s a big promotion on the table- I’ll probably be working overtime all week to get it. Weekend too.
+*   What about your brother?
+    Peter? Oh. You remembered him. I wasn’t sure if you were paying attention to my rambles...
+    Uhg... I did promise him I was going to visit over the weekend. But I can’t anymore, I need to secure this promotion.
+    I’m the most qualified for the job, and I’ve been at the company the longest. Taking personal time off right now will make it seem like I’m not serious about the position.
+    Sorry. I’m rambling again. Back to work for both of us.
+-> DONE
+
+== Day_6 ==
+    Have you ever been to the Grasslands?
     It’s a beautiful region. One of the only places that hasn’t been modernized, everything there is very traditional.
     Lots of centaurs running around with their manes- uh, hair flowing in the wind. Small, tight knit communities, you know.
     I left because I wanted to be a part of something bigger than that, I wanted to be someone important.
@@ -130,22 +104,11 @@ VAR CurrentStoryState = 0
     He said we haven’t gone backpacking in five years, though. 
     I didn’t realize it had been that long...
     ...
--   Ah. You always get me to ramble. 
+    Ah. You always get me to ramble. 
     ... Thanks for listening.
 -> DONE
 
-== Day_8 ==
-    Uhg.. I have a headache...
-    I worked overtime and took the morning shift today...
-*   Why?
-    The promotion. I’ve got to do everything I possibly can.
-    If I’m not giving a hundred percent, someone else will be, and then they’ll get the job instead of me.
-    Once I can secure this promotion it’ll be easier. I’ll be working less hours for more pay.	
-    That’s the dream, right?
-    Sorry to cut our conversation short, I just really need to focus right now.
--> DONE
-
-== Day_9 ==
+== Day_7 ==
     ...
     ...
     ... Sigh...
@@ -167,7 +130,7 @@ VAR CurrentStoryState = 0
 -   I’ll think about it. Nothing else I can do right now.
 -> DONE
 
-== Day_10 ==
+== Day_8 ==
     Good morning.
 *   How are you?
     I’m alright.
@@ -177,7 +140,7 @@ VAR CurrentStoryState = 0
     I’ll clear my head and make a decision after that. 
 -> DONE
 
-== Day_11 ==
+== Ending ==
     Congratulations on the month!
     Most small businesses fail within their first month. So, statistically speaking, it’s only going to get better from here.
 

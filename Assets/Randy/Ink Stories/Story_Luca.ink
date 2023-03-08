@@ -21,8 +21,8 @@ VAR CurrentStoryState = 0
         -> Day_7
     - CurrentStoryState == 7:
         -> Day_8
-    - CurrentStoryState == 10:
-        -> Day_11
+    - CurrentStoryState == 8:
+        -> Ending
     - CurrentStoryState  10:
         -> Extra
         
@@ -30,7 +30,7 @@ VAR CurrentStoryState = 0
 }
 
 == Day_1 ==
-    Oh… uhm, hi.  I already ordered… so, uh, yeah… 
+    Oh... uhm, hi.  I already ordered... so, uh, yeah... 
     ...
     Uh. My name is Luca. Nice to meet you.
 -> DONE
@@ -38,17 +38,16 @@ VAR CurrentStoryState = 0
 
 == Day_2 ==
     What’s up?
-    Oh. It’s you again. Do you run this place by yourself? 
 *    How’s work?
-	Uh… Hehe. Good question. I’m not actually working right now.  I was supposed to be working. But then I got distracted. I’m playing Lightning Legends.
+	Uh... Hehe. Good question. I’m not actually working right now.  I was supposed to be working. But then I got distracted. I’m playing Lightning Legends.
 	The WiFi here is actually good enough to play. Which is good because I love this game, but bad because now I’m never going to get any work done.
-	But, like. The season is about to end and I’m only top 100. I just need a few more dubs and I’ll defo be in the top ten. Maybe top three again. Last season’s meta was waaay more fun though…
-	… Uh. Sorry. Those were probably all nothing words to you.
+	But, like. The season is about to end and I’m only top 100. I just need a few more dubs and I’ll defo be in the top ten. Maybe top three again. Last season’s meta was waaay more fun though...
+	... Uh. Sorry. Those were probably all nothing words to you.
 -   TLDR- I’m playing a cool video game instead of working. 
 
 *   Is there anything you’d like to see on the menu?
     Coffee.
-    That was kinda blunt. Uh… yeah, coffee. Saves me making a trip to a cafe. I can’t live without caffeine in my system.
+    That was kinda blunt. Uh... yeah, coffee. Saves me making a trip to a cafe. I can’t live without caffeine in my system.
 
 -> DONE
 
@@ -56,7 +55,7 @@ VAR CurrentStoryState = 0
     Hey dude, how’s it goin’. 
     I’m starting to like this place a lot. Having real food in my system is making me not tired and lazy all the time, shockingly.
     I used to have a crate of this packet you could put into any pasta. 
-    It was like… Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue.
+    It was like... Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue.
     I doubt you could find it anymore. It was a release promo for my favorite game.
 *	Lightyear Legends?
     ... Uh. No, Lightning Legends. 
@@ -75,7 +74,7 @@ VAR CurrentStoryState = 0
     This guy wanted a digital storefront. But he insists that I use Comic Sans for the font. It’s giving me brain damage a little bit looking at it.
     And all the pictures he gave me to use have more artifacts than the Natural History Museum. Whatever. If he’s happy I get paid. Not complaining.
     -
-*    How’s your game?
+*   How’s your game?
 	Oh man. They buffed my main. I’m having a field day.
 	I’ve played the same hero for, like, eight years? And he’s always been kind of mid. But I refuse to main anyone else.
 	And they finally buffed my boy. I’m already one of the top players without the change. I’m gonna be an absolute menace.
@@ -88,26 +87,25 @@ VAR CurrentStoryState = 0
     The new update of Lightning Legends dropped. 
 *   Sounds fun!
     Yeah. You get it. It was super fun even though I can barely keep my eyes open. Thank god you serve coffee now, at least. 
-*   You shouldn’t do that…
-	Aw… C'mon. I’m an adult, I can do whatever I wanna.
-    That’s why its nice to have a freelance job. No boss telling me I gotta get up at eight in the morning. Or ten. Or.. noon.
--  … Guh. Sorry. Almost nodded off again.
-	
-*   anything else going on?
+*   You shouldn’t do that...
+	Aw... C'mon. I’m an adult, I can do whatever I wanna.
+    That’s why it's nice to have a freelance job. No boss telling me I gotta get up at eight in the morning. Or ten. Or.. noon.
+-  ...Guh. Sorry. Almost nodded off again.
+*   Anything else going on?
     I got an invitation to play at the national Lightning Legends tournament. There’s a huge grand prize.
-    Like. HUGE. I think it's upwards of fifty grand… But I don’t think I’m gonna go.
+    Like. HUGE. I think it's upwards of fifty grand... But I don’t think I’m gonna go.
     Why not?
-    Well. Uh. See, its a big event. It’s gonna be streamed live on Jitter. And there’s no way I’d be able to play in front of that many people. Just thinking about it has my stomach doing barrel rolls. Uhg.
+    Well. Uh. See, it's a big event. It’s gonna be streamed live on Jitter. And there’s no way I’d be able to play in front of that many people. Just thinking about it has my stomach doing barrel rolls. Uhg.
     ...
     It’s nice getting to come here and see you. I mean, like, I like talking to you and stuff. Thanks.
 -> DONE
 
 == Day_6 ==
-    A… Oh, hey. Sorry. Was messaging someone.
-    My friends keep bugging me to sign up for the nationals tournament and I keep telling them no chance. And they keep saying that I’d totally sweep. Which isn’t… y'know, what I’m worried about.
+    A... Oh, hey. Sorry. Was messaging someone.
+    My friends keep bugging me to sign up for the nationals tournament and I keep telling them no chance. And they keep saying that I’d totally sweep. Which isn’t... y'know, what I’m worried about.
     I know I’ve got the talent for it. But thinking about getting on a stage in front of people makes me wanna barf. Like, what if they make fun of me? Or talk bad about me behind my back? Or think I’m cringe or something?
     I can already barely walk around town by myself without getting so nervous I run back home. A big publicized tournament sounds like hell.
-    … Whoa. That was. Kind of a lot. Uh.
+    ... Whoa. That was. Kind of a lot. Uh.
     Sorry ‘bout all that. I’ll be all good after I get some food in my system.
 -> DONE
 
@@ -116,40 +114,38 @@ VAR CurrentStoryState = 0
     There’s a more local event going on tonight at GameGo.
     I was thinking about going in, like, a face mask or something. So I wouldn’t get nervous.
     I’m not sure if I should do that, though.
-
 *   You shouldn’t. 
-	… Oh. Harsh.
-	Man, if not even you think I can do it…
-	… Sigh. I dunno. I guess I’ll think about it.
+	... Oh. Harsh.
+	Man, if not even you think I can do it...
+	... Sigh. I dunno. I guess I’ll think about it.
 *   You should! 
 	Oh maaan. You really think it’ll be okay?
 	I guess the worst thing that could happen is I go, fuck up so terribly that everyone laughs at me, go home, pack up, flee the country so I’ll never see those guys again-
 	No. No. You’re right. I should do it. Nobody cares about some loser tournament anyways.
-	… Okay. I’ll be back with a status report.
+	... Okay. I’ll be back with a status report.
 - -> DONE
 
 == Day_8 ==
     Hey, man. I did it.
-
 *  Did it?
     Yeah, uh. I went to the locals tournament. I completely mopped the floor with everyone, but that’s not the important bit.
     I.. I really did it. I didn’t choke or anything. 
     I mean. Getting on the stage was terrifying and all but once the actual game started I kinda blocked everything out.
     Like, total focus mode. It was crazy! I never thought I’d actually be able to do that!
-    So…
+    So...
     -
 *   Congratulations! 
 	Hehe. Thanks.
 	I’m feeling good enough to go to the nationals. I’m still gonna be hiding my face and all but. I wanna compete. I wanna see if I can do it.
-	Uh… Thanks for believing in me and all.
+	Uh... Thanks for believing in me and all.
 	Geez. That sounded corny. I mean it though.
-*   I’m so sorry… 
-	… Huh?... Were you listening to me?
+*   I’m so sorry... 
+	... Huh?... Were you listening to me?
 	Its like. A good thing. I’m gonna go to nationals.
 	Well. Anyways. I should get back to practicing.
 - -> DONE
 
-== Day_11 ==
+== Ending ==
     Hey! Happy one month of cookin’.
 
 *   Thank you! (Affection Ending)

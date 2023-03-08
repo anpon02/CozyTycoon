@@ -35,7 +35,7 @@ VAR CurrentStoryState = 1
 
 
 == Day_1 ==
-    Huh? What do you want?
+    Huh? What do you want? #Speaker: ?????
     Oh. You work here. Right.
     ... What are you looking at?... I already paid. 
 *   What’s your name?
