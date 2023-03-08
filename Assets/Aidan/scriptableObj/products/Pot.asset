@@ -16,7 +16,5 @@ MonoBehaviour:
   productName: Pot
   description: boil n roil babbyyy
   price: 100
-  unlocks: 'boiled food,
-
-    soups'
+  unlocks: '[unlocks soups and stews]'
   quantity: -1

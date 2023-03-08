@@ -16,5 +16,5 @@ MonoBehaviour:
   productName: knife
   description: chop chop chop!
   price: 100
-  unlocks: salads, raw food
+  unlocks: '[unlocks salads]'
   quantity: -1

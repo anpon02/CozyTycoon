@@ -16,5 +16,5 @@ MonoBehaviour:
   productName: baking tray
   description: low and slow...
   price: 100
-  unlocks: pastries, roasts
+  unlocks: '[unlocks pastries and desserts]'
   quantity: -1

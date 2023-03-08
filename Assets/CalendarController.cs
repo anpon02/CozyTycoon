@@ -38,7 +38,7 @@ public class CalendarController : MonoBehaviour
         else if (days[day].cake.activeInHierarchy) DoCake(day);
         else GameManager.instance.timeScript.UnpauseTime();
 
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
 
         transform.parent.gameObject.SetActive(false);
         gameObject.SetActive(false);
