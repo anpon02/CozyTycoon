@@ -698,6 +698,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1019308768}
   speakerPortrait: {fileID: 4970070}
   skipButton: {fileID: 756781332}
+  nameBG: {fileID: 1100285247}
   dialogueButton: {fileID: 1019308774}
   mainText: {fileID: 1365309189}
   speakerName: {fileID: 1085247857}
@@ -1305,36 +1306,48 @@ MonoBehaviour:
     lilPortrait: {fileID: 21300000, guid: e26f1b47279e46d4a8441a5a28b14cf5, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 0.43921572, g: 0.64705884, b: 0.8196079, a: 1}
   - name: ROXY
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
     lilPortrait: {fileID: 21300000, guid: e22d3b0a3fcaacc4db937710ad78895a, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
   - name: TRIPP
     characterName: 2
     portrait: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
     lilPortrait: {fileID: 21300000, guid: c0bd9aa027affac4e9fec0e9183c6609, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 0.45098042, g: 0.34509805, b: 0.45882356, a: 1}
   - name: SALLY
     characterName: 3
     portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
     lilPortrait: {fileID: 21300000, guid: d4e0fb118efb8f846a540ca7fa95848a, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 0.3529412, g: 0.47058827, b: 0.17254902, a: 1}
   - name: FLORIAN
     characterName: 4
     portrait: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
     lilPortrait: {fileID: 21300000, guid: 72ce3324fac59164f8831b9000ae8816, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 0.16470589, g: 0.16470589, b: 0.2627451, a: 1}
   - name: PHIL
     characterName: 5
     portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
     lilPortrait: {fileID: 21300000, guid: a47a24a6bfb99e64b8b8bf1b047a49ce, type: 3}
     speakerSoundID: 12
     disabled: 0
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    NameBGColor: {r: 0.64705884, g: 0.6901961, b: 0.7686275, a: 1}
   controller: {fileID: 535910281}
   OnDialogueEnd:
     m_PersistentCalls:

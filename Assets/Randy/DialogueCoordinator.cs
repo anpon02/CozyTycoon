@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class DialogueCoordinator : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] Image dialoguePanel, speakerPortrait, skipButton;
+    [SerializeField] Image dialoguePanel, speakerPortrait, skipButton, nameBG;
     [SerializeField] Button dialogueButton;
     [SerializeField] TextMeshProUGUI mainText, speakerName;
 
@@ -47,6 +47,8 @@ public class DialogueCoordinator : MonoBehaviour
         var data = dMan.GetSpeakerData(character);
         speakerPortrait.sprite = data.portrait;
         speakerName.text = data.name;
+        speakerName.color = data.NameColor;
+        nameBG.color = data.NameBGColor;
     }
 
     private void Update()

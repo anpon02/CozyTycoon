@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
         public Sprite lilPortrait;
         public int speakerSoundID;
         public bool disabled;
+        public Color NameColor;
+        public Color NameBGColor;
     }
     
     [SerializeField] List<SpeakerData> speakers = new List<SpeakerData>();
