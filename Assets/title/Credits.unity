@@ -569,7 +569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Giovanni
+  m_text: Giovanni Smith
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vincent
+  m_text: Tatum Going
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character Design
+  m_text: Character Artist
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mason
+  m_text: Mason Kubiak
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Randy
+  m_text: Randy Le
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ankie
+  m_text: Ankie Pon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
@@ -3143,7 +3143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aidan
+  m_text: Aidan Bacon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
   m_sharedMaterial: {fileID: 152713942140518569, guid: da9db16b312e8ce42b5406c079bb3312, type: 2}
