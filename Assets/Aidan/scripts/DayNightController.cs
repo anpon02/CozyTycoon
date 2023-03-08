@@ -11,23 +11,24 @@ public class DayNightController : MonoBehaviour {
     [SerializeField] Gradient backgroundGradient;
     [SerializeField] float timeSpeed = 0.5f, fastSpeed = 0.5f;
     [Range(0,1)] public float time;
-    TextMeshProUGUI timeDisplay;
-    [SerializeField] GameObject wheel;
-    [SerializeField] float wheelOffset;
     [HideInInspector] public bool paused;
     [SerializeField] TextMeshProUGUI date;
     public int day;
 
     [Header("CloseButton")]
     [SerializeField] Image buttonImg;
-    [SerializeField] Color openColor;
-    [SerializeField] Color closedColor;
+    [SerializeField] Sprite openSprite;
+    [SerializeField] Sprite closedSprite;
    
     [Header("Schedule")]
     [SerializeField] float openTime = 0.25f;
     [SerializeField] float closeTime = 0.8f;
     bool closed = true;
     bool asleep = false;
+
+    [Header("nightTime")]
+    [SerializeField] GameObject nightWipe;
+    [SerializeField] GameObject calendar;
 
     private void Start()
     {
@@ -67,13 +68,6 @@ public class DayNightController : MonoBehaviour {
     {
         DoEvents();
         TickTime();
-        DisplayTime();
-        SpinWheel();
-    }
-
-    void SpinWheel()
-    {
-        wheel.transform.localEulerAngles = new Vector3(0, 0, (time * 360) + wheelOffset);
     }
 
     void DoEvents()
@@ -99,24 +93,19 @@ public class DayNightController : MonoBehaviour {
         DisplayDate();
     }
 
-    void DisplayTime()
-    {
-        float longTime = time * 2400;
-        float hour = Mathf.FloorToInt(longTime / 100);
-        float minute = longTime - (hour*100);
-        minute /= 100;
-        minute = Mathf.RoundToInt(minute * 60);
-        string suffix = hour > 12 ? " pm" : " am";
-        hour = hour > 12 ? hour - 12 : hour;
-        if (hour == 0) hour = 12;
-        minute -= minute % 5;
-        if (minute == 60) minute = 55;
-        if (timeDisplay) timeDisplay.text = (hour > 9 ? hour : "0" + hour) + ":" + (minute > 9 ? minute : "0" + minute) + suffix;
-    }
-
     public void GoToSleep()
     {
         if (closed && time > closeTime) asleep = true;
+        if (!asleep) return;
+
+        nightWipe.SetActive(true);
+        StartCoroutine(OpenCalendar());
+    }
+
+    IEnumerator OpenCalendar()
+    {
+        yield return new WaitForSeconds(1.2f);
+        calendar.gameObject.SetActive(true);
     }
 
     void Close()
@@ -139,8 +128,6 @@ public class DayNightController : MonoBehaviour {
 
     void UpdateButton()
     {
-        var buttonText = buttonImg.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.text = closed ? "CLOSED" : "OPEN";
-        buttonImg.color = closed ? closedColor : openColor;
+        buttonImg.sprite = closed ? closedSprite : openSprite;
     }
 }
