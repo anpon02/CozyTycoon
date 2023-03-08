@@ -48,6 +48,24 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    private List<Transform> SortTodaysCustomers() {
+        List<Transform> customers = new List<Transform>(todaysCustomers);
+        List<Transform> sortedCustomers = new List<Transform>();
+
+        // loop through todays customers
+        foreach(Transform customer in todaysCustomers) {
+            // add speaking customers to sorted customers list
+            if(!DialogueManager.instance.StoryDisabled(customer.GetComponent<CustomerCoordinator>().characterName)) {
+                sortedCustomers.Add(customer);
+                customers.Remove(customer);
+            }
+        }
+
+        // add remaining nonspeaking customers and return
+        sortedCustomers.AddRange(customers);
+        return sortedCustomers;
+    }
+
     private void CalculateCombinedPatience() {
         float sum = 0;
         foreach(Transform customer in todaysCustomers) {
@@ -78,6 +96,7 @@ public class CustomerManager : MonoBehaviour
 
         // start customers coming
         SetTodaysCustomers();
+        todaysCustomers = SortTodaysCustomers();
         CalculateCombinedPatience();
         StartCoroutine("StartSendingCustomers");
     }
@@ -95,19 +114,19 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator StartSendingCustomers() {
         for(int i = 0; i < todaysCustomers.Count; ++i) {
             if (i > 0)
-                if(DialogueManager.instance.StoryDisabled(todaysCustomers[i - 1].GetComponent <CustomerCoordinator>().characterName))
+                if(DialogueManager.instance.StoryDisabled(todaysCustomers[i - 1].GetComponent<CustomerCoordinator>().characterName))
                     yield return new WaitUntil(() => todaysCustomers[i - 1].GetComponent<CustomerMovement>().InLine());
-                else 
-                    yield return new WaitUntil(() =>  CustomerFinishedTalking(i - 1));
+                else
+                    yield return new WaitUntil(() => CustomerFinishedTalking(i - 1));
             CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
+            customersInLine.Add(todaysCustomers[i]);
             move.GetInLine();
         }
         yield return new WaitUntil(() => !CustomersInRestaurant(todaysCustomers.Count - 1));
         gMan.timeScript.LastCustomerLeave();
     }
 
-    bool CustomerFinishedTalking(int customerIndex)
-    {
+    bool CustomerFinishedTalking(int customerIndex) {
         return todaysCustomers[customerIndex].GetComponent<CustomerCoordinator>().storyFinished;
     }
 

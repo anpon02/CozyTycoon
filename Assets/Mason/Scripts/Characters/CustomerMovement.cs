@@ -8,10 +8,12 @@ public class CustomerMovement : MonoBehaviour
     [Header("Movement")]
     [HideInInspector] public int currentSpotInLine;
     [HideInInspector] public bool inRestaurant;
-    [SerializeField] private Vector3 exitPoint;
+    //[SerializeField] private Vector3 exitPoint;
+    //public Vector3 exitPoint { get; private set; }
     [SerializeField] private Table sitSpot;
     [SerializeField] private float minSpeed = 3.0f;
     [SerializeField] private float maxSpeed = 5.0f;
+    private Vector3 exitPoint;
     private Seeker seek;
     private AIPath path;
     private CustomerOrderController cust;
@@ -27,6 +29,7 @@ public class CustomerMovement : MonoBehaviour
     
     private void Awake() {
         // movemenet
+        exitPoint = transform.position;
         cust = GetComponentInChildren<CustomerOrderController>();
         seek = GetComponent<Seeker>();
         path = GetComponent<AIPath>();
@@ -68,9 +71,7 @@ public class CustomerMovement : MonoBehaviour
         ChangeSpeed();
     }
 
-    /*
-    * ANIMATION FUNCTIONS
-    */
+    #region Animation Functions
     private IEnumerator RandomIdle() {
         // play idle every randomly
         coroutineRunning = true;
@@ -92,10 +93,9 @@ public class CustomerMovement : MonoBehaviour
     public void IdleIsFinished() {
         idleFinished = true;
     }
+    #endregion
 
-    /*
-    * MOVEMENT FUNCTIONS
-    */
+    #region Movement Functions
     private void ChangeSpeed() {
         // this is kinda jankily done, I'm gonna make this more smooth later
         if(Vector2.Distance(transform.position, exitPoint) < 15.0f)
@@ -167,10 +167,11 @@ public class CustomerMovement : MonoBehaviour
     }
 
     public bool InLine() {
-        return GetCurrentTable() == null && !IsMoving() && Vector2.Distance(transform.position,exitPoint) > 1;
+        return GetCurrentTable() == null && !IsMoving() && Vector2.Distance(transform.position, exitPoint) > 1;
     }
 
     public bool AtTable() {
         return GetCurrentTable() != null && !IsMoving();
     }
+    #endregion
 }
