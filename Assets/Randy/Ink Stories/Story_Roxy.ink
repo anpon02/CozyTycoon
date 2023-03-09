@@ -21,9 +21,9 @@ VAR CurrentStoryState = 0
         -> Day_7
     - CurrentStoryState == 7:
         -> Day_8
-    - CurrentStoryState == 10:
+    - CurrentStoryState == 8:
         -> Ending
-    - CurrentStoryState >= 11:
+    - CurrentStoryState >= 9:
         -> Extra
         
      ->END

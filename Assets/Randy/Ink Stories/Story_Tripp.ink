@@ -22,12 +22,8 @@ VAR CurrentStoryState = 1
     - CurrentStoryState == 7:
         -> Day_8
     - CurrentStoryState == 8:
-        -> Day_9
-    - CurrentStoryState == 9:
-        -> Day_10
-    - CurrentStoryState == 10:
-        -> Day_11
-    - CurrentStoryState >= 11:
+        -> Ending
+    - CurrentStoryState >= 9:
         -> Extra
         
      ->END
@@ -47,65 +43,46 @@ VAR CurrentStoryState = 1
     Sorry about yesterday. I was a bit jumpy. Had a bunch of guys tailing me. 
     Uh. My name’s Tripp. 
     Just a head’s up- your new little shop is in Yellow Jacket territory, but three blocks away is Sewer Snake territory. This is a nicer part of town so I doubt that’ll ever matter. Just keep your head up. 
-*    … What?...
+*    ... What?...
 	Uh. Anyways. This place smells nice. 
 -
 *   Is there anything you’d like to see on the menu?
     What, like, new menu items?
     Dude, just hook me up with any dessert and I’ll be fine. 
-    Like, cookies and shit. All warm and gooey…
+    Like, cookies and shit. All warm and gooey...
 
 -> DONE
 
 == Day_3 ==
-    Ow…
+    Ow...
     Uhg. Sorry. Got into a fight on the way over here.
     You should see the other guy. Got me pretty good in the eye, I’ll admit. But he was a chump. 
-*   a Sewer Rat? (lose affection)
+*   A Sewer Rat?
     Uhg, no- Sewer Snakes. You gotta pay attention to this stuff or it’ll come back to bite you.
-*   a Sewer Snake? (gain affection)
+*   A Sewer Snake?
 	Good. You pay attention.
-    Needed to go into their part of town to get my aunt’s medicine and they like to start shit for no reason.  I wasn’t doing nothin’ and they try to rough me up anyways. Like I look I’ll just roll over and take it.
-    Uhg. Whatever. Worked up a hell of an appetite… You keep quiet about all this stuff, yeah? 
-- If anyone asks, I was never here.
+-   Needed to go into their part of town to get my aunt’s medicine and they like to start shit for no reason.  I wasn’t doing nothin’ and they try to rough me up anyways. Like I look I’ll just roll over and take it.
+    Uhg. Whatever. Worked up a hell of an appetite... You keep quiet about all this stuff, yeah? 
+    If anyone asks, I was never here.
 
 -> DONE
 
 == Day_4 ==
-    Hey. 
-    Was gonna go out to lunch somewhere else but the damn place finally got shut down.
-    I don’t care if there’s “health code” violations, that’s what makes the food taste so good.
-    Can’t get Animal Fries anywhere else in town. Normal fries just don’t hit nearly as hard.
-    Shit sucks. I used to go to that diner with my aunt all the time. Little upset about it...
-    But not that much. Obviously.
+    Uhg. The high school kids are out this time of day. 
+    Waste of time. School, yknow- Like, what are they even teaching in there that you’re gonna use in your everyday life? I haven’t done a single algebra problem since I dropped out. 
+    ... Beating people up for money isn’t any better, I guess. But at least I’m not stuck in a desk listening to Mrs. Higgs talk about trigonometry.
+    By the by, you ever heard of Scorpion Paste before? It’s mostly for soups- makes it taste amazing.
+    I don’t know if it’s made of actual scorpions. I think it’s called that ‘cause it makes your tongue sting a little. But all the best foods sting.
+
+    This place on 3rd street used to sell it - my aunt and I would go there all the time
 *   Your aunt?
     Uh. Yeah. I live with my aunt. 
     She’s taken care of me ever since my mom... uh.
     I’m sure you don’t need to hear all that. I live with my aunt. Maybe one day she’ll have enough time off from her stupid fucking job to swing by.
     ... She’s real nice. Too nice to be living downtown.
-    Uh. Anyways. We’re sharing whatever you cook up in there, so make it good, okay?
-- -> DONE
-
-== Day_5 ==
-    Uhg. The high school kids are out this time of day. 
-    Waste of time. School, yknow- Like, what are they even teaching in there that you’re gonna use in your everyday life? I haven’t done a single algebra problem since I dropped out. 
-    ... Beating people up for money isn’t any better, I guess. But at least I’m not stuck in a desk listening to Mrs. Higgs talk about trigonometry.
-*   Does your aunt know?
-    ... Yeah.
-    She hates it. But we don’t have enough money to be picky and choosy. 
-    I gotta pay her back for all the years she took care of me. I don’t care if I get the occasional black eye doing that.
-    I’ve been in it too long to get out now anyhow.
-*   Why crime?
-    Cause it pays well.
-    ... No, really. That’s it. 
-    Look, man, when you’re sixteen and the one person who’s taking care of you is sick, you don’t care if the five hundred bucks is coming from McDonalds or some guy you met in an alley.
-    Medicine is expensive. Food is expensive. Rent is expensive.
-    N’ I’m stuck in it now, so...
--   Uhg. Whatever. How’d I even get on this topic? I’m hungry.
-    I got a big job tomorrow. Gotta eat up and prep.
 -> DONE
 
-== Day_6 ==
+== Day_5 ==
     Uh. Hey. 
     You know where to stash a motorcycle?
     No.. of course you don’t. Stupid question.
@@ -123,7 +100,7 @@ VAR CurrentStoryState = 1
     Pretty good day, all in all.
 -> DONE
 
-== Day_7 ==
+== Day_6 ==
     ... Hey. Sorry if you could hear yelling outside.
     Was on the phone with my boss. 
     ...
@@ -136,22 +113,7 @@ VAR CurrentStoryState = 1
     Uh. Anyways. It isn’t all bad. I get to hang out in nice places like this sometimes n’ forget about it all, yknow.
 -> DONE
 
-== Day_8 ==
-    Hey, uh. Not to rush you or anything, but can you make it quick? 
->I gotta buncha guys who know I’m in this part of town and I still gotta hit the pet store before it gets dark.
-*   Want something for Scooter?
-    Oh, Scooter? Hehe... little guy...
-    Uhm. I mean. No, he’s on a very special diet. You can’t feed geckos whatever or it’ll mess them up.
-    I appreciate it, though.
-*   Want something for Spike?
-    Huh? Spikes the leader of the Sewer Snakes... was that a joke?
-    Oh, wait. Did you mean Scooter? My gecko? No. He’s fine. 
--   I do have to pick him up some food. And new sand for his tank. He likes to run around like a little goober and it gets in his water bowl...
-    Uh. Ahem. Yeah. Anyways.
-    Can’t let anybody on the streets see me with a dinky little
--> DONE
-
-== Day_9 ==
+== Day_7 ==
     ... Uhg. Sorry. Not in a super talk-y mood.
     Had a big fight with my aunt. I mean, this happens sometimes, but it was really bad today.
     Normally she brings up me getting a ‘real job’ so we don’t have to talk about the elephant in the room. Kinda skirt around the fact that I get paid to steal and hurt.
@@ -164,7 +126,7 @@ VAR CurrentStoryState = 1
     ... Guess I was in a talk-y mood. I don’t blame you if you tuned all that out but.. Uh, thanks? N... Whatever. Moment over.
 -> DONE
 
-== Day_10 ==
+== Day_8 ==
     Hey. 
     Uh.. was supposed to do a job today. But I didn’t.
     My boss wanted me to snag a bike from someone. Real easy thing to piss them off, tell them to get out of our part of town. So I walked the whole ways down there.
@@ -174,10 +136,9 @@ VAR CurrentStoryState = 1
     I’m not ever doing their dirty work again. I’m out.
     ... So, uh. Is this a celebration meal? I’m kind of eating my feelings tonight, yknow. Nice food to distract from the horrible decisions.
     ... Thanks for always listening and all. 
-    Uhg. That sounds like some Hallmark movie shit. 
 -> DONE
 
-== Day_11 ==
+== Ending ==
     What’s good? You made it a whole month. Way to stick with it...
 	*   Thank you!
 	    I’m not sure if you care, but I’m trying to turn over a new leaf or... whatever.

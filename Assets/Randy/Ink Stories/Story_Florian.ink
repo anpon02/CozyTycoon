@@ -22,12 +22,8 @@ VAR CurrentStoryState = 0
     - CurrentStoryState == 7:
         -> Day_8
     - CurrentStoryState == 8:
-        -> Day_9
-    - CurrentStoryState == 9:
-        -> Day_10
-    - CurrentStoryState == 10:
-        -> Day_11
-    - CurrentStoryState    11:
+        -> Ending
+    - CurrentStoryState >= 9:
         -> Extra
         
      ->END
@@ -36,7 +32,7 @@ VAR CurrentStoryState = 0
 
 == Day_1 ==
     Ah, well met!
-    My name is Florian. How nice it is to see a restaurant owner who takes the time to greet their guests. And one with a ‘welcome in’ sign outside. Very… handy.. Ahem.
+    My name is Florian. How nice it is to see a restaurant owner who takes the time to greet their guests. And one with a ‘welcome in’ sign outside. Very... handy... Ahem.
     Well, I’m pleased to meet your acquaintance! I’m sure I’ll be stopping in here for a bite every once in a while.
     A bite of... food, yes. Anyways. Thank you!
 -> DONE
@@ -61,22 +57,10 @@ VAR CurrentStoryState = 0
 -   Thank you for the lovely chat. It’s quite pleasant talking to you.
 *   Is there anything you’d like to see on the menu?
     Oho! You’re asking my opinion?
-    Well, I must admit I’m rather fond of salads. Light meals to tide me over… uhm. Ahem. 
+    Well, I must admit I’m rather fond of salads. Light meals to tide me over... uhm. Ahem. 
 -> DONE
 
 == Day_3 ==
-    Ahem. Excuse me? Could I ask but a moment of your time?
-    A thousand apologies. I don’t mean to distract you from your work. I simply intend on frequenting this establishment, and as such I have a small accommodation to request.
-    I don’t know what all goes into every dish, but please refrain from adding garlic to anything I order. It's a... food allergy. Very severe. I’m sure you understand.
-    Thank you ever so much!
-    Oh, while I have you here, might I ask another question?
-    I am... ahem, not from here. Yes. And in my, er, hometown.. It is quite common to make soup dishes with blood. You might feel your hairs stand on end hearing that, but it is not that abnormal.
-    I have not found a single establishment that serves a dish in that manner. If you’re looking to expand your menu, I recommend you look into it.
-    I would be willing to pay a premium for that sort of thing.
-    ... Ahem. Yes, that is all. Good day.
--> DONE
-
-== Day_4 ==
     ... Yawn. 
     Ah... my apologies, I find myself quite tired in the daytime hours these days.
     Ah- not for any particular reason! Perhaps I should simply go to sleep at an earlier hour. I relax in my study with a good book and the hours get away from me.
@@ -95,8 +79,7 @@ VAR CurrentStoryState = 0
 -   Oh, look at me, prattling on again. I’ll leave you to your work.
 -> DONE
 
-== Day_5 ==
-    ...
+== Day_4 ==
     ... Oh... I’m sorry... I’m afraid I’m fighting my own battles today.
 
 *   What’s wrong?
@@ -120,15 +103,7 @@ VAR CurrentStoryState = 0
     Ack. What an awful thing to have to discuss. Please discard such mental images- they do not define me. I hope we can continue to be friends. 
 -> DONE
 
-== Day_6 ==
-    ... Sigh... I’m still feeling a bit melancholy today...
-    I have these bouts of loneliness. I hope I am not troubling you in talking about it. It’s seldom that I have someone close enough to talk about such a thing.
-    I had a partner before I was so cursed with this affliction. Once I realized what had become of myself I couldn’t bear to stay in such a relationship. 
-    Was it fair? To watch the one you love grow old while you stay the same. My heart could not bear the thought, and so we drifted apart. 
-    And yet, I find myself wondering if I made the right decision...
--> DONE
-
-== Day_7 ==
+== Day_5 ==
     Hello again.
     Try as I might, I cannot rid from my mind the thought that I may be going about my own life the wrong way.
     For the last sixty years I’ve kept to myself, keeping my acquaintances at arm's reach. 
@@ -145,7 +120,7 @@ VAR CurrentStoryState = 0
 -   I’ll continue to try to get to know you better. These visits to your restaurant have been a breath of fresh air. 
 -> DONE
 
-== Day_8 ==
+== Day_6 ==
     Hello again, my friend!
     I do so apologize for the way I have acted recently. I’m in much better spirits today.
     Even better seeing you! I hope you have been faring well.
@@ -168,7 +143,7 @@ VAR CurrentStoryState = 0
     Thank you as always for your time!
 -> DONE
 
-== Day_9 ==
+== Day_7 ==
     Oh, my friend, I need your advice.
     You’ve been nothing but helpful thus far, so I come to you with news...
     My, ahm.. Partner, the one from before I became a vampire. He must have found my name through the school.
@@ -186,7 +161,7 @@ VAR CurrentStoryState = 0
 -   I need time to think it over... And a nice, warm meal. 
 -> DONE
 
-== Day_10 ==
+== Day_8 ==
     Good day, friend. 
     I did end up going to meet my old partner after all.
     I was up all night deliberating- well, you know, later than usual... I decided ultimately that hiding away would only continue to hurt the both of us.
@@ -198,7 +173,7 @@ VAR CurrentStoryState = 0
     But I shouldn’t despair, I’m in a much better place now, aren’t I? I have you as a friend, and I think that’s wonderful. 
 -> DONE
 
-== Day_11 ==
+== Ending ==
     I bid you good day! What a momentous occasion- a full month! What a testament to your hard work and determination!
 	*   Thank you! (affection ending)
 	    No, thank you. 

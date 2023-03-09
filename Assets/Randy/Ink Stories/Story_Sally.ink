@@ -22,12 +22,8 @@ VAR CurrentStoryState = 0
     - CurrentStoryState == 7:
         -> Day_8
     - CurrentStoryState == 8:
-        -> Day_9
-    - CurrentStoryState == 9:
-        -> Day_10
-    - CurrentStoryState == 10:
-        -> Day_11
-    - CurrentStoryState >= 11:
+        -> Ending
+    - CurrentStoryState >= 9:
         -> Extra
         
      ->END
@@ -42,55 +38,39 @@ VAR CurrentStoryState = 0
 -> DONE
 
 == Day_2 ==
-    Hey there again sssweetie!
-    Aren’t you up and at ‘em! Makesss me real happy to sssee.
-    Isss it just you here? Must be awful quiet back in that kitchen if you ain’t talkin’ to nobody.
-    My whole family runsss our flower shop. I got a sssister and three brothersss. And my ma and my pa, of course.
-    We’re all real clossse. We eat dinner together every night. Itsss loud, but it’sss real lovely.
-    There’s thissss Bread Bowl my mama makes thats somethin’ special, I wonder if you ever tried your hand at makin’ somethin’ like that?
-    It’s just sssoup in a sssourdough bowl instead’a normal one. But somethin’ about it is just so delicious.
-    You ssshould try it! You could stop by, but maybe itsss more fun making it for yourself.
-    Oh, look at me, trying to tell you how to do your job. Thanksss for indulging me.
-*   Is there anything you’d like to see on the menu?
-    Oh! Well, I’m a big fan of sssoups. Easssier for me, sssince I don’t gotta cut up everythin’ into little bitsss.
-    Any kinda sssoup, really!
-
--> DONE
-
-== Day_3 ==
     Howdy, little guy.
     How goesss the restaurant?
     The shopsss been good. I got to arrange a whole buncha bouquetsss today. 
     I love putting together flowersss like that! My favoritesss the lilies. I try to put them in everything, no matter the occasssion. 
     But itsss fun arranging flowers for different thingsss. Birthdaysss, holidaysss, first datesss. Putting it together feelsss sort of personal.
     Isss it like that for cooking too? 
-*   Not really
+*   Not really...
     I sssee...
     I guesss if you have a lot of ordersss you can’t take the time to make it ssspecial for each person...
     Ssseems like a missed opportunity...
-*   Yeah
+*   Yeah!
     Hehehe. I guesss we have something in common, then.
     Arranging flowers and arranging a dish... they’re both an art, I think.
     Sssomething you can connect to other people with.
 -   Oh, dear... I don’t mean to go on and on. Thanksss for the chat.
 -> DONE
 
-== Day_4 ==
-    I’m glad you ssset up shop so close to my house. 
-    It’sss fun to sssee all the new shopsss and buildingsss that have shown up in the past few yearsss.
-    They’re building a new apartment building next to my ssstore. Must be on account’a the fact this town keepsss getting bigger.
-    A lotta folksss in this town come here to leave their familiesss...
-    I guesss I understand some people don’t have the bessst relationship with their folksss... but I can’t imagine living without my family.
-    I would be missing’ out on a lotta homecooked meals without them, that’sss for sure!
-*   What food does your family make? 
-    Oh, all sortsa stuff. 
-    My pa always sprinkles a little Cinnamon into everythin’ he makes. Saysss it makesss it better.
-    ... Sometimesss that meansss my ma gotta step in ‘cause there’s some things cinnamon just doesssn’t belong in. But itsss one of those thingsss, you know?
-    Now whenever I taste Cinnamon it remindsss me of my pa. 
-    Anyhow, was just a little sssomethin’ I was thinkin on the way over here.
+== Day_3 ==
+    Hey there again sssweetie!
+    Aren’t you up and at ‘em! Makesss me real happy to sssee.
+    Isss it just you here? Must be awful quiet back in that kitchen if you ain’t talkin’ to nobody.
+    My whole family runsss our flower shop. I got a sssister and three brothersss. And my ma and my pa, of course.
+    We’re all real clossse. We eat dinner together every night. Itsss loud, but it’sss real lovely.
+*   Is there anything you’d like to see on the menu?
+    Oh! Well, I’m a big fan of sssoups. Easssier for me, sssince I don’t gotta cut up everythin’ into little bitsss.
+    Any kinda sssoup, really!
+    There’s thissss Bread Bowl my mama makes thats somethin’ special, I wonder if you ever tried your hand at makin’ somethin’ like that?
+    It’s just sssoup in a sssourdough bowl instead’a normal one. But somethin’ about it is just so delicious.
+    You ssshould try it! You could stop by, but maybe itsss more fun making it for yourself.
+    Oh, look at me, trying to tell you how to do your job. Thanksss for indulging me.
 -> DONE
 
-== Day_5 ==
+== Day_4 ==
     ...
     ...
 *   Hello?
@@ -98,16 +78,7 @@ VAR CurrentStoryState = 0
     Oh, sorry sugar. I guess I’m a bit out of sortsss today.
     Uh, don’t wanna get too into it, but...
     My pa ended up in the hospital last night. He’s a real old fella and... uhm...
-    ... Sorry, sweetheart, I think I’m just gonna sit here all quiet like today. I’m afraid I won’t be any good to talk to.
--> DONE
-
-== Day_6 ==
-    Oh... Hey there, dear.
-*   How’s your dad?
-    Oh... thank you for assskin, darlin. It meansss a lot that you came all the way over here to check on me.
-*   How’s your mom?
-    ... Well, she’s not doin’ great right now, but at least she’s healthy. It’s my pa who’s in the hospital right now.
--   He’sss... not doin’ well. It’s the same illness he’s had a long while. He keeps fightin’ it but it keepsss coming back n’...
+    He’sss... not doin’ well. It’s the same illness he’s had a long while. He keeps fightin’ it but it keepsss coming back n’...
     I’m trying to focus on the positives right now. I got all my other family back home to help me through it, n’ our ssshop is doin’ real well.
     We knew thisss day would come eventually. I ssshould be grateful that I’ll be able to sssay my goodbyes, lotta folk lose their family outta nowhere and...
     ...
@@ -115,7 +86,20 @@ VAR CurrentStoryState = 0
     Thank you for bein’ here for me.
 -> DONE
 
-== Day_7 ==
+== Day_5 ==
+    Good mornin’. Sssmells awful nice in here today.
+*   How are you feeling?
+    Oh, more the sssame. Some thingsss just take time, I reckon.
+    It’sss been nice havin’ someone else cooking for me sometimes. Takesss a weight off my shoulders to just swing by here and pick somethin’ tasty up.
+    Plus, there’s a lotta awful nice folksss that show up here. You got a nice little operation goin’ on here, darlin’.
+    I don’t wanna be all sssappy about it. Just mean that having sssomethin’ ssstable when everything is so uncertain is nice.
+    Thanks for that, sssweetheart.
+* *     Is there anything I can do?
+		Well... when I was little, my pa always put Cinnamon into everythin’ we ate. Said it was good for our health.
+    Sniff... haha, he wasss a real sssuperstitious guy sssometimes. But cinnamon remindsss me of him. It’sss bittersweet now, but still nice. 
+- -> DONE
+
+== Day_6 ==
     Hi, darlin.
 *   How are you doing?
     Oh, not great. Had a real tough night yesterday.
@@ -127,23 +111,7 @@ VAR CurrentStoryState = 0
     ... I feel a bit better talkin’ about it all out loud. Thank you, sssweetheart.
 -> DONE
 
-== Day_8 ==
-    Good mornin’. Sssmells awful nice in here today.
-*   How are you feeling?
-    Oh, more the sssame. Some thingsss just take time, I reckon.
-    It’sss been nice havin’ someone else cooking for me sometimes. Takesss a weight off my shoulders to just swing by here and pick somethin’ tasty up.
-    Plus, there’s a lotta awful nice folksss that show up here. You got a nice little operation goin’ on here, darlin’.
-    I don’t wanna be all sssappy about it. Just mean that having sssomethin’ ssstable when everything is so uncertain is nice.
-    Thanks for that, sssweetheart.
-*   Don’t mention it.
-    No, I mean it! 
-    I oughta bring you sssome flowers from my shop for being sssuch a friend! 
-    Nice blue onesss, maybe. Or some yellow ones. 
-    I’m already picturing it now... heheh! 
-    I’ll let you get back to work while I ssscheme up a nice arrangement for you.
-- -> DONE
-
-== Day_9 ==
+== Day_7 ==
     Howdy, darlin’. 
     Hope you’ve been well. I’m feelin’ a bit easssier today.
     I’m gonna ssspend some time with my family tonight, make a big ol’ dinner.
@@ -155,7 +123,7 @@ VAR CurrentStoryState = 0
     For now, though, I’m excited to taste what you got cookin’ today!
 -> DONE
 
-== Day_10 ==
+== Day_8 ==
     Well, good mornin’ sweetheart. 
     It's sssure good to see ya again. 
     I’m feelin’ a lot better today. Ended up havin’ that big family dinner I wasss talkin’ ‘bout.
@@ -168,7 +136,7 @@ VAR CurrentStoryState = 0
     I’ve been through sssome tough times lately, but I'm lookin' forward to keepin' up with you.
 -> DONE
 
-== Day_11 ==
+== Ending ==
     Hi, darlin! Congratulationsss!
 *   Thank you! (affection ending)
     I brought ya a little bouquet. Nothin’ all fancy, jussst to celebrate.
