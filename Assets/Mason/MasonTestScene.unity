@@ -782,9 +782,9 @@ MonoBehaviour:
   - {fileID: 455528692}
   schedule:
   - dayName: 1 - 1
-    customers: 00000000
+    customers: 00000000010000000200000003000000
   - dayName: 1 - 2
-    customers: 04000000
+    customers: 04000000050000000200000000000000
   - dayName: 1 - 3
     customers: 000000000300000001000000
   - dayName: 1 - 4
@@ -2107,11 +2107,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8654729091466669470, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 8654729091466669470, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 8654729091466669470, guid: 8fe69999375da934dbf13eecfde8cbf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

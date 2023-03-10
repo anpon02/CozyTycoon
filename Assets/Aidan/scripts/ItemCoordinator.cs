@@ -82,7 +82,7 @@ public class ItemCoordinator : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, 0.025f);
+        transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f);
     }
 
     private void OnDestroy()

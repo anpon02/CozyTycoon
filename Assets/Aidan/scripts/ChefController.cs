@@ -47,7 +47,19 @@ public class ChefController : MonoBehaviour
         if (ws == null || (ws.hasBigEquipment && heldItem.GetItem().isBigEquipment) || ws.minigameActive) return;
         AudioManager.instance.PlaySound(putdownSound, gameObject);
 
-        ReleaseItem(KitchenManager.instance.hoveredController);
+        if (heldItem.side != null) {
+            var newiCoord = KitchenManager.instance.CreateNewItemCoord(heldItem.item, transform.position);
+            newiCoord.plated = true;
+
+            heldItem.item = heldItem.side;
+            heldItem.side = null;
+
+            ReleaseItem(KitchenManager.instance.hoveredController);
+            heldItem = newiCoord;
+        }
+        else {
+            ReleaseItem(KitchenManager.instance.hoveredController);
+        }
     }
 
     public void ReleaseItem(Vector3 pos)

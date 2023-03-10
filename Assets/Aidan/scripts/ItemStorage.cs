@@ -53,7 +53,6 @@ public class ItemStorage : MonoBehaviour
                 else item.numRemaining += quantity;
             }
         }
-        gameObject.SetActive(NumEnabledItems() > 0);
     }
 
     private void OnEnable()
@@ -165,10 +164,11 @@ public class ItemStorage : MonoBehaviour
     private void OnMouseEnter()
     {
         if (NumEnabledItems() == 0) return;
+        if (!items[itemIndex].enabled) itemIndex = GetFIrstEnabledItem();
 
         KitchenManager.instance.ttCoord.Display(toolTip);
         GetComponent<SpriteRenderer>().color = hoveredColor;
-        itemSelectorCoord.gameObject.SetActive(true);
+        if (NumEnabledItems() > 0) itemSelectorCoord.gameObject.SetActive(true);
     }
 
     private void OnMouseExit()
@@ -176,5 +176,12 @@ public class ItemStorage : MonoBehaviour
         KitchenManager.instance.ttCoord.ClearText(toolTip);
         GetComponent<SpriteRenderer>().color = Color.white;
         itemSelectorCoord.gameObject.SetActive(false);
+    }
+
+    int GetFIrstEnabledItem() {
+        for (int i = 0; i < items.Count; i++) {
+            if (items[i].enabled) return i;
+        }
+        return 0;
     }
 }

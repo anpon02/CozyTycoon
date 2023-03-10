@@ -31,7 +31,7 @@ public class BlenderMinigame : MonoBehaviour
         Vector3 centerPoint = new Vector3(transform.position.x + circleCenter.x, transform.position.y + circleCenter.y, transform.position.z);
         ringGuide.transform.position = centerPoint;
 
-        if (Input.GetMouseButtonUp(0)) holdingPlayer = false;
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) holdingPlayer = false;
         //PlayerMoveCircle(centerPoint);
 
         PlayerMovement(centerPoint);

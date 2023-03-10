@@ -147,6 +147,14 @@ public class WorkspaceController : MonoBehaviour
         return list;
     }
 
+    public List<ItemCoordinator> GetiCoordList() {
+        List<ItemCoordinator> list = new List<ItemCoordinator>();
+        foreach (var iCoord in iCoords) {
+            list.Add(iCoord);
+        }
+        return list;
+    }
+
     public void StartCooking()
     {
         if (string.IsNullOrEmpty(chosenRecipe)) return;

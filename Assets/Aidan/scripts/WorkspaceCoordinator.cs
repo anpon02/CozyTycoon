@@ -29,7 +29,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         if (ws.wsUIcoord.IsMinigameActive()) sRend.color = normalColor;
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         sRend.color = hoverColor;
         KitchenManager.instance.hoveredController = ws;
@@ -37,6 +37,17 @@ public class WorkspaceCoordinator : MonoBehaviour
 
     private void OnMouseExit()
     {
+        StartCoroutine(MouseExit());
+    }
+
+    IEnumerator MouseExit() {
+        for (int i = 0; i < 3; i++) {
+            yield return new WaitForEndOfFrame();
+        }
+
+        var uiCoord = ws.wsUIcoord;
+        if (uiCoord.buttonHovered) yield break;
+
         sRend.color = normalColor;
         if (KitchenManager.instance.hoveredController == ws) KitchenManager.instance.hoveredController = null;
     }
@@ -74,6 +85,7 @@ public class WorkspaceCoordinator : MonoBehaviour
     void UpdateNormalItemDisplays()
     {
         var list = ws.GetItemList();
+        var iCoordList = ws.GetiCoordList();
         for (int i = 0; i < list.Count; i++) if (list[i].isBigEquipment) list.RemoveAt(i);
 
         for (int i = 0; i < itemDisplays.Count; i++) {
@@ -81,6 +93,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
             itemDisplays[i].gameObject.SetActive(!hideItems);
             itemDisplays[i].sprite = list[i].GetSprite();
+            itemDisplays[i].transform.GetChild(0).gameObject.SetActive(iCoordList[i].plated);
         }
     }
 

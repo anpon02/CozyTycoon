@@ -44,6 +44,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     public GameObject bigEquipmentSprite;
     public GameObject dispalyItemSprite;
     [HideInInspector] public bool showProgress;
+    [HideInInspector] public bool buttonHovered;
     
     public void SelectRecipeOption(int num)
     {
@@ -88,7 +89,7 @@ public class WorkstationUICoordinator : MonoBehaviour
     public void StartMinigame(Minigame minigame)
     {
         KitchenManager.instance.minigameStarted = true;
-        GameManager.instance.camScript.followMouse = false;
+        //GameManager.instance.camScript.followMouse = false;
 
         if (minigame == Minigame.KNIFE) knifeMG.gameObject.SetActive(true);
         if (minigame == Minigame.PAN) panMG.gameObject.SetActive(true);
