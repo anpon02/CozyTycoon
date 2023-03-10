@@ -486,7 +486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.108, y: 0.042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!60 &5897622931511211341
@@ -514,10 +514,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.5569446, y: -1.1802101}
-      - {x: -2.5567741, y: -1.487215}
-      - {x: -0.46086597, y: -2.816308}
-      - {x: 3.008459, y: -0.79295135}
+    - - {x: -2.556054, y: -1.178668}
+      - {x: -2.556054, y: -1.4973402}
+      - {x: -0.5389652, y: -2.6785345}
+      - {x: 2.8839521, y: -0.6951864}
       - {x: 0.5885402, y: 0.6839371}
 --- !u!1 &1810228017050801040
 GameObject:
@@ -1405,6 +1405,7 @@ MonoBehaviour:
   bigEquipmentSprite: {fileID: 0}
   dispalyItemSprite: {fileID: 0}
   showProgress: 1
+  buttonHovered: 0
 --- !u!1 &3785526143490618364
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,7 +5053,7 @@ RectTransform:
   m_GameObject: {fileID: 6971076791495410993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7514896644964556289}
@@ -5060,7 +5061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.873, y: 0.4949}
+  m_AnchoredPosition: {x: 0.968, y: 0.509}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6971076791495410999
@@ -5104,7 +5105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bee2073e8b1ce504e834c72fcfca6dbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6eb3ab3e7f99d742aa7c1c10bbf7eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5141,7 +5142,7 @@ RectTransform:
   m_GameObject: {fileID: 6971076791654611002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7514896644964556289}
@@ -5193,7 +5194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 32cc149ab95fda24bb8b776d619f1ebf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71fd5b920786b5743bef55f613320ae4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5708,6 +5709,9 @@ MonoBehaviour:
   progressSpeed: 0
   progressPenalty: 0.1
   flameSound: 0
+  sheetpullSound: 0
+  oneShotsSource: {fileID: 0}
+  loopSource: {fileID: 0}
 --- !u!1 &7994442128539675366
 GameObject:
   m_ObjectHideFlags: 0

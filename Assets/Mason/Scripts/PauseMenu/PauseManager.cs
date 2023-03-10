@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PauseManager : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] int menusclickSound;
+    [SerializeField] string titleSceneName = "Title";
 
     private PauseInputActions pInputActions;
     [HideInInspector] public bool paused;
@@ -91,7 +93,8 @@ public class PauseManager : MonoBehaviour
     }
 
     public void QuitGame() {
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(titleSceneName);
     }
 
     public void ChangeMasterVol() {
