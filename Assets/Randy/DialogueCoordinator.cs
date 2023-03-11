@@ -60,7 +60,9 @@ public class DialogueCoordinator : MonoBehaviour
 
     public IEnumerator DisplayText(string text, bool notable)
     {
-        if(notable)
+        mainText.text = text;
+        mainText.maxVisibleCharacters = 0;
+        if (notable)
         {
             mainText.fontStyle = FontStyles.Italic;
             mainText.color = dMan.notableTextColor;
@@ -74,11 +76,11 @@ public class DialogueCoordinator : MonoBehaviour
         {
             if(dMan.skipPrint)
             {
-                mainText.text = text;
+                mainText.maxVisibleCharacters = text.Length;
                 break;
             }
-            mainText.text += text[i];
-            if (mainText.text.Length % 2 == 1) AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
+            mainText.maxVisibleCharacters = i + 1; // Optimization possibility: just do maxVisibleCharacters++ and ditch the loop
+            if (i % 2 == 1) AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
             yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
         }
         dMan.lineDone = true;
