@@ -16915,7 +16915,7 @@ PrefabInstance:
     - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a1f0c228b1d0b924e848329229efe73a, type: 3}
+      objectReference: {fileID: 21300000, guid: 9e236cc62d4ecca4da37be301ad4fed5, type: 3}
     - target: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Name
       value: meat fridge
@@ -24965,7 +24965,7 @@ PrefabInstance:
     - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a1f0c228b1d0b924e848329229efe73a, type: 3}
+      objectReference: {fileID: 21300000, guid: e5106070d75bc5e4a8ad875b932c969c, type: 3}
     - target: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_Name
       value: dairy fridge
