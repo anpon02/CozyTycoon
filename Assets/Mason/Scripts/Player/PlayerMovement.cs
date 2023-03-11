@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private int obstacleLayerNum;
+    [SerializeField] private float isoAngle;
 
     public Vector2 moveInput { get; private set; }
     public bool isometricMovement;
@@ -33,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 IsometricConversion(Vector2 position) {
         Vector2 isoVec = new Vector2();
-        isoVec.x = position.x - position.y;
-        isoVec.y = (position.x + position.y) / 2;
+        isoVec.x = position.x * Mathf.Cos(Mathf.Deg2Rad * isoAngle) + position.y * Mathf.Cos(Mathf.Deg2Rad * (180 - isoAngle));
+        isoVec.y = position.x * Mathf.Sin(Mathf.Deg2Rad * isoAngle) + position.y * Mathf.Sin(Mathf.Deg2Rad * (180 - isoAngle));
         return isoVec;
     }
 
