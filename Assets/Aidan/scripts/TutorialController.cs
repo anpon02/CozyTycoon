@@ -23,8 +23,9 @@ public class TutorialController : MonoBehaviour
     [SerializeField] Product potProduct;
     [SerializeField] float offset, waitTime = 1f;
     [SerializeField] Helper helpScript;
-    [SerializeField] List<Instruction> instructions = new List<Instruction>();
     [SerializeField] bool startFromBeginning;
+    [SerializeField] Vector3 panOffset;
+    [SerializeField] List<Instruction> instructions = new List<Instruction>();
     int currentInstruction;
 
     GameManager gMan;
@@ -166,7 +167,7 @@ public class TutorialController : MonoBehaviour
     void PointToPan()
     {
         helpScript.gameObject.SetActive(true);
-        helpScript.worldPosTarget = pans.transform.position + Vector3.up * offset;
+        helpScript.worldPosTarget = pans.transform.position + panOffset;
     }
 
     bool chickenOnStove()

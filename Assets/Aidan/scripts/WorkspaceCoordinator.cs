@@ -78,6 +78,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         bigDisplay.sprite = null;
         foreach (var i in ws.GetItemList()) if (i.isBigEquipment) bigDisplay.sprite = i.GetSprite();
         bigDisplay.enabled = bigDisplay.sprite != null;
+        
 
         UpdateBigItemDisplay();
         UpdateNormalItemDisplays();

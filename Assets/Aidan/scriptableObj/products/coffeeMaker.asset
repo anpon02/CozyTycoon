@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e82fe11f37df945b76526192d58b15, type: 3}
   m_Name: coffeeMaker
   m_EditorClassIdentifier: 
-  imgSprite: {fileID: 21300000, guid: f685285c5fd978e45996d86a909399df, type: 3}
+  imgSprite: {fileID: 21300000, guid: dc0e68528a6c714428950be4b0454a42, type: 3}
   productName: Coffee Maker
   description: don't even talk to me
   price: 100
