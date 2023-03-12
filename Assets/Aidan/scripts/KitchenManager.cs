@@ -41,6 +41,7 @@ public class KitchenManager : MonoBehaviour {
     public float playerReach = 5;
     public List<Item> unlockedEquipment = new List<Item>();
 
+    [SerializeField] List<ProductObject> productObj = new List<ProductObject>();
     
     [Header("Tutorial"), SerializeField] TutorialController tutorial; 
     [SerializeField] float tutorialStartTime = 2;
@@ -102,7 +103,7 @@ public class KitchenManager : MonoBehaviour {
         foreach (var o in old) {
             var productObj = getObjFromProduct(o.product);
 
-            if (!productObj.item.IsPresentInList(unlockedEquipment)) newList.Add(o);
+            if (productObj != null && !productObj.item.IsPresentInList(unlockedEquipment)) newList.Add(o);
         }
 
         return newList;
@@ -181,6 +182,8 @@ public class KitchenManager : MonoBehaviour {
 
     ProductObject getObjFromProduct(Product product)
     {
+        foreach (var p in productObj) if (p.product == product) return p;
+
         return null;
     }
     

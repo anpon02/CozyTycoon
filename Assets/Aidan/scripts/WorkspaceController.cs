@@ -92,6 +92,8 @@ public class WorkspaceController : MonoBehaviour
         for (int i = 0; i < iCoords.Count; i++) {
             if (iCoords[i] == null) iCoords.RemoveAt(i);
         }
+        hasBigEquipment = false;
+        foreach (var i in iCoords) if (i.GetItem().isBigEquipment) hasBigEquipment = true;
         wsCoord.UpdateItemDisplay();
     }
 

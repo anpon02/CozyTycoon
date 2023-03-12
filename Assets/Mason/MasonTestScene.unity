@@ -935,8 +935,6 @@ MonoBehaviour:
   - {fileID: 1998336961}
   - {fileID: 455528692}
   schedule:
-  - dayName: TEST
-    customers: 00000000
   - dayName: 1 - 1
     customers: 00000000010000000200000003000000
   - dayName: 1 - 2
@@ -4536,7 +4534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 2
   uiCoord: {fileID: 6544690644433378168}
 --- !u!114 &1087356797005212035
@@ -5994,7 +5991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 3
   uiCoord: {fileID: 6544690644433378168}
 --- !u!222 &2324248502506973279
@@ -6165,7 +6161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 4
   uiCoord: {fileID: 6544690644433378168}
 --- !u!224 &2524876128656079273
@@ -7593,7 +7588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 6
   uiCoord: {fileID: 6544690644433378168}
 --- !u!222 &3719176117678868141
@@ -12586,7 +12580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 1
   uiCoord: {fileID: 6544690644433378168}
 --- !u!1 &6640395144523847031
@@ -13589,7 +13582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3121b62a4208586458a7459b02513b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.49056602, g: 0.41073334, b: 0.33090067, a: 1}
   ID: 5
   uiCoord: {fileID: 6544690644433378168}
 --- !u!114 &8030569522237047232
