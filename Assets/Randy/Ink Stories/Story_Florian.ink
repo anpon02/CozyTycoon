@@ -1,5 +1,6 @@
 // Variable(s) to be overwritten by Unity
-VAR CurrentStoryState = 0
+VAR CurrentStoryState = 8
+VAR AffectionEnding = false
 
 // Story starts here, and the proper ink storylet is chosen with help from Unity
 -> Selector
@@ -175,12 +176,12 @@ VAR CurrentStoryState = 0
 
 == Ending ==
     I bid you good day! What a momentous occasion- a full month! What a testament to your hard work and determination!
-	*   Thank you! (affection ending)
+*   { AffectionEnding } Thank you!
 	    No, thank you. 
 	    I must remark that you have provided me with much more than simple meals.
 	    In my endeavor to better connect with my fellow creatures, I would like to invite you to tea. 
 	    It would bring me much happiness to get to know you more outside of a restaurant setting. I hope that we can become good friends. 
-	*   Thank you! (neutral ending)
+*   { !AffectionEnding } Thank you!
 	    Thank you! 
 	    You have brought joy to this community through the culinary arts.
 	    I wish you the best of luck in all your future endeavors!

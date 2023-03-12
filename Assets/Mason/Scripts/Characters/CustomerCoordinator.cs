@@ -94,6 +94,10 @@ public class CustomerCoordinator : MonoBehaviour
         NextStoryPhase();
     }
 
+    public void StartEnding() {
+        DialogueManager.instance.StartDialogueEnding(inkStory, characterName, !DialogueManager.instance.StoryDisabled(characterName));
+    }
+
     public bool GetStorySaid() {
         return storyStarted;
     }

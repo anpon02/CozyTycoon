@@ -1,5 +1,6 @@
 // Variable(s) to be overwritten by Unity
 VAR CurrentStoryState = 0
+VAR AffectionEnding = false
 
 // Story starts here, and the proper ink storylet is chosen with help from Unity
 -> Selector
@@ -134,18 +135,16 @@ VAR CurrentStoryState = 0
 
 == Ending ==
     HEY!!! Congratulations!!! First month under your belt!!
-	
-	*    Thank you! (Affection Ending)
+*   { AffectionEnding }Thank you!
 	    NO PROBLEM!!! You got through the warm up, now you gotta keep it GOING!!!
     I know you can do it!!!
-	    You know what? We should do a COLLAB!!!
-	    YEAH!! You should come over to my place!!! You’ll show me how to make a DELICIOUS and HEALTHY meal, and I’ll show you how to get huge GAINS!!!
+	You know what? We should do a COLLAB!!!
+    YEAH!! You should come over to my place!!! You’ll show me how to make a DELICIOUS and HEALTHY meal, and I’ll show you how to get huge GAINS!!!
 	    GAHAH! It’ll be GREAT!
-
-	*    Thank you! (Neutral Ending)
-	    NO PROBLEM!!! You got through the warm up, now you gotta keep it GOING!!!
+*   { !AffectionEnding } Thank you!
+    NO PROBLEM!!! You got through the warm up, now you gotta keep it GOING!!!
     I know you can do it!!!
-	    And your friend Roxy will be cheering you on the WHOLE TIME!!! And eating your DELICIOUS CUISINE!!!
+    And your friend Roxy will be cheering you on the WHOLE TIME!!! And eating your DELICIOUS CUISINE!!!
 - -> DONE
 
 == Extra ==

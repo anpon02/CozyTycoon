@@ -1,5 +1,6 @@
 // Variable(s) to be overwritten by Unity
 VAR CurrentStoryState = 1
+VAR AffectionEnding = false
 
 // Story starts here, and the proper ink storylet is chosen with help from Unity
 -> Selector
@@ -140,16 +141,16 @@ VAR CurrentStoryState = 1
 
 == Ending ==
     What’s good? You made it a whole month. Way to stick with it...
-	*   Thank you!
-	    I’m not sure if you care, but I’m trying to turn over a new leaf or... whatever.
-	    ... I was wondering if I could work here. Uh. If you’re hiring...
-	    I could deliver food on my motorcycle. Or, y’know, learn how to cook stuff so it’s not just you back here. Uh.
-	    You’ve been really nice to me. And I want a new start. I’ll do my best, I promise. 
-	*   Thank you!
-	    Uh, yeah. No problem.	
-	    I’m not sure if you care, but I’m trying to turn over a new leaf or... whatever.
-	    Glad to have a nice place like this to come to. Y’know, to get away from it all. 
-	    Thanks for that. 
+*   { AffectionEnding } Thank you!
+    I’m not sure if you care, but I’m trying to turn over a new leaf or... whatever.
+    ... I was wondering if I could work here. Uh. If you’re hiring...
+    I could deliver food on my motorcycle. Or, y’know, learn how to cook stuff so it’s not just you back here. Uh.
+    You’ve been really nice to me. And I want a new start. I’ll do my best, I promise. 
+*   { !AffectionEnding } Thank you!
+    Uh, yeah. No problem.	
+    I’m not sure if you care, but I’m trying to turn over a new leaf or... whatever.
+    Glad to have a nice place like this to come to. Y’know, to get away from it all. 
+    Thanks for that. 
 - -> DONE
 
 == Extra ==

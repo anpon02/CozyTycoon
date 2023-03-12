@@ -1,5 +1,6 @@
 // Variables to be overwritten by Unity
 VAR CurrentStoryState = 0
+VAR AffectionEnding = false
 
 -> Selector
 
@@ -147,38 +148,18 @@ VAR CurrentStoryState = 0
 
 == Ending ==
     Hey! Happy one month of cookin’.
-
-*   Thank you! (Affection Ending)
-	Yeah, no biggie. 
+*  { AffectionEnding } Thank you! 
+    Yeah, no biggie. 
     You probs won’t be seeing me next week. I’m going to that big nationals tournament.
     Uhm.. Unless..
     I got an extra ticket. Like, a plus one dealio.
     And. Uh. This is gonna sound so lame. You’ve just been so nice to me I wanted to invite you.
     You’d get to sit in the audience and cheer me on n’ stuff. And we could hang out while you aren’t cheffing things up.
-
-*  Thank you! (Neutral Ending)
+*   { !AffectionEnding } Thank you!
     Yeah, no biggie. 
     You probs won’t be seeing me next week. I’m going to that big nationals tournament.
-    Better hope I win, ‘cause that prize will go right into my ‘eating out’ budget
+    Better hope I win, ‘cause that's more for my ‘eating food out instead of cooking’ fund.
     Well, I’ll see you when I get back.
-
-
-    Hey! Happy one month of cookin’.
-
-*  Thank you! 
-    Yeah, no biggie. 
-    You probs won’t be seeing me next week. I’m going to that big nationals tournament.
-    Uhm.. Unless..
-    I got an extra ticket. Like, a plus one dealio.
-    And. Uh. This is gonna sound so lame. You’ve just been so nice to me I wanted to invite you.
-    You’d get to sit in the audience and cheer me on n’ stuff. And we could hang out while you aren’t cheffing things up.
-
-* Thank you!
-  Yeah, no biggie. 
-  You probs won’t be seeing me next week. I’m going to that big nationals tournament.
-  Better hope I win, ‘cause that's more for my ‘eating food out instead of cooking’ fund.
-  Well, I’ll see you when I get back.
-
 - -> DONE
 
 == Extra ==

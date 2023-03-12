@@ -48,8 +48,12 @@ public class CustomerInteractable : MonoBehaviour
         if(orderController.alreadyOrdered() && !orderController.setOrder)
             orderController.DeliverFood();
         else {
+            // if ( not last day) {
             custCoordinator.StartStory();
             orderController.Order();
+            // } else {
+            //      custCoordinator.startEnding();
+            // }
         }
     }
 }

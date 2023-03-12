@@ -1,5 +1,6 @@
 // Variable(s) to be overwritten by Unity
 VAR CurrentStoryState = 0
+VAR AffectionEnding = false
 
 // Story starts here, and the proper ink storylet is chosen with help from Unity
 -> Selector
@@ -138,14 +139,14 @@ VAR CurrentStoryState = 0
 
 == Ending ==
     Hi, darlin! Congratulationsss!
-*   Thank you! (affection ending)
+*   { AffectionEnding }Thank you!
     I brought ya a little bouquet. Nothin’ all fancy, jussst to celebrate.
     Wanted to asssk you somethin’ while I got you here.
     I wasss wondering if you wanted to come over to my place for dinner. You been sssuch a friend to me. I wanted to do a little sssomething for you too.
     I wasss thinkin’ you let me cook for you for once. You know my family’sss big on cookin’, I’m sure you’d love it!
     It’ll be fun. Maybe you’ll get inssspired, haha!
     In any case, thanks for bein’ sssuch a friend. It means a whole awful lot to me.
-*   Thank you! (neutral ending)
+*   { !AffectionEnding } Thank you!
     I brought ya a little bouquet. Thought it might look nice on the counter.
     You don’t gotta put it up there, jussst wanted to do sssomethin’ nice.
     Thanksss for always cookin’ up those deliciousss meals!

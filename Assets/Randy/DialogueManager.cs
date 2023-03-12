@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector] public GameObject speakingCharacter;
     [HideInInspector] public Story currentStory { get; private set; }
 
-    [Header("Text Speed")]
+    [Header("Text Control")]
     [SerializeField] private float textRenderDelay;
     [SerializeField] private float nextLineDelay;
     // Modifier values for speeds. Please adjust these through Ink as they are reset regularly
@@ -129,6 +129,17 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkStory.text);
         try { currentStory.variablesState["CurrentStoryState"] = progress; }
         catch (System.Exception e) {}
+        controller.StartDialogue(character);
+    }
+
+    public void StartDialogueEnding(TextAsset inkStory, CharacterName character, bool metAffectionEndReq)
+    {
+        lastSpeaker = character;
+        StopDialogue();
+        currentStory = new Story(inkStory.text);
+        currentStory.ChoosePathString("Ending"); // Yes this is hardcoded. No there's much I can do about it
+        try { currentStory.variablesState["AffectionEnding"] = metAffectionEndReq; }
+        catch (System.Exception e) { }
         controller.StartDialogue(character);
     }
 
