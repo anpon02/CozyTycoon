@@ -935,6 +935,8 @@ MonoBehaviour:
   - {fileID: 1998336961}
   - {fileID: 455528692}
   schedule:
+  - dayName: TEST
+    customers: 00000000
   - dayName: 1 - 1
     customers: 00000000010000000200000003000000
   - dayName: 1 - 2

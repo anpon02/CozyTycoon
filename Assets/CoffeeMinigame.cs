@@ -107,7 +107,6 @@ public class CoffeeMinigame : MonoBehaviour
 
     void LightUpButton(int index)
     {
-        print("INDEX: " + index);
         buttons[index].color = highlightColors[index];
         AudioManager.instance.PlaySound(buttonSounds[index], oneShotsSource);
     }

@@ -60,6 +60,7 @@ public class WorkstationUICoordinator : MonoBehaviour
         if (IsMinigameActive()) return;
 
         for (int i = 0; i < options.Count; i++) {
+            if (recipeOptionTexts.Count <= i) break;
             SetupROButton(recipeOptionTexts[i], options[i].GetName(), i);
         }
     }

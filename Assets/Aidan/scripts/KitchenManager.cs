@@ -41,8 +41,6 @@ public class KitchenManager : MonoBehaviour {
     public float playerReach = 5;
     public List<Item> unlockedEquipment = new List<Item>();
 
-    [Header("Shop"), SerializeField] GameObject shopButton;
-    [SerializeField] List<ProductObject> productObjData = new List<ProductObject>();
     
     [Header("Tutorial"), SerializeField] TutorialController tutorial; 
     [SerializeField] float tutorialStartTime = 2;
@@ -60,7 +58,7 @@ public class KitchenManager : MonoBehaviour {
     [HideInInspector] public WorkspaceController hoveredController;
     [HideInInspector] public ChefController chef;
     [HideInInspector] public Item lastAddedItem, lastRetrievedItem, lastTrashedItem;
-    [HideInInspector] public bool minigameStarted, minigameCompleted, shopOpen, specialtyTabSelected, equipmentTabSelected;
+    [HideInInspector] public bool minigameStarted, minigameCompleted, specialtyTabSelected, equipmentTabSelected;
 
     bool enabledEquipment;
     float nextTutorialMoneyAmount = Mathf.Infinity;
@@ -68,13 +66,12 @@ public class KitchenManager : MonoBehaviour {
 
     private void OnValidate()
     {
-        foreach (var p in productObjData) p.name = p.item.GetName();
         foreach (var c in allChoices) c.OnValidate();
     }
 
     private void Start() 
     {
-        if (playTutorial) { NextTutSection(); shopButton.SetActive(false); }
+        if (playTutorial) NextTutSection();
         else {
             recipeButton.SetActive(true);
             GameManager.instance.UnPauseNotifs();
@@ -184,10 +181,6 @@ public class KitchenManager : MonoBehaviour {
 
     ProductObject getObjFromProduct(Product product)
     {
-        foreach (var p in productObjData) {
-            if (p.product.name == product.name) return p;
-        }
-
         return null;
     }
     

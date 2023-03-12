@@ -30,7 +30,6 @@ public class ShopCoordinator : MonoBehaviour
     {
         equipmentParent.SetActive(true);
         specialityParent.SetActive(false);
-        KitchenManager.instance.equipmentTabSelected = KitchenManager.instance.shopOpen;
         KitchenManager.instance.specialtyTabSelected = false;
     }
 
@@ -38,7 +37,6 @@ public class ShopCoordinator : MonoBehaviour
     {
         equipmentParent.SetActive(false);
         specialityParent.SetActive(true);
-        KitchenManager.instance.specialtyTabSelected = KitchenManager.instance.shopOpen;
         KitchenManager.instance.equipmentTabSelected = false;
     }
 }

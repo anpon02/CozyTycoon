@@ -16,6 +16,7 @@ public class WorkspaceController : MonoBehaviour
     public Vector3 itemLerpTarget;
     [SerializeField] int actionSoundID;
     public WorkstationUICoordinator wsUIcoord;
+    WorkspaceCoordinator wsCoord;
 
     [SerializeField] List<ItemCoordinator> iCoords;
 
@@ -74,9 +75,24 @@ public class WorkspaceController : MonoBehaviour
 
     private void Start()
     {
+        wsCoord = GetComponent<WorkspaceCoordinator>();
         OnValidate();
         itemLerpTarget += transform.position;
         kMan = KitchenManager.instance;
+        GameManager.instance.OnStoreClose.AddListener(RefreshList);
+    }
+
+    void RefreshList() {
+        StartCoroutine(WaitThenRefresh());
+    }
+
+    IEnumerator WaitThenRefresh() {
+        yield return new WaitForSeconds(1);
+
+        for (int i = 0; i < iCoords.Count; i++) {
+            if (iCoords[i] == null) iCoords.RemoveAt(i);
+        }
+        wsCoord.UpdateItemDisplay();
     }
 
     public void RemoveItemFromList(int index)

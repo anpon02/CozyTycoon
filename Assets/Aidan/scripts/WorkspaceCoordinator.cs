@@ -21,6 +21,7 @@ public class WorkspaceCoordinator : MonoBehaviour
         sRend = GetComponent<SpriteRenderer>();
         StopAllCoroutines();
         HideSprites();
+        GameManager.instance.OnStoreClose.AddListener(UpdateItemDisplay);
     }
 
     private void Update()
@@ -69,9 +70,10 @@ public class WorkspaceCoordinator : MonoBehaviour
         foreach (var d in itemDisplays) d.gameObject.SetActive(true);
     }
 
-    void UpdateItemDisplay()
-    {
+    public void UpdateItemDisplay() 
+    { 
         if (!ws) ws = GetComponent<WorkspaceController>();
+
 
         bigDisplay.sprite = null;
         foreach (var i in ws.GetItemList()) if (i.isBigEquipment) bigDisplay.sprite = i.GetSprite();

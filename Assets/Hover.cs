@@ -7,15 +7,21 @@ using UnityEngine.UI;
 public class Hover : MonoBehaviour
 {
     [SerializeField] Color hoverColor;
-    Color normalColor;
+    Color normalColor = Color.black;
 
     [SerializeField] Image img;
     [SerializeField] TextMeshProUGUI txt;
 
+    private void OnEnable() {
+        
+        if (normalColor == Color.black) Start();
+        EndHover();
+    }
+
     private void Start()
     {
-        img = GetComponent<Image>();
-        txt = GetComponent<TextMeshProUGUI>();
+        if (img == null) img = GetComponent<Image>();
+        if (txt == null) txt = GetComponent<TextMeshProUGUI>();
         if (img) normalColor = img.color;
         if (txt) normalColor = txt.color;
     }

@@ -28,6 +28,15 @@ public class ItemStorage : MonoBehaviour
     ChefController chef;
     int itemIndex;
     bool closed;
+    bool overButton;
+
+    public void HoverButton() {
+        overButton = true;
+    }
+
+    public void LeaveButton() {
+        overButton = false;
+    }
 
     private void OnValidate()
     {
@@ -173,6 +182,8 @@ public class ItemStorage : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (overButton) return;
+
         KitchenManager.instance.ttCoord.ClearText(toolTip);
         GetComponent<SpriteRenderer>().color = Color.white;
         itemSelectorCoord.gameObject.SetActive(false);

@@ -23,7 +23,6 @@ public class startCookingButton : MonoBehaviour
         if (Input.GetMouseButton(1)) return;
 
         uiCoord.buttonHovered = false;
-        //if (GetComponent<Image>().color == normalColor) return;
         uiCoord.SelectRecipeOption(ID);
     }
 

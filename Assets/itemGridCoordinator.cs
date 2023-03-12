@@ -35,7 +35,7 @@ public class itemGridCoordinator : MonoBehaviour
         for (int i = 0; i < items.Count; i++) {
             int childIndex = i % 2;
             int parentIndex = Mathf.FloorToInt(i / 2);
-            SetupItem(parents[parentIndex].transform.GetChild(childIndex), items[i]);
+            SetupItem(parents[parentIndex].transform.GetChild(childIndex), items[i], i);
         }
     }
 
@@ -54,17 +54,18 @@ public class itemGridCoordinator : MonoBehaviour
         parents[parentIndex].transform.GetChild(1).gameObject.SetActive(false);
     }
 
-    void SetupItem(Transform obj, ItemStorage.ItemData data)
+    void SetupItem(Transform obj, ItemStorage.ItemData data, int itemIndex)
     {
         if (!obj.gameObject.activeInHierarchy) return;
 
-        obj.GetChild(1).GetComponent<Image>().sprite = data.item.GetSprite();
-        obj.GetChild(2).GetComponent<TextMeshProUGUI>().text = data.item.GetName();
+        obj.GetComponent<itemStorageSelectedButton>().itemIndex = itemIndex;
+        obj.GetChild(0).GetComponent<Image>().sprite = data.item.GetSprite();
+        obj.GetChild(1).GetComponent<TextMeshProUGUI>().text = data.item.GetName();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) {
             if (Selected != -1)SelectHovered();
             Hide();
         }
