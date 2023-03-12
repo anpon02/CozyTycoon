@@ -8,8 +8,6 @@ public class CustomerMovement : MonoBehaviour
     [Header("Movement")]
     [HideInInspector] public int currentSpotInLine;
     [HideInInspector] public bool inRestaurant;
-    //[SerializeField] private Vector3 exitPoint;
-    //public Vector3 exitPoint { get; private set; }
     [SerializeField] private Table sitSpot;
     [SerializeField] private float minSpeed = 3.0f;
     [SerializeField] private float maxSpeed = 5.0f;
@@ -63,8 +61,8 @@ public class CustomerMovement : MonoBehaviour
         else if(IsMoving()) {
             anim.SetBool("Walking", true);
             coroutineRunning = false;
+            sprRenderer.flipX = MovingRight();
         }
-        sprRenderer.flipX = MovingRight();
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
         // move faster when closer to exit point

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
-    //[SerializeField] private Item favoriteEntree;
     [SerializeField] private float favoriteItemChance = 80.0f;
     [SerializeField] private float sideOrderChance = 50.0f;
     [SerializeField] private List<Item> favoriteItems;
@@ -51,11 +49,8 @@ public class CustomerOrderController : MonoBehaviour
 
         // pick entree
         if (!setOrder && entreeMenu.Count > 0) {
+            // pick favorite item or random item
             List<Item> availableFavorites = GetAvailableFavorites(entreeMenu);
-
-            // order favorite entree if possible and random chance is hit, otherwise, order random item
-            // if(favoriteEntree != null && entreeMenu.Contains(favoriteEntree) && Random.Range(0, 101) <= favoriteItemChance)
-            //     orderedItems.Add(favoriteEntree);
             if(availableFavorites.Count > 0 && Random.Range(0, 101) <= favoriteItemChance)
                 orderedItems.Add(PickItem(availableFavorites));
             else {

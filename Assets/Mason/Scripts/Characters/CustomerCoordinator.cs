@@ -53,8 +53,6 @@ public class CustomerCoordinator : MonoBehaviour
         if (storyStarted && !storyFinished) CheckForStoryEnd();
     }
 
-    
-
     /*
     * RELATIONSHIP STATUS FUNCTIONS
     */

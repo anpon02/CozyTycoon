@@ -258,8 +258,9 @@ public class TutorialController : MonoBehaviour
     {
         if (!kMan) return;
         luca = CustomerManager.instance.transform.GetChild(0).gameObject;
-        if (!instructions[14].complete) luca.GetComponentInChildren<CustomerOrderController>().SetOrder(lucaOrder);
-        else luca.GetComponentInChildren<CustomerOrderController>().UnsetOrder();
+        CustomerOrderController lucaOrderController = luca.GetComponentInChildren<CustomerOrderController>();
+        if (!instructions[14].complete) lucaOrderController.SetOrder(lucaOrder);
+        else if(!lucaOrderController.alreadyOrdered()) lucaOrderController.UnsetOrder();
 
         instructions[5].pointer = luca;
         instructions[6].pointer = luca;

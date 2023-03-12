@@ -15,7 +15,7 @@ public class CustomerManager : MonoBehaviour
 
     [SerializeField] private List<Transform> customers;
     [SerializeField] private List<ScheduleDay> schedule;
-
+    
     [HideInInspector] public float todaysCombinedPatience;
     private List<Transform> todaysCustomers;
     private List<Transform> customersInLine;
