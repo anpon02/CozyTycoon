@@ -1323,7 +1323,7 @@ MonoBehaviour:
     speakerSoundID: 12
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    NameBGColor: {r: 0.45098042, g: 0.34509805, b: 0.45882356, a: 1}
+    NameBGColor: {r: 0.8490566, g: 0.7473076, b: 0.19624422, a: 1}
   - name: SALLY
     characterName: 3
     portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
@@ -1339,7 +1339,7 @@ MonoBehaviour:
     speakerSoundID: 12
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    NameBGColor: {r: 0.16470589, g: 0.16470589, b: 0.2627451, a: 1}
+    NameBGColor: {r: 0.4774665, g: 0.4031684, b: 0.5660378, a: 1}
   - name: PHIL
     characterName: 5
     portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
@@ -1347,7 +1347,7 @@ MonoBehaviour:
     speakerSoundID: 12
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    NameBGColor: {r: 0.64705884, g: 0.6901961, b: 0.7686275, a: 1}
+    NameBGColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}
   controller: {fileID: 535910281}
   OnDialogueEnd:
     m_PersistentCalls:
