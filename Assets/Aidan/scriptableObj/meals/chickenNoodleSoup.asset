@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: chickenNoodleSoup
   m_EditorClassIdentifier: 
   itemName: Chicken noodle soup
-  itemSprite: {fileID: 21300000, guid: 9317009df4c868a4c8f5e9f031dd0a5a, type: 3}
+  itemSprite: {fileID: 21300000, guid: 22fc91d3fd2b20f4983f3817fad5596d, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

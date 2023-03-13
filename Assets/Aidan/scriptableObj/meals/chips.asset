@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: chips
   m_EditorClassIdentifier: 
   itemName: Tortilla chips
-  itemSprite: {fileID: 21300000, guid: 791c837d6bea7784a86b503d805e8f21, type: 3}
+  itemSprite: {fileID: 21300000, guid: 1ae60e30002f7954ca8631ac03ab417e, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

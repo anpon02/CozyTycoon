@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fettuccineAlfreado
   m_EditorClassIdentifier: 
   itemName: Fettuccine alfreado
-  itemSprite: {fileID: 21300000, guid: c5a1fcf2d233a5c46a2e80199e72322c, type: 3}
+  itemSprite: {fileID: 21300000, guid: 329635c236d131c439d14426d4d64474, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1
