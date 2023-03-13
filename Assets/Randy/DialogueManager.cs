@@ -189,7 +189,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Skip()
     {
-        if(!skipPrint && !lineDone)
+        if(!lineDone)
         {
             skipPrint = true;
             return;

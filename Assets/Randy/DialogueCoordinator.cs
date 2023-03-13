@@ -81,7 +81,7 @@ public class DialogueCoordinator : MonoBehaviour
             }
             mainText.maxVisibleCharacters = i + 1; // Optimization possibility: just do maxVisibleCharacters++ and ditch the loop
             if (i % 2 == 1) AudioManager.instance.PlaySound(dMan.GetSpeakerData(dMan.lastSpeaker).speakerSoundID);
-            yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
+            if (i + 1 != text.Length) yield return new WaitForSeconds(dMan.GetTextRenderDelay() / dMan.GetTextRenderModifier());
         }
         dMan.lineDone = true;
     }
