@@ -415,6 +415,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 
       objectReference: {fileID: 11400000, guid: e0dbeac08dba00243a5b4cbf86c29f1d, type: 2}
@@ -688,6 +692,10 @@ PrefabInstance:
       propertyPath: patience
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: 81beb590fb8927543ab265c702fa8d44, type: 2}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 
@@ -1855,6 +1863,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: fe548e8e322bf87409d94bc46135807d, type: 2}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 
       objectReference: {fileID: 11400000, guid: 56dfde46623832044b51e07b6e8e84e8, type: 2}
@@ -2240,6 +2252,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: f7c0da2a0b7dab34e9b0c43e4f22050d, type: 2}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 
       objectReference: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
@@ -2442,6 +2458,10 @@ PrefabInstance:
       propertyPath: patience
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 
@@ -3304,6 +3324,10 @@ PrefabInstance:
       propertyPath: patience
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
+      propertyPath: superFavorite
+      value: 
+      objectReference: {fileID: 11400000, guid: 97bda6df8d301dc4dbcba6ffa233f049, type: 2}
     - target: {fileID: 1441463931206898755, guid: 0cd8d82c4c18eea43b6c1470defaaa68, type: 3}
       propertyPath: favoriteEntree
       value: 

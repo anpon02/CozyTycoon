@@ -5,8 +5,11 @@ public class CustomerOrderController : MonoBehaviour
 {
     [SerializeField] float patience;
     [SerializeField] float eatTime = 5;
-    [SerializeField] private float favoriteItemChance = 80.0f;
     [SerializeField] private float sideOrderChance = 50.0f;
+
+    [Header("Favorites")]
+    [SerializeField] private float favoriteItemChance = 80.0f;
+    [SerializeField] private Item superFavorite;
     [SerializeField] private List<Item> favoriteItems;
 
     private CustomerCoordinator custCoordinator;
@@ -42,29 +45,47 @@ public class CustomerOrderController : MonoBehaviour
         if (recievedFood && !foodAte) Eat();
     }
 
+    private Item PickItem(List<Item> menu) {
+        Item selectedItem;
+        do {
+            selectedItem = menu[Random.Range(0, menu.Count)];
+        } while(lastOrder != null && lastOrder.Contains(selectedItem) && orderedItems.Contains(selectedItem));
+        return selectedItem;
+    }
+
+    private void NormalOrder(List<Item> entrees, List<Item> sides) {
+        // pick entree
+        if (!setOrder && entrees.Count > 0) {
+            // pick favorite item or random item
+            List<Item> availableFavorites = GetAvailableFavorites(entrees);
+            if(availableFavorites.Count > 0 && Random.Range(0, 101) <= favoriteItemChance)
+                orderedItems.Add(PickItem(availableFavorites));
+            else {
+                // never select same entree twice
+                orderedItems.Add(PickItem(entrees));
+            }
+        }
+
+        // chance to pick side if possible
+        if(!setOrder && sides.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= sideOrderChance) {
+            // never select same side twice
+            orderedItems.Add(PickItem(sides));
+        }
+    }
+
     public void Order()
     {
         var entreeMenu = RecipeManager.instance.Menu;
         var sideMenu = RecipeManager.instance.Sides;
 
-        // pick entree
-        if (!setOrder && entreeMenu.Count > 0) {
-            // pick favorite item or random item
-            List<Item> availableFavorites = GetAvailableFavorites(entreeMenu);
-            if(availableFavorites.Count > 0 && Random.Range(0, 101) <= favoriteItemChance)
-                orderedItems.Add(PickItem(availableFavorites));
-            else {
-                // never select same entree twice
-                orderedItems.Add(PickItem(entreeMenu));
-            }
-        }
-
-        // chance to pick side if possible
-        if(!setOrder && sideMenu.Count > 0 && !orderedItems[0].side && Random.Range(0, 101) <= sideOrderChance) {
-            // never select same side twice
+        // pick super item + side if available, otherwise order normally
+        if(superFavorite != null && entreeMenu.Contains(superFavorite) && !setOrder) {
+            orderedItems.Add(superFavorite);
             orderedItems.Add(PickItem(sideMenu));
         }
-        
+        else
+            NormalOrder(entreeMenu, sideMenu);
+
         // process order
         if(orderedItems.Count > 0) {
             setOrder = false;  
@@ -184,14 +205,6 @@ public class CustomerOrderController : MonoBehaviour
                 availableFavorites.Add(i);
         }
         return availableFavorites;
-    }
-
-    private Item PickItem(List<Item> menu) {
-        Item selectedItem;
-        do {
-            selectedItem = menu[Random.Range(0, menu.Count)];
-        } while(lastOrder != null && lastOrder.Contains(selectedItem) && orderedItems.Contains(selectedItem));
-        return selectedItem;
     }
 
     public float GetPatience() {
