@@ -150,7 +150,7 @@ VAR AffectionEnding = false
     I’m going back to my hometown to go on a backpacking trip with my brother. I was wondering if you’d want to come.
     You’ve been so kind to me, and my brother loves meeting new people. I’m sure there's lots of unique ingredients in the Enchanted Woods too.
     I’d like to spend time with friends. I haven’t in a long time.
-*   { AffectionEnding } Thank you!
+*   { !AffectionEnding } Thank you!
     Of course.
     Keep up the good work. I like having a spot so close to work, it would be a shame to see you go out of business.
     You’ll always have me as a loyal customer no matter what.
