@@ -8,9 +8,11 @@ public class TitleController : MonoBehaviour
     bool started;
     [SerializeField] GameObject cam;
     [SerializeField] GameObject loadScreen, loadIcon, loadText;
+    [SerializeField] int uiclickSound;
     List<AsyncOperation> loadingScenes = new List<AsyncOperation>();
     public void StartGame()
     {
+       // AudioManager.instance.PlaySound(uiclickSound, gameObject);
         if (started) return;
         started = true;
         loadScreen.SetActive(true);

@@ -1312,7 +1312,7 @@ MonoBehaviour:
     characterName: 1
     portrait: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
     lilPortrait: {fileID: 21300000, guid: e22d3b0a3fcaacc4db937710ad78895a, type: 3}
-    speakerSoundID: 12
+    speakerSoundID: 43
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     NameBGColor: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
@@ -1320,7 +1320,7 @@ MonoBehaviour:
     characterName: 2
     portrait: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
     lilPortrait: {fileID: 21300000, guid: c0bd9aa027affac4e9fec0e9183c6609, type: 3}
-    speakerSoundID: 12
+    speakerSoundID: 44
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     NameBGColor: {r: 0.8490566, g: 0.7473076, b: 0.19624422, a: 1}
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     characterName: 3
     portrait: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
     lilPortrait: {fileID: 21300000, guid: d4e0fb118efb8f846a540ca7fa95848a, type: 3}
-    speakerSoundID: 12
+    speakerSoundID: 45
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     NameBGColor: {r: 0.3529412, g: 0.47058827, b: 0.17254902, a: 1}
@@ -1336,7 +1336,7 @@ MonoBehaviour:
     characterName: 4
     portrait: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
     lilPortrait: {fileID: 21300000, guid: 72ce3324fac59164f8831b9000ae8816, type: 3}
-    speakerSoundID: 12
+    speakerSoundID: 46
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     NameBGColor: {r: 0.4774665, g: 0.4031684, b: 0.5660378, a: 1}
@@ -1344,7 +1344,7 @@ MonoBehaviour:
     characterName: 5
     portrait: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
     lilPortrait: {fileID: 21300000, guid: a47a24a6bfb99e64b8b8bf1b047a49ce, type: 3}
-    speakerSoundID: 12
+    speakerSoundID: 47
     disabled: 0
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     NameBGColor: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 1}

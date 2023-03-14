@@ -1035,7 +1035,7 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 0.1
-    parentPitch: 0.9
+    parentPitch: 1.1
   - name: '13: PickupPop_SFX'
     ID: 13
     displayName: 
@@ -1371,6 +1371,161 @@ MonoBehaviour:
       looping: 0
     parentVolume: 1.2
     parentPitch: 1
+  - name: '43: Roxy'
+    ID: 43
+    displayName: Roxy
+    clips:
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.1
+    parentPitch: 0.9
+  - name: '44: Tripp'
+    ID: 44
+    displayName: Tripp
+    clips:
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.1
+    parentPitch: 0.7
+  - name: '45: Sally'
+    ID: 45
+    displayName: Sally
+    clips:
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.1
+    parentPitch: 1.2
+  - name: '46: Florian'
+    ID: 46
+    displayName: Florian
+    clips:
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.1
+    parentPitch: 1
+  - name: '47: Phil'
+    ID: 47
+    displayName: Phil
+    clips:
+    - name: '0: LucaVowel-01'
+      clip: {fileID: 8300000, guid: 8e9c4e2d45ed47b46b6613f9db3314e9, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '1: LucaVowel-02'
+      clip: {fileID: 8300000, guid: 94d08fad400690c459e86b7639915f9f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '2: LucaVowel-03'
+      clip: {fileID: 8300000, guid: 15a863f9099c65c4390fa3eb99f91e2b, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '3: LucaVowel-04'
+      clip: {fileID: 8300000, guid: c4a401b089ac60b47a1de2f46b7cedac, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    - name: '4: LucaVowel-05'
+      clip: {fileID: 8300000, guid: 3d3d760384f8d2c4788de9f8b92c3120, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.1
+    parentPitch: 0.8
   masterVolume: 1
 --- !u!1 &1412964290
 GameObject:
