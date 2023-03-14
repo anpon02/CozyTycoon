@@ -22,6 +22,7 @@ public class CustomerCoordinator : MonoBehaviour
     [SerializeField] private CustomerInteractable forkKnife;
     private CustomerMovement movement;
     private CustomerOrderController orderController;
+    private bool inEndDialogue;
 
     private void Awake() {
         // Customer Story
@@ -32,6 +33,7 @@ public class CustomerCoordinator : MonoBehaviour
         pSystem = GetComponentInChildren<ParticleSystem>();
 
         // customer interactable
+        inEndDialogue = false;
         movement = GetComponent<CustomerMovement>();
         orderController = GetComponentInChildren<CustomerOrderController>();
     }
@@ -45,7 +47,7 @@ public class CustomerCoordinator : MonoBehaviour
         if(PauseManager.instance && PauseManager.instance.paused) return;
 
         // activate/deactivate forkKnife based on movement and if food is delivered
-        if(!movement.IsMoving() && !orderController.GetHasReceivedFood())
+        if(!movement.IsMoving() && !orderController.GetHasReceivedFood() && !inEndDialogue)
             forkKnife.gameObject.SetActive(true);
         else
             forkKnife.gameObject.SetActive(false);
@@ -95,6 +97,8 @@ public class CustomerCoordinator : MonoBehaviour
     }
 
     public void StartEnding() {
+        inEndDialogue = true;
+        storyStarted = true;
         DialogueManager.instance.StartDialogueEnding(inkStory, characterName, !DialogueManager.instance.StoryDisabled(characterName));
     }
 

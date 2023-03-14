@@ -130,10 +130,12 @@ public class CustomerMovement : MonoBehaviour
         GetInLine();
     }
 
-    public void ComeToEat() {
+    public void ComeToEat(bool lastDay) {
         if(!cust.GetHasReceivedFood()) {
-            LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
-            LineManager.instance.UpdateNextOpenSpot();
+            if(!lastDay) {
+                LineManager.instance.GetLineSpots()[currentSpotInLine].SetPlaceIsTaken(false);  
+                LineManager.instance.UpdateNextOpenSpot();
+            }
 
             seek.StartPath(transform.position, sitSpot.transform.position);
             path.destination = sitSpot.transform.position;
