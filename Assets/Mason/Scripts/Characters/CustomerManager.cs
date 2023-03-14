@@ -98,7 +98,11 @@ public class CustomerManager : MonoBehaviour
         SetTodaysCustomers();
         todaysCustomers = SortTodaysCustomers();
         CalculateCombinedPatience();
-        StartCoroutine("StartSendingCustomers");
+        // TODO: make this a conditional to either do StartSendingCustomers() or StartLastDay()
+        if(gMan.timeScript.day < schedule.Count - 1)
+            StartCoroutine("StartSendingCustomers");
+        else
+            StartCoroutine("StartLastDay");
     }
 
     public void EveryoneLeave() {
@@ -109,6 +113,17 @@ public class CustomerManager : MonoBehaviour
                 move.LeaveRestaurant();
             }
         }
+    }
+
+    private IEnumerator StartLastDay() {
+        for(int i = 0; i < todaysCustomers.Count; ++i) {
+            if(i > 0)
+                yield return new WaitUntil(() => CustomerFinishedTalking(i - 1));
+            CustomerMovement move = todaysCustomers[i].GetComponent<CustomerMovement>();
+            move.ComeToEat(true);
+        }
+        yield return new WaitUntil(() => CustomerFinishedTalking(todaysCustomers.Count - 1));
+        print("GAME IS DONE");
     }
 
     private IEnumerator StartSendingCustomers() {
@@ -146,8 +161,12 @@ public class CustomerManager : MonoBehaviour
     }
 
     public void GoToTable(Transform customer) {
-        customer.GetComponentInParent<CustomerMovement>().ComeToEat();
+        customer.GetComponentInParent<CustomerMovement>().ComeToEat(false);
         customersInLine.Remove(customer.parent);
         StartCoroutine("ShiftLine");
+    }
+
+    public int GetTotalNumDays() {
+        return schedule.Count;
     }
 }
