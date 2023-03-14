@@ -78,6 +78,7 @@ public class ChefController : MonoBehaviour
     private void Update()
     {
         SetPosition();
+        if (!player) return;
         itemOffset.x = Mathf.Abs(itemOffset.x) * Mathf.Abs(player.transform.localEulerAngles.y) > 0.1f ? -1 : 1;
         if (heldItem) SetHeldItemPos();
     }

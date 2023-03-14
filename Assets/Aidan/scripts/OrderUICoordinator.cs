@@ -11,6 +11,7 @@ public class OrderUICoordinator : MonoBehaviour
 
     private void Update()
     {
+        if (DialogueManager.instance == null) return;
         DialogueManager.instance.SetTextSkip(orderEntryCoords.Count == 0);
     }
 

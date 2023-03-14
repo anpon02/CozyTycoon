@@ -7,14 +7,14 @@ public class TitleController : MonoBehaviour
 {
     bool started;
     [SerializeField] GameObject cam;
-
+    [SerializeField] GameObject loadScreen, loadIcon, loadText;
+    List<AsyncOperation> loadingScenes = new List<AsyncOperation>();
     public void StartGame()
     {
         if (started) return;
         started = true;
-
-        cam.GetComponent<AudioListener>().enabled = false;
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        loadScreen.SetActive(true);
+        StartCoroutine(LoadSequence());
     }
 
     public void ShowCredits()
@@ -30,17 +30,39 @@ public class TitleController : MonoBehaviour
     private void Update()
     {
         if (Camera.main != null) cam.SetActive(false);
+    }
 
-        if (!started || !SceneManager.GetSceneByBuildIndex(1).isLoaded) return;
-        
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
-
-        
-        SceneManager.LoadScene(3, LoadSceneMode.Additive);
-        SceneManager.LoadScene(4, LoadSceneMode.Additive);
-        SceneManager.LoadScene(5, LoadSceneMode.Additive);
-        SceneManager.LoadScene(6, LoadSceneMode.Additive);
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
+    IEnumerator LoadSequence()
+    {
+        FadeCoordinator animStatus = loadScreen.GetComponent<FadeCoordinator>();
+        yield return new WaitUntil(() => animStatus.animComplete);
+        loadIcon.SetActive(true);
+        loadText.SetActive(true);
+        cam.GetComponent<AudioListener>().enabled = false;
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        yield return new WaitUntil(() => SceneManager.GetSceneByBuildIndex(1).isLoaded);
+        LoadGame();
+        yield return new WaitUntil(() => finishedLoading()); // Wait until all scenes are loaded
         SceneManager.UnloadSceneAsync(0);
+    }
+
+    void LoadGame()
+    {
+        cam.GetComponent<AudioListener>().enabled = false;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
+        loadingScenes.Add(SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive));
+        loadingScenes.Add(SceneManager.LoadSceneAsync(4, LoadSceneMode.Additive));
+        loadingScenes.Add(SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive));
+        loadingScenes.Add(SceneManager.LoadSceneAsync(6, LoadSceneMode.Additive));
+        loadingScenes.Add(SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive));
+    }
+    
+    bool finishedLoading()
+    {
+        for (int i = 0; i < loadingScenes.Count; i++)
+        {
+            if(!loadingScenes[i].isDone) return false;
+        }
+        return true;
     }
 }
