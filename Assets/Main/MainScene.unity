@@ -994,7 +994,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    parentVolume: 1
+    parentVolume: 0.5
     parentPitch: 1
   - name: '5: cook succsess'
     ID: 5
@@ -1032,7 +1032,7 @@ MonoBehaviour:
       localVolume: 0
       localPitch: 0
       looping: 0
-    parentVolume: 1
+    parentVolume: 0.5
     parentPitch: 1
   - name: '8: UI click'
     ID: 8
@@ -1336,7 +1336,7 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 8f1d15ad775de85468a2d8258d5a8b40, type: 3}
       localVolume: 0
       localPitch: 0
-      looping: 0
+      looping: 1
     parentVolume: 1
     parentPitch: 1
   - name: '33: Coffee Loop'
@@ -1603,6 +1603,17 @@ MonoBehaviour:
       localPitch: 0
       looping: 0
     parentVolume: 0.1
+    parentPitch: 0.8
+  - name: '48: steam burst'
+    ID: 48
+    displayName: steam burst
+    clips:
+    - name: '0: SteamBurst_SFX'
+      clip: {fileID: 8300000, guid: 3e33ce095c5469e4999e8117f15e194f, type: 3}
+      localVolume: 0
+      localPitch: 0
+      looping: 0
+    parentVolume: 0.4
     parentPitch: 0.8
   masterVolume: 1
 --- !u!1 &1412964290

@@ -26,6 +26,7 @@ public class ChoiceOptionCoordinator : MonoBehaviour
 
     public void OnClick()
     {
+        AudioManager.instance.PlaySound(27, gameObject);
         KitchenManager.instance.PurchaseProduct(product, character);
         if (DisableCharacters) KitchenManager.instance.DisableNonChosen();
         Destroy(gameObject);

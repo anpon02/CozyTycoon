@@ -10,7 +10,8 @@ public class PotMinigame : MonoBehaviour
     [SerializeField] GameObject pot, fire;
     [SerializeField] Vector2 potYlimits, potSpeedLimits = new Vector2(-10, 10), fireScaleLimits = new Vector2(0.1f, 2), changeAmountRange = new Vector2(1, 3), goodZone;
     [SerializeField] float potSpeed, progressSpeed;
-    [SerializeField] int potcookSound;
+    [SerializeField] int potcookSound, zoneSound;
+    [SerializeField] AudioSource oneShotsSource, loopSource;
 
     private void OnEnable()
     {
@@ -18,7 +19,7 @@ public class PotMinigame : MonoBehaviour
 
         uiCoord.bigEquipmentSprite.SetActive(false);
         wsCoord.hideItems = true;
-        AudioManager.instance.PlaySound(potcookSound, gameObject);
+        AudioManager.instance.PlaySound(potcookSound, loopSource);
     }
 
     public void IncreaseSpeed()
