@@ -55,7 +55,8 @@ public class DialogueCoordinator : MonoBehaviour
     {
         if (dMan.speakingCharacter) SetGroupAlpha();
         if (dMan.allowNotes != dialogueButton.interactable) dialogueButton.interactable = dMan.allowNotes;
-        if (dMan.convoSkippable != skipButton.IsActive()) skipButton.gameObject.SetActive(dMan.convoSkippable);
+        if ((dMan.convoSkippable && !choiceParent.activeSelf) != skipButton.IsActive()) 
+            skipButton.gameObject.SetActive(dMan.convoSkippable && !choiceParent.activeSelf);
     }
 
     public IEnumerator DisplayText(string text, bool notable)
