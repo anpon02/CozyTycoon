@@ -27105,7 +27105,7 @@ MonoBehaviour:
   startFromBeginning: 1
   panOffset: {x: 0, y: 0, z: 0}
   instructions:
-  - text: Welcome to Cozy Cooking! Move around with WASD
+  - text: Welcome to Enchanted Eats! Move around with WASD
     subTitle: Be sure to walk around and explore your kitchen and restaurant
     category: The Basics
     complete: 1
