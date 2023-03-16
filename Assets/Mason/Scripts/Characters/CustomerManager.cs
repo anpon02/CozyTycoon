@@ -123,7 +123,7 @@ public class CustomerManager : MonoBehaviour
             move.ComeToEat(true);
         }
         yield return new WaitUntil(() => CustomerFinishedTalking(todaysCustomers.Count - 1));
-        print("GAME IS DONE");
+        gMan.TransitionToTitle();
     }
 
     private IEnumerator StartSendingCustomers() {

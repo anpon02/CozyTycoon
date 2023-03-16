@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,12 +26,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool TEMP_DELIVERED;
     [HideInInspector] public Notebook notebook;
     [SerializeField] bool notifsPaused = true;
+    [SerializeField] GameObject fadeOut;
     GameObject loggedNotifObj;
     UnityAction loggedNotifCallback;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.R)) TransitionToTitle();
+
     }
 
     public void PauseNotifs()
@@ -62,5 +65,18 @@ public class GameManager : MonoBehaviour
     {
         while (!notifCoord) yield return new WaitForEndOfFrame();
         notifCoord.Notify(obj, callback);
+    }
+
+    public void TransitionToTitle() {
+        StartCoroutine("FadeOut");
+    }
+
+    private IEnumerator FadeOut() {
+        Image black = fadeOut.transform.GetChild(0).GetComponent<Image>();
+        black.gameObject.SetActive(true);
+        black.color = new Color(0, 0, 0, 0);
+        fadeOut.GetComponent<Animator>().SetTrigger("playFade");
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene(0);
     }
 }
