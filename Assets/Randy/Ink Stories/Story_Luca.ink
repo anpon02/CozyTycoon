@@ -55,8 +55,8 @@ VAR AffectionEnding = false
 == Day_3 ==
     Hey dude, how’s it goin’. 
     I’m starting to like this place a lot. Having real food in my system is making me not tired and lazy all the time, shockingly.
-    I used to have a crate of this packet you could put into any pasta. 
-    It was like... Sky Drops? Stupid name but it made the pasta blue. I don’t think it actually made it taste different, but I swear it's better when it's blue.
+    I used to have a crate of this packet you could put into any drink. 
+    It was like… Sky Drops? Stupid name but it made the drink blue. I don’t think it actually made it taste different, but I swear it's better when it's blue.
     I doubt you could find it anymore. It was a release promo for my favorite game.
 *	Lightyear Legends?
     ... Uh. No, Lightning Legends. 

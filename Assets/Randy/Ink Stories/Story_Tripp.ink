@@ -49,8 +49,9 @@ VAR AffectionEnding = false
 -
 *   Is there anything you’d like to see on the menu?
     What, like, new menu items?
-    Dude, just hook me up with any dessert and I’ll be fine. 
-    Like, cookies and shit. All warm and gooey...
+    Man, I love soup... I would kill a dude for soup. 
+    ... That was a joke. Don’t look so freaked.
+
 
 -> DONE
 
