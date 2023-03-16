@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2251cf4555ee7f4aa5280aff82da3a4, type: 3}
-  m_Name: panSearedSteak
+  m_Name: 3CheeseRavioli
   m_EditorClassIdentifier: 
-  itemName: Pan Seared Steak
-  itemSprite: {fileID: 21300000, guid: e0bb67aa414e057499314cc36cf23b9f, type: 3}
+  itemName: 3 cheese ravioli
+  itemSprite: {fileID: 21300000, guid: 279a4750723852744a37c23a0cfaeb3c, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

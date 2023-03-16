@@ -1897,76 +1897,168 @@ MonoBehaviour:
   - name: 
     product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
     item: {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 75d48f8e6491f0a4f85048cf475fdc9a, type: 2}
+    item: {fileID: 11400000, guid: 53127f3977a328b448c65df3160afdc7, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+    item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+    item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+    item: {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+    item: {fileID: 11400000, guid: 0adcb8e56f2cfa94ca5526588da272f4, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+    item: {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
   tutorial: {fileID: 1290904217}
   tutorialStartTime: 0.5
   recipeButton: {fileID: 412383051}
   playTutorial: 1
   allChoices:
-  - name: 'day 2: Coffee Maker, baking tray'
+  - name: 'day 2: Coffee Maker, Pot'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
         in my system.\""
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\" Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
+      endOfWeek: 0
+    endOfWeek: 0
     dayNum: 2
-  - name: 'day 4: Coffee Maker, baking tray, Blender, knife'
+  - name: 'day 4: Coffee Maker, Pot, Blender, knife'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
         in my system.\""
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
+      endOfWeek: 0
     - product: {fileID: 11400000, guid: 72fd62bc703a5c548bb2f5b2fc1ae020, type: 2}
       quote: '"Smoothies are GREAT!!! You can pack a whole bunch of nutrients into
         a TASTY LITTLE DRINK!!!"'
       characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
       character: 1
+      endOfWeek: 0
     - product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
       quote: "\"Well, I must admit I\u2019m rather fond of salads. Light meals to
         tide me over\u2026 uhm. Ahem.\""
       characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
       character: 4
+      endOfWeek: 0
+    endOfWeek: 0
     dayNum: 4
-  - name: 'day 6: Coffee Maker, baking tray, Blender, knife, Rolling pin, Pot'
+  - name: 'day 6: Coffee Maker, Pot, Blender, knife, Rolling pin, baking tray'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
         in my system.\""
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: 72fd62bc703a5c548bb2f5b2fc1ae020, type: 2}
       quote: '"Smoothies are GREAT!!! You can pack a whole bunch of nutrients into
         a TASTY LITTLE DRINK!!!"'
       characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
       character: 1
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
       quote: "\"Well, I must admit I\u2019m rather fond of salads. Light meals to
         tide me over\u2026 uhm. Ahem.\""
       characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
       character: 4
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
       quote: "\"So\u2026 eating nice pasta for a change would be nice.\""
       characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
       character: 5
-    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
-      quote: "\"I\u2019m a big fan of sssoups. Easssier for me, sssince I don\u2019t
-        gotta cut up everythin\u2019 into little bitsss.\""
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+      quote: '"I have a little bit of a sssweet tooth, hehe!"'
       characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
       character: 3
+      endOfWeek: 1
+    endOfWeek: 1
     dayNum: 6
+  - name: 'day 9: 3 cheese blend, Fairy Dust, volcanoSpice, Cinnamon '
+    options:
+    - product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+      quote: '"My family makes cheeses and stuff out in the Grasslands."'
+      characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+      character: 5
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+      quote: '"I used to sprinkle Fairy Dust into my meals."'
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+      quote: "\"It\u2019s fiery hot flavor that\u2019s UNMATCHED!!!\""
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+      quote: "\"my pa always put Cinnamon into everythin\u2019 we ate.\""
+      characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+      character: 3
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 9
+  - name: 'day 12: 3 cheese blend, Fairy Dust, volcanoSpice, Cinnamon , sky drops,
+      Scorpion paste'
+    options:
+    - product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+      quote: '"My family makes cheeses and stuff out in the Grasslands."'
+      characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+      character: 5
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+      quote: '"I used to sprinkle Fairy Dust into my meals."'
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+      quote: "\"It\u2019s fiery hot flavor that\u2019s UNMATCHED!!!\""
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+      quote: "\"my pa always put Cinnamon into everythin\u2019 we ate.\""
+      characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+      character: 3
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: 75d48f8e6491f0a4f85048cf475fdc9a, type: 2}
+      quote: '"I swear it''s better when it''s blue."'
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+      character: 0
+      endOfWeek: 1
+    - product: {fileID: 11400000, guid: 61fef434cfe2a0549a95c7c73bd41048, type: 2}
+      quote: "\"I think it\u2019s called that \u2018cause it makes your tongue sting
+        a little.\""
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+      character: 2
+      endOfWeek: 1
+    endOfWeek: 1
+    dayNum: 12
   choiceController: {fileID: 2005229560}
   unlockedIngredients: []
   allStorage: []
@@ -16417,7 +16509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3007777827383798113, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490434231176447409, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -19323,7 +19415,16 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
     minigame: 2
     index: 1
-  - name: '2: Fried Egg: Egg ( FryingPan) [stove]'
+  - name: '2: Volcano steak: Pan Seared Steak ( Volcano spice) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: d78ee4efb0b29b040bff4ba9d8f14b4c, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+    result: {fileID: 11400000, guid: 4fae3877f2ee0024c8d1545c8431f522, type: 2}
+    minigame: 0
+    index: 2
+  - name: '3: Fried Egg: Egg ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
@@ -19331,8 +19432,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 0bb58749b5beee7468cec5b262280be5, type: 2}
     minigame: 2
-    index: 2
-  - name: '3: Scrambled Egg: Egg ( FryingPan) [stove]'
+    index: 3
+  - name: '4: Scrambled Egg: Egg ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
@@ -19340,8 +19441,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 81beb590fb8927543ab265c702fa8d44, type: 2}
     minigame: 2
-    index: 3
-  - name: '4: Sauteed broccoli: Broccoli ( FryingPan) [stove]'
+    index: 4
+  - name: '5: Sauteed broccoli: Broccoli ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
@@ -19349,8 +19450,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: be1dde789fff52945a43a1087c1e1c19, type: 2}
     minigame: 2
-    index: 4
-  - name: '5: Sauteed carrot: Carrot ( FryingPan) [stove]'
+    index: 5
+  - name: '6: Sauteed carrot: Carrot ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -19358,8 +19459,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 0c52b5d41cc217341ab353714f6aeeef, type: 2}
     minigame: 2
-    index: 5
-  - name: '6: Green Drink: Carrot, Spinach ( Blender) [counter]'
+    index: 6
+  - name: '7: Green Drink: Carrot, Spinach ( Blender) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -19368,8 +19469,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
     result: {fileID: 11400000, guid: 4fdd4a938c8942845a7aa164c64d00c2, type: 2}
     minigame: 9
-    index: 6
-  - name: '7: Fruit smoothie: Strawberries, Blueberries, Milk ( Blender) [counter]'
+    index: 7
+  - name: '8: Fruit smoothie: Strawberries, Blueberries, Milk ( Blender) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 2a3b55918ca781c458ea68abd803221b, type: 2}
@@ -19379,8 +19480,26 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
     result: {fileID: 11400000, guid: e55c010c1c83775459ca6fdf3d406d8c, type: 2}
     minigame: 9
-    index: 7
-  - name: '8: Spaghetti: Tomato sauce, Raw pasta, Onion ( FryingPan) [stove]'
+    index: 8
+  - name: '9: Carrot juice: Carrot ( Blender) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+    result: {fileID: 11400000, guid: 8132ee27b1e266e4b803b0f0307b3678, type: 2}
+    minigame: 9
+    index: 9
+  - name: '10: Tomato juice: Tomato ( Blender) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+    result: {fileID: 11400000, guid: 3ca394823acb4224ba7bd81bb727f01c, type: 2}
+    minigame: 9
+    index: 10
+  - name: '11: Spaghetti: Tomato sauce, Raw pasta, Onion ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
@@ -19390,8 +19509,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: e0dbeac08dba00243a5b4cbf86c29f1d, type: 2}
     minigame: 2
-    index: 8
-  - name: '9: Tomato sauce: Tomato, Garlic, Spinach ( FryingPan) [stove]'
+    index: 11
+  - name: '12: Tomato sauce: Tomato, Garlic, Spinach ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
@@ -19401,8 +19520,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
     minigame: 2
-    index: 9
-  - name: '10: Raw pasta: flour, Egg ( Rolling Pin) [counter]'
+    index: 12
+  - name: '13: Raw pasta: flour, Egg ( Rolling Pin) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
@@ -19411,8 +19530,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
     result: {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
     minigame: 6
-    index: 10
-  - name: '11: Ravioli: Raw pasta, Cheese ( FryingPan) [stove]'
+    index: 13
+  - name: '14: Ravioli: Raw pasta, Cheese ( FryingPan) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
@@ -19421,8 +19540,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
     result: {fileID: 11400000, guid: e379cde25a2231948ab9b1bf9c52a324, type: 2}
     minigame: 2
-    index: 11
-  - name: '12: Salad: Chopped tomato, Lettuce, Spinach ( Knife, cutting board) [counter]'
+    index: 14
+  - name: '15: Salad: Chopped tomato, Lettuce, Spinach ( Knife, cutting board) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
@@ -19433,8 +19552,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: a36e41e2e01d78048af994bf923315c3, type: 2}
     minigame: 1
-    index: 12
-  - name: '13: Chopped tomato: Tomato ( cutting board, Knife) [counter]'
+    index: 15
+  - name: '16: Chopped tomato: Tomato ( cutting board, Knife) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
@@ -19443,8 +19562,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
     result: {fileID: 11400000, guid: d37ad7af56e1baf4f873cdce7c52f46d, type: 2}
     minigame: 1
-    index: 13
-  - name: '14: Chicken caesar salad: Chopped tomato, Lettuce, Pan Fried Chicken (
+    index: 16
+  - name: '17: Chicken caesar salad: Chopped tomato, Lettuce, Pan Fried Chicken (
       Knife, cutting board) [counter]'
     workSpace: 0
     requiredIngrd:
@@ -19456,8 +19575,56 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: e475cb14d3611db4bab30bece7a4a0b9, type: 2}
     minigame: 1
-    index: 14
-  - name: '15: Vegetable soup: Carrot, Onion, Broccoli, Tomato ( Pot) [stove]'
+    index: 17
+  - name: '18: fairy dust salad: Salad ( Fairy dust) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: a36e41e2e01d78048af994bf923315c3, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 0adcb8e56f2cfa94ca5526588da272f4, type: 2}
+    result: {fileID: 11400000, guid: 68d8ce2e4892283458126db093e72fc7, type: 2}
+    minigame: 0
+    index: 18
+  - name: '19: Carrot sticks: Carrot ( Knife, cutting board) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 609772c9f3e9bbb41a08c1460a5b32e9, type: 2}
+    minigame: 1
+    index: 19
+  - name: '20: Tortilla chips: Uncooked chips ( FryingPan) [stove]'
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 3c9a9e44a344cac4296aea484b7e17e8, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 94b0fc9194a4669429eb56798b12865e, type: 2}
+    minigame: 2
+    index: 20
+  - name: '21: Uncooked chips: Tortilla ( Knife, cutting board) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: 3c9a9e44a344cac4296aea484b7e17e8, type: 2}
+    minigame: 1
+    index: 21
+  - name: '22: Tortilla: flour ( Rolling Pin, cutting board) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
+    minigame: 6
+    index: 22
+  - name: '23: Vegetable soup: Carrot, Onion, Broccoli, Tomato ( Pot) [stove]'
     workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -19468,175 +19635,20 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: d8be587084fd30b45973a7ba6b87647d, type: 2}
     minigame: 4
-    index: 15
-  - name: '16: Beef stew: Potato, Onion, Raw Beef ( Pot) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
-    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 97bda6df8d301dc4dbcba6ffa233f049, type: 2}
-    minigame: 4
-    index: 16
-  - name: '17: Cookies: Cookie dough ( Baking tray) [oven]'
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
-    minigame: 5
-    index: 17
-  - name: '18: Cookie dough: butter, sugar, flour ( cutting board) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
-    minigame: 0
-    index: 18
-  - name: '19: Cake: Cake batter ( Baking tray) [oven]'
-    workSpace: 1
-    requiredIngrd:
-    - {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
-    minigame: 0
-    index: 19
-  - name: '20: Cake batter: sugar, Milk, flour, Egg () [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
-    minigame: 0
-    index: 20
-  - name: '21: Coffee: Coffee beans ( Coffee maker) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
-    result: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
-    minigame: 7
-    index: 21
-  - name: '22: Espresso: Coffee beans ( Coffee maker) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
-    result: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
-    minigame: 7
-    index: 22
-  - name: '23: Latte: Coffee, Milk, sugar () [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
-    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
-    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
-    equipment: []
-    result: {fileID: 11400000, guid: 4f4858f4e9777db4b8edcecc9488910e, type: 2}
-    minigame: 0
     index: 23
-  - name: '24: Tortilla chips: Uncooked chips ( FryingPan) [stove]'
+  - name: '24: Chicken veggie soup: Carrot, Onion, Broccoli, raw chicken ( Pot) [stove]'
     workSpace: 2
     requiredIngrd:
-    - {fileID: 11400000, guid: 3c9a9e44a344cac4296aea484b7e17e8, type: 2}
+    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
+    - {fileID: 11400000, guid: 3debe939313b79747978dfeff30ebb3a, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 94b0fc9194a4669429eb56798b12865e, type: 2}
-    minigame: 2
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 56dfde46623832044b51e07b6e8e84e8, type: 2}
+    minigame: 4
     index: 24
-  - name: '25: Uncooked chips: Tortilla ( Knife, cutting board) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 3c9a9e44a344cac4296aea484b7e17e8, type: 2}
-    minigame: 1
-    index: 25
-  - name: '26: Tortilla: flour ( Rolling Pin, cutting board) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
-    minigame: 6
-    index: 26
-  - name: '27: Fettuccine alfreado: Alfreado sauce, Raw pasta ( FryingPan) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 8190c162d0d7e2a49aa079e8bd2df104, type: 2}
-    minigame: 2
-    index: 27
-  - name: '28: Alfreado sauce: Milk, butter, Cheese ( Blender) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
-    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
-    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
-    result: {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
-    minigame: 9
-    index: 28
-  - name: '29: Lasagna: Raw pasta, Bolognese sauce ( FryingPan) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    - {fileID: 11400000, guid: 4077dd1538a49e84884ea8e007089a78, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
-    result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
-    minigame: 2
-    index: 29
-  - name: '30: Bolognese sauce: Tomato sauce, Raw Beef ( Pot) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 4077dd1538a49e84884ea8e007089a78, type: 2}
-    minigame: 4
-    index: 30
-  - name: '31: TomatoSoup: Chunky tomato soup ( Blender) [counter]'
-    workSpace: 0
-    requiredIngrd:
-    - {fileID: 11400000, guid: d345d69067fff044cab46a954db6bed2, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
-    result: {fileID: 11400000, guid: 9f2e7be2ce7c5704697d9b0f7249630e, type: 2}
-    minigame: 9
-    index: 31
-  - name: '32: Chunky tomato soup: Tomato ( Pot) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: d345d69067fff044cab46a954db6bed2, type: 2}
-    minigame: 4
-    index: 32
-  - name: '33: Chicken noodle soup: Raw pasta, raw chicken, Carrot, Onion ( Pot)
+  - name: '25: Chicken noodle soup: Raw pasta, raw chicken, Carrot, Onion ( Pot)
       [stove]'
     workSpace: 2
     requiredIngrd:
@@ -19648,38 +19660,112 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
     result: {fileID: 11400000, guid: 5bbbfaf750c2c6945a4016af2d60bff0, type: 2}
     minigame: 4
-    index: 33
-  - name: '34: Ziti: Raw pasta, Raw Beef, Garlic, Onion ( Baking tray) [oven]'
-    workSpace: 1
+    index: 25
+  - name: '26: Beef stew: Potato, Onion, Raw Beef ( Pot) [stove]'
+    workSpace: 2
     requiredIngrd:
-    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
-    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
-    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    - {fileID: 11400000, guid: 556aebc0b1b1519428537c00347b3607, type: 2}
     - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
     equipment:
-    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: 0a843fff31c2df04381f68c9cc181759, type: 2}
-    minigame: 5
-    index: 34
-  - name: '35: Chocolate chip cookies: Cookie dough, ChoclateChips ( Baking tray)
-      [oven]'
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 97bda6df8d301dc4dbcba6ffa233f049, type: 2}
+    minigame: 4
+    index: 26
+  - name: '27: TomatoSoup: Chunky tomato soup ( Blender) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: d345d69067fff044cab46a954db6bed2, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+    result: {fileID: 11400000, guid: 9f2e7be2ce7c5704697d9b0f7249630e, type: 2}
+    minigame: 9
+    index: 27
+  - name: '28: Chunky tomato soup: Tomato ( Pot) [stove]'
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: d345d69067fff044cab46a954db6bed2, type: 2}
+    minigame: 4
+    index: 28
+  - name: '29: Scorpion soup: Chicken veggie soup ( Scorpion paste) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 56dfde46623832044b51e07b6e8e84e8, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: e856b1513edfdf0468834e04d84e02ca, type: 2}
+    result: {fileID: 11400000, guid: d9ac3609fb8a3964fbcaa5b4d28e36e8, type: 2}
+    minigame: 0
+    index: 29
+  - name: '30: Cookies: Cookie dough ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
-    - {fileID: 11400000, guid: 19e7ee94957fe6742a1877ca51516f9d, type: 2}
     equipment:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
-    result: {fileID: 11400000, guid: fe548e8e322bf87409d94bc46135807d, type: 2}
+    result: {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
     minigame: 5
-    index: 35
-  - name: '36: ChoclateChips: Chocolate ( Blender) [counter]'
+    index: 30
+  - name: '31: Cookie dough: butter, sugar, flour ( cutting board) [counter]'
     workSpace: 0
     requiredIngrd:
-    - {fileID: 11400000, guid: e6f786a939a00c241a10ae1a249b1b43, type: 2}
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
-    result: {fileID: 11400000, guid: 19e7ee94957fe6742a1877ca51516f9d, type: 2}
-    minigame: 9
+    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+    result: {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    minigame: 0
+    index: 31
+  - name: '32: Cake: Cake batter ( Baking tray) [oven]'
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
+    minigame: 0
+    index: 32
+  - name: '33: Cake batter: sugar, Milk, flour, Egg () [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
+    - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+    - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
+    minigame: 0
+    index: 33
+  - name: '34: Coffee: Coffee beans ( Coffee maker) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+    result: {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    minigame: 7
+    index: 34
+  - name: '35: Espresso: Coffee beans ( Coffee maker) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+    result: {fileID: 11400000, guid: 509ec9619801f2745bd47ecfc0ed5fee, type: 2}
+    minigame: 7
+    index: 35
+  - name: '36: Latte: Coffee, Milk, sugar () [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
+    - {fileID: 11400000, guid: c06a19e235a9e3e40aee7ec9be594361, type: 2}
+    equipment: []
+    result: {fileID: 11400000, guid: 4f4858f4e9777db4b8edcecc9488910e, type: 2}
+    minigame: 0
     index: 36
   - name: '37: Mocha: ChoclateChips, Coffee, Milk () [counter]'
     workSpace: 0
@@ -19691,7 +19777,98 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 38b635e8f1058cc4f9b2650959e3a6fc, type: 2}
     minigame: 0
     index: 37
-  - name: '38: Fruit tart: Pastry Dough, Strawberries ( Baking tray) [oven]'
+  - name: '38: Sky drop coffee: Coffee ( Sky Drops) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 7e3d95b8b5599c74c8480f358dd7ec24, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 53127f3977a328b448c65df3160afdc7, type: 2}
+    result: {fileID: 11400000, guid: ded9bb9422d20d846a71f23b95855157, type: 2}
+    minigame: 0
+    index: 38
+  - name: '39: Fettuccine alfreado: Alfreado sauce, Raw pasta ( FryingPan) [stove]'
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 8190c162d0d7e2a49aa079e8bd2df104, type: 2}
+    minigame: 2
+    index: 39
+  - name: '40: Alfreado sauce: Milk, butter, Cheese ( Blender) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: 87f007dfeef8e3042a575492d75e8500, type: 2}
+    - {fileID: 11400000, guid: e6e340fb10e551046b27051b56cb9513, type: 2}
+    - {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+    result: {fileID: 11400000, guid: b026bf154a7706344b1e250b1ad3da33, type: 2}
+    minigame: 9
+    index: 40
+  - name: '41: Lasagna: Raw pasta, Bolognese sauce ( FryingPan) [stove]'
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: 4077dd1538a49e84884ea8e007089a78, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+    result: {fileID: 11400000, guid: 24549e18e547b2d4f86e18030c0cea92, type: 2}
+    minigame: 2
+    index: 41
+  - name: '42: Bolognese sauce: Tomato sauce, Raw Beef ( Pot) [stove]'
+    workSpace: 2
+    requiredIngrd:
+    - {fileID: 11400000, guid: 0cdcbdd64d8291549bb8d0f13514215d, type: 2}
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 4077dd1538a49e84884ea8e007089a78, type: 2}
+    minigame: 4
+    index: 42
+  - name: '43: Ziti: Raw pasta, Raw Beef, Garlic, Onion ( Baking tray) [oven]'
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: 675645bc25e528c43946a78495ec490d, type: 2}
+    - {fileID: 11400000, guid: f4e914cf47a799649ab76b0677db7e12, type: 2}
+    - {fileID: 11400000, guid: 47c19a4d71d11c642811a1d0fd0c2cb1, type: 2}
+    - {fileID: 11400000, guid: 535cf9773baa58b4f825ae5d836b45b0, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: 0a843fff31c2df04381f68c9cc181759, type: 2}
+    minigame: 5
+    index: 43
+  - name: '44: 3 cheese ravioli: Ravioli ( 3 cheese blend) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e379cde25a2231948ab9b1bf9c52a324, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
+    result: {fileID: 11400000, guid: 9a3936db8d2a34641b23a5beac47ab46, type: 2}
+    minigame: 0
+    index: 44
+  - name: '45: Chocolate chip cookies: Cookie dough, ChoclateChips ( Baking tray)
+      [oven]'
+    workSpace: 1
+    requiredIngrd:
+    - {fileID: 11400000, guid: a833ef7f28cb9ca42b6ec0ec056934eb, type: 2}
+    - {fileID: 11400000, guid: 19e7ee94957fe6742a1877ca51516f9d, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+    result: {fileID: 11400000, guid: fe548e8e322bf87409d94bc46135807d, type: 2}
+    minigame: 5
+    index: 45
+  - name: '46: ChoclateChips: Chocolate ( Blender) [counter]'
+    workSpace: 0
+    requiredIngrd:
+    - {fileID: 11400000, guid: e6f786a939a00c241a10ae1a249b1b43, type: 2}
+    equipment:
+    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+    result: {fileID: 11400000, guid: 19e7ee94957fe6742a1877ca51516f9d, type: 2}
+    minigame: 9
+    index: 46
+  - name: '47: Fruit tart: Pastry Dough, Strawberries ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
@@ -19700,8 +19877,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: 02993f05294481248bd468f8a0f12e84, type: 2}
     minigame: 5
-    index: 38
-  - name: '39: Pastry Dough: Egg, flour, sugar ( Rolling Pin) [counter]'
+    index: 47
+  - name: '48: Pastry Dough: Egg, flour, sugar ( Rolling Pin) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 6ddbfffa1ca50494a85216d999a00c62, type: 2}
@@ -19711,8 +19888,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
     result: {fileID: 11400000, guid: ef55f230c33f6c34a8e1ec77ba2c98c2, type: 2}
     minigame: 6
-    index: 39
-  - name: '40: Chopped berries: Strawberries, Blueberries ( Knife, cutting board)
+    index: 48
+  - name: '49: Chopped berries: Strawberries, Blueberries ( Knife, cutting board)
       [counter]'
     workSpace: 0
     requiredIngrd:
@@ -19723,8 +19900,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: da41b7ef99c6a7442885e530937025cc, type: 2}
     minigame: 1
-    index: 40
-  - name: '41: Coffee cake: Cake batter, Coffee ( Baking tray) [oven]'
+    index: 49
+  - name: '50: Coffee cake: Cake batter, Coffee ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: 6ed5396e58c73f24fac2fd6f6be7c4d0, type: 2}
@@ -19733,36 +19910,17 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
     minigame: 5
-    index: 41
-  - name: '42: Carrot sticks: Carrot ( Knife, cutting board) [counter]'
+    index: 50
+  - name: '51: CinnimonPastry: Cookies ( Cinnimon) [counter]'
     workSpace: 0
     requiredIngrd:
-    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
+    - {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
-    result: {fileID: 11400000, guid: 609772c9f3e9bbb41a08c1460a5b32e9, type: 2}
-    minigame: 1
-    index: 42
-  - name: '43: Steamed carrot: Carrot ( Pot) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
-    minigame: 4
-    index: 43
-  - name: '44: Steamed broccoli: Broccoli ( Pot) [stove]'
-    workSpace: 2
-    requiredIngrd:
-    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
-    equipment:
-    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
-    result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
-    minigame: 4
-    index: 44
-  - name: '45: Roasted carrots: Carrot ( Baking tray) [oven]'
+    - {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
+    result: {fileID: 11400000, guid: 3f1675d845d14954eba3130a649cd4c3, type: 2}
+    minigame: 0
+    index: 51
+  - name: '52: Roasted carrots: Carrot ( Baking tray) [oven]'
     workSpace: 1
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
@@ -19770,25 +19928,25 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: c17a45bf2d34d88489b28fce3189e545, type: 2}
     minigame: 5
-    index: 45
-  - name: '46: Carrot juice: Carrot ( Blender) [counter]'
-    workSpace: 0
+    index: 52
+  - name: '53: Steamed carrot: Carrot ( Pot) [stove]'
+    workSpace: 2
     requiredIngrd:
     - {fileID: 11400000, guid: b8504ddcce128b74a9366339d7ddd724, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
-    result: {fileID: 11400000, guid: 8132ee27b1e266e4b803b0f0307b3678, type: 2}
-    minigame: 9
-    index: 46
-  - name: '47: Tomato juice: Tomato ( Blender) [counter]'
-    workSpace: 0
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 8cc523d915e3cdf45a7cb20dbba79dff, type: 2}
+    minigame: 4
+    index: 53
+  - name: '54: Steamed broccoli: Broccoli ( Pot) [stove]'
+    workSpace: 2
     requiredIngrd:
-    - {fileID: 11400000, guid: 2f75bf3e68bd69a48abf0f922c081619, type: 2}
+    - {fileID: 11400000, guid: 5fd8acd9e95f8924791125bf6ae776a9, type: 2}
     equipment:
-    - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
-    result: {fileID: 11400000, guid: 3ca394823acb4224ba7bd81bb727f01c, type: 2}
-    minigame: 9
-    index: 47
+    - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+    result: {fileID: 11400000, guid: 364899ad9e526af468ad4692aa319a8f, type: 2}
+    minigame: 4
+    index: 54
   unlockedRecipes: []
   tutorialRecipeLimit: 0
 --- !u!4 &992974426
@@ -20827,6 +20985,7 @@ Transform:
   m_Children:
   - {fileID: 119086818}
   - {fileID: 992974426}
+  - {fileID: 1967383596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21756,39 +21915,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[0].item
       value: 
-      objectReference: {fileID: 11400000, guid: e6f786a939a00c241a10ae1a249b1b43, type: 2}
+      objectReference: {fileID: 11400000, guid: 53127f3977a328b448c65df3160afdc7, type: 2}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[0].name
-      value: Chocolate
+      value: Sky Drops
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[1].item
       value: 
-      objectReference: {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
+      objectReference: {fileID: 11400000, guid: e856b1513edfdf0468834e04d84e02ca, type: 2}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[1].name
-      value: flour
+      value: Scorpion paste
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[2].item
       value: 
-      objectReference: {fileID: 11400000, guid: 8215f871399bd7f4588a1d750a4d2c66, type: 2}
+      objectReference: {fileID: 11400000, guid: 0adcb8e56f2cfa94ca5526588da272f4, type: 2}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[2].name
-      value: Coffee beans
+      value: Fairy dust
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[3].item
       value: 
-      objectReference: {fileID: 11400000, guid: 190192f4dbe52044ea69efe0a104bd65, type: 2}
+      objectReference: {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[3].name
-      value: Cheese
+      value: Cinnimon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[4].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[4].name
+      value: Volcano spice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[0].maxNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[1].maxNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[2].maxNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[3].maxNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: items.Array.data[4].maxNum
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014357, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_FlipX
@@ -21828,7 +22015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014359, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1802829676068904933, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -25880,19 +26067,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1179284147284655410, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1179284147284655410, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1179284147284655410, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.5400002
       objectReference: {fileID: 0}
     - target: {fileID: 1179284147284655410, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.3585002
+      value: -2.66
       objectReference: {fileID: 0}
     - target: {fileID: 1287267390985125993, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
@@ -25960,7 +26147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[0].item
@@ -25997,10 +26184,10 @@ PrefabInstance:
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[4].item
       value: 
-      objectReference: {fileID: 11400000, guid: 2a3b55918ca781c458ea68abd803221b, type: 2}
+      objectReference: {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[4].name
-      value: Strawberries
+      value: 3 cheese blend
       objectReference: {fileID: 0}
     - target: {fileID: 1418430925272014356, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: items.Array.data[5].item
@@ -26060,11 +26247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966533286269921964, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.35
       objectReference: {fileID: 0}
     - target: {fileID: 1966533286269921964, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.275
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 2145733108414788063, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
@@ -26072,6 +26259,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2416435455960036748, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573845991020778662, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2746084817078982416, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
@@ -26140,19 +26331,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715752672228348329, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3715752672228348329, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3715752672228348329, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 3715752672228348329, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6.6685
+      value: -5.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820601687200402599, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820601687200402599, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3976383974965965325, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -26180,6 +26379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973832059997775255, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139820465787843260, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5687841073992408453, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
@@ -26494,7 +26697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3007777827383798113, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490434231176447409, guid: 776f2c2c8040d8244a243936fbbae8c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -41630,6 +41833,263 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1967383595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967383596}
+  - component: {fileID: 1967383597}
+  m_Layer: 0
+  m_Name: KitchenManager (ALL UNLOCKED)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1967383596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967383595}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1054131081}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967383597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967383595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916bace4770a11f4f89733bdf36dc0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCoordPrefab: {fileID: 1638153095855164743, guid: 36f97d043ab39074595e5886db6d795c, type: 3}
+  playerReach: 10
+  unlockedEquipment:
+  - {fileID: 11400000, guid: 3fac8090bac58614d95f8f4f9ace36f3, type: 2}
+  - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
+  - {fileID: 11400000, guid: e856b1513edfdf0468834e04d84e02ca, type: 2}
+  - {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+  - {fileID: 11400000, guid: 0adcb8e56f2cfa94ca5526588da272f4, type: 2}
+  - {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
+  - {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
+  - {fileID: 11400000, guid: 53127f3977a328b448c65df3160afdc7, type: 2}
+  - {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+  - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+  - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+  - {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+  - {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+  - {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+  productObj:
+  - name: 
+    product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
+    item: {fileID: 11400000, guid: 7ed1562439128eb4793c398c99130d5f, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+    item: {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 72fd62bc703a5c548bb2f5b2fc1ae020, type: 2}
+    item: {fileID: 11400000, guid: 1264f94b2b21d6842aeae115c58e2753, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+    item: {fileID: 11400000, guid: 253759560ce2b844f82a6b1e383d82e6, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+    item: {fileID: 11400000, guid: 05a4dbc6efd778f468f6e61645ac6e8c, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
+    item: {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 75d48f8e6491f0a4f85048cf475fdc9a, type: 2}
+    item: {fileID: 11400000, guid: 53127f3977a328b448c65df3160afdc7, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+    item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+    item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+    item: {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+    item: {fileID: 11400000, guid: 0adcb8e56f2cfa94ca5526588da272f4, type: 2}
+  - name: 
+    product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+    item: {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
+  tutorial: {fileID: 1290904217}
+  tutorialStartTime: 0.5
+  recipeButton: {fileID: 412383051}
+  playTutorial: 1
+  allChoices:
+  - name: 'day 2: Coffee Maker, baking tray'
+    options:
+    - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+      quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
+        in my system.\""
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+      character: 0
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+      quote: "\" Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+      character: 2
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 2
+  - name: 'day 4: Coffee Maker, baking tray, Blender, knife'
+    options:
+    - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+      quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
+        in my system.\""
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+      character: 0
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+      character: 2
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 72fd62bc703a5c548bb2f5b2fc1ae020, type: 2}
+      quote: '"Smoothies are GREAT!!! You can pack a whole bunch of nutrients into
+        a TASTY LITTLE DRINK!!!"'
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
+      quote: "\"Well, I must admit I\u2019m rather fond of salads. Light meals to
+        tide me over\u2026 uhm. Ahem.\""
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 4
+  - name: 'day 6: Coffee Maker, baking tray, Blender, knife, Rolling pin, Pot'
+    options:
+    - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
+      quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
+        in my system.\""
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+      character: 0
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+      character: 2
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 72fd62bc703a5c548bb2f5b2fc1ae020, type: 2}
+      quote: '"Smoothies are GREAT!!! You can pack a whole bunch of nutrients into
+        a TASTY LITTLE DRINK!!!"'
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: ed99eb9e2f06a89489d4472a21bb3b95, type: 2}
+      quote: "\"Well, I must admit I\u2019m rather fond of salads. Light meals to
+        tide me over\u2026 uhm. Ahem.\""
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: a7a6a997e5aac78428c851b99aacbd73, type: 2}
+      quote: "\"So\u2026 eating nice pasta for a change would be nice.\""
+      characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+      character: 5
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: "\"I\u2019m a big fan of sssoups. Easssier for me, sssince I don\u2019t
+        gotta cut up everythin\u2019 into little bitsss.\""
+      characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+      character: 3
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 6
+  - name: 'day 9: 3 cheese blend, Fairy Dust, volcanoSpice, Cinnamon '
+    options:
+    - product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+      quote: '"My family makes cheeses and stuff out in the Grasslands."'
+      characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+      character: 5
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+      quote: '"I used to sprinkle Fairy Dust into my meals."'
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+      quote: "\"It\u2019s fiery hot flavor that\u2019s UNMATCHED!!!\""
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+      quote: "\"my pa always put Cinnamon into everythin\u2019 we ate.\""
+      characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+      character: 3
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 9
+  - name: 'day 12: 3 cheese blend, Fairy Dust, volcanoSpice, Cinnamon , sky drops,
+      Scorpion paste'
+    options:
+    - product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
+      quote: '"My family makes cheeses and stuff out in the Grasslands."'
+      characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
+      character: 5
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
+      quote: '"I used to sprinkle Fairy Dust into my meals."'
+      characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
+      character: 4
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
+      quote: "\"It\u2019s fiery hot flavor that\u2019s UNMATCHED!!!\""
+      characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
+      character: 1
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
+      quote: "\"my pa always put Cinnamon into everythin\u2019 we ate.\""
+      characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
+      character: 3
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 75d48f8e6491f0a4f85048cf475fdc9a, type: 2}
+      quote: '"I swear it''s better when it''s blue."'
+      characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
+      character: 0
+      endOfWeek: 0
+    - product: {fileID: 11400000, guid: 61fef434cfe2a0549a95c7c73bd41048, type: 2}
+      quote: "\"I think it\u2019s called that \u2018cause it makes your tongue sting
+        a little.\""
+      characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
+      character: 2
+      endOfWeek: 0
+    endOfWeek: 0
+    dayNum: 12
+  choiceController: {fileID: 2005229560}
+  unlockedIngredients: []
+  allStorage: []
+  tutorialEquipmentPause: 0
+  ttCoord: {fileID: 0}
+  hoveredController: {fileID: 0}
+  chef: {fileID: 0}
+  lastAddedItem: {fileID: 0}
+  lastRetrievedItem: {fileID: 0}
+  lastTrashedItem: {fileID: 0}
+  minigameStarted: 0
+  minigameCompleted: 0
+  specialtyTabSelected: 0
+  equipmentTabSelected: 0
 --- !u!1 &1969739299
 GameObject:
   m_ObjectHideFlags: 0
