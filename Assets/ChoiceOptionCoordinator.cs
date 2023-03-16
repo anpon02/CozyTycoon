@@ -21,6 +21,7 @@ public class ChoiceOptionCoordinator : MonoBehaviour
 
         speakerPotrait.sprite = data.characterSprite;
         quote.text = data.quote;
+        DisableCharacters = data.endOfWeek;
     }
 
     public void OnClick()

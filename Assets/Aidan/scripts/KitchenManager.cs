@@ -30,7 +30,7 @@ public class KitchenManager : MonoBehaviour {
 
         public void OnValidate()
         {
-            if (endOfWeek) foreach (var o in options) o.endOfWeek = true;
+            foreach (var o in options) o.endOfWeek = endOfWeek;
 
             string s = "";
             foreach (var o in options) s += o.product.productName + ", ";
@@ -82,6 +82,8 @@ public class KitchenManager : MonoBehaviour {
             GameManager.instance.UnPauseNotifs();
         }
         GameManager.instance.OnStoreClose.AddListener(CheckForChoice);
+
+        foreach (var c in allChoices) c.OnValidate();
     }
 
     void CheckForChoice()
@@ -178,6 +180,8 @@ public class KitchenManager : MonoBehaviour {
         if (!chosenThisWeek.Contains(CharacterName.SALLY)) dMan.DisableCharacterStory(CharacterName.SALLY);
         if (!chosenThisWeek.Contains(CharacterName.FLORIAN)) dMan.DisableCharacterStory(CharacterName.FLORIAN);
         if (!chosenThisWeek.Contains(CharacterName.PHIL)) dMan.DisableCharacterStory(CharacterName.PHIL);
+
+        chosenThisWeek = new List<CharacterName>();
     }
 
     public void PurchaseProduct(Product product, CharacterName character)

@@ -1920,7 +1920,7 @@ MonoBehaviour:
   recipeButton: {fileID: 412383051}
   playTutorial: 1
   allChoices:
-  - name: 'day 2: Coffee Maker, baking tray'
+  - name: 'day 2: Coffee Maker, Pot'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
@@ -1928,14 +1928,14 @@ MonoBehaviour:
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
       endOfWeek: 0
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\" Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
       endOfWeek: 0
     endOfWeek: 0
     dayNum: 2
-  - name: 'day 4: Coffee Maker, baking tray, Blender, knife'
+  - name: 'day 4: Coffee Maker, Pot, Blender, knife'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
@@ -1943,8 +1943,8 @@ MonoBehaviour:
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
       endOfWeek: 0
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
       endOfWeek: 0
@@ -1962,7 +1962,7 @@ MonoBehaviour:
       endOfWeek: 0
     endOfWeek: 0
     dayNum: 4
-  - name: 'day 6: Coffee Maker, baking tray, Blender, knife, Rolling pin, Pot'
+  - name: 'day 6: Coffee Maker, Pot, Blender, knife, Rolling pin, baking tray'
     options:
     - product: {fileID: 11400000, guid: 57dea002af407ee4f8ddf8f8ec28689d, type: 2}
       quote: "\"Saves me making a trip to a cafe. I can\u2019t live without caffeine
@@ -1970,8 +1970,8 @@ MonoBehaviour:
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
       endOfWeek: 1
-    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
-      quote: "\"Dude, just hook me up with any dessert and I\u2019ll be fine.\""
+    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
+      quote: '"Man, I love soup.. I would kill a dude for soup."'
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
       endOfWeek: 1
@@ -1992,9 +1992,8 @@ MonoBehaviour:
       characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
       character: 5
       endOfWeek: 1
-    - product: {fileID: 11400000, guid: 31f6e5bf04eea5349a96afb64498410e, type: 2}
-      quote: "\"I\u2019m a big fan of sssoups. Easssier for me, sssince I don\u2019t
-        gotta cut up everythin\u2019 into little bitsss.\""
+    - product: {fileID: 11400000, guid: 511b9a40b6e1652419a1e6abeb20afeb, type: 2}
+      quote: '"I have a little bit of a sssweet tooth, hehe!"'
       characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
       character: 3
       endOfWeek: 1
@@ -2031,34 +2030,34 @@ MonoBehaviour:
       quote: '"My family makes cheeses and stuff out in the Grasslands."'
       characterSprite: {fileID: 21300000, guid: b8ee67903744e924d90f73deeb630354, type: 3}
       character: 5
-      endOfWeek: 0
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: f08accb9ab4f9ec4ba2b7404d66780bc, type: 2}
       quote: '"I used to sprinkle Fairy Dust into my meals."'
       characterSprite: {fileID: 21300000, guid: 0d76e06736ed32d41bc2a6ceeaa95000, type: 3}
       character: 4
-      endOfWeek: 0
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: d91311258cf9b8e4db0ba1f6bcf1721e, type: 2}
       quote: "\"It\u2019s fiery hot flavor that\u2019s UNMATCHED!!!\""
       characterSprite: {fileID: 21300000, guid: ebb9c471d7f5ae64ebedcf30246dfc6c, type: 3}
       character: 1
-      endOfWeek: 0
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
       quote: "\"my pa always put Cinnamon into everythin\u2019 we ate.\""
       characterSprite: {fileID: 21300000, guid: 786113a8c72bfff4486ed060db3ba9f5, type: 3}
       character: 3
-      endOfWeek: 0
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: 75d48f8e6491f0a4f85048cf475fdc9a, type: 2}
       quote: '"I swear it''s better when it''s blue."'
       characterSprite: {fileID: 21300000, guid: a53fcc048c23bff49a9d161f6b7e1151, type: 3}
       character: 0
-      endOfWeek: 0
+      endOfWeek: 1
     - product: {fileID: 11400000, guid: 61fef434cfe2a0549a95c7c73bd41048, type: 2}
       quote: "\"I think it\u2019s called that \u2018cause it makes your tongue sting
         a little.\""
       characterSprite: {fileID: 21300000, guid: 8d08298e3439bec45a85981aa7754a10, type: 3}
       character: 2
-      endOfWeek: 0
-    endOfWeek: 0
+      endOfWeek: 1
+    endOfWeek: 1
     dayNum: 12
   choiceController: {fileID: 2005229560}
   unlockedIngredients: []
