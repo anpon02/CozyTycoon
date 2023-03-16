@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Aidan/imgs/3CheeseBlend.png.meta
 guid: 77a262f1f25823d4787e9c80c0c30fab
+========
+guid: 5d95686400abc70469262f030dde0274
+>>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535:Assets/Aidan/imgs/RawChicken.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -91,18 +95,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

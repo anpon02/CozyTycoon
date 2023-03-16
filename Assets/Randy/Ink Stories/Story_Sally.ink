@@ -63,12 +63,8 @@ VAR AffectionEnding = false
     My whole family runsss our flower shop. I got a sssister and three brothersss. And my ma and my pa, of course.
     We’re all real clossse. We eat dinner together every night. Itsss loud, but it’sss real lovely.
 *   Is there anything you’d like to see on the menu?
-    Oh! Well, I’m a big fan of sssoups. Easssier for me, sssince I don’t gotta cut up everythin’ into little bitsss.
-    Any kinda sssoup, really!
-    There’s thissss Bread Bowl my mama makes thats somethin’ special, I wonder if you ever tried your hand at makin’ somethin’ like that?
-    It’s just sssoup in a sssourdough bowl instead’a normal one. But somethin’ about it is just so delicious.
-    You ssshould try it! You could stop by, but maybe itsss more fun making it for yourself.
-    Oh, look at me, trying to tell you how to do your job. Thanksss for indulging me.
+    Oh! Well, I’m a big fan dessertsss. I have a little bit of a sssweet tooth, hehe!
+
 -> DONE
 
 == Day_4 ==

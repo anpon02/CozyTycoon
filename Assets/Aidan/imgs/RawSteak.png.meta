@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 65a9e8d2f1990764080c920f7059924b
+=======
+<<<<<<<< HEAD:Assets/Aidan/imgs/FairyDust.png.meta
+guid: ce3fd99357a9c0a49a87b519c31b04f7
+========
+guid: b1a689d770c80dd408943fa068899450
+>>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535:Assets/Aidan/imgs/RawSteak.png.meta
+>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,6 +109,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -113,6 +122,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535
   spriteSheet:
     serializedVersion: 2
     sprites: []

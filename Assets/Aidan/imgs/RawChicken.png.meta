@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ba6f3ba4815727d4f95537a357f910f7
+=======
+<<<<<<<< HEAD:Assets/Aidan/imgs/3CheeseBlend.png.meta
+guid: 77a262f1f25823d4787e9c80c0c30fab
+========
+guid: 5d95686400abc70469262f030dde0274
+>>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535:Assets/Aidan/imgs/RawChicken.png.meta
+>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,6 +109,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -113,6 +122,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 273945addd79bbfe955ac0cfb81f24a9523e1535
   spriteSheet:
     serializedVersion: 2
     sprites: []
