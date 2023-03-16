@@ -10,6 +10,7 @@ public class ChoiceOptionCoordinator : MonoBehaviour
     [SerializeField] Image itemImg, speakerPotrait;
     Product product;
     CharacterName character;
+    bool DisableCharacters;
 
     public void Init(KitchenManager.ChoiceData.Option data)
     {
@@ -25,6 +26,7 @@ public class ChoiceOptionCoordinator : MonoBehaviour
     public void OnClick()
     {
         KitchenManager.instance.PurchaseProduct(product, character);
+        if (DisableCharacters) KitchenManager.instance.DisableNonChosen();
         Destroy(gameObject);
     }
 }

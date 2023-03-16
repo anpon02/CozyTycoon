@@ -17,7 +17,7 @@ public class GizmoIconUtility {
 
         Item obj = AssetDatabase.LoadAssetAtPath(assetPath, typeof(Item)) as Item;
 
-        if (obj != null) {
+        if (obj != null && obj.GetSprite() != null) {
             rect.height *= 0.8f;
             rect.width = rect.height;
 

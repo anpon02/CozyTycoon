@@ -20,19 +20,23 @@ public class KitchenManager : MonoBehaviour {
             public  string quote;
             public Sprite characterSprite;
             public CharacterName character;
+            [HideInInspector] public bool endOfWeek;
         }
 
         [HideInInspector] public string name;
         public List<Option> options;
+        [SerializeField] bool endOfWeek;
         public int dayNum = 0;
 
         public void OnValidate()
         {
+            if (endOfWeek) foreach (var o in options) o.endOfWeek = true;
+
             string s = "";
             foreach (var o in options) s += o.product.productName + ", ";
             s = s.TrimEnd();
             s = s.TrimEnd(',');
-            name = "day " + dayNum + ": " + s;
+            name = "day " + dayNum + ": " + s;   
         }
     }
 
@@ -88,6 +92,7 @@ public class KitchenManager : MonoBehaviour {
                 GameManager.instance.timeScript.PauseTime();
 
                 choice.options = RemoveAlreadySelected(choice.options);
+                choice.options = StripNonSpeakingCharacters(choice.options);
                 if (choice.options.Count <= 0) return;
 
                 choiceController.OpenChoiceUI(choice.options);
@@ -95,7 +100,19 @@ public class KitchenManager : MonoBehaviour {
             }
         }
     }
-    
+
+    List<ChoiceData.Option> StripNonSpeakingCharacters(List<ChoiceData.Option> current)
+    {
+        var newList = new List<ChoiceData.Option>();
+
+        foreach (var c in current) {
+            if (!DialogueManager.instance.GetSpeakerData(c.character).disabled) newList.Add(c);
+        }
+
+        return newList;
+    }
+
+
     List<ChoiceData.Option> RemoveAlreadySelected(List<ChoiceData.Option> old)
     {
         var newList = new List<ChoiceData.Option>();
@@ -146,6 +163,21 @@ public class KitchenManager : MonoBehaviour {
         var list = new List<Item>(unlockedEquipment);
         unlockedEquipment.Clear();
         foreach (var e in list) EnableEquipment(e);
+    }
+
+    public void DisableNonChosen()
+    {
+        string s = "chosen: ";
+        foreach (var c in chosenThisWeek) s += c + ", ";
+        print(s);
+
+        var dMan = DialogueManager.instance;
+        if (!chosenThisWeek.Contains(CharacterName.LUCA)) dMan.DisableCharacterStory(CharacterName.LUCA);
+        if (!chosenThisWeek.Contains(CharacterName.TRIPP)) dMan.DisableCharacterStory(CharacterName.TRIPP);
+        if (!chosenThisWeek.Contains(CharacterName.ROXY)) dMan.DisableCharacterStory(CharacterName.ROXY);
+        if (!chosenThisWeek.Contains(CharacterName.SALLY)) dMan.DisableCharacterStory(CharacterName.SALLY);
+        if (!chosenThisWeek.Contains(CharacterName.FLORIAN)) dMan.DisableCharacterStory(CharacterName.FLORIAN);
+        if (!chosenThisWeek.Contains(CharacterName.PHIL)) dMan.DisableCharacterStory(CharacterName.PHIL);
     }
 
     public void PurchaseProduct(Product product, CharacterName character)

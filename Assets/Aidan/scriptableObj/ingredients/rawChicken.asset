@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: rawChicken
   m_EditorClassIdentifier: 
   itemName: raw chicken
-  itemSprite: {fileID: 21300000, guid: b0b278b1652a9c64eaafb8058f59a9e1, type: 3}
+  itemSprite: {fileID: 21300000, guid: ba6f3ba4815727d4f95537a357f910f7, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 
-  type: 2
