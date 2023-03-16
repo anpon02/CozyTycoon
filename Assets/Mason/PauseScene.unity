@@ -1048,6 +1048,7 @@ MonoBehaviour:
   isometricUnchecked: {fileID: 174823396}
   isometricChecked: {fileID: 1018278144}
   menusclickSound: 27
+  titleSceneName: Title
   paused: 0
 --- !u!4 &378702667
 Transform:
