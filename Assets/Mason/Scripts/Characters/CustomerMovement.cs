@@ -55,6 +55,7 @@ public class CustomerMovement : MonoBehaviour
         else if(AtTable()) {
             anim.SetBool("Walking", false);
             anim.SetTrigger("Sit");
+            sprRenderer.flipX = false;
             coroutineRunning = false;
         }
         // walking anim
