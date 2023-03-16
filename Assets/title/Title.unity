@@ -2015,6 +2015,7 @@ MonoBehaviour:
   loadIcon: {fileID: 211434942}
   loadText: {fileID: 952066592}
   uiclickSound: 0
+  menuMusic: {fileID: 1905140805}
 --- !u!82 &1905140805
 AudioSource:
   m_ObjectHideFlags: 0

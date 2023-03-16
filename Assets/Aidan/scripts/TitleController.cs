@@ -9,6 +9,7 @@ public class TitleController : MonoBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] GameObject loadScreen, loadIcon, loadText;
     [SerializeField] int uiclickSound;
+    [SerializeField] AudioSource menuMusic;
     List<AsyncOperation> loadingScenes = new List<AsyncOperation>();
     public void StartGame()
     {
@@ -16,6 +17,7 @@ public class TitleController : MonoBehaviour
         if (started) return;
         started = true;
         loadScreen.SetActive(true);
+        StartCoroutine(FadeMusic(1.5f));
         StartCoroutine(LoadSequence());
     }
 
@@ -32,6 +34,18 @@ public class TitleController : MonoBehaviour
     private void Update()
     {
         if (Camera.main != null) cam.SetActive(false);
+    }
+
+    IEnumerator FadeMusic(float duration)
+    {
+        float time = 0;
+        float s = menuMusic.volume;
+        while (time < duration)
+        {
+            menuMusic.volume = Mathf.Lerp(s, 0, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
     }
 
     IEnumerator LoadSequence()
