@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3CheeseRavioli
   m_EditorClassIdentifier: 
   itemName: 3 cheese ravioli
-  itemSprite: {fileID: 21300000, guid: 279a4750723852744a37c23a0cfaeb3c, type: 3}
+  itemSprite: {fileID: 21300000, guid: 2bf1bc500a865514eacd7cf32abfdd41, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1

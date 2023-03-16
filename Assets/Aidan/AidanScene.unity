@@ -1905,7 +1905,7 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
   - name: 
     product: {fileID: 11400000, guid: 150781ed3c626ba49af50d2e7b42181b, type: 2}
-    item: {fileID: 11400000, guid: 0eb90e490825fcf4194303b82f7d0f87, type: 2}
+    item: {fileID: 11400000, guid: eb8d51a16f8386d49873eb9733bcce6a, type: 2}
   - name: 
     product: {fileID: 11400000, guid: 8dbbea4730b37ac4997ca1adfe272e24, type: 2}
     item: {fileID: 11400000, guid: a9076ef0d2edef541beac444f8df31de, type: 2}
@@ -19726,7 +19726,7 @@ MonoBehaviour:
     equipment:
     - {fileID: 11400000, guid: aa8fb811baa55d947afd176ff30e0157, type: 2}
     result: {fileID: 11400000, guid: c9be27e387520b64e97dbb6c409688be, type: 2}
-    minigame: 0
+    minigame: 5
     index: 32
   - name: '33: Cake batter: sugar, Milk, flour, Egg () [counter]'
     workSpace: 0
@@ -19911,7 +19911,7 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 950ca300e8b44db4f8a78d4f03e865be, type: 2}
     minigame: 5
     index: 50
-  - name: '51: CinnimonPastry: Cookies ( Cinnimon) [counter]'
+  - name: '51: Cinnimon cookie: Cookies ( Cinnimon) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: e0c54ad40cd83a24bb953836a6b95033, type: 2}

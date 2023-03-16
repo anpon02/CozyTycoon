@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: alfreadoSauce
   m_EditorClassIdentifier: 
   itemName: Alfreado sauce
-  itemSprite: {fileID: 21300000, guid: cd4740cd0d4170540b442a4182504c32, type: 3}
+  itemSprite: {fileID: 21300000, guid: aa928c7028d007e488a2114fe35b9d43, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e82fe11f37df945b76526192d58b15, type: 3}
   m_Name: volcanoSpice
   m_EditorClassIdentifier: 
-  imgSprite: {fileID: 21300000, guid: 3aab9a44c230b1241a786c130380815d, type: 3}
+  imgSprite: {fileID: 21300000, guid: 131a85d4ab52d4f4d803fae2f7ba1294, type: 3}
   productName: volcanoSpice
   description: 
   price: 0

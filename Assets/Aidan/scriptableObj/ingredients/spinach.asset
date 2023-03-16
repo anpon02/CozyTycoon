@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: spinach
   m_EditorClassIdentifier: 
   itemName: Spinach
-  itemSprite: {fileID: 21300000, guid: 8858fa33ff7d6f34b86420e40b43a09b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 634a82759194b9c4ab93dacf6db02e1b, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1
   isBigEquipment: 0
   menuItem: 0
+  side: 0
   description: 

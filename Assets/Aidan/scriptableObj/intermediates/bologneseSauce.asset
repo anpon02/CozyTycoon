@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bologneseSauce
   m_EditorClassIdentifier: 
   itemName: Bolognese sauce
-  itemSprite: {fileID: 21300000, guid: 71d6d9b9349e20d418642c058c6ea46e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 8328964ca94a80b4984e1263baaec5e9, type: 3}
   throwSoundID: 0
   value: 10
   _scaleMult: 1

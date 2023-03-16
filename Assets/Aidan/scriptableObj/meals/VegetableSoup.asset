@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VegetableSoup
   m_EditorClassIdentifier: 
   itemName: Vegetable soup
-  itemSprite: {fileID: 21300000, guid: 98a6f88b44106994fabdde341ee1cd7f, type: 3}
+  itemSprite: {fileID: 21300000, guid: 10074d5ff18e5084da7d4ea3d7d105b7, type: 3}
   throwSoundID: 0
   value: 0
   _scaleMult: 1
