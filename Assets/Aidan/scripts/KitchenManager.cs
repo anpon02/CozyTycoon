@@ -33,19 +33,19 @@ public class KitchenManager : MonoBehaviour {
             foreach (var o in options) o.endOfWeek = endOfWeek;
 
             string s = "";
-            foreach (var o in options) s += o.product.productName + ", ";
+            foreach (var o in options) s += (string.IsNullOrEmpty(o.product.productName) ? o.product.unlocks : o.product.productName) + ", ";
             s = s.TrimEnd();
             s = s.TrimEnd(',');
             name = "day " + dayNum + ": " + s;   
         }
     }
 
-
     [SerializeField] GameObject itemCoordPrefab;
     public float playerReach = 5;
     public List<Item> unlockedEquipment = new List<Item>();
 
     [SerializeField] List<ProductObject> productObj = new List<ProductObject>();
+    [SerializeField] List<Item> noPlateRequired;
     
     [Header("Tutorial"), SerializeField] TutorialController tutorial; 
     [SerializeField] float tutorialStartTime = 2;
@@ -74,6 +74,12 @@ public class KitchenManager : MonoBehaviour {
         foreach (var c in allChoices) c.OnValidate();
     }
 
+    public bool needPlate(Item item)
+    {
+        foreach (var i in noPlateRequired) if (i.Equals(item)) return false;
+        return true;
+    }
+
     private void Start() 
     {
         if (playTutorial) NextTutSection();
@@ -93,8 +99,11 @@ public class KitchenManager : MonoBehaviour {
             if (choice.dayNum == daynum) {
                 GameManager.instance.timeScript.PauseTime();
 
+                print("choiceCount: " + choice.options.Count);
                 choice.options = RemoveAlreadySelected(choice.options);
+                print("choiceCount: " + choice.options.Count);
                 choice.options = StripNonSpeakingCharacters(choice.options);
+                print("choiceCount: " + choice.options.Count);
                 if (choice.options.Count <= 0) return;
 
                 choiceController.OpenChoiceUI(choice.options);
@@ -119,9 +128,12 @@ public class KitchenManager : MonoBehaviour {
     {
         var newList = new List<ChoiceData.Option>();
 
+        bool allNull = true;
+        foreach (var o in old) if (getObjFromProduct(o.product) != null) allNull = false;
+        if (allNull) return old;
+
         foreach (var o in old) {
             var productObj = getObjFromProduct(o.product);
-
             if (productObj != null && !productObj.item.IsPresentInList(unlockedEquipment)) newList.Add(o);
         }
 

@@ -38,14 +38,13 @@ public class CalendarController : MonoBehaviour
         else if (days[day].cake.activeInHierarchy) DoCake(day);
         else GameManager.instance.timeScript.UnpauseTime();
 
-        //yield return new WaitForSeconds(0.5f);
-
         transform.parent.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 
     void DoPresent(int day)
     {
+        print("GO! day: " + day);
         days[day].present.SetActive(false);
         choice.StartChoiceAnim();
     }

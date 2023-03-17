@@ -96,7 +96,7 @@ public class WorkspaceCoordinator : MonoBehaviour
 
             itemDisplays[i].gameObject.SetActive(!hideItems);
             itemDisplays[i].sprite = list[i].GetSprite();
-            itemDisplays[i].transform.GetChild(0).gameObject.SetActive(iCoordList[i].plated);
+            itemDisplays[i].transform.GetChild(0).gameObject.SetActive(iCoordList[i].plated && iCoordList[i].showPlate);
         }
     }
 

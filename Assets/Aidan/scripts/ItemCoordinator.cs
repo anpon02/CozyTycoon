@@ -8,7 +8,7 @@ public class ItemCoordinator : MonoBehaviour
     [SerializeField] float MinLerpDist = 0.25f;
     [SerializeField] float moveSmoothness = 0.025f;
     public bool travellingToChef;
-    [SerializeField] GameObject plate;
+    [SerializeField] GameObject plate, sidePlate;
     public bool plated;
     [SerializeField] ParticleSystem particles;
     [SerializeField] SpriteRenderer sideSRend;
@@ -19,6 +19,7 @@ public class ItemCoordinator : MonoBehaviour
     Vector3 targetPos;
     Rigidbody2D rb;
     [HideInInspector] public WorkspaceController wsDest;
+    [HideInInspector] public bool showPlate, showSidePlate;
 
     public Sprite GetItemSprite()
     {
@@ -39,10 +40,17 @@ public class ItemCoordinator : MonoBehaviour
 
     void UpdateDisplay()
     {
+        if (KitchenManager.instance) {
+            showPlate = KitchenManager.instance.needPlate(item);
+            if (!showPlate) plated = true;
+            showSidePlate = KitchenManager.instance.needPlate(side);
+        }
+
         if (sRend == null) GetReferences();
 
         sRend.sprite = item == null ? null : item.GetSprite();
-        plate.SetActive(plated);
+        plate.SetActive(plated && showPlate);
+        sidePlate.SetActive(showSidePlate);
       
         if (side == null) { sideSRend.gameObject.SetActive(false); return; }
         sideSRend.sprite = side.GetSprite();
@@ -67,6 +75,8 @@ public class ItemCoordinator : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (InReach()) sRend.color = Color.white;
         else sRend.color = new Color(1, 1, 1, 0.5f);
         MoveToTargetPos();

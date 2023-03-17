@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ChoiceOptionCoordinator : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI quote, unlockText;
+    [SerializeField] TextMeshProUGUI quote, unlockText, longText;
     [SerializeField] Image itemImg, speakerPotrait;
     Product product;
     CharacterName character;
@@ -18,9 +18,15 @@ public class ChoiceOptionCoordinator : MonoBehaviour
         product = data.product;
         itemImg.sprite = product.imgSprite;
         unlockText.text = product.unlocks;
-
-        speakerPotrait.sprite = data.characterSprite;
         quote.text = data.quote;
+        longText.text = data.quote;
+
+        bool showSpeaker = data.characterSprite != null;
+        speakerPotrait.sprite = data.characterSprite;
+        speakerPotrait.gameObject.SetActive(showSpeaker);
+        quote.gameObject.SetActive(showSpeaker);
+        longText.gameObject.SetActive(!showSpeaker);
+
         DisableCharacters = data.endOfWeek;
     }
 

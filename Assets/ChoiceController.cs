@@ -9,6 +9,8 @@ public class ChoiceController : MonoBehaviour
     bool ready;
     public void OpenChoiceUI(List<KitchenManager.ChoiceData.Option> _options)
     {
+        print("READY!");
+
         ready = true;
         
         options = _options;

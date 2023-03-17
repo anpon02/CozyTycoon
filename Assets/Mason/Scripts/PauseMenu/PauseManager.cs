@@ -76,6 +76,7 @@ public class PauseManager : MonoBehaviour
     {
         mainParent.SetActive(false);
         settingsParent.SetActive(false);
+        helpParent.SetActive(false);
         paused = false;
         greyOut.SetActive(false);
         Time.timeScale = 1;
