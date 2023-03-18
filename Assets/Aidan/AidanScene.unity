@@ -19712,13 +19712,12 @@ MonoBehaviour:
     result: {fileID: 11400000, guid: 3c9a9e44a344cac4296aea484b7e17e8, type: 2}
     minigame: 1
     index: 21
-  - name: '22: Tortilla: flour ( Rolling Pin, cutting board) [counter]'
+  - name: '22: Tortilla: flour ( Rolling Pin) [counter]'
     workSpace: 0
     requiredIngrd:
     - {fileID: 11400000, guid: 198efb34ee049824fa482a3f5ca62399, type: 2}
     equipment:
     - {fileID: 11400000, guid: c622edee44443c74faf35ede5a01e671, type: 2}
-    - {fileID: 11400000, guid: bb98c2d4d4a37b245a773439c2f6a8d0, type: 2}
     result: {fileID: 11400000, guid: aca44852a5f1b2944ab3b3a5b70d308e, type: 2}
     minigame: 6
     index: 22
